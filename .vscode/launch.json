@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch)-App<ninecardsiege>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopOnEntry": false,
+            "mainClass": "com.github.danielpinto8zz6.ninecardsiege.App",
+            "args": "",
+            "projectName": "ninecardsiege",
+        }
+    ]
+}

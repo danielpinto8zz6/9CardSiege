@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "verify",
+            "type": "shell",
+            "command": "mvn -B verify",
+            "group": "build"
+        },
+        {
+            "label": "test",
+            "type": "shell",
+            "command": "mvn -B test",
+            "group": "test"
+        },
+        {
+            "label": "exec",
+            "type": "shell",
+            "command": "mvn -B exec:java -Dexec.mainClass=com.github.danielpinto8zz6.ninecardsiege.App"
+        }
+    ]
+}
