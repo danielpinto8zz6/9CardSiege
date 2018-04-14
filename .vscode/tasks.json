@@ -5,13 +5,19 @@
             "label": "verify",
             "type": "shell",
             "command": "mvn -B verify",
-            "group": "build"
+            "group": "build",
+            "problemMatcher": []
         },
         {
             "label": "test",
             "type": "shell",
             "command": "mvn -B test",
             "group": "test"
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "mvn -B clean"
         },
         {
             "label": "exec",
