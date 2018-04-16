@@ -23,23 +23,73 @@ public class StatusCard implements Serializable {
         raid_s = 0;
     }
 
+    /**
+     * @return the moral
+     */
     public int getMoral() {
         return moral;
     }
 
-    public int getsupplies() {
+    /**
+     * @param moral the moral to set
+     */
+    public void setMoral(int moral) {
+        this.moral = moral;
+    }
+
+    /**
+     * @return the supplies
+     */
+    public int getSupplies() {
         return supplies;
     }
 
+    /**
+     * @param supplies the supplies to set
+     */
+    public void setSupplies(int supplies) {
+        this.supplies = supplies;
+    }
+
+    /**
+     * @return the wall_s
+     */
     public int getWall_s() {
         return wall_s;
     }
 
+    /**
+     * @param wall_s the wall_s to set
+     */
+    public void setWall_s(int wall_s) {
+        this.wall_s = wall_s;
+    }
+
+    /**
+     * @return the troops
+     */
     public int getTroops() {
         return troops;
     }
 
-    public int getRaid_S() {
+    /**
+     * @param troops the troops to set
+     */
+    public void setTroops(int troops) {
+        this.troops = troops;
+    }
+
+    /**
+     * @return the raid_s
+     */
+    public int getRaid_s() {
         return raid_s;
+    }
+
+    /**
+     * @param raid_s the raid_s to set
+     */
+    public void setRaid_s(int raid_s) {
+        this.raid_s = raid_s;
     }
 }
