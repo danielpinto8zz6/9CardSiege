@@ -1,8 +1,6 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates;
 
@@ -10,7 +8,7 @@ public class Game implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private List<Player> players = new ArrayList<Player>();
+	Player player;
 
 	private IStates state;
 
@@ -21,15 +19,20 @@ public class Game implements Serializable {
 	public void setupGame() {
 	}
 
-	public void addPlayer(String name) {
-		players.add(new Player(name));
+	public boolean addPlayer(String name) {
+		// It's 1 player game
+		if (player != null) {
+			new Player(name);
+			return true;
+		}
+		return false;
 	}
 
 	/**
 	 * @return the players
 	 */
-	public List<Player> getPlayers() {
-		return players;
+	public Player getPlayer() {
+		return player;
 	}
 
 	/**
