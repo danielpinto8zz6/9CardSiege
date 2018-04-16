@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.github.danielpinto8zz6.ninecardsiege.logic;
+package com.github.danielpinto8zz6.ninecardsiege.logic.cards;
 
 import java.io.Serializable;
 
@@ -17,11 +12,11 @@ public class BattleCard implements Serializable {
     private int trebuchets;
 
     public BattleCard() {
-        // aqui os numeros equivalem á posição na board, em que 4 é posição inicial e 0 close combat
+        // aqui os numeros equivalem Ã  posiÃ§Ã£o na board, em que 4 Ã© posiÃ§Ã£o inicial e 0 close combat
         ladder = 4;
         ram = 4;
         siege_m = 4;
-        // aqui é a quantidade de catacultas
+        // aqui Ã© a quantidade de catacultas
         trebuchets = 3;
     }
 
