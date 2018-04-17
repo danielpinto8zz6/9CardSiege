@@ -11,8 +11,10 @@ public class Card1 extends Card implements Serializable {
      
      switch(dia){
          case 1:
+             System.out.println("dia1");
              break;
          case 2:
+                          System.out.println("dia2");
              break;
          case 3:
              break;
