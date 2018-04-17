@@ -3,6 +3,7 @@ package com.github.danielpinto8zz6.ninecardsiege.logic;
 import java.io.Serializable;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates;
+import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
 
 public class Game implements Serializable {
 
