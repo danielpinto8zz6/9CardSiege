@@ -1,5 +1,6 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
+import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

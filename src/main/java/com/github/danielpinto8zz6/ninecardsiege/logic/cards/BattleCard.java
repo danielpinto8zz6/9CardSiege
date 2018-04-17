@@ -2,7 +2,7 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.cards;
 
 import java.io.Serializable;
 
-public class BattleCard implements Serializable {
+public class BattleCard extends Card implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -13,11 +13,11 @@ public class BattleCard implements Serializable {
 
     public BattleCard() {
         // aqui os numeros equivalem à posição na board, em que 4 é posição inicial e 0 close combat
-        ladder = 4;
-        ram = 4;
-        siege_m = 4;
+        this.ladder = 4;
+        this.ram = 4;
+        this.siege_m = 4;
         // aqui é a quantidade de catacultas
-        trebuchets = 3;
+        this.trebuchets = 3;
     }
 
     /**

@@ -1,4 +1,4 @@
-package com.github.danielpinto8zz6.ninecardsiege.logic;
+package com.github.danielpinto8zz6.ninecardsiege.logic.cards;
 
 import java.io.Serializable;
 
