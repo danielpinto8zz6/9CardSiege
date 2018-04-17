@@ -6,6 +6,7 @@ import com.github.danielpinto8zz6.ninecardsiege.actions.Ation;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
 
 public class App {
+
     public static void main(String[] args) {
         TextUI textUI = new TextUI(new Game());
         textUI.run();

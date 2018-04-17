@@ -13,18 +13,20 @@ public class Card implements Serializable {
         cardNumber = ++counter;
     }
 
-	/**
-	 * @return the cardNumber
-	 */
-	public int getCardNumber() {
-		return cardNumber;
-	}
+    /**
+     * @return the cardNumber
+     */
+    public int getCardNumber() {
+        return cardNumber;
+    }
 
-	/**
-	 * @param cardNumber the cardNumber to set
-	 */
-	public void setCardNumber(int cardNumber) {
-		this.cardNumber = cardNumber;
-	}
+    /**
+     * @param cardNumber the cardNumber to set
+     */
+    public void setCardNumber(int cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public 
 
 }
