@@ -27,6 +27,5 @@ public class Card implements Serializable {
         this.cardNumber = cardNumber;
     }
 
-    public 
 
 }
