@@ -1,6 +1,5 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
-import java.awt.Point;
 import java.io.Serializable;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants.MOVE;

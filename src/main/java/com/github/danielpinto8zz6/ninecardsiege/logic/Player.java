@@ -1,12 +1,10 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
-import java.awt.Point;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.Constants.MOVE;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.*;
 
 public class Player implements Serializable {
