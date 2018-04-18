@@ -9,13 +9,11 @@ public class Player implements Serializable {
     private static final long serialVersionUID = 1L;
     private String name;
 
-
     private int moral;
     private int wallStrength;
     private int supplies;
     private int troops;
     private int raidSupplies;
-    
 
     private List<Card> cards = new ArrayList<Card>();
 
@@ -48,8 +46,8 @@ public class Player implements Serializable {
     public List<Card> getCards() {
         return cards;
     }
-    
-        public int getMoral() {
+
+    public int getMoral() {
         return moral;
     }
 
@@ -73,8 +71,6 @@ public class Player implements Serializable {
         return raidSupplies;
     }
 
-
-
     public int getSupplies() {
         return supplies;
     }
@@ -86,7 +82,6 @@ public class Player implements Serializable {
     public void setWallStrength(int wallStrength) {
         this.wallStrength = wallStrength;
     }
-
 
     public void setSupplies(int supplies) {
         this.supplies = supplies;
