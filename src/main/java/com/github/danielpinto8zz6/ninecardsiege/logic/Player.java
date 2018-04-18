@@ -1,5 +1,6 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,16 +16,22 @@ public class Player implements Serializable {
     private int moral;
     private int wallStrength;
     private int supplies;
-    private int troops;
-    private int raidSupplies;
     private int actionPoints;
 
     public GameData gameData;
 
     private List<Card> cards = new ArrayList<Card>();
 
+    private Point position;
+
     public Player(GameData gameData, String name) {
         this.name = name;
+        this.moral = 4;
+        this.wallStrength = 4;
+        this.supplies = 4;
+        this.actionPoints = 0;
+
+        position = new Point(0, 0);
 
         getNewCards();
     }
@@ -73,57 +80,82 @@ public class Player implements Serializable {
         return cards;
     }
 
+    /**
+     * @return the actionPoints
+     */
+    public int getActionPoints() {
+        return actionPoints;
+    }
+
+    /**
+     * @param actionPoints the actionPoints to set
+     */
+    public void setActionPoints(int actionPoints) {
+        this.actionPoints = actionPoints;
+    }
+
+    /**
+     * @return the position
+     */
+    public Point getPosition() {
+        return position;
+    }
+
+    /**
+     * @param position the position to set
+     */
+    public void setPosition(Point position) {
+        this.position = position;
+    }
+
+    /**
+     * @return the moral
+     */
     public int getMoral() {
         return moral;
     }
 
-    public int getWallStrength() {
-        return wallStrength;
-    }
-
-    public void setTroops(int troops) {
-        this.troops = troops;
-    }
-
-    public void setRaidSupplies(int raidSupplies) {
-        this.raidSupplies = raidSupplies;
-    }
-
-    public int getTroops() {
-        return troops;
-    }
-
-    public int getRaidSupplies() {
-        return raidSupplies;
-    }
-
-    public int getSupplies() {
-        return supplies;
-    }
-
+    /**
+     * @param moral the moral to set
+     */
     public void setMoral(int moral) {
         this.moral = moral;
     }
 
+    /**
+     * @return the wallStrength
+     */
+    public int getWallStrength() {
+        return wallStrength;
+    }
+
+    /**
+     * @param wallStrength the wallStrength to set
+     */
     public void setWallStrength(int wallStrength) {
         this.wallStrength = wallStrength;
     }
 
-    public void setSupplies(int supplies) {
-        this.supplies = supplies;
+    /**
+     * @return the supplies
+     */
+    public int getSupplies() {
+        return supplies;
     }
 
-	/**
-	 * @return the actionPoints
-	 */
-	public int getActionPoints() {
-		return actionPoints;
-	}
+    public void addSupplies(int supplies) {
+        this.supplies += supplies;
 
-	/**
-	 * @param actionPoints the actionPoints to set
-	 */
-	public void setActionPoints(int actionPoints) {
-		this.actionPoints = actionPoints;
-	}
+        if (this.supplies > 4) {
+            this.supplies = 4;
+        }
+    }
+
+    public void removeSupplies(int supplies) {
+        this.supplies -= supplies;
+
+        if (this.supplies < 0) {
+            this.supplies = 0;
+        }
+    }
 }
