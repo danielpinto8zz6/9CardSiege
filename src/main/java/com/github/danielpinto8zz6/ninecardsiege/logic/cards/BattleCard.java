@@ -1,12 +1,8 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.cards;
 
-import java.io.Serializable;
-
-public class BattleCard extends Card implements Serializable {
-
+public class BattleCard extends Card {
     private static final long serialVersionUID = 1L;
-
-    private int ladder;
+	private int ladder;
     private int ram;
     private int siege_m;
     private int trebuchets;

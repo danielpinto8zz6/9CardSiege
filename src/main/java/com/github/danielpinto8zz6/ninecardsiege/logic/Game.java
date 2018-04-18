@@ -2,38 +2,19 @@ package com.github.danielpinto8zz6.ninecardsiege.logic;
 
 import java.io.Serializable;
 
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates;
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
 
 public class Game implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    Player player;
-
     private IStates state;
+    private GameData gameData;
 
     public Game() {
-
-    }
-
-    public void setupGame() {
-    }
-
-    public boolean addPlayer(String name) {
-        // It's 1 player game
-        if (player != null) {
-            new Player(name);
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * @return the players
-     */
-    public Player getPlayer() {
-        return player;
+        gameData = new GameData();
+        setState(new AwaitBeginning(gameData));
     }
 
     /**
@@ -49,4 +30,18 @@ public class Game implements Serializable {
     public void setState(IStates state) {
         this.state = state;
     }
+
+	/**
+	 * @return the gameData
+	 */
+	public GameData getGameData() {
+		return gameData;
+	}
+
+	/**
+	 * @param gameData the gameData to set
+	 */
+	public void setGameData(GameData gameData) {
+		this.gameData = gameData;
+	}
 }

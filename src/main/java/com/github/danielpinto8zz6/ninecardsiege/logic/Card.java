@@ -1,4 +1,4 @@
-package com.github.danielpinto8zz6.ninecardsiege.logic.cards;
+package com.github.danielpinto8zz6.ninecardsiege.logic;
 
 import java.io.Serializable;
 
@@ -19,13 +19,5 @@ public class Card implements Serializable {
     public int getCardNumber() {
         return cardNumber;
     }
-
-    /**
-     * @param cardNumber the cardNumber to set
-     */
-    public void setCardNumber(int cardNumber) {
-        this.cardNumber = cardNumber;
-    }
-
 
 }
