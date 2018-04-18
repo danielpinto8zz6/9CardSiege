@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.github.danielpinto8zz6.ninecardsiege.logic.Constants.MOVE;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.*;
 
 public class Player implements Serializable {
@@ -22,7 +23,7 @@ public class Player implements Serializable {
 
     private List<Card> cards = new ArrayList<Card>();
 
-    private Point position;
+    private Point coordinates;
 
     public Player(GameData gameData, String name) {
         this.name = name;
@@ -31,7 +32,7 @@ public class Player implements Serializable {
         this.supplies = 4;
         this.actionPoints = 0;
 
-        position = new Point(0, 0);
+        coordinates = new Point(0, 0);
 
         getNewCards();
     }
@@ -95,20 +96,6 @@ public class Player implements Serializable {
     }
 
     /**
-     * @return the position
-     */
-    public Point getPosition() {
-        return position;
-    }
-
-    /**
-     * @param position the position to set
-     */
-    public void setPosition(Point position) {
-        this.position = position;
-    }
-
-    /**
      * @return the moral
      */
     public int getMoral() {
@@ -156,6 +143,39 @@ public class Player implements Serializable {
 
         if (this.supplies < 0) {
             this.supplies = 0;
+        }
+    }
+
+	/**
+	 * @return the coordinates
+	 */
+	public Point getCoordinates() {
+		return coordinates;
+	}
+
+	/**
+	 * @param coordinates the coordinates to set
+	 */
+	public void setCoordinates(Point coordinates) {
+		this.coordinates = coordinates;
+    }
+    
+    public int getX() {
+        return (int) coordinates.getX();
+    }
+
+    public int getY() {
+        return (int) coordinates.getY();
+    }
+
+    public void move(MOVE move) {
+        int y = getY();
+        int x = getX();
+
+        if (move == MOVE.UP) {
+            coordinates.move(x, y++);
+        } else if (move == MOVE.DOWN) {
+            coordinates.move(x, y--);
         }
     }
 }

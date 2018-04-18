@@ -3,6 +3,8 @@ package com.github.danielpinto8zz6.ninecardsiege.logic;
 import java.awt.Point;
 import java.io.Serializable;
 
+import com.github.danielpinto8zz6.ninecardsiege.logic.Constants.MOVE;
+
 public class Enemy implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -56,5 +58,24 @@ public class Enemy implements Serializable {
      */
     public void setCoordinates(Point coordinates) {
         this.coordinates = coordinates;
+    }
+
+    public int getX() {
+        return (int) coordinates.getX();
+    }
+
+    public int getY() {
+        return (int) coordinates.getY();
+    }
+
+    public void move(MOVE move) {
+        int y = getY();
+        int x = getX();
+
+        if (move == MOVE.UP) {
+            coordinates.move(x, y--);
+        } else if (move == MOVE.DOWN) {
+            coordinates.move(x, y++);
+        }
     }
 }
