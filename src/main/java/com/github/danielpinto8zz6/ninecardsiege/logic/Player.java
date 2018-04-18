@@ -10,6 +10,14 @@ public class Player implements Serializable {
     private static final long serialVersionUID = 1L;
     private String name;
 
+
+    private int moral;
+    private int wallStrength;
+    private int supplies;
+    private int troops;
+    private int raidSupplies;
+    
+
     private List<Card> cards = new ArrayList<Card>();
 
     public Player(String name) {
@@ -40,5 +48,48 @@ public class Player implements Serializable {
      */
     public List<Card> getCards() {
         return cards;
+    }
+    
+        public int getMoral() {
+        return moral;
+    }
+
+    public int getWallStrength() {
+        return wallStrength;
+    }
+
+    public void setTroops(int troops) {
+        this.troops = troops;
+    }
+
+    public void setRaidSupplies(int raidSupplies) {
+        this.raidSupplies = raidSupplies;
+    }
+
+    public int getTroops() {
+        return troops;
+    }
+
+    public int getRaidSupplies() {
+        return raidSupplies;
+    }
+
+
+
+    public int getSupplies() {
+        return supplies;
+    }
+
+    public void setMoral(int moral) {
+        this.moral = moral;
+    }
+
+    public void setWallStrength(int wallStrength) {
+        this.wallStrength = wallStrength;
+    }
+
+
+    public void setSupplies(int supplies) {
+        this.supplies = supplies;
     }
 }
