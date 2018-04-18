@@ -8,11 +8,17 @@ public class GameData implements Constants, Serializable {
 
     private Player player;
 
-    public int day;
+    private int day;
+
+    private BattleCard battleCard;
+    private StatusCard statusCard;
 
     public GameData() {
         this.player = new Player(this, "Player");
         this.day = 1;
+
+        battleCard = new BattleCard(this);
+        statusCard = new StatusCard(this);
     }
 
     /**
@@ -22,17 +28,31 @@ public class GameData implements Constants, Serializable {
         return player;
     }
 
-	/**
-	 * @return the day
-	 */
-	public int getDay() {
-		return day;
-	}
+    /**
+     * @return the day
+     */
+    public int getDay() {
+        return day;
+    }
 
-	/**
-	 * @param day the day to set
-	 */
-	public void setDay(int day) {
-		this.day = day;
-	}
+    /**
+     * @param day the day to set
+     */
+    public void setDay(int day) {
+        this.day = day;
+    }
+
+    /**
+     * @return the battleCard
+     */
+    public BattleCard getBattleCard() {
+        return battleCard;
+    }
+
+    /**
+     * @return the statusCard
+     */
+    public StatusCard getStatusCard() {
+        return statusCard;
+    }
 }
