@@ -11,7 +11,7 @@ public class GameData implements Constants, Serializable {
     public int day;
 
     public GameData() {
-        this.player = new Player("Player");
+        this.player = new Player(this, "Player");
         this.day = 1;
     }
 

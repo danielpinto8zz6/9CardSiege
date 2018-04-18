@@ -9,7 +9,10 @@ public class Card implements Serializable {
     private static int counter = 0;
     private int cardNumber;
 
-    public Card() {
+    private GameData gameData;
+
+    public Card(GameData gameData) {
+        this.gameData = gameData;
         cardNumber = ++counter;
     }
 
@@ -18,6 +21,28 @@ public class Card implements Serializable {
      */
     public int getCardNumber() {
         return cardNumber;
+    }
+
+	/**
+	 * @return the gameData
+	 */
+	public GameData getGameData() {
+		return gameData;
+	}
+
+	/**
+	 * @param gameData the gameData to set
+	 */
+	public void setGameData(GameData gameData) {
+		this.gameData = gameData;
+    }
+    
+    public Player getPlayer(){
+        return gameData.getPlayer();
+    }
+
+    public GameData getGame(){
+        return gameData;
     }
 
 }

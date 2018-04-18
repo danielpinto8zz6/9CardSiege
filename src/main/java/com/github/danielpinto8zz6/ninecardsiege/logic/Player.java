@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.github.danielpinto8zz6.ninecardsiege.logic.cards.*;
+
 public class Player implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -15,19 +17,29 @@ public class Player implements Serializable {
     private int supplies;
     private int troops;
     private int raidSupplies;
+    private int actionPoints;
+
+    public GameData gameData;
 
     private List<Card> cards = new ArrayList<Card>();
 
-    public Player(String name) {
+    public Player(GameData gameData, String name) {
         this.name = name;
 
-        createCards();
+        getNewCards();
     }
 
-    private void createCards() {
-        for (int i = 0; i < 7; i++) {
-            cards.add(new Card());
-        }
+    private void getNewCards() {
+        cards.clear();
+        cards.add(new Card1(gameData));
+        cards.add(new Card2(gameData));
+        cards.add(new Card3(gameData));
+        cards.add(new Card4(gameData));
+        cards.add(new Card5(gameData));
+        cards.add(new Card6(gameData));
+        cards.add(new Card7(gameData));
+
+        // Cards should be at random positions
         shuffleCards();
     }
 
@@ -100,4 +112,18 @@ public class Player implements Serializable {
     public void setSupplies(int supplies) {
         this.supplies = supplies;
     }
+
+	/**
+	 * @return the actionPoints
+	 */
+	public int getActionPoints() {
+		return actionPoints;
+	}
+
+	/**
+	 * @param actionPoints the actionPoints to set
+	 */
+	public void setActionPoints(int actionPoints) {
+		this.actionPoints = actionPoints;
+	}
 }
