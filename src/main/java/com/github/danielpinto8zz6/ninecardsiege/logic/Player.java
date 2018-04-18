@@ -2,6 +2,7 @@ package com.github.danielpinto8zz6.ninecardsiege.logic;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Player implements Serializable {
@@ -19,6 +20,19 @@ public class Player implements Serializable {
 
     public Player(String name) {
         this.name = name;
+
+        createCards();
+    }
+
+    private void createCards() {
+        for (int i = 0; i < 7; i++) {
+            cards.add(new Card());
+        }
+        shuffleCards();
+    }
+
+    private void shuffleCards() {
+        Collections.shuffle(cards);
     }
 
     /**

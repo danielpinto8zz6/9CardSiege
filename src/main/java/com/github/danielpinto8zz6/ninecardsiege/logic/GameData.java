@@ -8,8 +8,11 @@ public class GameData implements Constants, Serializable {
 
     private Player player;
 
+    public int day;
+
     public GameData() {
-        player = new Player("Player");
+        this.player = new Player("Player");
+        this.day = 1;
     }
 
     /**
@@ -18,4 +21,18 @@ public class GameData implements Constants, Serializable {
     public Player getPlayer() {
         return player;
     }
+
+	/**
+	 * @return the day
+	 */
+	public int getDay() {
+		return day;
+	}
+
+	/**
+	 * @param day the day to set
+	 */
+	public void setDay(int day) {
+		this.day = day;
+	}
 }
