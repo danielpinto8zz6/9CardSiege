@@ -19,9 +19,9 @@ public class BattleCard implements Serializable {
     }
 
     public void addEnemies(String name) {
-        this.enemies.add(new Enemy("Ladders", 2, new Point(0, 4)));
-        this.enemies.add(new Enemy("BattleRam", 3, new Point(1, 4)));
-        this.enemies.add(new Enemy("BattleSiege", 4, new Point(2, 4)));
+        this.enemies.add(new Enemy("Ladders", 2));
+        this.enemies.add(new Enemy("BattleRam", 3));
+        this.enemies.add(new Enemy("BattleSiege", 4));
 
         this.trebuchet = 3;
     }

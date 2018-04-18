@@ -23,16 +23,12 @@ public class Player implements Serializable {
 
     private List<Card> cards = new ArrayList<Card>();
 
-    private Point coordinates;
-
     public Player(GameData gameData, String name) {
         this.name = name;
         this.moral = 4;
         this.wallStrength = 4;
         this.supplies = 4;
         this.actionPoints = 0;
-
-        coordinates = new Point(0, 0);
 
         getNewCards();
     }
@@ -143,39 +139,6 @@ public class Player implements Serializable {
 
         if (this.supplies < 0) {
             this.supplies = 0;
-        }
-    }
-
-	/**
-	 * @return the coordinates
-	 */
-	public Point getCoordinates() {
-		return coordinates;
-	}
-
-	/**
-	 * @param coordinates the coordinates to set
-	 */
-	public void setCoordinates(Point coordinates) {
-		this.coordinates = coordinates;
-    }
-    
-    public int getX() {
-        return (int) coordinates.getX();
-    }
-
-    public int getY() {
-        return (int) coordinates.getY();
-    }
-
-    public void move(MOVE move) {
-        int y = getY();
-        int x = getX();
-
-        if (move == MOVE.UP) {
-            coordinates.move(x, y++);
-        } else if (move == MOVE.DOWN) {
-            coordinates.move(x, y--);
         }
     }
 }

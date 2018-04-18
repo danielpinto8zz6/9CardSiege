@@ -10,12 +10,12 @@ public class Enemy implements Serializable {
     private static final long serialVersionUID = 1L;
     private String name;
     private int strength;
-    private Point coordinates;
+    private int position;
 
-    public Enemy(String name, int strength, Point coordinates) {
+    public Enemy(String name, int strength) {
         this.name = name;
         this.strength = strength;
-        this.coordinates = coordinates;
+        this.position = 4;
     }
 
     /**
@@ -47,35 +47,29 @@ public class Enemy implements Serializable {
     }
 
     /**
-     * @return the coordinates
+     * @return the position
      */
-    public Point getCoordinates() {
-        return coordinates;
+    public int getPosition() {
+        return position;
     }
 
     /**
-     * @param coordinates the coordinates to set
+     * @param position the position to set
      */
-    public void setCoordinates(Point coordinates) {
-        this.coordinates = coordinates;
-    }
-
-    public int getX() {
-        return (int) coordinates.getX();
-    }
-
-    public int getY() {
-        return (int) coordinates.getY();
+    public void setPosition(int position) {
+        this.position = position;
     }
 
     public void move(MOVE move) {
-        int y = getY();
-        int x = getX();
-
         if (move == MOVE.UP) {
-            coordinates.move(x, y--);
+            this.position--;
         } else if (move == MOVE.DOWN) {
-            coordinates.move(x, y++);
+            this.position++;
+        }
+        if (this.position > 4) {
+            this.position = 4;
+        } else if (this.position < 0) {
+            this.position = 0;
         }
     }
 }
