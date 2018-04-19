@@ -8,4 +8,9 @@ public class Illness extends Event {
     public Illness(GameData gameData) {
         super(gameData, "Illness");
     }
+
+    public void doEvent() {
+        getPlayer().setMoral(getPlayer().getMoral() - 1);
+        getPlayer().setSupplies(getPlayer().getSupplies() - 1);
+    }
 }

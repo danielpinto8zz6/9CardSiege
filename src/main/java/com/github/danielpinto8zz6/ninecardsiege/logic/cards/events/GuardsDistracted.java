@@ -8,4 +8,9 @@ public class GuardsDistracted extends Event {
     public GuardsDistracted(GameData gameData) {
         super(gameData, "GuardsDistracted");
     }
+
+    public void doEvent() {
+        getPlayer().setMoral(getPlayer().getMoral() + 1);
+        getPlayer().setSabotage(getPlayer().getSabotage() + 1);
+    }
 }

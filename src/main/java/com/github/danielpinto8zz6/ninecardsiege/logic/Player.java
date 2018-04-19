@@ -16,6 +16,7 @@ public class Player implements Serializable {
     private int wallStrength;
     private int supplies;
     private int actionPoints;
+    private int sabotage;
 
     public GameData gameData;
 
@@ -27,6 +28,7 @@ public class Player implements Serializable {
         this.wallStrength = 4;
         this.supplies = 4;
         this.actionPoints = 0;
+        this.sabotage = 0;
 
         getNewCards();
     }
@@ -124,19 +126,24 @@ public class Player implements Serializable {
         return supplies;
     }
 
-    public void addSupplies(int supplies) {
-        this.supplies += supplies;
-
-        if (this.supplies > 4) {
-            this.supplies = 4;
-        }
+    /**
+     * @param supplies the supplies to set
+     */
+    public void setSupplies(int supplies) {
+        this.supplies = supplies;
     }
 
-    public void removeSupplies(int supplies) {
-        this.supplies -= supplies;
+	/**
+	 * @return the sabotage
+	 */
+	public int getSabotage() {
+		return sabotage;
+	}
 
-        if (this.supplies < 0) {
-            this.supplies = 0;
-        }
-    }
+	/**
+	 * @param sabotage the sabotage to set
+	 */
+	public void setSabotage(int sabotage) {
+		this.sabotage = sabotage;
+	}
 }

@@ -8,4 +8,8 @@ public class DeathOfLeader extends Event {
     public DeathOfLeader(GameData gameData) {
         super(gameData, "DeathOfLeader");
     }
+
+    public void doEvent() {
+        getPlayer().setMoral(getPlayer().getMoral() - 1);
+    }
 }

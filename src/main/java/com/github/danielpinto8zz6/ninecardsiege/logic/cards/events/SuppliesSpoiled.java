@@ -8,4 +8,8 @@ public class SuppliesSpoiled extends Event {
     public SuppliesSpoiled(GameData gameData) {
         super(gameData, "SuppliesSpoiled");
     }
+
+    public void doEvent() {
+        getPlayer().setSupplies(getPlayer().getSupplies() - 1);
+    }
 }

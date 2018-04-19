@@ -1,7 +1,9 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.cards.events;
 
 import java.io.Serializable;
+import java.util.List;
 
+import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
 
@@ -50,6 +52,10 @@ public class Event implements Serializable {
 
     public Player getPlayer() {
         return gameData.getPlayer();
+    }
+
+    public List<Enemy> getEnemies() {
+        return gameData.getBattleCard().getEnemies();
     }
 
 }
