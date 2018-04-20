@@ -2,15 +2,7 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.events;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
-public class VolleyOfArrows extends Event {
-    private static final long serialVersionUID = 1L;
-
-    public VolleyOfArrows(GameData gameData) {
-        super(gameData, "VolleyOfArrows");
+public class VolleyOfArrows {
+    public static void apply(GameData gameData) {
     }
-
-	@Override
-	public void doEvent() {
-		
-	}
 }

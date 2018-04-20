@@ -14,19 +14,19 @@ public class Card3 extends Card {
 
     @Override
     public void Day1Event() {
-        new SuppliesSpoiled(getGame());
+        SuppliesSpoiled.apply(getGame());
         getPlayer().setActionPoints(2);
     }
 
     @Override
     public void Day2Event() {
-        new BadWeather(getGame());
+        BadWeather.apply(getGame());
         getPlayer().setActionPoints(2);
     }
 
     @Override
     public void Day3Event() {
-        new BoilingOil(getGame());
+        BoilingOil.apply(getGame());
         getPlayer().setActionPoints(2);
     }
 

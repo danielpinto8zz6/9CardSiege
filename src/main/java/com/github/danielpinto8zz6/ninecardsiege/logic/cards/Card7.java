@@ -14,19 +14,19 @@ public class Card7 extends Card {
 
     @Override
     public void Day1Event() {
-        new DeterminedEnemy(getGame());
+        DeterminedEnemy.apply(getGame());
         getPlayer().setActionPoints(2);
     }
 
     @Override
     public void Day2Event() {
-        new IronShields(getGame());
+        IronShields.apply(getGame());
         getPlayer().setActionPoints(2);
     }
 
     @Override
     public void Day3Event() {
-        new Faith(getGame());
+        Faith.apply(getGame());
         getPlayer().setActionPoints(3);
     }
 

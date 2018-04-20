@@ -2,15 +2,7 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.events;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
-public class Rally extends Event {
-    private static final long serialVersionUID = 1L;
-
-    public Rally(GameData gameData) {
-        super(gameData, "Rally");
+public class Rally {
+    public static void apply(GameData gameData) {
     }
-
-	@Override
-	public void doEvent() {
-		
-	}
 }

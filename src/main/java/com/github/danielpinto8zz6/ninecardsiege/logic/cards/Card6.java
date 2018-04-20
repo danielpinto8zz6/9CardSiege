@@ -14,19 +14,19 @@ public class Card6 extends Card {
 
     @Override
     public void Day1Event() {
-        new CoverOfDarkness(getGame());
+        CoverOfDarkness.apply(getGame());
         getPlayer().setActionPoints(3);
     }
 
     @Override
     public void Day2Event() {
-        new EnemyFatigue(getGame());
+        EnemyFatigue.apply(getGame());
         getPlayer().setActionPoints(3);
     }
 
     @Override
     public void Day3Event() {
-        new Rally(getGame());
+        Rally.apply(getGame());
         getPlayer().setActionPoints(3);
     }
 

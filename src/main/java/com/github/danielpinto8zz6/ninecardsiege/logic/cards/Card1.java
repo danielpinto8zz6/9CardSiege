@@ -12,19 +12,19 @@ public class Card1 extends Card {
 
     @Override
     public void Day1Event() {
-        new TrebuchetAttack(getGame());
+        TrebuchetAttack.apply(getGame());
         getPlayer().setActionPoints(3);
     }
 
     @Override
     public void Day2Event() {
-        new TrebuchetAttack(getGame());
+        TrebuchetAttack.apply(getGame());
         getPlayer().setActionPoints(2);
     }
 
     @Override
     public void Day3Event() {
-        new TrebuchetAttack(getGame());
+        TrebuchetAttack.apply(getGame());
         getPlayer().setActionPoints(1);
     }
 

@@ -2,15 +2,7 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.events;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
-public class Collapsed extends Event {
-    private static final long serialVersionUID = 1L;
-
-    public Collapsed(GameData gameData) {
-        super(gameData, "Collapsed");
+public class Collapsed {
+    public static void apply(GameData gameData) {
     }
-
-	@Override
-	public void doEvent() {
-		
-	}
 }

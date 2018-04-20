@@ -14,19 +14,19 @@ public class Card4 extends Card {
 
     @Override
     public void Day1Event() {
-        new DeathOfLeader(getGame());
+        DeathOfLeader.apply(getGame());
         getPlayer().setActionPoints(2);
     }
 
     @Override
     public void Day2Event() {
-        new GateFortified(getGame());
+        GateFortified.apply(getGame());
         getPlayer().setActionPoints(2);
     }
 
     @Override
     public void Day3Event() {
-        new FlamingArrows(getGame());
+        FlamingArrows.apply(getGame());
         getPlayer().setActionPoints(3);
     }
 

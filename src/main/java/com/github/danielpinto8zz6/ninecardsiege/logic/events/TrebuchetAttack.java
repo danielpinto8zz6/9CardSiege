@@ -2,15 +2,8 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.events;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
-public class TrebuchetAttack extends Event {
-    private static final long serialVersionUID = 1L;
-
-    public TrebuchetAttack(GameData gameData) {
-        super(gameData, "TrebuchetAttack");
-    }
-
-    @Override
-    public void doEvent() {
-        getPlayer().setWallStrength(getPlayer().getWallStrength() - 2);
+public class TrebuchetAttack {
+    public static void apply(GameData gameData) {
+        gameData.getPlayer().setWallStrength(gameData.getPlayer().getWallStrength() - 2);
     }
 }

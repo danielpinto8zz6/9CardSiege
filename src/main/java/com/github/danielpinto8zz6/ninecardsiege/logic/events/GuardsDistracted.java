@@ -2,16 +2,9 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.events;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
-public class GuardsDistracted extends Event {
-    private static final long serialVersionUID = 1L;
-
-    public GuardsDistracted(GameData gameData) {
-        super(gameData, "GuardsDistracted");
-    }
-
-    @Override
-    public void doEvent() {
-        getPlayer().setMoral(getPlayer().getMoral() + 1);
-        getPlayer().setSabotage(getPlayer().getSabotage() + 1);
+public class GuardsDistracted {
+    public static void apply(GameData gameData) {
+        gameData.getPlayer().setMoral(gameData.getPlayer().getMoral() + 1);
+        gameData.getPlayer().setSabotage(gameData.getPlayer().getSabotage() + 1);
     }
 }

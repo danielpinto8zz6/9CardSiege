@@ -2,15 +2,8 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.events;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
-public class DeathOfLeader extends Event {
-    private static final long serialVersionUID = 1L;
-
-    public DeathOfLeader(GameData gameData) {
-        super(gameData, "DeathOfLeader");
-    }
-
-    @Override
-    public void doEvent() {
-        getPlayer().setMoral(getPlayer().getMoral() - 1);
+public class DeathOfLeader {
+    public static void apply(GameData gameData) {
+        gameData.getPlayer().setMoral(gameData.getPlayer().getMoral() - 1);
     }
 }
