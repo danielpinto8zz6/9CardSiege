@@ -1,4 +1,4 @@
-package com.github.danielpinto8zz6.ninecardsiege.logic.cards.events;
+package com.github.danielpinto8zz6.ninecardsiege.logic.events;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 

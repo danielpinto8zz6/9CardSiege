@@ -1,10 +1,9 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.cards;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.Card;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.events.BadWeather;
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.events.BoilingOil;
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.events.SuppliesSpoiled;
+import com.github.danielpinto8zz6.ninecardsiege.logic.events.BadWeather;
+import com.github.danielpinto8zz6.ninecardsiege.logic.events.BoilingOil;
+import com.github.danielpinto8zz6.ninecardsiege.logic.events.SuppliesSpoiled;
 
 public class Card3 extends Card {
     private static final long serialVersionUID = 1L;

@@ -1,10 +1,9 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.cards;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.Card;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.events.DeterminedEnemy;
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.events.Faith;
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.events.IronShields;
+import com.github.danielpinto8zz6.ninecardsiege.logic.events.DeterminedEnemy;
+import com.github.danielpinto8zz6.ninecardsiege.logic.events.Faith;
+import com.github.danielpinto8zz6.ninecardsiege.logic.events.IronShields;
 
 public class Card7 extends Card {
     private static final long serialVersionUID = 1L;

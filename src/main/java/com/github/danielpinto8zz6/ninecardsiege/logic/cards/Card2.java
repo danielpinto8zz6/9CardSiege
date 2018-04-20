@@ -1,10 +1,9 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.cards;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.Card;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.events.GuardsDistracted;
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.events.Illness;
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.events.TrebuchetAttack;
+import com.github.danielpinto8zz6.ninecardsiege.logic.events.GuardsDistracted;
+import com.github.danielpinto8zz6.ninecardsiege.logic.events.Illness;
+import com.github.danielpinto8zz6.ninecardsiege.logic.events.TrebuchetAttack;
 
 public class Card2 extends Card {
     private static final long serialVersionUID = 1L;
