@@ -30,4 +30,9 @@ public class Card7 extends Card {
         new Faith(getGame());
         getPlayer().setActionPoints(3);
     }
+
+    @Override
+    public String toString() {
+        return "Card7";
+    }
 }

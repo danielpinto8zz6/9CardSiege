@@ -30,4 +30,9 @@ public class Card6 extends Card {
         new Rally(getGame());
         getPlayer().setActionPoints(3);
     }
+
+    @Override
+    public String toString() {
+        return "Card6";
+    }
 }

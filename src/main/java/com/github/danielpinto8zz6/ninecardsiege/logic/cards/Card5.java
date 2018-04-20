@@ -30,4 +30,9 @@ public class Card5 extends Card {
         new RepairedTrebuchet(getGame());
         getPlayer().setActionPoints(2);
     }
+
+    @Override
+    public String toString() {
+        return "Card5";
+    }
 }

@@ -30,4 +30,9 @@ public class Card4 extends Card {
         new FlamingArrows(getGame());
         getPlayer().setActionPoints(3);
     }
+
+    @Override
+    public String toString() {
+        return "Card4";
+    }
 }

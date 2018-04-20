@@ -28,4 +28,9 @@ public class Card1 extends Card {
         new TrebuchetAttack(getGame());
         getPlayer().setActionPoints(1);
     }
+
+    @Override
+    public String toString() {
+        return "Card1";
+    }
 }

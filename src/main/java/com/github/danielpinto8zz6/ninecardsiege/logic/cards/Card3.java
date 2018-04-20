@@ -30,4 +30,9 @@ public class Card3 extends Card {
         new BoilingOil(getGame());
         getPlayer().setActionPoints(2);
     }
+
+    @Override
+    public String toString() {
+        return "Card3";
+    }
 }
