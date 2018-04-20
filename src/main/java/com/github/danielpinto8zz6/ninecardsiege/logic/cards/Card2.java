@@ -13,16 +13,19 @@ public class Card2 extends Card {
         super(gameData);
     }
 
+    @Override
     public void Day1Event() {
         new Illness(getGame());
         getPlayer().setActionPoints(2);
     }
 
+    @Override
     public void Day2Event() {
         new GuardsDistracted(getGame());
         getPlayer().setActionPoints(2);
     }
 
+    @Override
     public void Day3Event() {
         new TrebuchetAttack(getGame());
         getPlayer().setActionPoints(1);

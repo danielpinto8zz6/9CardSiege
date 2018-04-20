@@ -2,7 +2,7 @@ package com.github.danielpinto8zz6.ninecardsiege.logic;
 
 import java.io.Serializable;
 
-public class Card implements Serializable {
+public abstract class Card implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -23,26 +23,32 @@ public class Card implements Serializable {
         return cardNumber;
     }
 
-	/**
-	 * @return the gameData
-	 */
-	public GameData getGameData() {
-		return gameData;
-	}
-
-	/**
-	 * @param gameData the gameData to set
-	 */
-	public void setGameData(GameData gameData) {
-		this.gameData = gameData;
+    /**
+     * @return the gameData
+     */
+    public GameData getGameData() {
+        return gameData;
     }
-    
-    public Player getPlayer(){
+
+    /**
+     * @param gameData the gameData to set
+     */
+    public void setGameData(GameData gameData) {
+        this.gameData = gameData;
+    }
+
+    public Player getPlayer() {
         return gameData.getPlayer();
     }
 
-    public GameData getGame(){
+    public GameData getGame() {
         return gameData;
     }
+
+    public abstract void Day1Event();
+
+    public abstract void Day2Event();
+
+    public abstract void Day3Event();
 
 }

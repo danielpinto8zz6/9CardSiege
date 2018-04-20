@@ -13,16 +13,19 @@ public class Card7 extends Card {
         super(gameData);
     }
 
+    @Override
     public void Day1Event() {
         new DeterminedEnemy(getGame());
         getPlayer().setActionPoints(2);
     }
 
+    @Override
     public void Day2Event() {
         new IronShields(getGame());
         getPlayer().setActionPoints(2);
     }
 
+    @Override
     public void Day3Event() {
         new Faith(getGame());
         getPlayer().setActionPoints(3);

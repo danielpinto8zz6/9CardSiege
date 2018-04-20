@@ -13,16 +13,19 @@ public class Card5 extends Card {
         super(gameData);
     }
 
+    @Override
     public void Day1Event() {
         new VolleyOfArrows(getGame());
         getPlayer().setActionPoints(3);
     }
 
+    @Override
     public void Day2Event() {
         new Collapsed(getGame());
         getPlayer().setActionPoints(2);
     }
 
+    @Override
     public void Day3Event() {
         new RepairedTrebuchet(getGame());
         getPlayer().setActionPoints(2);

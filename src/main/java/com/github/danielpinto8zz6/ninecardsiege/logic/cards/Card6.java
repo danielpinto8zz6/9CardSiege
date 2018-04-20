@@ -13,16 +13,19 @@ public class Card6 extends Card {
         super(gameData);
     }
 
+    @Override
     public void Day1Event() {
         new CoverOfDarkness(getGame());
         getPlayer().setActionPoints(3);
     }
 
+    @Override
     public void Day2Event() {
         new EnemyFatigue(getGame());
         getPlayer().setActionPoints(3);
     }
 
+    @Override
     public void Day3Event() {
         new Rally(getGame());
         getPlayer().setActionPoints(3);
