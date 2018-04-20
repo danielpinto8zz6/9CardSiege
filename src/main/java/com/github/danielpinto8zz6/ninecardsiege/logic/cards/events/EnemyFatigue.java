@@ -8,4 +8,9 @@ public class EnemyFatigue extends Event {
     public EnemyFatigue(GameData gameData) {
         super(gameData, "EnemyFatigue");
     }
+
+	@Override
+	public void doEvent() {
+		
+	}
 }

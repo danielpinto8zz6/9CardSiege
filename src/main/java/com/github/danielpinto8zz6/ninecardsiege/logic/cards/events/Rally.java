@@ -8,4 +8,9 @@ public class Rally extends Event {
     public Rally(GameData gameData) {
         super(gameData, "Rally");
     }
+
+	@Override
+	public void doEvent() {
+		
+	}
 }

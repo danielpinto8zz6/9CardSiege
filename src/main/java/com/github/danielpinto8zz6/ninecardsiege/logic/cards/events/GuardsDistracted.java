@@ -9,6 +9,7 @@ public class GuardsDistracted extends Event {
         super(gameData, "GuardsDistracted");
     }
 
+    @Override
     public void doEvent() {
         getPlayer().setMoral(getPlayer().getMoral() + 1);
         getPlayer().setSabotage(getPlayer().getSabotage() + 1);

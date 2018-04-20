@@ -9,6 +9,7 @@ public class DeathOfLeader extends Event {
         super(gameData, "DeathOfLeader");
     }
 
+    @Override
     public void doEvent() {
         getPlayer().setMoral(getPlayer().getMoral() - 1);
     }

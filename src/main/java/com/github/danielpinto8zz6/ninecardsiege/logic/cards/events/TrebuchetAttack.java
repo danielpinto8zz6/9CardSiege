@@ -9,6 +9,7 @@ public class TrebuchetAttack extends Event {
         super(gameData, "TrebuchetAttack");
     }
 
+    @Override
     public void doEvent() {
         getPlayer().setWallStrength(getPlayer().getWallStrength() - 2);
     }

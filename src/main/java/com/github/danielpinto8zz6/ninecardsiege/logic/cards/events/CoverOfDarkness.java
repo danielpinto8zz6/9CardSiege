@@ -8,4 +8,9 @@ public class CoverOfDarkness extends Event {
     public CoverOfDarkness(GameData gameData) {
         super(gameData, "CoverOfDarkness");
     }
+
+	@Override
+	public void doEvent() {
+		
+	}
 }

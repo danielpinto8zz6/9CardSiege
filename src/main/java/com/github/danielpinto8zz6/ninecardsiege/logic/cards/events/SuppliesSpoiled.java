@@ -9,6 +9,7 @@ public class SuppliesSpoiled extends Event {
         super(gameData, "SuppliesSpoiled");
     }
 
+    @Override
     public void doEvent() {
         getPlayer().setSupplies(getPlayer().getSupplies() - 1);
     }

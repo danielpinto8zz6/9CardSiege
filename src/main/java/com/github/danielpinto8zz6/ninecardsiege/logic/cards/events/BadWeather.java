@@ -8,4 +8,9 @@ public class BadWeather extends Event {
     public BadWeather(GameData gameData) {
         super(gameData, "BadWeather");
     }
+
+	@Override
+	public void doEvent() {
+		
+	}
 }

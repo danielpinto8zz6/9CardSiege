@@ -8,4 +8,9 @@ public class IronShields extends Event {
     public IronShields(GameData gameData) {
         super(gameData, "IronShields");
     }
+
+	@Override
+	public void doEvent() {
+		
+	}
 }

@@ -8,4 +8,9 @@ public class VolleyOfArrows extends Event {
     public VolleyOfArrows(GameData gameData) {
         super(gameData, "VolleyOfArrows");
     }
+
+	@Override
+	public void doEvent() {
+		
+	}
 }

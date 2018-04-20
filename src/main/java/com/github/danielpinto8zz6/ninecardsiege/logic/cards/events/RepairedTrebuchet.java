@@ -8,4 +8,9 @@ public class RepairedTrebuchet extends Event {
     public RepairedTrebuchet(GameData gameData) {
         super(gameData, "RepairedTrebuchet");
     }
+
+	@Override
+	public void doEvent() {
+		
+	}
 }

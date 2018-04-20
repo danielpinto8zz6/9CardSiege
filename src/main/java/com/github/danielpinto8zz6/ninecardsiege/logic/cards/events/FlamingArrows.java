@@ -8,4 +8,9 @@ public class FlamingArrows extends Event {
     public FlamingArrows(GameData gameData) {
         super(gameData, "FlamingArrows");
     }
+
+	@Override
+	public void doEvent() {
+		
+	}
 }

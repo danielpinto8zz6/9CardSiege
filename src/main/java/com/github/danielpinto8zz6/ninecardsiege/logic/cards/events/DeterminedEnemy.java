@@ -8,4 +8,9 @@ public class DeterminedEnemy extends Event {
     public DeterminedEnemy(GameData gameData) {
         super(gameData, "DeterminedEnemy");
     }
+
+	@Override
+	public void doEvent() {
+		
+	}
 }

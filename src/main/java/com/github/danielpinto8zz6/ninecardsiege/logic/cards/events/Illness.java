@@ -9,6 +9,7 @@ public class Illness extends Event {
         super(gameData, "Illness");
     }
 
+    @Override
     public void doEvent() {
         getPlayer().setMoral(getPlayer().getMoral() - 1);
         getPlayer().setSupplies(getPlayer().getSupplies() - 1);

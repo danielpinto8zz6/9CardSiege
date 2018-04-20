@@ -7,7 +7,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
 
-public class Event implements Serializable {
+public abstract class Event implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private GameData gameData;
@@ -57,5 +57,7 @@ public class Event implements Serializable {
     public List<Enemy> getEnemies() {
         return gameData.getBattleCard().getEnemies();
     }
+
+    public abstract void doEvent();
 
 }

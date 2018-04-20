@@ -8,4 +8,9 @@ public class Faith extends Event {
     public Faith(GameData gameData) {
         super(gameData, "Faith");
     }
+
+	@Override
+	public void doEvent() {
+		
+	}
 }

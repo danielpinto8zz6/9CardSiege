@@ -8,4 +8,9 @@ public class Collapsed extends Event {
     public Collapsed(GameData gameData) {
         super(gameData, "Collapsed");
     }
+
+	@Override
+	public void doEvent() {
+		
+	}
 }

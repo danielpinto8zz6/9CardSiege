@@ -13,6 +13,7 @@ public class BoilingOil extends Event {
         super(gameData, "BoilingOil");
     }
 
+    @Override
     public void doEvent() {
         for (Enemy enemy : getEnemiesOnCircleSpaces()) {
             enemy.setStrength(enemy.getStrength() + 2);

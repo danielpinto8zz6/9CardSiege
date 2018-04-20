@@ -8,4 +8,9 @@ public class GateFortified extends Event {
     public GateFortified(GameData gameData) {
         super(gameData, "GateFortified");
     }
+
+	@Override
+	public void doEvent() {
+		
+	}
 }
