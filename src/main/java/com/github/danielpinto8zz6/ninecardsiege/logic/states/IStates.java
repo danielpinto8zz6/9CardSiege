@@ -6,6 +6,13 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 public interface IStates {
 
     IStates startGame();
+    
+    IStates pickAnEventCard();
+    IStates doEvent();
+    IStates moveEnemies();
+    IStates playerAtion();
+    IStates endOfTheDay();
+    IStates endChek();
 
     IStates quit();
 }
