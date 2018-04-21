@@ -2,6 +2,7 @@ package com.github.danielpinto8zz6.ninecardsiege.logic;
 
 import java.io.Serializable;
 
+
 public class GameData implements Constants, Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -20,7 +21,11 @@ public class GameData implements Constants, Serializable {
         battleCard = new BattleCard(this);
         statusCard = new StatusCard(this);
     }
-
+    public boolean initialize()
+    {
+// implementar a  inicialização de jogo base.
+        return true;
+    }
     /**
      * @return the players
      */
