@@ -10,6 +10,7 @@ public interface IStates {
     IStates pickAnEventCard();
     IStates doEvent();
     IStates moveEnemies();
+    IStates checkPlayerAtion();
     IStates playerAtion();
     IStates endOfTheDay();
     IStates endChek();
