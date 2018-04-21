@@ -5,6 +5,7 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.states;
  */
 public interface IStates {
 
+    /// forma primitiva tenho quer  ainda  melhor isto////
     //waitBeginning
     IStates startGame();
     //waitCardPlay
