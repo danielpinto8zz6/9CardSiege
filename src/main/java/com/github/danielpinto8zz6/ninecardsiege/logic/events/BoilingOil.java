@@ -1,4 +1,4 @@
-package com.github.danielpinto8zz6.ninecardsiege.logic.cards.events;
+package com.github.danielpinto8zz6.ninecardsiege.logic.events;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,22 +6,16 @@ import java.util.List;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
-public class BoilingOil extends Event {
-    private static final long serialVersionUID = 1L;
-
-    public BoilingOil(GameData gameData) {
-        super(gameData, "BoilingOil");
-    }
-
-    public void doEvent() {
-        for (Enemy enemy : getEnemiesOnCircleSpaces()) {
+public class BoilingOil {
+    public static void apply(GameData gameData) {
+        for (Enemy enemy : getEnemiesOnCircleSpaces(gameData)) {
             enemy.setStrength(enemy.getStrength() + 2);
         }
     }
 
-    public List<Enemy> getEnemiesOnCircleSpaces() {
+    public static List<Enemy> getEnemiesOnCircleSpaces(GameData gameData) {
         List<Enemy> enemiesOnCircleSpaces = new ArrayList<Enemy>();
-        for (Enemy enemy : getEnemies()) {
+        for (Enemy enemy : gameData.getBattleCard().getEnemies()) {
             // Circle Spaces = position 1
             if (enemy.getPosition() == 1) {
                 enemiesOnCircleSpaces.add(enemy);

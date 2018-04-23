@@ -1,10 +1,9 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.cards;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.Card;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.events.CoverOfDarkness;
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.events.EnemyFatigue;
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.events.Rally;
+import com.github.danielpinto8zz6.ninecardsiege.logic.events.CoverOfDarkness;
+import com.github.danielpinto8zz6.ninecardsiege.logic.events.EnemyFatigue;
+import com.github.danielpinto8zz6.ninecardsiege.logic.events.Rally;
 
 public class Card6 extends Card {
     private static final long serialVersionUID = 1L;
@@ -13,18 +12,26 @@ public class Card6 extends Card {
         super(gameData);
     }
 
+    @Override
     public void Day1Event() {
-        new CoverOfDarkness(getGame());
+        CoverOfDarkness.apply(getGame());
         getPlayer().setActionPoints(3);
     }
 
+    @Override
     public void Day2Event() {
-        new EnemyFatigue(getGame());
+        EnemyFatigue.apply(getGame());
         getPlayer().setActionPoints(3);
     }
 
+    @Override
     public void Day3Event() {
-        new Rally(getGame());
+        Rally.apply(getGame());
         getPlayer().setActionPoints(3);
+    }
+
+    @Override
+    public String toString() {
+        return "Card6";
     }
 }

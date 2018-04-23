@@ -1,10 +1,9 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.cards;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.Card;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.events.BadWeather;
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.events.BoilingOil;
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.events.SuppliesSpoiled;
+import com.github.danielpinto8zz6.ninecardsiege.logic.events.BadWeather;
+import com.github.danielpinto8zz6.ninecardsiege.logic.events.BoilingOil;
+import com.github.danielpinto8zz6.ninecardsiege.logic.events.SuppliesSpoiled;
 
 public class Card3 extends Card {
     private static final long serialVersionUID = 1L;
@@ -13,18 +12,26 @@ public class Card3 extends Card {
         super(gameData);
     }
 
+    @Override
     public void Day1Event() {
-        new SuppliesSpoiled(getGame());
+        SuppliesSpoiled.apply(getGame());
         getPlayer().setActionPoints(2);
     }
 
+    @Override
     public void Day2Event() {
-        new BadWeather(getGame());
+        BadWeather.apply(getGame());
         getPlayer().setActionPoints(2);
     }
 
+    @Override
     public void Day3Event() {
-        new BoilingOil(getGame());
+        BoilingOil.apply(getGame());
         getPlayer().setActionPoints(2);
+    }
+
+    @Override
+    public String toString() {
+        return "Card3";
     }
 }

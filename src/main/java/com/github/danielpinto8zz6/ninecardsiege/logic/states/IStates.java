@@ -5,7 +5,20 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.states;
  */
 public interface IStates {
 
+    /// forma primitiva tenho quer  ainda  melhor isto////
+    //waitBeginning
     IStates startGame();
+    //waitCardPlay
+    IStates pickAnEventCard();
+    IStates doEvent();
+    //waitEnemyMoves
+    IStates moveEnemies();
+    //waitPlayerAtions
+    IStates checkPlayerAtion();
+    IStates playerAtion();
+    //waitEndOfDay
+    IStates endOfTheDay();
+    IStates endChek();
 
     IStates quit();
 }
