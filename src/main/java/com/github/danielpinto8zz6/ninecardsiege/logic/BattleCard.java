@@ -15,15 +15,20 @@ public class BattleCard implements Serializable {
 
     public BattleCard(GameData gameData) {
         this.gameData = gameData;
-    }
-
-    public void addEnemies(String name) {
         this.enemies.add(new Enemy("Ladders", 2));
         this.enemies.add(new Enemy("BattleRam", 3));
         this.enemies.add(new Enemy("BattleSiege", 4));
 
         this.trebuchet = 3;
     }
+
+ /*   public void addEnemies() {
+        this.enemies.add(new Enemy("Ladders", 2));
+        this.enemies.add(new Enemy("BattleRam", 3));
+        this.enemies.add(new Enemy("BattleSiege", 4));
+
+        this.trebuchet = 3;
+    }*/
 
     /**
      * @return the gameData
