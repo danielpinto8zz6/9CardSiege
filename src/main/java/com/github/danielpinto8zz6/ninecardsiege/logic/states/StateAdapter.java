@@ -39,6 +39,10 @@ public class StateAdapter implements IStates, com.github.danielpinto8zz6.ninecar
         return this;
     }
 
+        @Override
+    public IStates checkInstaLoss() {
+        return this;
+    }
     public IStates checkPlayerAtion() {
         return this;
     }
