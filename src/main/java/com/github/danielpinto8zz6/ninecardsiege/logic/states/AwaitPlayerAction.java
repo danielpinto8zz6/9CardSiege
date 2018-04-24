@@ -2,15 +2,9 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
-public class AwaitBeginning extends StateAdapter {
-    public AwaitBeginning(GameData g) {
+public class AwaitPlayerAction extends StateAdapter {
+    public AwaitPlayerAction(GameData g) {
         super(g);
-    }
-
-    @Override
-    public IStates startGame() {
-        getGame().initialize();
-        return new AwaitCardPlay(getGame());
     }
 
     @Override

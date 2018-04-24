@@ -17,12 +17,16 @@ public class AwaitCardPlay extends StateAdapter {
         Card card = cards.get(0);
 
         getGame().applyCardEvent(card);
-        
+
         // We don't need the card anymore
         cards.remove(0);
         card = null;
 
-        return this;
+        return new AwaitPlayerAction(getGame());
     }
 
+    @Override
+    public IStates quit() {
+        return new GameOver(getGame());
+    }
 }
