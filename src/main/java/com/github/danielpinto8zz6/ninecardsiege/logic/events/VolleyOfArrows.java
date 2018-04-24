@@ -7,7 +7,7 @@ public class VolleyOfArrows {
     public static void apply(GameData gameData) {
         for (Enemy enemy : gameData.getEnemies()) {
             if (enemy != null) {
-                enemy.setStrength(enemy.getStrength() + 1);
+                enemy.setStrength(enemy.getStrength() - 1);
             }
         }
     }
