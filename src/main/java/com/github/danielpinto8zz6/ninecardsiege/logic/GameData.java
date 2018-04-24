@@ -20,7 +20,7 @@ public class GameData implements Constants, Serializable {
         battleCard = new BattleCard(this);
         statusCard = new StatusCard(this);
     }
-    public boolean initialize()
+    public void initialize()
     {
         this.player = new Player(this, "Player");
         this.day = 1;
@@ -28,7 +28,6 @@ public class GameData implements Constants, Serializable {
         battleCard = new BattleCard(this);
         statusCard = new StatusCard(this);
             
-        return true;
     }
     /**
      * @return the players
