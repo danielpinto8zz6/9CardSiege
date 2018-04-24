@@ -74,8 +74,9 @@ public class GameData implements Constants, Serializable {
 
     public List<Enemy> getEnemies() {
         return getBattleCard().getEnemies();
+    }
 
-        public void applyCardEvent(Card card) {
+    public void applyCardEvent(Card card) {
         switch (day) {
         case 1:
             card.Day1Event();
