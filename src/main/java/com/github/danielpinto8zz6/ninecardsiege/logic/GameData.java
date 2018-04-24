@@ -1,6 +1,7 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class GameData implements Constants, Serializable {
 
@@ -20,15 +21,16 @@ public class GameData implements Constants, Serializable {
         battleCard = new BattleCard(this);
         statusCard = new StatusCard(this);
     }
-    public void initialize()
-    {
+
+    public void initialize() {
         this.player = new Player(this, "Player");
         this.day = 1;
 
         battleCard = new BattleCard(this);
         statusCard = new StatusCard(this);
-            
+
     }
+
     /**
      * @return the players
      */
@@ -62,5 +64,13 @@ public class GameData implements Constants, Serializable {
      */
     public StatusCard getStatusCard() {
         return statusCard;
+    }
+
+    public Enemy getEnemy(String name) {
+        return getBattleCard().getEnemy(name);
+    }
+
+    public List<Enemy> getEnemies() {
+        return getBattleCard().getEnemies();
     }
 }
