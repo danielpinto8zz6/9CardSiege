@@ -18,7 +18,7 @@ public class Player implements Serializable {
     private int actionPoints;
     private boolean canArchersAtack;
     private boolean canBoilingWater;
-    private boolean canCloseCombat ;
+    private boolean canCloseCombat;
     private boolean canCoupure;
     private boolean canSupplyRaid;
     private boolean canSabotage;
@@ -29,10 +29,7 @@ public class Player implements Serializable {
     private int mRallyTroops;
     private int mCoupure;
     private int mRaidSupplies;
-    
-    
-            
-            
+
     public GameData gameData;
 
     private List<Card> cards = new ArrayList<Card>();
@@ -76,8 +73,6 @@ public class Player implements Serializable {
         this.mRallyTroops = mRallyTroops;
     }
 
-
-
     public int getmCoupure() {
         return mCoupure;
     }
@@ -102,7 +97,6 @@ public class Player implements Serializable {
         this.gameData = gameData;
     }
 
-    
     public boolean isCanArchersAtack() {
         return canArchersAtack;
     }
@@ -192,7 +186,6 @@ public class Player implements Serializable {
     private void shuffleCards() {
         Collections.shuffle(cards);
     }
-    
 
     /**
      * @return the name
@@ -274,6 +267,22 @@ public class Player implements Serializable {
      */
     public void setSupplies(int supplies) {
         this.supplies = supplies;
+    }
+
+    public void resetModifiers() {
+        setmSabotage(0);
+        setmRallyTroops(0);
+        setmCoupure(0);
+        setmRaidSupplies(0);
+        setCanArchersAtack(true);
+        setCanBoilingWater(true);
+        setCanCloseCombat(true);
+        setCanCoupure(true);
+        setCanSupplyRaid(true);
+        setCanSabotage(true);
+        setCanExtraAP(true);
+        setCanRallyTroops(true);
+        setCanTunnelMovement(true);
     }
 
 }
