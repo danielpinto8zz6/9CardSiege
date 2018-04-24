@@ -1,6 +1,7 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
 
@@ -67,7 +68,14 @@ public class GameData implements Constants, Serializable {
         return statusCard;
     }
 
-    public void applyCardEvent(Card card) {
+    public Enemy getEnemy(String name) {
+        return getBattleCard().getEnemy(name);
+    }
+
+    public List<Enemy> getEnemies() {
+        return getBattleCard().getEnemies();
+
+        public void applyCardEvent(Card card) {
         switch (day) {
         case 1:
             card.Day1Event();

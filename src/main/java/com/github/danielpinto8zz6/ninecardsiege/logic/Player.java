@@ -16,8 +16,23 @@ public class Player implements Serializable {
     private int wallStrength;
     private int supplies;
     private int actionPoints;
-    private int sabotage;
-
+    private boolean canArchersAtack;
+    private boolean canBoilingWater;
+    private boolean canCloseCombat ;
+    private boolean canCoupure;
+    private boolean canSupplyRaid;
+    private boolean canSabotage;
+    private boolean canExtraAP;
+    private boolean canRallyTroops;
+    private boolean canTunnelMovement;
+    private int mSabotage;
+    private int mMorale;
+    private int mCoupure;
+    private int mRaidSupplies;
+    
+    
+            
+            
     public GameData gameData;
 
     private List<Card> cards = new ArrayList<Card>();
@@ -28,9 +43,134 @@ public class Player implements Serializable {
         this.wallStrength = 4;
         this.supplies = 4;
         this.actionPoints = 0;
-        this.sabotage = 0;
+        this.canArchersAtack = true;
+        this.canBoilingWater = true;
+        this.canCloseCombat = true;
+        this.canCoupure = true;
+        this.canExtraAP = true;
+        this.canSupplyRaid = true;
+        this.canSabotage = true;
+        this.canRallyTroops = true;
+        this.canTunnelMovement = true;
+        this.mCoupure = 0;
+        this.mMorale = 0;
+        this.mRaidSupplies = 0;
+        this.mSabotage = 0;
 
         getNewCards();
+    }
+
+    public int getmSabotage() {
+        return mSabotage;
+    }
+
+    public void setmSabotage(int mSabotage) {
+        this.mSabotage = mSabotage;
+    }
+
+    public int getmMorale() {
+        return mMorale;
+    }
+
+    public void setmMorale(int mMorale) {
+        this.mMorale = mMorale;
+    }
+
+    public int getmCoupure() {
+        return mCoupure;
+    }
+
+    public void setmCoupure(int mCoupure) {
+        this.mCoupure = mCoupure;
+    }
+
+    public int getmRaidSupplies() {
+        return mRaidSupplies;
+    }
+
+    public void setmRaidSupplies(int mRaidSupplies) {
+        this.mRaidSupplies = mRaidSupplies;
+    }
+
+    public GameData getGameData() {
+        return gameData;
+    }
+
+    public void setGameData(GameData gameData) {
+        this.gameData = gameData;
+    }
+
+    
+    public boolean isCanArchersAtack() {
+        return canArchersAtack;
+    }
+
+    public void setCanArchersAtack(boolean canArchersAtack) {
+        this.canArchersAtack = canArchersAtack;
+    }
+
+    public boolean isCanBoilingWater() {
+        return canBoilingWater;
+    }
+
+    public void setCanBoilingWater(boolean canBoilingWater) {
+        this.canBoilingWater = canBoilingWater;
+    }
+
+    public boolean isCanCloseCombat() {
+        return canCloseCombat;
+    }
+
+    public void setCanCloseCombat(boolean canCloseCombat) {
+        this.canCloseCombat = canCloseCombat;
+    }
+
+    public boolean isCanCoupure() {
+        return canCoupure;
+    }
+
+    public void setCanCoupure(boolean canCoupure) {
+        this.canCoupure = canCoupure;
+    }
+
+    public boolean isCanSupplyRaid() {
+        return canSupplyRaid;
+    }
+
+    public void setCanSupplyRaid(boolean canSupplyRaid) {
+        this.canSupplyRaid = canSupplyRaid;
+    }
+
+    public boolean isCanSabotage() {
+        return canSabotage;
+    }
+
+    public void setCanSabotage(boolean canSabotage) {
+        this.canSabotage = canSabotage;
+    }
+
+    public boolean isCanExtraAP() {
+        return canExtraAP;
+    }
+
+    public void setCanExtraAP(boolean canExtraAP) {
+        this.canExtraAP = canExtraAP;
+    }
+
+    public boolean isCanRallyTroops() {
+        return canRallyTroops;
+    }
+
+    public void setCanRallyTroops(boolean canRallyTroops) {
+        this.canRallyTroops = canRallyTroops;
+    }
+
+    public boolean isCanTunnelMovement() {
+        return canTunnelMovement;
+    }
+
+    public void setCanTunnelMovement(boolean canTunnelMovement) {
+        this.canTunnelMovement = canTunnelMovement;
     }
 
     private void getNewCards() {
@@ -50,6 +190,7 @@ public class Player implements Serializable {
     private void shuffleCards() {
         Collections.shuffle(cards);
     }
+    
 
     /**
      * @return the name
@@ -133,17 +274,4 @@ public class Player implements Serializable {
         this.supplies = supplies;
     }
 
-	/**
-	 * @return the sabotage
-	 */
-	public int getSabotage() {
-		return sabotage;
-	}
-
-	/**
-	 * @param sabotage the sabotage to set
-	 */
-	public void setSabotage(int sabotage) {
-		this.sabotage = sabotage;
-	}
 }

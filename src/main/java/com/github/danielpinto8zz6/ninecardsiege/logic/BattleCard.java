@@ -17,18 +17,11 @@ public class BattleCard implements Serializable {
         this.gameData = gameData;
         this.enemies.add(new Enemy("Ladders", 2));
         this.enemies.add(new Enemy("BattleRam", 3));
-        this.enemies.add(new Enemy("BattleSiege", 4));
+        this.enemies.add(new Enemy("SiegeTower", 4));
 
         this.trebuchet = 3;
     }
 
- /*   public void addEnemies() {
-        this.enemies.add(new Enemy("Ladders", 2));
-        this.enemies.add(new Enemy("BattleRam", 3));
-        this.enemies.add(new Enemy("BattleSiege", 4));
-
-        this.trebuchet = 3;
-    }*/
 
     /**
      * @return the gameData
@@ -63,5 +56,14 @@ public class BattleCard implements Serializable {
      */
     public void setTrebuchet(int trebuchet) {
         this.trebuchet = trebuchet;
+    }
+    
+    public Enemy getEnemy(String name){
+        for (Enemy enemy: enemies){
+            if (enemy.getName() == name){
+                return enemy;
+            }
+        }
+        return null;
     }
 }
