@@ -26,7 +26,7 @@ public class Player implements Serializable {
     private boolean canRallyTroops;
     private boolean canTunnelMovement;
     private int mSabotage;
-    private int mMorale;
+    private int mRallyTroops;
     private int mCoupure;
     private int mRaidSupplies;
     
@@ -53,7 +53,7 @@ public class Player implements Serializable {
         this.canRallyTroops = true;
         this.canTunnelMovement = true;
         this.mCoupure = 0;
-        this.mMorale = 0;
+        this.mRallyTroops = 0;
         this.mRaidSupplies = 0;
         this.mSabotage = 0;
 
@@ -68,13 +68,15 @@ public class Player implements Serializable {
         this.mSabotage = mSabotage;
     }
 
-    public int getmMorale() {
-        return mMorale;
+    public int getmRallyTroops() {
+        return mRallyTroops;
     }
 
-    public void setmMorale(int mMorale) {
-        this.mMorale = mMorale;
+    public void setmRallyTroops(int mRallyTroops) {
+        this.mRallyTroops = mRallyTroops;
     }
+
+
 
     public int getmCoupure() {
         return mCoupure;
