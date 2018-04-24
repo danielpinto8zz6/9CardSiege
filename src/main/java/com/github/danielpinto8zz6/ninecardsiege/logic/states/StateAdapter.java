@@ -1,8 +1,9 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
+import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
-public class StateAdapter implements IStates, com.github.danielpinto8zz6.ninecardsiege.logic.Constants {
+public class StateAdapter implements IStates, Constants {
 
     private GameData game;
 
@@ -18,8 +19,7 @@ public class StateAdapter implements IStates, com.github.danielpinto8zz6.ninecar
         this.game = game;
     }
 
-    @Override
-    public IStates startGame() {
+    public IStates start() {
         return this;
     }
 
@@ -28,34 +28,6 @@ public class StateAdapter implements IStates, com.github.danielpinto8zz6.ninecar
     }
 
     public IStates pickAnEventCard() {
-        return this;
-    }
-
-    public IStates doEvent() {
-        return this;
-    }
-
-    public IStates moveEnemies() {
-        return this;
-    }
-
-        @Override
-    public IStates checkInstaLoss() {
-        return this;
-    }
-    public IStates checkPlayerAtion() {
-        return this;
-    }
-
-    public IStates playerAtion() {
-        return this;
-    }
-
-    public IStates endOfTheDay() {
-        return this;
-    }
-
-    public IStates endChek() {
         return this;
     }
 }

@@ -3,6 +3,8 @@ package com.github.danielpinto8zz6.ninecardsiege.logic;
 import java.io.Serializable;
 import java.util.List;
 
+import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
+
 public class GameData implements Constants, Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -72,5 +74,18 @@ public class GameData implements Constants, Serializable {
 
     public List<Enemy> getEnemies() {
         return getBattleCard().getEnemies();
+
+        public void applyCardEvent(Card card) {
+        switch (day) {
+        case 1:
+            card.Day1Event();
+            break;
+        case 2:
+            card.Day2Event();
+            break;
+        case 3:
+            card.Day3Event();
+            break;
+        }
     }
 }
