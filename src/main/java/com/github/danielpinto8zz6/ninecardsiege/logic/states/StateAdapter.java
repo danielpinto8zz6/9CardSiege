@@ -19,7 +19,7 @@ public class StateAdapter implements IStates, Constants {
         this.game = game;
     }
 
-    public IStates startGame() {
+    public IStates start() {
         return this;
     }
 
@@ -28,34 +28,6 @@ public class StateAdapter implements IStates, Constants {
     }
 
     public IStates pickAnEventCard() {
-        return this;
-    }
-
-    public IStates doEvent() {
-        return this;
-    }
-
-    public IStates moveEnemies() {
-        return this;
-    }
-
-    public IStates checkInstaLoss() {
-        return this;
-    }
-
-    public IStates checkPlayerAtion() {
-        return this;
-    }
-
-    public IStates playerAtion() {
-        return this;
-    }
-
-    public IStates endOfTheDay() {
-        return this;
-    }
-
-    public IStates endChek() {
         return this;
     }
 }
