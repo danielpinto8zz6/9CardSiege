@@ -4,6 +4,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
 public class VolleyOfArrows {
+
     public static void apply(GameData gameData) {
         for (Enemy enemy : gameData.getEnemies()) {
             if (enemy != null) {

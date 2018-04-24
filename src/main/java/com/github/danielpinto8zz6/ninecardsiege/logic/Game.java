@@ -31,17 +31,17 @@ public class Game implements Serializable {
         this.state = state;
     }
 
-	/**
-	 * @return the gameData
-	 */
-	public GameData getGameData() {
-		return gameData;
-	}
+    /**
+     * @return the gameData
+     */
+    public GameData getGameData() {
+        return gameData;
+    }
 
-	/**
-	 * @param gameData the gameData to set
-	 */
-	public void setGameData(GameData gameData) {
-		this.gameData = gameData;
-	}
+    /**
+     * @param gameData the gameData to set
+     */
+    public void setGameData(GameData gameData) {
+        this.gameData = gameData;
+    }
 }

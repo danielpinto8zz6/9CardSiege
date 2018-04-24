@@ -6,6 +6,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.events.EnemyFatigue;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.Rally;
 
 public class Card6 extends Card {
+
     private static final long serialVersionUID = 1L;
 
     public Card6(GameData gameData) {

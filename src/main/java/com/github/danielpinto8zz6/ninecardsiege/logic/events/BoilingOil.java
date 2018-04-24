@@ -7,6 +7,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
 public class BoilingOil {
+
     public static void apply(GameData gameData) {
         for (Enemy enemy : getEnemiesOnCircleSpaces(gameData)) {
             enemy.setStrength(enemy.getStrength() + 2);

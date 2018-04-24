@@ -1,4 +1,3 @@
-
 package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
 import java.util.List;
@@ -7,6 +6,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
 
 public class AwaitCardPlay extends StateAdapter {
+
     public AwaitCardPlay(GameData g) {
         super(g);
     }

@@ -7,6 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class GameSave {
+
     public static void saveGameToFile(Game game, String fileName) throws IOException {
         ObjectOutputStream oout = null;
 
@@ -20,8 +21,9 @@ public class GameSave {
         } finally {
 
             //If the object output stream was successfuly created, close it.
-            if (oout != null)
+            if (oout != null) {
                 oout.close();
+            }
         }
     }
 
@@ -37,8 +39,9 @@ public class GameSave {
 
         } finally {
             //If the object input stream was successfuly created, close it.
-            if (oin != null)
+            if (oin != null) {
                 oin.close();
+            }
         }
     }
 }

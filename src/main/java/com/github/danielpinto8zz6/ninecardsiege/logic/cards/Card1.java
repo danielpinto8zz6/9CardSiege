@@ -4,6 +4,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.TrebuchetAttack;
 
 public class Card1 extends Card {
+
     private static final long serialVersionUID = 1L;
 
     public Card1(GameData gameData) {

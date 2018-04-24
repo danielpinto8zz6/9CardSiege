@@ -6,6 +6,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.events.FlamingArrows;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.GateFortified;
 
 public class Card4 extends Card {
+
     private static final long serialVersionUID = 1L;
 
     public Card4(GameData gameData) {

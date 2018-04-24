@@ -78,15 +78,15 @@ public class GameData implements Constants, Serializable {
 
     public void applyCardEvent(Card card) {
         switch (day) {
-        case 1:
-            card.Day1Event();
-            break;
-        case 2:
-            card.Day2Event();
-            break;
-        case 3:
-            card.Day3Event();
-            break;
+            case 1:
+                card.Day1Event();
+                break;
+            case 2:
+                card.Day2Event();
+                break;
+            case 3:
+                card.Day3Event();
+                break;
         }
     }
 }

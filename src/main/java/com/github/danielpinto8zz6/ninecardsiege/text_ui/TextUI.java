@@ -11,7 +11,7 @@ public class TextUI {
     }
 
     public void run() {
-        System.out.println("Nothing here yet");      
+        System.out.println("Nothing here yet");
     }
 
     /**
