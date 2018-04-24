@@ -22,7 +22,7 @@ public class AwaitCardPlay extends StateAdapter {
         cards.remove(0);
         card = null;
 
-        return new AwaitPlayerAction(getGame());
+        return new AwaitActionSelection(getGame());
     }
 
     @Override
