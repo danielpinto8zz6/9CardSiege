@@ -1,17 +1,65 @@
 package com.github.danielpinto8zz6.ninecardsiege.text_ui;
 
+import java.util.Scanner;
+
 import com.github.danielpinto8zz6.ninecardsiege.logic.Game;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.*;
 
 public class TextUI {
 
     private Game game;
 
+    private Scanner s;
+
     public TextUI(Game game) {
         this.game = game;
+        s = new Scanner(System.in);
+    }
+
+    private void showGame() {
+        System.out.println(game);
+    }
+
+    private void getUserInputWhileAwaitingBeginning() {
+        int value;
+
+        System.out.println("1 - Begin");
+        System.out.print("> ");
+
+        while (!s.hasNextInt())
+            s.next();
+
+        value = s.nextInt();
+
+        if (value == 1)
+            game.start();
     }
 
     public void run() {
-        System.out.println("Nothing here yet");
+        while (!(game.getState() instanceof GameOver)) {
+
+            if (game.getMsgLog().size() > 0) {
+
+                System.out.println();
+
+                for (String msg : game.getMsgLog()) {
+                    System.out.println("---> " + msg);
+                }
+
+                game.clearMsgLog();
+
+            }
+
+            if (game.getState() instanceof AwaitBeginning) {
+                getUserInputWhileAwaitingBeginning();
+            }
+
+        }
+
+        System.out.println();
+        System.out.println("************** Game over *****************");
+        showGame();
+
     }
 
     /**

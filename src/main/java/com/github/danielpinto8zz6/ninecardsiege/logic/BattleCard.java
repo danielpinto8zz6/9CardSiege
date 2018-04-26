@@ -1,6 +1,7 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BattleCard implements Serializable {
@@ -15,9 +16,12 @@ public class BattleCard implements Serializable {
 
     public BattleCard(GameData gameData) {
         this.gameData = gameData;
-        this.enemies.add(new Enemy("Ladders", 2));
-        this.enemies.add(new Enemy("BattleRam", 3));
-        this.enemies.add(new Enemy("SiegeTower", 4));
+
+        enemies = new ArrayList<Enemy>();
+
+        enemies.add(new Enemy("Ladders", 2));
+        enemies.add(new Enemy("BattleRam", 3));
+        enemies.add(new Enemy("SiegeTower", 4));
 
         this.trebuchet = 3;
     }

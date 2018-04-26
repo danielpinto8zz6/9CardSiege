@@ -1,6 +1,7 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates;
@@ -43,5 +44,23 @@ public class Game implements Serializable {
      */
     public void setGameData(GameData gameData) {
         this.gameData = gameData;
+    }
+
+    public List<String> getMsgLog() {
+        return gameData.getMsgLog();
+    }
+
+    public void clearMsgLog() {
+        gameData.clearMsgLog();
+    }
+
+    //--------------------- Methods that trigger events/actions in the finite state machine  -----------------------
+
+    public void start() {
+        setState(getState().start());
+    }
+
+    public void finish() {
+        setState(getState().quit());
     }
 }
