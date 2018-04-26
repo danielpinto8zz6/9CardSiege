@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
-
 public class GameData implements Constants, Serializable {
 
     private static final long serialVersionUID = 1L;

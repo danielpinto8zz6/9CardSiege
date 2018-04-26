@@ -36,13 +36,12 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
          */
         card.moveEnemies();
 
-
         /**
          * Perform close combat action if 2 enemies in close combat area
          */
         //TODO
 
-        return null;
+        return new AwaitActionSelection(getGame());
     }
 
     @Override
