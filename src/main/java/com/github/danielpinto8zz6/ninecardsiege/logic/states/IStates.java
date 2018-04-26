@@ -9,5 +9,7 @@ public interface IStates {
 
     IStates pickAnEventCard();
 
+    IStates advanceEnemies();
+
     IStates quit();
 }

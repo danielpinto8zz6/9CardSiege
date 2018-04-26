@@ -33,4 +33,9 @@ public class Card1 extends Card {
     public String toString() {
         return "Card1";
     }
+
+	@Override
+	public void moveEnemies() {
+		
+	}
 }

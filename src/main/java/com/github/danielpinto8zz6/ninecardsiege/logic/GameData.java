@@ -29,15 +29,6 @@ public class GameData implements Constants, Serializable {
         msgLog = new ArrayList<String>();
     }
 
-    public void initialize() {
-        this.player = new Player(this, "Player");
-        this.day = 1;
-
-        battleCard = new BattleCard(this);
-        statusCard = new StatusCard(this);
-
-    }
-
     /**
      * @return the players
      */
@@ -79,20 +70,6 @@ public class GameData implements Constants, Serializable {
 
     public List<Enemy> getEnemies() {
         return getBattleCard().getEnemies();
-    }
-
-    public void applyCardEvent(Card card) {
-        switch (day) {
-        case 1:
-            card.Day1Event();
-            break;
-        case 2:
-            card.Day2Event();
-            break;
-        case 3:
-            card.Day3Event();
-            break;
-        }
     }
 
     public void clearMsgLog() {

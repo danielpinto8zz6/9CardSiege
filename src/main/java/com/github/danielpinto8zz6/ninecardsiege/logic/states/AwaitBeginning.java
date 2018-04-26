@@ -10,8 +10,7 @@ public class AwaitBeginning extends StateAdapter {
 
     @Override
     public IStates start() {
-        getGame().initialize();
-        return new AwaitCardPlay(getGame());
+        return new AwaitTopCardToBeDrawn(getGame());
     }
 
     @Override
