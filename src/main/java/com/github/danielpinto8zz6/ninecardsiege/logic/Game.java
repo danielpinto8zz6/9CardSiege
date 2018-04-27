@@ -55,7 +55,6 @@ public class Game implements Serializable {
     }
 
     //--------------------- Methods that trigger events/actions in the finite state machine  -----------------------
-
     public void start() {
         setState(getState().start());
     }

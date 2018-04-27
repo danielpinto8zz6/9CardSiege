@@ -26,13 +26,15 @@ public class TextUI {
         System.out.println("1 - Begin");
         System.out.print("> ");
 
-        while (!s.hasNextInt())
+        while (!s.hasNextInt()) {
             s.next();
+        }
 
         value = s.nextInt();
 
-        if (value == 1)
+        if (value == 1) {
             game.start();
+        }
     }
 
     public void run() {

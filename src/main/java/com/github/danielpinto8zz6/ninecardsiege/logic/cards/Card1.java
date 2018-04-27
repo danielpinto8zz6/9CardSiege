@@ -1,5 +1,6 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.cards;
 
+import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.TrebuchetAttack;
 
@@ -30,12 +31,23 @@ public class Card1 extends Card {
     }
 
     @Override
+    public void moveEnemyDay1(GameData gameData) {
+        // no enemy movement
+    }
+
+    @Override
+    public void moveEnemyDay2(GameData gameData) {
+        // no enemy movement
+    }
+
+    @Override
+    public void moveEnemyDay3(GameData gameData) {
+        // no enemy movement
+    }
+
+    @Override
     public String toString() {
         return "Card1";
     }
 
-	@Override
-	public void moveEnemies() {
-		
-	}
 }

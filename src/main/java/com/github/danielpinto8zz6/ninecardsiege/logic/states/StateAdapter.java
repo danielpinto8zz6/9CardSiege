@@ -28,6 +28,6 @@ public class StateAdapter implements IStates, Constants {
     }
 
     public IStates DrawTopCard() {
-		return this;
-	}
+        return this;
+    }
 }

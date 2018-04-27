@@ -54,5 +54,9 @@ public abstract class Card implements Serializable {
 
     public abstract void Day3Event();
 
-    public abstract void moveEnemies();
+    public abstract void moveEnemyDay1(GameData gameData);
+
+    public abstract void moveEnemyDay2(GameData gameData);
+
+    public abstract void moveEnemyDay3(GameData gameData);
 }

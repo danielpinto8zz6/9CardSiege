@@ -11,9 +11,8 @@ public interface IStates {
     IStates start();
 
     /**
-     * Resolve event text
-     * Advance enemies
-     * Perform close combat action if 2 enemies in close combat area
+     * Resolve event text Advance enemies Perform close combat action if 2
+     * enemies in close combat area
      */
     IStates DrawTopCard();
 
