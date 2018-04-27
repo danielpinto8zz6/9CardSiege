@@ -12,7 +12,7 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
     }
 
     @Override
-    public IStates pickAnEventCard() {
+    public IStates DrawTopCard() {
         List<Card> cards = getGame().getPlayer().getCards();
         Card card = cards.get(0);
 

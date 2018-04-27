@@ -27,11 +27,7 @@ public class StateAdapter implements IStates, Constants {
         return this;
     }
 
-    public IStates pickAnEventCard() {
-        return this;
-    }
-
-	public IStates advanceEnemies() {
+    public IStates DrawTopCard() {
 		return this;
 	}
 }
