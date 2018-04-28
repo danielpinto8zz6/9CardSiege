@@ -53,7 +53,6 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
         if (getGame().getPlayer().getActionPoints() == 0) {
             return new GameOver(getGame());
         } else {
-            System.out.println("morri aqui 1");
             return new AwaitActionSelection(getGame());
         }
     }

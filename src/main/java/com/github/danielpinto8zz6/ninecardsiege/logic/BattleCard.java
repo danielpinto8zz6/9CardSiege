@@ -73,30 +73,24 @@ public class BattleCard implements Serializable {
     public void checkCloseCombat() {
         int aux, flag = 0;
         Game game = new Game();
-        System.out.println("morri aqui 1");
         while (flag == 0) {
             aux = 0;
-            System.out.println("morri aqui 2");
             if (gameData.getPlayer().getActionPoints() == 0) {
                 game.Finish();
             }
-            System.out.println("morri aqui 3");
             for (Enemy enemy : gameData.getBattleCard().getEnemies()) {
 
                 if (enemy.getPosition() == 0) {
                     aux++;
                 }
             }
-            System.out.println("morri aqui 4");
             if (aux == 3) {
                 game.Finish();
             } else {
-                System.out.println("morri aqui 5");
                 if (aux == 2) {
 
                     flag = 1;
                     aux = Dice.roll();
-                    System.out.println("morri aqui 6");
                     if (aux == 1) {
                         gameData.getPlayer().setMoral(gameData.getPlayer().getMoral() - 1);
                         gameData.getPlayer().setActionPoints(gameData.getPlayer().getActionPoints() - 1);
@@ -120,7 +114,5 @@ public class BattleCard implements Serializable {
 
             }
         }
-        System.out.println("morri aqui 2");
     }
-
 }
