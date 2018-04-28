@@ -39,17 +39,17 @@ public class Card6 extends Card {
     }
 
     @Override
-    public void moveEnemyDay1(GameData gameData) {
+    public void moveEnemyDay1() {
         int aux = 0;
 
-        for (Enemy enemy : gameData.getBattleCard().getEnemies()) {
+        for (Enemy enemy : getGame().getBattleCard().getEnemies()) {
 
             if (enemy.getPosition() > aux) {
                 aux = enemy.getPosition();
             }
         }
 
-        for (Enemy enemy : gameData.getBattleCard().getEnemies()) {
+        for (Enemy enemy : getGame().getBattleCard().getEnemies()) {
             if (enemy.getPosition() == aux) {
                 enemy.move(Constants.MOVE.UP);
             }
@@ -57,17 +57,17 @@ public class Card6 extends Card {
     }
 
     @Override
-    public void moveEnemyDay2(GameData gameData) {
-        Enemy enemyL = gameData.getEnemy("Ladders");
+    public void moveEnemyDay2() {
+        Enemy enemyL = getGame().getEnemy("Ladders");
         enemyL.move(Constants.MOVE.UP);
     }
 
     @Override
-    public void moveEnemyDay3(GameData gameData) {
-        Enemy enemyR = gameData.getEnemy("BattleRam");
+    public void moveEnemyDay3() {
+        Enemy enemyR = getGame().getEnemy("BattleRam");
         enemyR.move(Constants.MOVE.UP);
 
-        Enemy enemyS = gameData.getEnemy("SiegeTower");
+        Enemy enemyS = getGame().getEnemy("SiegeTower");
         enemyS.move(Constants.MOVE.UP);
     }
 }

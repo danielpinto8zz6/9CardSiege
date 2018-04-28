@@ -30,7 +30,8 @@
         {
             "label": "exec",
             "type": "shell",
-            "command": "mvn -B exec:java -Dexec.mainClass=com.github.danielpinto8zz6.ninecardsiege.App"
+            "command": "mvn -B exec:java -Dexec.mainClass=com.github.danielpinto8zz6.ninecardsiege.App",
+            "problemMatcher": []
         }
     ]
 }

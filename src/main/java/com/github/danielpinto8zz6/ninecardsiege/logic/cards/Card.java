@@ -41,7 +41,7 @@ public abstract class Card implements Serializable {
     }
 
     public Player getPlayer() {
-        return gameData.getPlayer();
+        return getGame().getPlayer();
     }
 
     public GameData getGame() {
@@ -54,9 +54,9 @@ public abstract class Card implements Serializable {
 
     public abstract void Day3Event();
 
-    public abstract void moveEnemyDay1(GameData gameData);
+    public abstract void moveEnemyDay1();
 
-    public abstract void moveEnemyDay2(GameData gameData);
+    public abstract void moveEnemyDay2();
 
-    public abstract void moveEnemyDay3(GameData gameData);
+    public abstract void moveEnemyDay3();
 }

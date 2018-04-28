@@ -30,17 +30,17 @@ public class Card1 extends Card {
     }
 
     @Override
-    public void moveEnemyDay1(GameData gameData) {
+    public void moveEnemyDay1() {
         // no enemy movement
     }
 
     @Override
-    public void moveEnemyDay2(GameData gameData) {
+    public void moveEnemyDay2() {
         // no enemy movement
     }
 
     @Override
-    public void moveEnemyDay3(GameData gameData) {
+    public void moveEnemyDay3() {
         // no enemy movement
     }
 

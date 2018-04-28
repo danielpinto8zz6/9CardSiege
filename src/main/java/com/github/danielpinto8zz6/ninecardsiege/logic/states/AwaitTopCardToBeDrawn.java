@@ -26,15 +26,15 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
         switch (getGame().getDay()) {
         case 1:
             card.Day1Event();
-            card.moveEnemyDay1(getGame());
+            card.moveEnemyDay1();
             break;
         case 2:
             card.Day2Event();
-            card.moveEnemyDay2(getGame());
+            card.moveEnemyDay2();
             break;
         case 3:
             card.Day3Event();
-            card.moveEnemyDay3(getGame());
+            card.moveEnemyDay3();
             break;
         }
 

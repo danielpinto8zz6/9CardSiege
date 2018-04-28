@@ -39,23 +39,23 @@ public class Card5 extends Card {
     }
 
     @Override
-    public void moveEnemyDay1(GameData gameData) {
-        Enemy enemyR = gameData.getEnemy("BattleRam");
+    public void moveEnemyDay1() {
+        Enemy enemyR = getGame().getEnemy("BattleRam");
         enemyR.move(Constants.MOVE.UP);
     }
 
     @Override
-    public void moveEnemyDay2(GameData gameData) {
-        Enemy enemyL = gameData.getEnemy("Ladders");
+    public void moveEnemyDay2() {
+        Enemy enemyL = getGame().getEnemy("Ladders");
         enemyL.move(Constants.MOVE.UP);
 
-        Enemy enemyR = gameData.getEnemy("BattleRam");
+        Enemy enemyR = getGame().getEnemy("BattleRam");
         enemyR.move(Constants.MOVE.UP);
     }
 
     @Override
-    public void moveEnemyDay3(GameData gameData) {
-        Enemy enemyL = gameData.getEnemy("Ladders");
+    public void moveEnemyDay3() {
+        Enemy enemyL = getGame().getEnemy("Ladders");
         enemyL.move(Constants.MOVE.UP);
     }
 }
