@@ -29,11 +29,30 @@ public class TextUI {
 
     private void getUserInputWhileAwaitingBeginning() {
         int value;
+        String name = null;
 
-        System.out.println("1 - Begin");
+        System.out.println("\n\n---------------------------------");
+        System.out.println("Type your Player name");
+        System.out.print("\n> ");
+
+        while (!s.hasNext()) {
+            s.next();
+        }
+
+        name = s.next();
+
+        if (name != null) {
+            getGame().getGameData().getPlayer().setName(name);
+        }
+
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();
+
+        System.out.println("\n\n---------------------------------");
+        System.out.println("\n\n1 - Begin");
         System.out.println("2 - Restore Saved Game");
         System.out.println("0 - Exit");
-        System.out.print("> ");
+        System.out.print("\n> ");
 
         while (!s.hasNextInt()) {
             s.next();
@@ -66,7 +85,7 @@ public class TextUI {
         System.out.println("1 - Save Game");
         System.out.println("2 - Restore Game");
         System.out.println("0 - Finish Game");
-        System.out.print("> ");
+        System.out.print("\n> ");
 
         while (!s.hasNextInt()) {
             s.next();
@@ -98,7 +117,7 @@ public class TextUI {
         System.out.println();
         System.out.println("1 - Draw top card");
         System.out.println("0 - Finish Game");
-        System.out.print("> ");
+        System.out.print("\n> ");
 
         while (!s.hasNextInt()) {
             s.next();
