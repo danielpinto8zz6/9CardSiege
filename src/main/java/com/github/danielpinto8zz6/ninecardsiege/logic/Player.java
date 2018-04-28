@@ -180,7 +180,7 @@ public class Player implements Serializable {
         cards.add(new Card7(gameData));
 
         // Cards should be at random positions
-        shuffleCards();
+        // shuffleCards();
     }
 
     private void shuffleCards() {

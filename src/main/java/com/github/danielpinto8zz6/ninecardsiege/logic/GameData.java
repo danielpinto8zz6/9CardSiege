@@ -31,7 +31,7 @@ public class GameData implements Constants, Serializable {
      * @return the players
      */
     public Player getPlayer() {
-        return player;
+        return this.player;
     }
 
     /**
