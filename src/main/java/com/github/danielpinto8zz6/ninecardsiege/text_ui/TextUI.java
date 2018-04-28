@@ -45,7 +45,7 @@ public class TextUI {
             getGame().getGameData().getPlayer().setName(name);
         }
 
-        System.out.print("\033[H\033[2J");  
+        System.out.print("\033[H\033[2J");
         System.out.flush();
 
         System.out.println("\n\n---------------------------------");
@@ -61,18 +61,18 @@ public class TextUI {
         value = s.nextInt();
 
         switch (value) {
-        case 1:
-            game.Start();
-            break;
-        case 2:
-            restoreGame();
-            break;
-        case 0:
-            game.Finish();
-            break;
-        default:
-            System.out.println("Invalid option");
-            break;
+            case 1:
+                game.Start();
+                break;
+            case 2:
+                restoreGame();
+                break;
+            case 0:
+                game.Finish();
+                break;
+            default:
+                System.out.println("Invalid option");
+                break;
         }
     }
 
@@ -94,18 +94,18 @@ public class TextUI {
         value = s.nextInt();
 
         switch (value) {
-        case 1:
-            saveGame();
-            break;
-        case 2:
-            restoreGame();
-            break;
-        case 0:
-            game.Finish();
-            break;
-        default:
-            System.out.println("Invalid option");
-            break;
+            case 1:
+                saveGame();
+                break;
+            case 2:
+                restoreGame();
+                break;
+            case 0:
+                game.Finish();
+                break;
+            default:
+                System.out.println("Invalid option");
+                break;
         }
     }
 
@@ -126,15 +126,15 @@ public class TextUI {
         value = s.nextInt();
 
         switch (value) {
-        case 1:
-            game.DrawTopCard();
-            break;
-        case 0:
-            game.Finish();
-            break;
-        default:
-            System.out.println("Invalid option");
-            break;
+            case 1:
+                game.DrawTopCard();
+                break;
+            case 0:
+                game.Finish();
+                break;
+            default:
+                System.out.println("Invalid option");
+                break;
         }
     }
 
@@ -184,11 +184,13 @@ public class TextUI {
             e.printStackTrace();
         }
 
-        if (fileName == null)
+        if (fileName == null) {
             return;
+        }
 
-        if (fileName.length() < 1)
+        if (fileName.length() < 1) {
             return;
+        }
 
         try {
             GameSave.saveGameToFile(game, fileName);
@@ -209,11 +211,13 @@ public class TextUI {
             e.printStackTrace();
         }
 
-        if (fileName == null)
+        if (fileName == null) {
             return;
+        }
 
-        if (bin != null)
+        if (bin != null) {
             return;
+        }
 
         try {
             game = GameSave.retrieveGameFromFile(fileName);

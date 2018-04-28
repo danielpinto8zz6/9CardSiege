@@ -41,8 +41,8 @@ public abstract class Card implements Serializable {
     }
 
     /**
-    * @return the Player
-    */
+     * @return the Player
+     */
     public Player getPlayer() {
         return getGameData().getPlayer();
     }
