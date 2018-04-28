@@ -1,11 +1,14 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
+import java.io.Serializable;
+
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
-public class StateAdapter implements IStates, Constants {
+public class StateAdapter implements IStates, Constants, Serializable {
 
-    private GameData game;
+    private static final long serialVersionUID = 1L;
+	private GameData game;
 
     public StateAdapter(GameData g) {
         this.game = g;
