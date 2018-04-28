@@ -17,19 +17,19 @@ public class Card5 extends Card {
 
     @Override
     public void Day1Event() {
-        VolleyOfArrows.apply(getGame());
+        VolleyOfArrows.apply(getGameData());
         getPlayer().setActionPoints(3);
     }
 
     @Override
     public void Day2Event() {
-        Collapsed.apply(getGame());
+        Collapsed.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
     @Override
     public void Day3Event() {
-        RepairedTrebuchet.apply(getGame());
+        RepairedTrebuchet.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
@@ -40,22 +40,22 @@ public class Card5 extends Card {
 
     @Override
     public void moveEnemyDay1() {
-        Enemy enemyR = getGame().getEnemy("BattleRam");
+        Enemy enemyR = getGameData().getEnemy("BattleRam");
         enemyR.move(Constants.MOVE.UP);
     }
 
     @Override
     public void moveEnemyDay2() {
-        Enemy enemyL = getGame().getEnemy("Ladders");
+        Enemy enemyL = getGameData().getEnemy("Ladders");
         enemyL.move(Constants.MOVE.UP);
 
-        Enemy enemyR = getGame().getEnemy("BattleRam");
+        Enemy enemyR = getGameData().getEnemy("BattleRam");
         enemyR.move(Constants.MOVE.UP);
     }
 
     @Override
     public void moveEnemyDay3() {
-        Enemy enemyL = getGame().getEnemy("Ladders");
+        Enemy enemyL = getGameData().getEnemy("Ladders");
         enemyL.move(Constants.MOVE.UP);
     }
 }

@@ -17,19 +17,19 @@ public class Card6 extends Card {
 
     @Override
     public void Day1Event() {
-        CoverOfDarkness.apply(getGame());
+        CoverOfDarkness.apply(getGameData());
         getPlayer().setActionPoints(3);
     }
 
     @Override
     public void Day2Event() {
-        EnemyFatigue.apply(getGame());
+        EnemyFatigue.apply(getGameData());
         getPlayer().setActionPoints(3);
     }
 
     @Override
     public void Day3Event() {
-        Rally.apply(getGame());
+        Rally.apply(getGameData());
         getPlayer().setActionPoints(3);
     }
 
@@ -42,14 +42,14 @@ public class Card6 extends Card {
     public void moveEnemyDay1() {
         int aux = 0;
 
-        for (Enemy enemy : getGame().getBattleCard().getEnemies()) {
+        for (Enemy enemy : getGameData().getBattleCard().getEnemies()) {
 
             if (enemy.getPosition() > aux) {
                 aux = enemy.getPosition();
             }
         }
 
-        for (Enemy enemy : getGame().getBattleCard().getEnemies()) {
+        for (Enemy enemy : getGameData().getBattleCard().getEnemies()) {
             if (enemy.getPosition() == aux) {
                 enemy.move(Constants.MOVE.UP);
             }
@@ -58,16 +58,16 @@ public class Card6 extends Card {
 
     @Override
     public void moveEnemyDay2() {
-        Enemy enemyL = getGame().getEnemy("Ladders");
+        Enemy enemyL = getGameData().getEnemy("Ladders");
         enemyL.move(Constants.MOVE.UP);
     }
 
     @Override
     public void moveEnemyDay3() {
-        Enemy enemyR = getGame().getEnemy("BattleRam");
+        Enemy enemyR = getGameData().getEnemy("BattleRam");
         enemyR.move(Constants.MOVE.UP);
 
-        Enemy enemyS = getGame().getEnemy("SiegeTower");
+        Enemy enemyS = getGameData().getEnemy("SiegeTower");
         enemyS.move(Constants.MOVE.UP);
     }
 }

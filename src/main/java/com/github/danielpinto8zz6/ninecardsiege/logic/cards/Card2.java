@@ -17,19 +17,19 @@ public class Card2 extends Card {
 
     @Override
     public void Day1Event() {
-        Illness.apply(getGame());
+        Illness.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
     @Override
     public void Day2Event() {
-        GuardsDistracted.apply(getGame());
+        GuardsDistracted.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
     @Override
     public void Day3Event() {
-        TrebuchetAttack.apply(getGame());
+        TrebuchetAttack.apply(getGameData());
         getPlayer().setActionPoints(1);
     }
 
@@ -40,7 +40,7 @@ public class Card2 extends Card {
 
     @Override
     public void moveEnemyDay1() {
-        Enemy enemyS = getGame().getEnemy("SiegeTower");
+        Enemy enemyS = getGameData().getEnemy("SiegeTower");
         enemyS.move(Constants.MOVE.UP);
     }
 
@@ -48,14 +48,14 @@ public class Card2 extends Card {
     public void moveEnemyDay2() {
         int aux = 0;
 
-        for (Enemy enemy : getGame().getBattleCard().getEnemies()) {
+        for (Enemy enemy : getGameData().getBattleCard().getEnemies()) {
 
             if (enemy.getPosition() > aux) {
                 aux = enemy.getPosition();
             }
         }
 
-        for (Enemy enemy : getGame().getBattleCard().getEnemies()) {
+        for (Enemy enemy : getGameData().getBattleCard().getEnemies()) {
             if (enemy.getPosition() == aux) {
                 enemy.move(Constants.MOVE.UP);
             }

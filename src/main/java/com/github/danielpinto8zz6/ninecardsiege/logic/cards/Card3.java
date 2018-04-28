@@ -17,19 +17,19 @@ public class Card3 extends Card {
 
     @Override
     public void Day1Event() {
-        SuppliesSpoiled.apply(getGame());
+        SuppliesSpoiled.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
     @Override
     public void Day2Event() {
-        BadWeather.apply(getGame());
+        BadWeather.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
     @Override
     public void Day3Event() {
-        BoilingOil.apply(getGame());
+        BoilingOil.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
@@ -40,7 +40,7 @@ public class Card3 extends Card {
 
     @Override
     public void moveEnemyDay1() {
-        Enemy enemy = getGame().getEnemy("Ladders");
+        Enemy enemy = getGameData().getEnemy("Ladders");
         enemy.move(Constants.MOVE.UP);
     }
 
@@ -51,10 +51,10 @@ public class Card3 extends Card {
 
     @Override
     public void moveEnemyDay3() {
-        Enemy enemyL = getGame().getEnemy("Ladders");
+        Enemy enemyL = getGameData().getEnemy("Ladders");
         enemyL.move(Constants.MOVE.UP);
 
-        Enemy enemyR = getGame().getEnemy("BattleRam");
+        Enemy enemyR = getGameData().getEnemy("BattleRam");
         enemyR.move(Constants.MOVE.UP);
     }
 }

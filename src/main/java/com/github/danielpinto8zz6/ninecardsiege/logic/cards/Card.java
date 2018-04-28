@@ -40,12 +40,11 @@ public abstract class Card implements Serializable {
         this.gameData = gameData;
     }
 
+    /**
+    * @return the Player
+    */
     public Player getPlayer() {
-        return getGame().getPlayer();
-    }
-
-    public GameData getGame() {
-        return gameData;
+        return getGameData().getPlayer();
     }
 
     public abstract void Day1Event();
