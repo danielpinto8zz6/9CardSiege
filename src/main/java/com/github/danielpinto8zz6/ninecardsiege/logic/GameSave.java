@@ -27,7 +27,7 @@ public class GameSave {
         }
     }
 
-    public static Game retrieveGameFromFile(String fileName) throws ClassNotFoundException, IOException {
+    public static Object retrieveGameFromFile(String fileName) throws ClassNotFoundException, IOException {
         ObjectInputStream oin = null;
 
         try {
@@ -35,7 +35,7 @@ public class GameSave {
             oin = new ObjectInputStream(new FileInputStream(fileName));
 
             //Retrieve a serialized instance of ThreeInRowGame from the object input stream and return a reference to it.
-            return (Game) oin.readObject();
+            return oin.readObject();
 
         } finally {
             //If the object input stream was successfuly created, close it.

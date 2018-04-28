@@ -32,25 +32,9 @@ public class TextUI {
         String name = null;
 
         System.out.println("\n\n---------------------------------");
-        System.out.println("Type your Player name");
-        System.out.print("\n> ");
-
-        while (!s.hasNext()) {
-            s.next();
-        }
-
-        name = s.next();
-
-        if (name != null) {
-            getGame().getGameData().getPlayer().setName(name);
-        }
-
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-
-        System.out.println("\n\n---------------------------------");
         System.out.println("\n\n1 - Begin");
-        System.out.println("2 - Restore Saved Game");
+        System.out.println("2 - Set Player Name");
+        System.out.println("3 - Restore Saved Game");
         System.out.println("0 - Exit");
         System.out.print("\n> ");
 
@@ -61,18 +45,39 @@ public class TextUI {
         value = s.nextInt();
 
         switch (value) {
-            case 1:
-                game.Start();
-                break;
-            case 2:
-                restoreGame();
-                break;
-            case 0:
-                game.Finish();
-                break;
-            default:
-                System.out.println("Invalid option");
-                break;
+        case 1:
+            game.Start();
+            return;
+        case 2:
+            System.out.println("\n\n---------------------------------");
+            System.out.println("Type your Player name");
+            System.out.print("\n> ");
+
+            while (!s.hasNext()) {
+                s.next();
+            }
+
+            name = s.next();
+
+            if (name != null) {
+                getGame().getGameData().getPlayer().setName(name);
+            }
+            return;
+        case 3:
+            try {
+                handleRestoreGameFromFileOption();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return;
+        case 0:
+            game.Finish();
+            return;
+        default:
+            System.out.println("Invalid option");
+            return;
         }
     }
 
@@ -94,18 +99,28 @@ public class TextUI {
         value = s.nextInt();
 
         switch (value) {
-            case 1:
-                saveGame();
-                break;
-            case 2:
-                restoreGame();
-                break;
-            case 0:
-                game.Finish();
-                break;
-            default:
-                System.out.println("Invalid option");
-                break;
+        case 1:
+            try {
+                handleSaveGameToFileOption();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return;
+        case 2:
+            try {
+                handleRestoreGameFromFileOption();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return;
+        case 0:
+            game.Finish();
+            return;
+        default:
+            System.out.println("Invalid option");
+            return;
         }
     }
 
@@ -126,15 +141,15 @@ public class TextUI {
         value = s.nextInt();
 
         switch (value) {
-            case 1:
-                game.DrawTopCard();
-                break;
-            case 0:
-                game.Finish();
-                break;
-            default:
-                System.out.println("Invalid option");
-                break;
+        case 1:
+            game.DrawTopCard();
+            return;
+        case 0:
+            game.Finish();
+            return;
+        default:
+            System.out.println("Invalid option");
+            return;
         }
     }
 
@@ -173,43 +188,13 @@ public class TextUI {
         return game;
     }
 
-    public void saveGame() {
-        String fileName = null;
-
-        System.out.print("File name: ");
-
-        try {
-            fileName = new BufferedReader(new InputStreamReader(System.in)).readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        if (fileName == null) {
-            return;
-        }
-
-        if (fileName.length() < 1) {
-            return;
-        }
-
-        try {
-            GameSave.saveGameToFile(game, fileName);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void restoreGame() {
+    public void handleRestoreGameFromFileOption() throws ClassNotFoundException, IOException {
         String fileName = null;
         BufferedReader bin = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.print("File name: ");
 
-        try {
-            fileName = bin.readLine().trim();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        fileName = bin.readLine().trim();
 
         if (fileName == null) {
             return;
@@ -219,12 +204,21 @@ public class TextUI {
             return;
         }
 
-        try {
-            game = GameSave.retrieveGameFromFile(fileName);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        game = (Game) GameSave.retrieveGameFromFile(fileName);
+    }
+
+    private void handleSaveGameToFileOption() throws IOException {
+        String fileName;
+
+        System.out.print("File name: ");
+        fileName = new BufferedReader(new InputStreamReader(System.in)).readLine();
+
+        if (fileName == null)
+            return;
+
+        if (fileName.length() < 1)
+            return;
+
+        GameSave.saveGameToFile(game, fileName);
     }
 }
