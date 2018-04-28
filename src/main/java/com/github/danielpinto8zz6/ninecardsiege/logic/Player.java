@@ -208,7 +208,7 @@ public class Player implements Serializable {
         s = "Player: " + getName();
         s += "\n\n\t" + "Moral: " + getMoral();
         s += "\n\t" + "Wall Strength: " + getWallStrength();
-        s += "\n\t" + "Supplies: " + getSupplies();        
+        s += "\n\t" + "Supplies: " + getSupplies();
         return s;
     }
 

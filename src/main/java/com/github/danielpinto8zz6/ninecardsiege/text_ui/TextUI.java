@@ -46,8 +46,9 @@ public class TextUI {
         System.out.println("0 - Finish Game");
         System.out.print("> ");
 
-        while (!s.hasNextInt())
+        while (!s.hasNextInt()) {
             s.next();
+        }
 
         value = s.nextInt();
 
@@ -63,8 +64,9 @@ public class TextUI {
 
         System.out.print("> ");
 
-        while (!s.hasNextInt())
+        while (!s.hasNextInt()) {
             s.next();
+        }
 
         value = s.nextInt();
 

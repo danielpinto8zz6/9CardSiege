@@ -26,9 +26,9 @@ public interface IStates {
      */
     IStates BoilingWaterAttack();
 
-    IStates CloseCombatAttack ();
+    IStates CloseCombatAttack();
 
-    IStates Capture ();
+    IStates Capture();
 
     IStates Attack();
 

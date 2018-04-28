@@ -54,10 +54,10 @@ public class Card7 extends Card {
     public void moveEnemyDay3(GameData gameData) {
         Enemy enemyL = gameData.getEnemy("Ladders");
         enemyL.move(Constants.MOVE.UP);
-        
+
         Enemy enemyR = gameData.getEnemy("BattleRam");
         enemyR.move(Constants.MOVE.UP);
-        
+
         Enemy enemyS = gameData.getEnemy("SiegeTower");
         enemyS.move(Constants.MOVE.UP);
     }

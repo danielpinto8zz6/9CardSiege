@@ -31,23 +31,23 @@ public class StateAdapter implements IStates, Constants {
         return this;
     }
 
-	public IStates ArchersAttack() {
-		return this;
-	}
+    public IStates ArchersAttack() {
+        return this;
+    }
 
-	public IStates BoilingWaterAttack() {
-		return this;
-	}
+    public IStates BoilingWaterAttack() {
+        return this;
+    }
 
-	public IStates Attack() {
-		return this;
-	}
+    public IStates Attack() {
+        return this;
+    }
 
-	public IStates CloseCombatAttack() {
-		return this;
-	}
+    public IStates CloseCombatAttack() {
+        return this;
+    }
 
-	public IStates Capture() {
-		return this;
-	}
+    public IStates Capture() {
+        return this;
+    }
 }
