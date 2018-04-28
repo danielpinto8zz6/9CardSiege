@@ -1,11 +1,6 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.*;
 
 public class Player implements Serializable {
 
@@ -32,8 +27,6 @@ public class Player implements Serializable {
 
     public GameData gameData;
 
-    private List<Card> cards = new ArrayList<Card>();
-
     public Player(GameData gameData, String name) {
         this.name = name;
         this.moral = 4;
@@ -53,8 +46,6 @@ public class Player implements Serializable {
         this.mRallyTroops = 0;
         this.mRaidSupplies = 0;
         this.mSabotage = 0;
-
-        getNewCards();
     }
 
     public int getmSabotage() {
@@ -169,24 +160,6 @@ public class Player implements Serializable {
         this.canTunnelMovement = canTunnelMovement;
     }
 
-    private void getNewCards() {
-        cards.clear();
-        cards.add(new Card1(gameData));
-        cards.add(new Card2(gameData));
-        cards.add(new Card3(gameData));
-        cards.add(new Card4(gameData));
-        cards.add(new Card5(gameData));
-        cards.add(new Card6(gameData));
-        cards.add(new Card7(gameData));
-
-        // Cards should be at random positions
-        // shuffleCards();
-    }
-
-    private void shuffleCards() {
-        Collections.shuffle(cards);
-    }
-
     /**
      * @return the name
      */
@@ -210,13 +183,6 @@ public class Player implements Serializable {
         s += "\n\t" + "Wall Strength: " + getWallStrength();
         s += "\n\t" + "Supplies: " + getSupplies();
         return s;
-    }
-
-    /**
-     * @return the cards
-     */
-    public List<Card> getCards() {
-        return cards;
     }
 
     /**

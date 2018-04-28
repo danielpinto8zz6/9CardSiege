@@ -2,7 +2,10 @@ package com.github.danielpinto8zz6.ninecardsiege.logic;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import com.github.danielpinto8zz6.ninecardsiege.logic.cards.*;
 
 public class GameData implements Constants, Serializable {
 
@@ -17,6 +20,8 @@ public class GameData implements Constants, Serializable {
 
     private List<String> msgLog;
 
+    private List<Card> cards = new ArrayList<Card>();
+
     public GameData() {
         this.player = new Player(this, "Player");
         this.day = 1;
@@ -24,14 +29,17 @@ public class GameData implements Constants, Serializable {
         battleCard = new BattleCard(this);
         statusCard = new StatusCard(this);
 
-        msgLog = new ArrayList<String>();
-    }
+        cards.add(new Card1(this));
+        cards.add(new Card2(this));
+        cards.add(new Card3(this));
+        cards.add(new Card4(this));
+        cards.add(new Card5(this));
+        cards.add(new Card6(this));
+        cards.add(new Card7(this));
 
-    /**
-     * @return the players
-     */
-    public Player getPlayer() {
-        return this.player;
+        shuffleCards();
+
+        msgLog = new ArrayList<String>();
     }
 
     /**
@@ -98,5 +106,30 @@ public class GameData implements Constants, Serializable {
             s += "\n\n" + enemy.toString();
         }
         return s;
+    }
+
+    /**
+     * @return the player
+     */
+    public Player getPlayer() {
+        return player;
+    }
+
+    /**
+     * @return the cards
+     */
+    public List<Card> getCards() {
+        return cards;
+    }
+
+    /**
+     * @param cards the cards to set
+     */
+    public void setCards(List<Card> cards) {
+        this.cards = cards;
+    }
+
+    private void shuffleCards() {
+        Collections.shuffle(cards);
     }
 }

@@ -1,6 +1,7 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.cards;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
+import com.github.danielpinto8zz6.ninecardsiege.logic.events.TrebuchetAttack;
 
 public class Card1 extends Card {
 
@@ -12,22 +13,19 @@ public class Card1 extends Card {
 
     @Override
     public void Day1Event() {
-        // getGame().getPlayer().setWallStrength(getGame().getPlayer().getWallStrength() - 2);
-
+        TrebuchetAttack.apply(getGame());
         getPlayer().setActionPoints(3);
     }
 
     @Override
     public void Day2Event() {
-        getGame().getPlayer().setWallStrength(getGame().getPlayer().getWallStrength() - 2);
-
+        TrebuchetAttack.apply(getGame());
         getPlayer().setActionPoints(2);
     }
 
     @Override
     public void Day3Event() {
-        getGame().getPlayer().setWallStrength(getGame().getPlayer().getWallStrength() - 2);
-
+        TrebuchetAttack.apply(getGame());
         getPlayer().setActionPoints(1);
     }
 

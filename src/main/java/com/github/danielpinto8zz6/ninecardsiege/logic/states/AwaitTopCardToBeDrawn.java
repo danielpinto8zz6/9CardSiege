@@ -15,7 +15,7 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
 
     @Override
     public IStates DrawTopCard() {
-        List<Card> cards = getGame().getPlayer().getCards();
+        List<Card> cards = getGame().getCards();
         Card card = cards.get(0);
         BattleCard battleCard = getGame().getBattleCard();
         StatusCard statusCard = getGame().getStatusCard();
