@@ -1,6 +1,5 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.cards;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.TrebuchetAttack;
 

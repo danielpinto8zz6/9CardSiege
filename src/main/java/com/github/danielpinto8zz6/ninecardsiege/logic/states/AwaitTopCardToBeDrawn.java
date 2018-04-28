@@ -1,10 +1,9 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.BattleCard;
 import java.util.List;
 
+import com.github.danielpinto8zz6.ninecardsiege.logic.BattleCard;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
-import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
 import com.github.danielpinto8zz6.ninecardsiege.logic.StatusCard;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
 
@@ -23,37 +22,37 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
         /**
          * Resolve event text Advance enemies
          */
-        
+
         switch (getGame().getDay()) {
-            case 1:
-                card.Day1Event();
-                card.moveEnemyDay1(getGame());
-                break;
-            case 2:
-                card.Day2Event();
-                card.moveEnemyDay2(getGame());
-                break;
-            case 3:
-                card.Day3Event();
-                card.moveEnemyDay3(getGame());
-                break;
+        case 1:
+            card.Day1Event();
+            card.moveEnemyDay1(getGame());
+            break;
+        case 2:
+            card.Day2Event();
+            card.moveEnemyDay2(getGame());
+            break;
+        case 3:
+            card.Day3Event();
+            card.moveEnemyDay3(getGame());
+            break;
         }
 
         /**
          * Perform enemy line check if our troops are on the enemy lines we have
          * to roll a D6 if we roll a 1 they are captured
          */
-        if(statusCard.getTroopPosition()==4)
+        if (statusCard.getTroopPosition() == 4)
             statusCard.checkCapture();
         /**
          * Perform close combat action if 2 enemies in close combat area
          */
         battleCard.checkCloseCombat();
-        
-        if(getGame().getPlayer().getActionPoints() == 0){
+
+        if (getGame().getPlayer().getActionPoints() == 0) {
             return new GameOver(getGame());
-        }else{
-        return new AwaitActionSelection(getGame());
+        } else {
+            return new AwaitActionSelection(getGame());
         }
     }
 

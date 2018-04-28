@@ -7,7 +7,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class GameSave {
-
     public static void saveGameToFile(Game game, String fileName) throws IOException {
         ObjectOutputStream oout = null;
 
@@ -27,7 +26,7 @@ public class GameSave {
         }
     }
 
-    private Game retrieveGameFromFile(String fileName) throws ClassNotFoundException, IOException {
+    public static Game retrieveGameFromFile(String fileName) throws ClassNotFoundException, IOException {
         ObjectInputStream oin = null;
 
         try {

@@ -67,4 +67,8 @@ public class Game implements Serializable {
     public void Finish() {
         setState(getState().Finish());
     }
+
+    public void DrawTopCard() {
+        setState(getState().DrawTopCard());
+    }
 }
