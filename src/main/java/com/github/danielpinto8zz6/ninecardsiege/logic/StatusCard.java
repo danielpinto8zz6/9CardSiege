@@ -60,6 +60,14 @@ public class StatusCard implements Serializable {
             this.supplies = 2;
         }
     }
+    
+        public void checkCapture() {
+            
+            if (Dice.roll() == 1){
+            this.troopPosition = 0;
+            gameData.getPlayer().setMoral(gameData.getPlayer().getMoral() - 1);
+            }
+    }
 
     public void removeSupplies() {
         this.supplies = 0;

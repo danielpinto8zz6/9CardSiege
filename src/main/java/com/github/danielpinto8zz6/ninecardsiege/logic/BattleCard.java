@@ -69,4 +69,54 @@ public class BattleCard implements Serializable {
         }
         return null;
     }
+
+    public void checkCloseCombat() {
+        int aux = 0, flag = 0;
+        Game game = new Game();
+
+        while (flag == 0) {
+
+            if (gameData.getPlayer().getActionPoints() == 0) {
+                game.Finish();
+            }
+            
+            for (Enemy enemy : gameData.getBattleCard().getEnemies()) {
+
+                if (enemy.getPosition() == 0) {
+                    aux++;
+                }
+            }
+
+            if (aux == 3) {
+                game.Finish();
+            }
+
+            if (aux == 2) {
+
+                flag = 1;
+                aux = Dice.roll();
+
+                if (aux == 1) {
+                    gameData.getPlayer().setMoral(gameData.getPlayer().getMoral() - 1);
+                    gameData.getPlayer().setActionPoints(gameData.getPlayer().getActionPoints() - 1);
+                } else {
+                    if (aux > 4) {
+                        for (Enemy enemy : gameData.getBattleCard().getEnemies()) {
+                            if (enemy.getPosition() == 0) {
+                                enemy.move(Constants.MOVE.DOWN);
+                            }
+                        }
+                        flag = 1;
+                        gameData.getPlayer().setActionPoints(gameData.getPlayer().getActionPoints() - 1);
+                    } else {
+                        gameData.getPlayer().setActionPoints(gameData.getPlayer().getActionPoints() - 1);
+                    }
+                }
+
+            }
+
+        }
+
+    }
+
 }
