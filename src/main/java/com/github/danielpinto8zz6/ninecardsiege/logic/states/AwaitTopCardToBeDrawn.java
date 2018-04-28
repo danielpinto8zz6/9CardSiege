@@ -18,43 +18,33 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
 
         /**
          * Resolve event text
-         */
-        switch (getGame().getDay()) {
-            case 1:
-                card.Day1Event();
-                break;
-            case 2:
-                card.Day2Event();
-                break;
-            case 3:
-                card.Day3Event();
-                break;
-        }
-
-        /**
          * Advance enemies
          */
         switch (getGame().getDay()) {
-            case 1:
-                card.moveEnemyDay1(getGame());
-                break;
-            case 2:
-                card.moveEnemyDay2(getGame());
-                break;
-            case 3:
-                card.moveEnemyDay3(getGame());
-                break;
+        case 1:
+            card.Day1Event();
+            card.moveEnemyDay1(getGame());
+            break;
+        case 2:
+            card.Day2Event();
+            card.moveEnemyDay2(getGame());
+            break;
+        case 3:
+            card.Day3Event();
+            card.moveEnemyDay3(getGame());
+            break;
         }
 
         /**
          * Perform close combat action if 2 enemies in close combat area
          */
         //TODO
+
         return new AwaitActionSelection(getGame());
     }
 
     @Override
-    public IStates quit() {
+    public IStates Finish() {
         return new GameOver(getGame());
     }
 }

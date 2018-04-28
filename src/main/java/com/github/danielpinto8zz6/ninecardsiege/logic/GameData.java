@@ -81,4 +81,22 @@ public class GameData implements Constants, Serializable {
     public List<String> getMsgLog() {
         return msgLog;
     }
+
+    @Override
+    public String toString() {
+        String s;
+
+        s = "Day: " + getDay();
+        s += "\n\n" + getPlayer().toString();
+        s += "\n\n" + "Status Card: ";
+        s += "\n\t" + "Troop Position: " + getStatusCard().getTroopPosition();
+        s += "\n\t" + "Supplies: " + getStatusCard().getSupplies();
+        s += "\n\n" + "Battle Card: ";
+        s += "\n\t" + "Trebuchet: " + getBattleCard().getTrebuchet();
+
+        for (Enemy enemy : getEnemies()) {
+            s += "\n\n" + enemy.toString();
+        }
+        return s;
+    }
 }

@@ -71,4 +71,14 @@ public class Enemy implements Serializable {
             this.position = 0;
         }
     }
+
+    @Override
+    public String toString() {
+        String s;
+
+        s = "Enemy: " + getName();
+        s += "\n\t" + "Strength: " + getStrength();
+        s += "\n\t" + "Position: " + getPosition();
+        return s;
+    }
 }

@@ -2,15 +2,16 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
-public class AwaitBeginning extends StateAdapter {
+public class AwaitEnemyTrackSelectionForBoilingWaterAttack extends StateAdapter {
 
-    public AwaitBeginning(GameData g) {
+    public AwaitEnemyTrackSelectionForBoilingWaterAttack(GameData g) {
         super(g);
     }
 
     @Override
-    public IStates Start() {
-        return new AwaitTopCardToBeDrawn(getGame());
+    public IStates Attack() {
+        // TODO
+        return new AwaitActionSelection(getGame());
     }
 
     @Override

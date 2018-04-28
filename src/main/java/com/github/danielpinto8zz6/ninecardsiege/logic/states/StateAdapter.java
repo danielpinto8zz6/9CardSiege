@@ -19,15 +19,35 @@ public class StateAdapter implements IStates, Constants {
         this.game = game;
     }
 
-    public IStates start() {
+    public IStates Start() {
         return this;
     }
 
-    public IStates quit() {
+    public IStates Finish() {
         return this;
     }
 
     public IStates DrawTopCard() {
         return this;
     }
+
+	public IStates ArchersAttack() {
+		return this;
+	}
+
+	public IStates BoilingWaterAttack() {
+		return this;
+	}
+
+	public IStates Attack() {
+		return this;
+	}
+
+	public IStates CloseCombatAttack() {
+		return this;
+	}
+
+	public IStates Capture() {
+		return this;
+	}
 }

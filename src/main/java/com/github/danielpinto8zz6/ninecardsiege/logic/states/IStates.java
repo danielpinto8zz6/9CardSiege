@@ -8,7 +8,7 @@ public interface IStates {
     /**
      * Start the game
      */
-    IStates start();
+    IStates Start();
 
     /**
      * Resolve event text Advance enemies Perform close combat action if 2
@@ -16,5 +16,21 @@ public interface IStates {
      */
     IStates DrawTopCard();
 
-    IStates quit();
+    /**
+     * Boiling water attack And action points > 0 AND unused in current turn
+     */
+    IStates ArchersAttack();
+
+    /**
+     * Archers attack And action points > 0
+     */
+    IStates BoilingWaterAttack();
+
+    IStates CloseCombatAttack ();
+
+    IStates Capture ();
+
+    IStates Attack();
+
+    IStates Finish();
 }

@@ -54,12 +54,17 @@ public class Game implements Serializable {
         gameData.clearMsgLog();
     }
 
-    //--------------------- Methods that trigger events/actions in the finite state machine  -----------------------
-    public void start() {
-        setState(getState().start());
+    @Override
+    public String toString() {
+        return gameData.toString();
     }
 
-    public void finish() {
-        setState(getState().quit());
+    //--------------------- Methods that trigger events/actions in the finite state machine  -----------------------
+    public void Start() {
+        setState(getState().Start());
+    }
+
+    public void Finish() {
+        setState(getState().Finish());
     }
 }

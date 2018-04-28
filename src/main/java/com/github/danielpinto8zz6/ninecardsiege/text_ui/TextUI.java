@@ -33,7 +33,43 @@ public class TextUI {
         value = s.nextInt();
 
         if (value == 1) {
-            game.start();
+            game.Start();
+        }
+    }
+
+    private void getUserInputWhileAwaitingOptionSelection() {
+        int value;
+
+        System.out.println("\n\n---------------------------------");
+        showGame();
+
+        System.out.println("0 - Finish Game");
+        System.out.print("> ");
+
+        while (!s.hasNextInt())
+            s.next();
+
+        value = s.nextInt();
+
+        if (value == 0) {
+            game.Finish();
+        }
+    }
+
+    public void getUserInputWhileAwaitTopCardToBeDrawn() {
+        int value;
+
+        showGame();
+
+        System.out.print("> ");
+
+        while (!s.hasNextInt())
+            s.next();
+
+        value = s.nextInt();
+
+        if (value == 0) {
+            game.Finish();
         }
     }
 
@@ -41,25 +77,26 @@ public class TextUI {
         while (!(game.getState() instanceof GameOver)) {
 
             if (game.getMsgLog().size() > 0) {
-
                 System.out.println();
 
                 for (String msg : game.getMsgLog()) {
                     System.out.println("---> " + msg);
                 }
-
                 game.clearMsgLog();
-
             }
 
             if (game.getState() instanceof AwaitBeginning) {
                 getUserInputWhileAwaitingBeginning();
+            } else if (game.getState() instanceof AwaitTopCardToBeDrawn) {
+                getUserInputWhileAwaitTopCardToBeDrawn();
+            } else if (game.getState() instanceof AwaitActionSelection) {
+                getUserInputWhileAwaitingOptionSelection();
             }
-
         }
 
         System.out.println();
         System.out.println("************** Game over *****************");
+
         showGame();
 
     }

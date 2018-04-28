@@ -203,7 +203,13 @@ public class Player implements Serializable {
 
     @Override
     public String toString() {
-        return "Player : " + name;
+        String s;
+
+        s = "Player: " + getName();
+        s += "\n\n\t" + "Moral: " + getMoral();
+        s += "\n\t" + "Wall Strength: " + getWallStrength();
+        s += "\n\t" + "Supplies: " + getSupplies();        
+        return s;
     }
 
     /**
