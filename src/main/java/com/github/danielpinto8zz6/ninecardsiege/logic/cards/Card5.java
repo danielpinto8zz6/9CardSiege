@@ -8,69 +8,59 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.events.RepairedTrebuchet;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.VolleyOfArrows;
 
 /**
+ * <p>Card5 class.</p>
  *
  * @author daniel
+ * @version $Id: $Id
  */
 public class Card5 extends Card {
 
     private static final long serialVersionUID = 1L;
 
     /**
+     * <p>Constructor for Card5.</p>
      *
-     * @param gameData
+     * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
      */
     public Card5(GameData gameData) {
         super(gameData);
     }
 
-    /**
-     *
-     */
+    /** {@inheritDoc} */
     @Override
     public void Day1Event() {
         VolleyOfArrows.apply(getGameData());
         getPlayer().setActionPoints(3);
     }
 
-    /**
-     *
-     */
+    /** {@inheritDoc} */
     @Override
     public void Day2Event() {
         Collapsed.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
-    /**
-     *
-     */
+    /** {@inheritDoc} */
     @Override
     public void Day3Event() {
         RepairedTrebuchet.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
-    /**
-     *
-     * @return
-     */
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         return "Card5";
     }
 
-    /**
-     *
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay1() {
         Enemy enemyR = getGameData().getEnemy("BattleRam");
         enemyR.move(Constants.MOVE.UP);
     }
 
-    /**
-     *
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay2() {
         Enemy enemyL = getGameData().getEnemy("Ladders");
@@ -80,9 +70,7 @@ public class Card5 extends Card {
         enemyR.move(Constants.MOVE.UP);
     }
 
-    /**
-     *
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay3() {
         Enemy enemyL = getGameData().getEnemy("Ladders");

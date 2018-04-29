@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * <p>BattleCard class.</p>
  *
  * @author daniel
+ * @version $Id: $Id
  */
 public class BattleCard implements Serializable {
 
@@ -19,8 +21,9 @@ public class BattleCard implements Serializable {
     private int trebuchet;
 
     /**
+     * <p>Constructor for BattleCard.</p>
      *
-     * @param gameData
+     * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
      */
     public BattleCard(GameData gameData) {
         this.gameData = gameData;
@@ -35,6 +38,8 @@ public class BattleCard implements Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>gameData</code>.</p>
+     *
      * @return the gameData
      */
     public GameData getGameData() {
@@ -42,6 +47,8 @@ public class BattleCard implements Serializable {
     }
 
     /**
+     * <p>Setter for the field <code>gameData</code>.</p>
+     *
      * @param gameData the gameData to set
      */
     public void setGameData(GameData gameData) {
@@ -49,6 +56,8 @@ public class BattleCard implements Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>enemies</code>.</p>
+     *
      * @return the enemies
      */
     public List<Enemy> getEnemies() {
@@ -56,6 +65,8 @@ public class BattleCard implements Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>trebuchet</code>.</p>
+     *
      * @return the trebuchet
      */
     public int getTrebuchet() {
@@ -63,6 +74,8 @@ public class BattleCard implements Serializable {
     }
 
     /**
+     * <p>Setter for the field <code>trebuchet</code>.</p>
+     *
      * @param trebuchet the trebuchet to set
      */
     public void setTrebuchet(int trebuchet) {
@@ -70,9 +83,10 @@ public class BattleCard implements Serializable {
     }
 
     /**
+     * <p>getEnemy.</p>
      *
-     * @param name
-     * @return
+     * @param name a {@link java.lang.String} object.
+     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Enemy} object.
      */
     public Enemy getEnemy(String name) {
         for (Enemy enemy : enemies) {
@@ -84,7 +98,7 @@ public class BattleCard implements Serializable {
     }
 
     /**
-     *
+     * <p>checkCloseCombat.</p>
      */
     public void checkCloseCombat() {
         int aux, flag = 0;

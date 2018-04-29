@@ -8,69 +8,59 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.events.Illness;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.TrebuchetAttack;
 
 /**
+ * <p>Card2 class.</p>
  *
  * @author daniel
+ * @version $Id: $Id
  */
 public class Card2 extends Card {
 
     private static final long serialVersionUID = 1L;
 
     /**
+     * <p>Constructor for Card2.</p>
      *
-     * @param gameData
+     * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
      */
     public Card2(GameData gameData) {
         super(gameData);
     }
 
-    /**
-     *
-     */
+    /** {@inheritDoc} */
     @Override
     public void Day1Event() {
         Illness.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
-    /**
-     *
-     */
+    /** {@inheritDoc} */
     @Override
     public void Day2Event() {
         GuardsDistracted.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
-    /**
-     *
-     */
+    /** {@inheritDoc} */
     @Override
     public void Day3Event() {
         TrebuchetAttack.apply(getGameData());
         getPlayer().setActionPoints(1);
     }
 
-    /**
-     *
-     * @return
-     */
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         return "Card2";
     }
 
-    /**
-     *
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay1() {
         Enemy enemyS = getGameData().getEnemy("SiegeTower");
         enemyS.move(Constants.MOVE.UP);
     }
 
-    /**
-     *
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay2() {
         int aux = 0;
@@ -89,9 +79,7 @@ public class Card2 extends Card {
         }
     }
 
-    /**
-     *
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay3() {
         // no enemy movement

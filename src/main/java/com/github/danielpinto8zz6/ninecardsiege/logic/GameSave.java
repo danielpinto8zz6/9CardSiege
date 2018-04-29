@@ -7,16 +7,19 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 /**
+ * <p>GameSave class.</p>
  *
  * @author daniel
+ * @version $Id: $Id
  */
 public class GameSave {
 
     /**
+     * <p>saveGameToFile.</p>
      *
-     * @param game
-     * @param fileName
-     * @throws IOException
+     * @param game a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Game} object.
+     * @param fileName a {@link java.lang.String} object.
+     * @throws java.io.IOException
      */
     public static void saveGameToFile(Game game, String fileName) throws IOException {
         ObjectOutputStream oout = null;
@@ -38,11 +41,12 @@ public class GameSave {
     }
 
     /**
+     * <p>retrieveGameFromFile.</p>
      *
-     * @param fileName
-     * @return
-     * @throws ClassNotFoundException
-     * @throws IOException
+     * @param fileName a {@link java.lang.String} object.
+     * @throws java.lang.ClassNotFoundException
+     * @throws java.io.IOException
+     * @return a {@link java.lang.Object} object.
      */
     public static Object retrieveGameFromFile(String fileName) throws ClassNotFoundException, IOException {
         ObjectInputStream oin = null;

@@ -8,8 +8,10 @@ import java.util.List;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.*;
 
 /**
+ * <p>GameData class.</p>
  *
  * @author daniel
+ * @version $Id: $Id
  */
 public class GameData implements Constants, Serializable {
 
@@ -27,7 +29,7 @@ public class GameData implements Constants, Serializable {
     private List<Card> cards = new ArrayList<Card>();
 
     /**
-     *
+     * <p>Constructor for GameData.</p>
      */
     public GameData() {
         this.player = new Player(this, "Player");
@@ -50,6 +52,8 @@ public class GameData implements Constants, Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>day</code>.</p>
+     *
      * @return the day
      */
     public int getDay() {
@@ -57,6 +61,8 @@ public class GameData implements Constants, Serializable {
     }
 
     /**
+     * <p>Setter for the field <code>day</code>.</p>
+     *
      * @param day the day to set
      */
     public void setDay(int day) {
@@ -64,6 +70,8 @@ public class GameData implements Constants, Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>battleCard</code>.</p>
+     *
      * @return the battleCard
      */
     public BattleCard getBattleCard() {
@@ -71,6 +79,8 @@ public class GameData implements Constants, Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>statusCard</code>.</p>
+     *
      * @return the statusCard
      */
     public StatusCard getStatusCard() {
@@ -78,49 +88,50 @@ public class GameData implements Constants, Serializable {
     }
 
     /**
+     * <p>getEnemy.</p>
      *
-     * @param name
-     * @return
+     * @param name a {@link java.lang.String} object.
+     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Enemy} object.
      */
     public Enemy getEnemy(String name) {
         return getBattleCard().getEnemy(name);
     }
 
     /**
+     * <p>getEnemies.</p>
      *
-     * @return
+     * @return a {@link java.util.List} object.
      */
     public List<Enemy> getEnemies() {
         return getBattleCard().getEnemies();
     }
 
     /**
-     *
+     * <p>clearMsgLog.</p>
      */
     public void clearMsgLog() {
         msgLog.clear();
     }
 
     /**
+     * <p>addMsgLog.</p>
      *
-     * @param msg
+     * @param msg a {@link java.lang.String} object.
      */
     public void addMsgLog(String msg) {
         msgLog.add(msg);
     }
 
     /**
+     * <p>Getter for the field <code>msgLog</code>.</p>
      *
-     * @return
+     * @return a {@link java.util.List} object.
      */
     public List<String> getMsgLog() {
         return msgLog;
     }
 
-    /**
-     *
-     * @return
-     */
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         String s;
@@ -140,6 +151,8 @@ public class GameData implements Constants, Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>player</code>.</p>
+     *
      * @return the player
      */
     public Player getPlayer() {
@@ -147,6 +160,8 @@ public class GameData implements Constants, Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>cards</code>.</p>
+     *
      * @return the cards
      */
     public List<Card> getCards() {
@@ -154,6 +169,8 @@ public class GameData implements Constants, Serializable {
     }
 
     /**
+     * <p>Setter for the field <code>cards</code>.</p>
+     *
      * @param cards the cards to set
      */
     public void setCards(List<Card> cards) {

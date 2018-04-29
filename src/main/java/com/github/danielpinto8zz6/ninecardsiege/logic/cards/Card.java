@@ -6,8 +6,10 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
 
 /**
+ * <p>Abstract Card class.</p>
  *
  * @author daniel
+ * @version $Id: $Id
  */
 public abstract class Card implements Serializable {
 
@@ -19,8 +21,9 @@ public abstract class Card implements Serializable {
     private GameData gameData;
 
     /**
+     * <p>Constructor for Card.</p>
      *
-     * @param gameData
+     * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
      */
     public Card(GameData gameData) {
         this.gameData = gameData;
@@ -28,6 +31,8 @@ public abstract class Card implements Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>cardNumber</code>.</p>
+     *
      * @return the cardNumber
      */
     public int getCardNumber() {
@@ -35,6 +40,8 @@ public abstract class Card implements Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>gameData</code>.</p>
+     *
      * @return the gameData
      */
     public GameData getGameData() {
@@ -42,6 +49,8 @@ public abstract class Card implements Serializable {
     }
 
     /**
+     * <p>Setter for the field <code>gameData</code>.</p>
+     *
      * @param gameData the gameData to set
      */
     public void setGameData(GameData gameData) {
@@ -49,6 +58,8 @@ public abstract class Card implements Serializable {
     }
 
     /**
+     * <p>getPlayer.</p>
+     *
      * @return the Player
      */
     public Player getPlayer() {
@@ -56,32 +67,32 @@ public abstract class Card implements Serializable {
     }
 
     /**
-     *
+     * <p>Day1Event.</p>
      */
     public abstract void Day1Event();
 
     /**
-     *
+     * <p>Day2Event.</p>
      */
     public abstract void Day2Event();
 
     /**
-     *
+     * <p>Day3Event.</p>
      */
     public abstract void Day3Event();
 
     /**
-     *
+     * <p>moveEnemyDay1.</p>
      */
     public abstract void moveEnemyDay1();
 
     /**
-     *
+     * <p>moveEnemyDay2.</p>
      */
     public abstract void moveEnemyDay2();
 
     /**
-     *
+     * <p>moveEnemyDay3.</p>
      */
     public abstract void moveEnemyDay3();
 }

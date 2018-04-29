@@ -5,8 +5,10 @@ import java.io.Serializable;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants.MOVE;
 
 /**
+ * <p>Enemy class.</p>
  *
  * @author daniel
+ * @version $Id: $Id
  */
 public class Enemy implements Serializable {
 
@@ -16,9 +18,10 @@ public class Enemy implements Serializable {
     private int position;
 
     /**
+     * <p>Constructor for Enemy.</p>
      *
-     * @param name
-     * @param strength
+     * @param name a {@link java.lang.String} object.
+     * @param strength a int.
      */
     public Enemy(String name, int strength) {
         this.name = name;
@@ -27,6 +30,8 @@ public class Enemy implements Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>name</code>.</p>
+     *
      * @return the name
      */
     public String getName() {
@@ -34,6 +39,8 @@ public class Enemy implements Serializable {
     }
 
     /**
+     * <p>Setter for the field <code>name</code>.</p>
+     *
      * @param name the name to set
      */
     public void setName(String name) {
@@ -41,6 +48,8 @@ public class Enemy implements Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>strength</code>.</p>
+     *
      * @return the strength
      */
     public int getStrength() {
@@ -48,6 +57,8 @@ public class Enemy implements Serializable {
     }
 
     /**
+     * <p>Setter for the field <code>strength</code>.</p>
+     *
      * @param strength the strength to set
      */
     public void setStrength(int strength) {
@@ -55,6 +66,8 @@ public class Enemy implements Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>position</code>.</p>
+     *
      * @return the position
      */
     public int getPosition() {
@@ -62,6 +75,8 @@ public class Enemy implements Serializable {
     }
 
     /**
+     * <p>Setter for the field <code>position</code>.</p>
+     *
      * @param position the position to set
      */
     public void setPosition(int position) {
@@ -69,8 +84,9 @@ public class Enemy implements Serializable {
     }
 
     /**
+     * <p>move.</p>
      *
-     * @param move
+     * @param move a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Constants.MOVE} object.
      */
     public void move(MOVE move) {
         if (move == MOVE.UP) {
@@ -85,10 +101,7 @@ public class Enemy implements Serializable {
         }
     }
 
-    /**
-     *
-     * @return
-     */
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         String s;

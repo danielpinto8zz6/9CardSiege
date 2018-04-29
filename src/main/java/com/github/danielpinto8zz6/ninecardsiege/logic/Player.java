@@ -3,8 +3,10 @@ package com.github.danielpinto8zz6.ninecardsiege.logic;
 import java.io.Serializable;
 
 /**
+ * <p>Player class.</p>
  *
  * @author daniel
+ * @version $Id: $Id
  */
 public class Player implements Serializable {
 
@@ -35,9 +37,10 @@ public class Player implements Serializable {
     public GameData gameData;
 
     /**
+     * <p>Constructor for Player.</p>
      *
-     * @param gameData
-     * @param name
+     * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+     * @param name a {@link java.lang.String} object.
      */
     public Player(GameData gameData, String name) {
         this.name = name;
@@ -61,230 +64,260 @@ public class Player implements Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>mSabotage</code>.</p>
      *
-     * @return
+     * @return a int.
      */
     public int getmSabotage() {
         return mSabotage;
     }
 
     /**
+     * <p>Setter for the field <code>mSabotage</code>.</p>
      *
-     * @param mSabotage
+     * @param mSabotage a int.
      */
     public void setmSabotage(int mSabotage) {
         this.mSabotage = mSabotage;
     }
 
     /**
+     * <p>Getter for the field <code>mRallyTroops</code>.</p>
      *
-     * @return
+     * @return a int.
      */
     public int getmRallyTroops() {
         return mRallyTroops;
     }
 
     /**
+     * <p>Setter for the field <code>mRallyTroops</code>.</p>
      *
-     * @param mRallyTroops
+     * @param mRallyTroops a int.
      */
     public void setmRallyTroops(int mRallyTroops) {
         this.mRallyTroops = mRallyTroops;
     }
 
     /**
+     * <p>Getter for the field <code>mCoupure</code>.</p>
      *
-     * @return
+     * @return a int.
      */
     public int getmCoupure() {
         return mCoupure;
     }
 
     /**
+     * <p>Setter for the field <code>mCoupure</code>.</p>
      *
-     * @param mCoupure
+     * @param mCoupure a int.
      */
     public void setmCoupure(int mCoupure) {
         this.mCoupure = mCoupure;
     }
 
     /**
+     * <p>Getter for the field <code>mRaidSupplies</code>.</p>
      *
-     * @return
+     * @return a int.
      */
     public int getmRaidSupplies() {
         return mRaidSupplies;
     }
 
     /**
+     * <p>Setter for the field <code>mRaidSupplies</code>.</p>
      *
-     * @param mRaidSupplies
+     * @param mRaidSupplies a int.
      */
     public void setmRaidSupplies(int mRaidSupplies) {
         this.mRaidSupplies = mRaidSupplies;
     }
 
     /**
+     * <p>Getter for the field <code>gameData</code>.</p>
      *
-     * @return
+     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
      */
     public GameData getGameData() {
         return gameData;
     }
 
     /**
+     * <p>Setter for the field <code>gameData</code>.</p>
      *
-     * @param gameData
+     * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
      */
     public void setGameData(GameData gameData) {
         this.gameData = gameData;
     }
 
     /**
+     * <p>isCanArchersAtack.</p>
      *
-     * @return
+     * @return a boolean.
      */
     public boolean isCanArchersAtack() {
         return canArchersAtack;
     }
 
     /**
+     * <p>Setter for the field <code>canArchersAtack</code>.</p>
      *
-     * @param canArchersAtack
+     * @param canArchersAtack a boolean.
      */
     public void setCanArchersAtack(boolean canArchersAtack) {
         this.canArchersAtack = canArchersAtack;
     }
 
     /**
+     * <p>isCanBoilingWater.</p>
      *
-     * @return
+     * @return a boolean.
      */
     public boolean isCanBoilingWater() {
         return canBoilingWater;
     }
 
     /**
+     * <p>Setter for the field <code>canBoilingWater</code>.</p>
      *
-     * @param canBoilingWater
+     * @param canBoilingWater a boolean.
      */
     public void setCanBoilingWater(boolean canBoilingWater) {
         this.canBoilingWater = canBoilingWater;
     }
 
     /**
+     * <p>isCanCloseCombat.</p>
      *
-     * @return
+     * @return a boolean.
      */
     public boolean isCanCloseCombat() {
         return canCloseCombat;
     }
 
     /**
+     * <p>Setter for the field <code>canCloseCombat</code>.</p>
      *
-     * @param canCloseCombat
+     * @param canCloseCombat a boolean.
      */
     public void setCanCloseCombat(boolean canCloseCombat) {
         this.canCloseCombat = canCloseCombat;
     }
 
     /**
+     * <p>isCanCoupure.</p>
      *
-     * @return
+     * @return a boolean.
      */
     public boolean isCanCoupure() {
         return canCoupure;
     }
 
     /**
+     * <p>Setter for the field <code>canCoupure</code>.</p>
      *
-     * @param canCoupure
+     * @param canCoupure a boolean.
      */
     public void setCanCoupure(boolean canCoupure) {
         this.canCoupure = canCoupure;
     }
 
     /**
+     * <p>isCanSupplyRaid.</p>
      *
-     * @return
+     * @return a boolean.
      */
     public boolean isCanSupplyRaid() {
         return canSupplyRaid;
     }
 
     /**
+     * <p>Setter for the field <code>canSupplyRaid</code>.</p>
      *
-     * @param canSupplyRaid
+     * @param canSupplyRaid a boolean.
      */
     public void setCanSupplyRaid(boolean canSupplyRaid) {
         this.canSupplyRaid = canSupplyRaid;
     }
 
     /**
+     * <p>isCanSabotage.</p>
      *
-     * @return
+     * @return a boolean.
      */
     public boolean isCanSabotage() {
         return canSabotage;
     }
 
     /**
+     * <p>Setter for the field <code>canSabotage</code>.</p>
      *
-     * @param canSabotage
+     * @param canSabotage a boolean.
      */
     public void setCanSabotage(boolean canSabotage) {
         this.canSabotage = canSabotage;
     }
 
     /**
+     * <p>isCanExtraAP.</p>
      *
-     * @return
+     * @return a boolean.
      */
     public boolean isCanExtraAP() {
         return canExtraAP;
     }
 
     /**
+     * <p>Setter for the field <code>canExtraAP</code>.</p>
      *
-     * @param canExtraAP
+     * @param canExtraAP a boolean.
      */
     public void setCanExtraAP(boolean canExtraAP) {
         this.canExtraAP = canExtraAP;
     }
 
     /**
+     * <p>isCanRallyTroops.</p>
      *
-     * @return
+     * @return a boolean.
      */
     public boolean isCanRallyTroops() {
         return canRallyTroops;
     }
 
     /**
+     * <p>Setter for the field <code>canRallyTroops</code>.</p>
      *
-     * @param canRallyTroops
+     * @param canRallyTroops a boolean.
      */
     public void setCanRallyTroops(boolean canRallyTroops) {
         this.canRallyTroops = canRallyTroops;
     }
 
     /**
+     * <p>isCanTunnelMovement.</p>
      *
-     * @return
+     * @return a boolean.
      */
     public boolean isCanTunnelMovement() {
         return canTunnelMovement;
     }
 
     /**
+     * <p>Setter for the field <code>canTunnelMovement</code>.</p>
      *
-     * @param canTunnelMovement
+     * @param canTunnelMovement a boolean.
      */
     public void setCanTunnelMovement(boolean canTunnelMovement) {
         this.canTunnelMovement = canTunnelMovement;
     }
 
     /**
+     * <p>Getter for the field <code>name</code>.</p>
+     *
      * @return the name
      */
     public String getName() {
@@ -292,16 +325,15 @@ public class Player implements Serializable {
     }
 
     /**
+     * <p>Setter for the field <code>name</code>.</p>
+     *
      * @param name the name to set
      */
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     *
-     * @return
-     */
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         String s;
@@ -314,6 +346,8 @@ public class Player implements Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>actionPoints</code>.</p>
+     *
      * @return the actionPoints
      */
     public int getActionPoints() {
@@ -321,6 +355,8 @@ public class Player implements Serializable {
     }
 
     /**
+     * <p>Setter for the field <code>actionPoints</code>.</p>
+     *
      * @param actionPoints the actionPoints to set
      */
     public void setActionPoints(int actionPoints) {
@@ -328,6 +364,8 @@ public class Player implements Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>moral</code>.</p>
+     *
      * @return the moral
      */
     public int getMoral() {
@@ -335,6 +373,8 @@ public class Player implements Serializable {
     }
 
     /**
+     * <p>Setter for the field <code>moral</code>.</p>
+     *
      * @param moral the moral to set
      */
     public void setMoral(int moral) {
@@ -342,6 +382,8 @@ public class Player implements Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>wallStrength</code>.</p>
+     *
      * @return the wallStrength
      */
     public int getWallStrength() {
@@ -349,6 +391,8 @@ public class Player implements Serializable {
     }
 
     /**
+     * <p>Setter for the field <code>wallStrength</code>.</p>
+     *
      * @param wallStrength the wallStrength to set
      */
     public void setWallStrength(int wallStrength) {
@@ -356,6 +400,8 @@ public class Player implements Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>supplies</code>.</p>
+     *
      * @return the supplies
      */
     public int getSupplies() {
@@ -363,6 +409,8 @@ public class Player implements Serializable {
     }
 
     /**
+     * <p>Setter for the field <code>supplies</code>.</p>
+     *
      * @param supplies the supplies to set
      */
     public void setSupplies(int supplies) {
@@ -370,7 +418,7 @@ public class Player implements Serializable {
     }
 
     /**
-     *
+     * <p>resetModifiers.</p>
      */
     public void resetModifiers() {
         setmSabotage(0);

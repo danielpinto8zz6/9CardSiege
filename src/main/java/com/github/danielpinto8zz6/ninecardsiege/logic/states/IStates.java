@@ -4,56 +4,66 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.states;
  * List of expected events when taking into account all the states.
  */
 /**
+ * <p>IStates interface.</p>
  *
  * @author daniel
+ * @version $Id: $Id
  */
 public interface IStates {
 
     /**
+     * <p>Start.</p>
      *
-     * @return
+     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
      */
     IStates Start();
 
     /**
+     * <p>DrawTopCard.</p>
      *
-     * @return
+     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
      */
     IStates DrawTopCard();
 
     /**
+     * <p>ArchersAttack.</p>
      *
-     * @return
+     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
      */
     IStates ArchersAttack();
 
     /**
+     * <p>BoilingWaterAttack.</p>
      *
-     * @return
+     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
      */
     IStates BoilingWaterAttack();
 
     /**
+     * <p>CloseCombatAttack.</p>
      *
-     * @return
+     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
      */
     IStates CloseCombatAttack();
 
     /**
+     * <p>Capture.</p>
      *
-     * @return
+     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
      */
     IStates Capture();
 
     /**
+     * <p>Attack.</p>
      *
-     * @return
+     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
      */
     IStates Attack();
 
     /**
+     * <p>Finish.</p>
      *
-     * @return
+     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
      */
     IStates Finish();
 }

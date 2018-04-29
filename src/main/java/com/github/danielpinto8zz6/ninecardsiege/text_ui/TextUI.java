@@ -13,8 +13,10 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDra
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.GameOver;
 
 /**
+ * <p>TextUI class.</p>
  *
  * @author daniel
+ * @version $Id: $Id
  */
 public class TextUI {
 
@@ -23,8 +25,9 @@ public class TextUI {
     private final Scanner s;
 
     /**
+     * <p>Constructor for TextUI.</p>
      *
-     * @param game
+     * @param game a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Game} object.
      */
     public TextUI(Game game) {
         this.game = game;
@@ -131,7 +134,7 @@ public class TextUI {
     }
 
     /**
-     *
+     * <p>getUserInputWhileAwaitTopCardToBeDrawn.</p>
      */
     public void getUserInputWhileAwaitTopCardToBeDrawn() {
         int value;
@@ -162,7 +165,7 @@ public class TextUI {
     }
 
     /**
-     *
+     * <p>run.</p>
      */
     public void run() {
         while (!(game.getState() instanceof GameOver)) {
@@ -193,6 +196,8 @@ public class TextUI {
     }
 
     /**
+     * <p>Getter for the field <code>game</code>.</p>
+     *
      * @return the game
      */
     public Game getGame() {
@@ -200,9 +205,10 @@ public class TextUI {
     }
 
     /**
+     * <p>handleRestoreGameFromFileOption.</p>
      *
-     * @throws ClassNotFoundException
-     * @throws IOException
+     * @throws java.lang.ClassNotFoundException
+     * @throws java.io.IOException
      */
     public void handleRestoreGameFromFileOption() throws ClassNotFoundException, IOException {
         String fileName;

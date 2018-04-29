@@ -7,8 +7,10 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates;
 
 /**
+ * <p>Game class.</p>
  *
  * @author daniel
+ * @version $Id: $Id
  */
 public final class Game implements Serializable {
 
@@ -18,7 +20,7 @@ public final class Game implements Serializable {
     private GameData gameData;
 
     /**
-     *
+     * <p>Constructor for Game.</p>
      */
     public Game() {
         gameData = new GameData();
@@ -26,6 +28,8 @@ public final class Game implements Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>state</code>.</p>
+     *
      * @return the state
      */
     public IStates getState() {
@@ -33,6 +37,8 @@ public final class Game implements Serializable {
     }
 
     /**
+     * <p>Setter for the field <code>state</code>.</p>
+     *
      * @param state the state to set
      */
     public void setState(IStates state) {
@@ -40,6 +46,8 @@ public final class Game implements Serializable {
     }
 
     /**
+     * <p>Getter for the field <code>gameData</code>.</p>
+     *
      * @return the gameData
      */
     public GameData getGameData() {
@@ -47,6 +55,8 @@ public final class Game implements Serializable {
     }
 
     /**
+     * <p>Setter for the field <code>gameData</code>.</p>
+     *
      * @param gameData the gameData to set
      */
     public void setGameData(GameData gameData) {
@@ -54,24 +64,22 @@ public final class Game implements Serializable {
     }
 
     /**
+     * <p>getMsgLog.</p>
      *
-     * @return
+     * @return a {@link java.util.List} object.
      */
     public List<String> getMsgLog() {
         return gameData.getMsgLog();
     }
 
     /**
-     *
+     * <p>clearMsgLog.</p>
      */
     public void clearMsgLog() {
         gameData.clearMsgLog();
     }
 
-    /**
-     *
-     * @return
-     */
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         return gameData.toString();
@@ -79,21 +87,21 @@ public final class Game implements Serializable {
 
     //--------------------- Methods that trigger events/actions in the finite state machine  -----------------------
     /**
-     *
+     * <p>Start.</p>
      */
     public void Start() {
         setState(getState().Start());
     }
 
     /**
-     *
+     * <p>Finish.</p>
      */
     public void Finish() {
         setState(getState().Finish());
     }
 
     /**
-     *
+     * <p>DrawTopCard.</p>
      */
     public void DrawTopCard() {
         setState(getState().DrawTopCard());
