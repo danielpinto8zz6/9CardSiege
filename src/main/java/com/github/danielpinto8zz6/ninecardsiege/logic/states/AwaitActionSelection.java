@@ -4,7 +4,9 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
 public class AwaitActionSelection extends StateAdapter {
 
-    public AwaitActionSelection(GameData g) {
+    private static final long serialVersionUID = 1L;
+
+	public AwaitActionSelection(GameData g) {
         super(g);
     }
 

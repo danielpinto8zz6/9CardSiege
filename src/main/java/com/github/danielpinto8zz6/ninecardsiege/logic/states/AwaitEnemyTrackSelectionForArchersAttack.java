@@ -4,7 +4,9 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
 public class AwaitEnemyTrackSelectionForArchersAttack extends StateAdapter {
 
-    public AwaitEnemyTrackSelectionForArchersAttack(GameData g) {
+    private static final long serialVersionUID = 1L;
+
+	public AwaitEnemyTrackSelectionForArchersAttack(GameData g) {
         super(g);
     }
 

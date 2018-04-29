@@ -4,7 +4,9 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
 public class AwaitEnemyTrackSelectionForBoilingWaterAttack extends StateAdapter {
 
-    public AwaitEnemyTrackSelectionForBoilingWaterAttack(GameData g) {
+    private static final long serialVersionUID = 1L;
+
+	public AwaitEnemyTrackSelectionForBoilingWaterAttack(GameData g) {
         super(g);
     }
 

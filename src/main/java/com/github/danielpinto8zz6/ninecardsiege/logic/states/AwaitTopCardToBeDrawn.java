@@ -9,7 +9,9 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
 
 public class AwaitTopCardToBeDrawn extends StateAdapter {
 
-    public AwaitTopCardToBeDrawn(GameData g) {
+    private static final long serialVersionUID = 1L;
+
+	public AwaitTopCardToBeDrawn(GameData g) {
         super(g);
     }
 
