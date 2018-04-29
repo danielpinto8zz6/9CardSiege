@@ -2,6 +2,10 @@ package com.github.danielpinto8zz6.ninecardsiege.logic;
 
 import java.io.Serializable;
 
+/**
+ *
+ * @author daniel
+ */
 public class StatusCard implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -13,6 +17,10 @@ public class StatusCard implements Serializable {
 
     private int supplies;
 
+    /**
+     *
+     * @param gameData
+     */
     public StatusCard(GameData gameData) {
         this.troopPosition = 0;
         this.supplies = 0;
@@ -53,6 +61,10 @@ public class StatusCard implements Serializable {
         return supplies;
     }
 
+    /**
+     *
+     * @param supplies
+     */
     public void addSupplies(int supplies) {
         this.supplies += supplies;
 
@@ -61,6 +73,9 @@ public class StatusCard implements Serializable {
         }
     }
 
+    /**
+     *
+     */
     public void checkCapture() {
 
         if (Dice.roll() == 1) {
@@ -69,6 +84,9 @@ public class StatusCard implements Serializable {
         }
     }
 
+    /**
+     *
+     */
     public void removeSupplies() {
         this.supplies = 0;
     }

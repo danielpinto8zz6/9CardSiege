@@ -6,13 +6,20 @@ import java.util.List;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates;
 
-public class Game implements Serializable {
+/**
+ *
+ * @author daniel
+ */
+public final class Game implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private IStates state;
     private GameData gameData;
 
+    /**
+     *
+     */
     public Game() {
         gameData = new GameData();
         setState(new AwaitBeginning(gameData));
@@ -46,28 +53,48 @@ public class Game implements Serializable {
         this.gameData = gameData;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getMsgLog() {
         return gameData.getMsgLog();
     }
 
+    /**
+     *
+     */
     public void clearMsgLog() {
         gameData.clearMsgLog();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return gameData.toString();
     }
 
     //--------------------- Methods that trigger events/actions in the finite state machine  -----------------------
+    /**
+     *
+     */
     public void Start() {
         setState(getState().Start());
     }
 
+    /**
+     *
+     */
     public void Finish() {
         setState(getState().Finish());
     }
 
+    /**
+     *
+     */
     public void DrawTopCard() {
         setState(getState().DrawTopCard());
     }

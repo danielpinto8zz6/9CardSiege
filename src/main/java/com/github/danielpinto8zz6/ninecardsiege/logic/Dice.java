@@ -2,8 +2,16 @@ package com.github.danielpinto8zz6.ninecardsiege.logic;
 
 import java.util.Random;
 
+/**
+ *
+ * @author daniel
+ */
 public class Dice {
 
+    /**
+     *
+     * @return
+     */
     public static int roll() {
         int value;
 

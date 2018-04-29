@@ -7,48 +7,78 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.events.BadWeather;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.BoilingOil;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.SuppliesSpoiled;
 
+/**
+ *
+ * @author daniel
+ */
 public class Card3 extends Card {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     *
+     * @param gameData
+     */
     public Card3(GameData gameData) {
         super(gameData);
     }
 
+    /**
+     *
+     */
     @Override
     public void Day1Event() {
         SuppliesSpoiled.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
+    /**
+     *
+     */
     @Override
     public void Day2Event() {
         BadWeather.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
+    /**
+     *
+     */
     @Override
     public void Day3Event() {
         BoilingOil.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Card3";
     }
 
+    /**
+     *
+     */
     @Override
     public void moveEnemyDay1() {
         Enemy enemy = getGameData().getEnemy("Ladders");
         enemy.move(Constants.MOVE.UP);
     }
 
+    /**
+     *
+     */
     @Override
     public void moveEnemyDay2() {
         // no enemy movement
     }
 
+    /**
+     *
+     */
     @Override
     public void moveEnemyDay3() {
         Enemy enemyL = getGameData().getEnemy("Ladders");

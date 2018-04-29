@@ -7,11 +7,19 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.StatusCard;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
 
+/**
+ *
+ * @author daniel
+ */
 public class AwaitTopCardToBeDrawn extends StateAdapter {
 
     private static final long serialVersionUID = 1L;
 
-	public AwaitTopCardToBeDrawn(GameData g) {
+    /**
+     *
+     * @param g
+     */
+    public AwaitTopCardToBeDrawn(GameData g) {
         super(g);
     }
 

@@ -7,6 +7,10 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
 
+/**
+ *
+ * @author daniel
+ */
 public class Event implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -15,6 +19,11 @@ public class Event implements Serializable {
 
     private String eventName;
 
+    /**
+     *
+     * @param gameData
+     * @param name
+     */
     public Event(GameData gameData, String name) {
         this.gameData = gameData;
     }
@@ -47,14 +56,26 @@ public class Event implements Serializable {
         this.eventName = eventName;
     }
 
+    /**
+     *
+     * @return
+     */
     public String toString() {
         return this.eventName;
     }
 
+    /**
+     *
+     * @return
+     */
     public Player getPlayer() {
         return gameData.getPlayer();
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Enemy> getEnemies() {
         return gameData.getBattleCard().getEnemies();
     }

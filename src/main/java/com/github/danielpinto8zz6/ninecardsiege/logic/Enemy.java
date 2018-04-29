@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants.MOVE;
 
+/**
+ *
+ * @author daniel
+ */
 public class Enemy implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -11,6 +15,11 @@ public class Enemy implements Serializable {
     private int strength;
     private int position;
 
+    /**
+     *
+     * @param name
+     * @param strength
+     */
     public Enemy(String name, int strength) {
         this.name = name;
         this.strength = strength;
@@ -59,6 +68,10 @@ public class Enemy implements Serializable {
         this.position = position;
     }
 
+    /**
+     *
+     * @param move
+     */
     public void move(MOVE move) {
         if (move == MOVE.UP) {
             this.position--;
@@ -72,6 +85,10 @@ public class Enemy implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         String s;

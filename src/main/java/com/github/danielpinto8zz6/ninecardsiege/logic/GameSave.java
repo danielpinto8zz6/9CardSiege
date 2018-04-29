@@ -6,8 +6,18 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+/**
+ *
+ * @author daniel
+ */
 public class GameSave {
 
+    /**
+     *
+     * @param game
+     * @param fileName
+     * @throws IOException
+     */
     public static void saveGameToFile(Game game, String fileName) throws IOException {
         ObjectOutputStream oout = null;
 
@@ -27,6 +37,13 @@ public class GameSave {
         }
     }
 
+    /**
+     *
+     * @param fileName
+     * @return
+     * @throws ClassNotFoundException
+     * @throws IOException
+     */
     public static Object retrieveGameFromFile(String fileName) throws ClassNotFoundException, IOException {
         ObjectInputStream oin = null;
 

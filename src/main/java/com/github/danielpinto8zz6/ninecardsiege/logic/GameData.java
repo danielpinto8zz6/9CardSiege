@@ -7,21 +7,28 @@ import java.util.List;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.*;
 
+/**
+ *
+ * @author daniel
+ */
 public class GameData implements Constants, Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Player player;
+    private final Player player;
 
     private int day;
 
-    private BattleCard battleCard;
-    private StatusCard statusCard;
+    private final BattleCard battleCard;
+    private final StatusCard statusCard;
 
-    private List<String> msgLog;
+    private final List<String> msgLog;
 
     private List<Card> cards = new ArrayList<Card>();
 
+    /**
+     *
+     */
     public GameData() {
         this.player = new Player(this, "Player");
         this.day = 1;
@@ -70,26 +77,50 @@ public class GameData implements Constants, Serializable {
         return statusCard;
     }
 
+    /**
+     *
+     * @param name
+     * @return
+     */
     public Enemy getEnemy(String name) {
         return getBattleCard().getEnemy(name);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Enemy> getEnemies() {
         return getBattleCard().getEnemies();
     }
 
+    /**
+     *
+     */
     public void clearMsgLog() {
         msgLog.clear();
     }
 
+    /**
+     *
+     * @param msg
+     */
     public void addMsgLog(String msg) {
         msgLog.add(msg);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getMsgLog() {
         return msgLog;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         String s;

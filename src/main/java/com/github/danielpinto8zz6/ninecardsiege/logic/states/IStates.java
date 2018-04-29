@@ -3,34 +3,57 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 /*
  * List of expected events when taking into account all the states.
  */
+/**
+ *
+ * @author daniel
+ */
 public interface IStates {
 
     /**
-     * Start the game
+     *
+     * @return
      */
     IStates Start();
 
     /**
-     * Resolve event text Advance enemies Perform close combat action if 2
-     * enemies in close combat area
+     *
+     * @return
      */
     IStates DrawTopCard();
 
     /**
-     * Boiling water attack And action points > 0 AND unused in current turn
+     *
+     * @return
      */
     IStates ArchersAttack();
 
     /**
-     * Archers attack And action points > 0
+     *
+     * @return
      */
     IStates BoilingWaterAttack();
 
+    /**
+     *
+     * @return
+     */
     IStates CloseCombatAttack();
 
+    /**
+     *
+     * @return
+     */
     IStates Capture();
 
+    /**
+     *
+     * @return
+     */
     IStates Attack();
 
+    /**
+     *
+     * @return
+     */
     IStates Finish();
 }

@@ -7,43 +7,70 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.events.GuardsDistracted;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.Illness;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.TrebuchetAttack;
 
+/**
+ *
+ * @author daniel
+ */
 public class Card2 extends Card {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     *
+     * @param gameData
+     */
     public Card2(GameData gameData) {
         super(gameData);
     }
 
+    /**
+     *
+     */
     @Override
     public void Day1Event() {
         Illness.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
+    /**
+     *
+     */
     @Override
     public void Day2Event() {
         GuardsDistracted.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
+    /**
+     *
+     */
     @Override
     public void Day3Event() {
         TrebuchetAttack.apply(getGameData());
         getPlayer().setActionPoints(1);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Card2";
     }
 
+    /**
+     *
+     */
     @Override
     public void moveEnemyDay1() {
         Enemy enemyS = getGameData().getEnemy("SiegeTower");
         enemyS.move(Constants.MOVE.UP);
     }
 
+    /**
+     *
+     */
     @Override
     public void moveEnemyDay2() {
         int aux = 0;
@@ -62,6 +89,9 @@ public class Card2 extends Card {
         }
     }
 
+    /**
+     *
+     */
     @Override
     public void moveEnemyDay3() {
         // no enemy movement

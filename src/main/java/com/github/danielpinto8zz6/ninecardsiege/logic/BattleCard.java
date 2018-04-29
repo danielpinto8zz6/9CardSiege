@@ -4,16 +4,24 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author daniel
+ */
 public class BattleCard implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private GameData gameData;
 
-    private List<Enemy> enemies;
+    private final List<Enemy> enemies;
 
     private int trebuchet;
 
+    /**
+     *
+     * @param gameData
+     */
     public BattleCard(GameData gameData) {
         this.gameData = gameData;
 
@@ -61,15 +69,23 @@ public class BattleCard implements Serializable {
         this.trebuchet = trebuchet;
     }
 
+    /**
+     *
+     * @param name
+     * @return
+     */
     public Enemy getEnemy(String name) {
         for (Enemy enemy : enemies) {
-            if (enemy.getName() == name) {
+            if (enemy.getName() == null ? name == null : enemy.getName().equals(name)) {
                 return enemy;
             }
         }
         return null;
     }
 
+    /**
+     *
+     */
     public void checkCloseCombat() {
         int aux, flag = 0;
         Game game = new Game();

@@ -5,19 +5,35 @@ import java.io.Serializable;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
+/**
+ *
+ * @author daniel
+ */
 public class StateAdapter implements IStates, Constants, Serializable {
 
     private static final long serialVersionUID = 1L;
-	private GameData game;
+    private GameData game;
 
+    /**
+     *
+     * @param g
+     */
     public StateAdapter(GameData g) {
         this.game = g;
     }
 
+    /**
+     *
+     * @return
+     */
     public GameData getGame() {
         return game;
     }
 
+    /**
+     *
+     * @param game
+     */
     public void setGame(GameData game) {
         this.game = game;
     }

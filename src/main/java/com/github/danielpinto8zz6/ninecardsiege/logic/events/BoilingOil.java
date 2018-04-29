@@ -6,14 +6,27 @@ import java.util.List;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
+/**
+ *
+ * @author daniel
+ */
 public class BoilingOil {
 
+    /**
+     *
+     * @param gameData
+     */
     public static void apply(GameData gameData) {
         for (Enemy enemy : getEnemiesOnCircleSpaces(gameData)) {
             enemy.setStrength(enemy.getStrength() + 2);
         }
     }
 
+    /**
+     *
+     * @param gameData
+     * @return
+     */
     public static List<Enemy> getEnemiesOnCircleSpaces(GameData gameData) {
         List<Enemy> enemiesOnCircleSpaces = new ArrayList<Enemy>();
         for (Enemy enemy : gameData.getBattleCard().getEnemies()) {
