@@ -2,6 +2,7 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
 import java.util.List;
 
+import com.github.danielpinto8zz6.ninecardsiege.logic.Dice;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
 
@@ -54,13 +55,17 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
       break;
     }
 
-    getGameData().addMsgLog("Performing enemy line check");
     /**
      * Perform enemy line check if our troops are on the enemy lines we have to roll a D6 if we roll
      * a 1 they are captured
      */
     if (getGameData().getStatusCard().getTroopPosition() == 4) {
-      getGameData().getStatusCard().checkCapture();
+      getGameData().addMsgLog("Performing enemy line check");
+
+      if (Dice.roll() == 1) {
+        getGameData().getStatusCard().setTroopPosition(0);
+        getGameData().getPlayer().setMoral(getGameData().getPlayer().getMoral() - 1);
+      }
     }
 
     getGameData().addMsgLog("Performing close combat action");

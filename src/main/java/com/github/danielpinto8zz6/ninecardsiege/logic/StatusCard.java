@@ -89,15 +89,6 @@ public class StatusCard implements Serializable {
     }
   }
 
-  /** checkCapture. */
-  public void checkCapture() {
-
-    if (Dice.roll() == 1) {
-      this.troopPosition = 0;
-      gameData.getPlayer().setMoral(gameData.getPlayer().getMoral() - 1);
-    }
-  }
-
   /** removeSupplies. */
   public void removeSupplies() {
     this.supplies = 0;
