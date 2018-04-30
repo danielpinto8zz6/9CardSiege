@@ -1,10 +1,9 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.BattleCard;
-import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
-import com.github.danielpinto8zz6.ninecardsiege.logic.StatusCard;
-import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
 import java.util.List;
+
+import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
+import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
 
 /**
  * AwaitTopCardToBeDrawn class.
@@ -28,37 +27,49 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates drawTopCard() {
+    getGame().addMsgLog("Picking Card...");
+
     List<Card> cards = getGame().getCards();
     Card card = cards.get(0);
-    BattleCard battleCard = getGame().getBattleCard();
-    StatusCard statusCard = getGame().getStatusCard();
+
+    getGame().addMsgLog("Picked " + card.toString());
+
+    getGame().addMsgLog("Resolving event text Advance enemies");
+
     /** Resolve event text Advance enemies */
     switch (getGame().getDay()) {
-      case 1:
-        card.day1Event();
-        card.moveEnemyDay1();
-        break;
-      case 2:
-        card.day2Event();
-        card.moveEnemyDay2();
-        break;
-      case 3:
-        card.day3Event();
-        card.moveEnemyDay3();
-        break;
-      default:
-        break;
+    case 1:
+      card.day1Event();
+      card.moveEnemyDay1();
+      break;
+    case 2:
+      card.day2Event();
+      card.moveEnemyDay2();
+      break;
+    case 3:
+      card.day3Event();
+      card.moveEnemyDay3();
+      break;
+    default:
+      break;
     }
 
+    getGame().addMsgLog("Performing enemy line check");
     /**
      * Perform enemy line check if our troops are on the enemy lines we have to roll a D6 if we roll
      * a 1 they are captured
      */
-    if (statusCard.getTroopPosition() == 4) {
-      statusCard.checkCapture();
+    if (getGame().getStatusCard().getTroopPosition() == 4) {
+      getGame().getStatusCard().checkCapture();
     }
+
+    getGame().addMsgLog("Performing close combat action");
     /** Perform close combat action if 2 enemies in close combat area */
-    battleCard.checkCloseCombat();
+    getGame().getBattleCard().checkCloseCombat();
+
+    getGame().addMsgLog("Removing " + card.toString() + " from the deck");
+    /** After card is drawn, remove it from the deck */
+    cards.remove(card);
 
     if (getGame().getPlayer().getActionPoints() == 0) {
       return new GameOver(getGame());
