@@ -1,11 +1,12 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
+import java.util.List;
+
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Dice;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
-import java.util.List;
 
 /**
  * AwaitTopCardToBeDrawn class.
@@ -40,20 +41,20 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
 
     /** Resolve event text Advance enemies */
     switch (getGameData().getDay()) {
-      case 1:
-        card.day1Event();
-        card.moveEnemyDay1();
-        break;
-      case 2:
-        card.day2Event();
-        card.moveEnemyDay2();
-        break;
-      case 3:
-        card.day3Event();
-        card.moveEnemyDay3();
-        break;
-      default:
-        break;
+    case 1:
+      card.day1Event();
+      card.moveEnemyDay1();
+      break;
+    case 2:
+      card.day2Event();
+      card.moveEnemyDay2();
+      break;
+    case 3:
+      card.day3Event();
+      card.moveEnemyDay3();
+      break;
+    default:
+      break;
     }
 
     /**
@@ -73,14 +74,22 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
     if (getGameData().getBattleCard().getEnemiesInCloseCombatArea().size() == 2) {
       getGameData().addMsgLog("Performing close combat action");
       int roll = Dice.roll();
-      if (roll == 1) {
-        getGameData().getPlayer().setMoral(getGameData().getPlayer().getMoral() - 1);
-      } else if (roll > 4) {
-        for (Enemy enemy : getGameData().getBattleCard().getEnemiesInCloseCombatArea()) {
-          enemy.move(Constants.MOVE.DOWN);
+      boolean keepRolling = true;
+
+      while (keepRolling) {
+        if (roll == 1) {
+          getGameData().getPlayer().setMoral(getGameData().getPlayer().getMoral() - 1);
+          keepRolling = false;
+        } else if (roll > 4) {
+          for (Enemy enemy : getGameData().getBattleCard().getEnemiesInCloseCombatArea()) {
+            enemy.move(Constants.MOVE.DOWN);
+            keepRolling = false;
+          }
         }
+        getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
+        roll = Dice.roll();
       }
-      getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
+
     } else if (getGameData().getBattleCard().getEnemiesInCloseCombatArea().size() == 3) {
       /** If there are 3 enemies on close combat area the game is over */
       return new GameOver(getGameData());
