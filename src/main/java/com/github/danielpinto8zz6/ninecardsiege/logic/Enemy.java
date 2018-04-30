@@ -112,9 +112,7 @@ public class Enemy implements Serializable {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         String s;

@@ -29,44 +29,34 @@ public class Card6 extends Card {
         super(gameData);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public void Day1Event() {
+    public void day1Event() {
         CoverOfDarkness.apply(getGameData());
         getPlayer().setActionPoints(3);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public void Day2Event() {
+    public void day2Event() {
         EnemyFatigue.apply(getGameData());
         getPlayer().setActionPoints(3);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public void Day3Event() {
+    public void day3Event() {
         Rally.apply(getGameData());
         getPlayer().setActionPoints(3);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         return "Card6";
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay1() {
         int aux = 0;
@@ -85,18 +75,14 @@ public class Card6 extends Card {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay2() {
         Enemy enemyL = getGameData().getEnemy("Ladders");
         enemyL.move(Constants.MOVE.UP);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay3() {
         Enemy enemyR = getGameData().getEnemy("BattleRam");

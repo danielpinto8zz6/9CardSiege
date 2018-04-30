@@ -75,11 +75,12 @@ public class Event implements Serializable {
     }
 
     /**
+     * {@inheritDoc}
+     *
      * <p>
      * toString.</p>
-     *
-     * @return a {@link java.lang.String} object.
      */
+    @Override
     public String toString() {
         return this.eventName;
     }

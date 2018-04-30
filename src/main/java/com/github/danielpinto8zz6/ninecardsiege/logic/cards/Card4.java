@@ -29,44 +29,34 @@ public class Card4 extends Card {
         super(gameData);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public void Day1Event() {
+    public void day1Event() {
         DeathOfLeader.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public void Day2Event() {
+    public void day2Event() {
         GateFortified.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public void Day3Event() {
+    public void day3Event() {
         FlamingArrows.apply(getGameData());
         getPlayer().setActionPoints(3);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         return "Card4";
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay1() {
         Enemy enemyL = getGameData().getEnemy("Ladders");
@@ -76,9 +66,7 @@ public class Card4 extends Card {
         enemyS.move(Constants.MOVE.UP);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay2() {
         Enemy enemyL = getGameData().getEnemy("Ladders");
@@ -88,9 +76,7 @@ public class Card4 extends Card {
         enemyR.move(Constants.MOVE.UP);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay3() {
         Enemy enemyS = getGameData().getEnemy("SiegeTower");

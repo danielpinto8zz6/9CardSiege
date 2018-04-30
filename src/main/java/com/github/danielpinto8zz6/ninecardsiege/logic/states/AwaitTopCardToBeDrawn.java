@@ -29,11 +29,9 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
         super(g);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public IStates DrawTopCard() {
+    public IStates drawTopCard() {
         List<Card> cards = getGame().getCards();
         Card card = cards.get(0);
         BattleCard battleCard = getGame().getBattleCard();
@@ -44,16 +42,18 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
 
         switch (getGame().getDay()) {
             case 1:
-                card.Day1Event();
+                card.day1Event();
                 card.moveEnemyDay1();
                 break;
             case 2:
-                card.Day2Event();
+                card.day2Event();
                 card.moveEnemyDay2();
                 break;
             case 3:
-                card.Day3Event();
+                card.day3Event();
                 card.moveEnemyDay3();
+                break;
+            default:
                 break;
         }
 
@@ -76,11 +76,9 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public IStates Finish() {
+    public IStates finish() {
         return new GameOver(getGame());
     }
 }

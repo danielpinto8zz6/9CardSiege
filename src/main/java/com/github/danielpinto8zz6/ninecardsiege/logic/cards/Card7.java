@@ -29,62 +29,48 @@ public class Card7 extends Card {
         super(gameData);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public void Day1Event() {
+    public void day1Event() {
         DeterminedEnemy.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public void Day2Event() {
+    public void day2Event() {
         IronShields.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public void Day3Event() {
+    public void day3Event() {
         Faith.apply(getGameData());
         getPlayer().setActionPoints(3);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         return "Card7";
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay1() {
         Enemy enemyR = getGameData().getEnemy("BattleRam");
         enemyR.move(Constants.MOVE.UP);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay2() {
         Enemy enemyS = getGameData().getEnemy("SiegeTower");
         enemyS.move(Constants.MOVE.UP);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay3() {
         Enemy enemyL = getGameData().getEnemy("Ladders");

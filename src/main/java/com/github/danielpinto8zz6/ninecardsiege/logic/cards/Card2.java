@@ -29,53 +29,41 @@ public class Card2 extends Card {
         super(gameData);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public void Day1Event() {
+    public void day1Event() {
         Illness.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public void Day2Event() {
+    public void day2Event() {
         GuardsDistracted.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public void Day3Event() {
+    public void day3Event() {
         TrebuchetAttack.apply(getGameData());
         getPlayer().setActionPoints(1);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         return "Card2";
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay1() {
         Enemy enemyS = getGameData().getEnemy("SiegeTower");
         enemyS.move(Constants.MOVE.UP);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay2() {
         int aux = 0;
@@ -94,9 +82,7 @@ public class Card2 extends Card {
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay3() {
         // no enemy movement

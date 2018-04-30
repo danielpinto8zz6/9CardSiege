@@ -37,7 +37,7 @@ public class BoilingOil {
      * @return a {@link java.util.List} object.
      */
     public static List<Enemy> getEnemiesOnCircleSpaces(GameData gameData) {
-        List<Enemy> enemiesOnCircleSpaces = new ArrayList<Enemy>();
+        List<Enemy> enemiesOnCircleSpaces = new ArrayList<>();
         gameData.getBattleCard().getEnemies().stream().filter((enemy) -> (enemy.getPosition() == 1)).forEachOrdered((enemy) -> {
             enemiesOnCircleSpaces.add(enemy);
         }); // Circle Spaces = position 1

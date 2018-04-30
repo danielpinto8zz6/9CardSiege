@@ -30,7 +30,16 @@ public abstract class Card implements Serializable {
      */
     public Card(GameData gameData) {
         this.gameData = gameData;
-        cardNumber = ++counter;
+        this.cardNumber = counterPlusPlus();
+    }
+
+    /**
+     * <p>counterPlusPlus.</p>
+     *
+     * @return a int.
+     */
+    public static int counterPlusPlus() {
+        return Card.counter++;
     }
 
     /**
@@ -77,19 +86,19 @@ public abstract class Card implements Serializable {
      * <p>
      * Day1Event.</p>
      */
-    public abstract void Day1Event();
+    public abstract void day1Event();
 
     /**
      * <p>
      * Day2Event.</p>
      */
-    public abstract void Day2Event();
+    public abstract void day2Event();
 
     /**
      * <p>
      * Day3Event.</p>
      */
-    public abstract void Day3Event();
+    public abstract void day3Event();
 
     /**
      * <p>

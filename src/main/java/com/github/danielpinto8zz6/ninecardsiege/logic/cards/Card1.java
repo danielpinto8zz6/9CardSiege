@@ -25,60 +25,46 @@ public class Card1 extends Card {
         super(gameData);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public void Day1Event() {
+    public void day1Event() {
         TrebuchetAttack.apply(getGameData());
         getPlayer().setActionPoints(3);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public void Day2Event() {
+    public void day2Event() {
         TrebuchetAttack.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public void Day3Event() {
+    public void day3Event() {
         TrebuchetAttack.apply(getGameData());
         getPlayer().setActionPoints(1);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay1() {
         // no enemy movement
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay2() {
         // no enemy movement
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveEnemyDay3() {
         // no enemy movement
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         return "Card1";

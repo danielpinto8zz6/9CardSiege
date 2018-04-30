@@ -14,81 +14,81 @@ public interface IStates {
 
     /**
      * <p>
-     * Start.</p>
+     * start.</p>
      *
      * @return a
      * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
      * object.
      */
-    IStates Start();
+    IStates start();
 
     /**
      * <p>
-     * DrawTopCard.</p>
+     * drawTopCard.</p>
      *
      * @return a
      * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
      * object.
      */
-    IStates DrawTopCard();
+    IStates drawTopCard();
 
     /**
      * <p>
-     * ArchersAttack.</p>
+     * archersAttack.</p>
      *
      * @return a
      * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
      * object.
      */
-    IStates ArchersAttack();
+    IStates archersAttack();
 
     /**
      * <p>
-     * BoilingWaterAttack.</p>
+     * boilingWaterAttack.</p>
      *
      * @return a
      * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
      * object.
      */
-    IStates BoilingWaterAttack();
+    IStates boilingWaterAttack();
 
     /**
      * <p>
-     * CloseCombatAttack.</p>
+     * closeCombatAttack.</p>
      *
      * @return a
      * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
      * object.
      */
-    IStates CloseCombatAttack();
+    IStates closeCombatAttack();
 
     /**
      * <p>
-     * Capture.</p>
+     * capture.</p>
      *
      * @return a
      * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
      * object.
      */
-    IStates Capture();
+    IStates capture();
 
     /**
      * <p>
-     * Attack.</p>
+     * attack.</p>
      *
      * @return a
      * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
      * object.
      */
-    IStates Attack();
+    IStates attack();
 
     /**
      * <p>
-     * Finish.</p>
+     * finish.</p>
      *
      * @return a
      * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
      * object.
      */
-    IStates Finish();
+    IStates finish();
 }

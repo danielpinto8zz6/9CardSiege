@@ -31,7 +31,7 @@ public class BattleCard implements Serializable {
     public BattleCard(GameData gameData) {
         this.gameData = gameData;
 
-        enemies = new ArrayList<Enemy>();
+        enemies = new ArrayList<>();
 
         enemies.add(new Enemy("Ladders", 2));
         enemies.add(new Enemy("BattleRam", 3));
@@ -117,11 +117,11 @@ public class BattleCard implements Serializable {
         while (flag == 0) {
             aux = 0;
             if (gameData.getPlayer().getActionPoints() == 0) {
-                game.Finish();
+                game.finish();
             }
             aux = gameData.getBattleCard().getEnemies().stream().filter((enemy) -> (enemy.getPosition() == 0)).map((_item) -> 1).reduce(aux, Integer::sum);
             if (aux == 3) {
-                game.Finish();
+                game.finish();
             } else {
                 if (aux == 2) {
 

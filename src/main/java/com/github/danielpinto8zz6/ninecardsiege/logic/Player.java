@@ -368,9 +368,7 @@ public class Player implements Serializable {
         this.name = name;
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         String s;

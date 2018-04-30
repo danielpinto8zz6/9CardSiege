@@ -87,9 +87,7 @@ public final class Game implements Serializable {
         gameData.clearMsgLog();
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         return gameData.toString();
@@ -98,25 +96,25 @@ public final class Game implements Serializable {
     //--------------------- Methods that trigger events/actions in the finite state machine  -----------------------
     /**
      * <p>
-     * Start.</p>
+     * start.</p>
      */
-    public void Start() {
-        setState(getState().Start());
+    public void start() {
+        setState(getState().start());
     }
 
     /**
      * <p>
-     * Finish.</p>
+     * finish.</p>
      */
-    public void Finish() {
-        setState(getState().Finish());
+    public void finish() {
+        setState(getState().finish());
     }
 
     /**
      * <p>
-     * DrawTopCard.</p>
+     * drawTopCard.</p>
      */
-    public void DrawTopCard() {
-        setState(getState().DrawTopCard());
+    public void drawTopCard() {
+        setState(getState().drawTopCard());
     }
 }

@@ -24,19 +24,15 @@ public class AwaitBeginning extends StateAdapter {
         super(g);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public IStates Start() {
+    public IStates start() {
         return new AwaitTopCardToBeDrawn(getGame());
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public IStates Finish() {
+    public IStates finish() {
         return new GameOver(getGame());
     }
 }

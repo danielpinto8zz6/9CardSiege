@@ -51,106 +51,90 @@ public class StateAdapter implements IStates, Constants, Serializable {
     }
 
     /**
-     * <p>
-     * Start.</p>
+     * {@inheritDoc}
      *
-     * @return a
-     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
-     * object.
+     * <p>
+     * start.</p>
      */
     @Override
-    public IStates Start() {
+    public IStates start() {
         return this;
     }
 
     /**
-     * <p>
-     * Finish.</p>
+     * {@inheritDoc}
      *
-     * @return a
-     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
-     * object.
+     * <p>
+     * finish.</p>
      */
     @Override
-    public IStates Finish() {
+    public IStates finish() {
         return this;
     }
 
     /**
-     * <p>
-     * DrawTopCard.</p>
+     * {@inheritDoc}
      *
-     * @return a
-     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
-     * object.
+     * <p>
+     * drawTopCard.</p>
      */
     @Override
-    public IStates DrawTopCard() {
+    public IStates drawTopCard() {
         return this;
     }
 
     /**
-     * <p>
-     * ArchersAttack.</p>
+     * {@inheritDoc}
      *
-     * @return a
-     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
-     * object.
+     * <p>
+     * archersAttack.</p>
      */
     @Override
-    public IStates ArchersAttack() {
+    public IStates archersAttack() {
         return this;
     }
 
     /**
-     * <p>
-     * BoilingWaterAttack.</p>
+     * {@inheritDoc}
      *
-     * @return a
-     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
-     * object.
+     * <p>
+     * boilingWaterAttack.</p>
      */
     @Override
-    public IStates BoilingWaterAttack() {
+    public IStates boilingWaterAttack() {
         return this;
     }
 
     /**
-     * <p>
-     * Attack.</p>
+     * {@inheritDoc}
      *
-     * @return a
-     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
-     * object.
+     * <p>
+     * attack.</p>
      */
     @Override
-    public IStates Attack() {
+    public IStates attack() {
         return this;
     }
 
     /**
-     * <p>
-     * CloseCombatAttack.</p>
+     * {@inheritDoc}
      *
-     * @return a
-     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
-     * object.
+     * <p>
+     * closeCombatAttack.</p>
      */
     @Override
-    public IStates CloseCombatAttack() {
+    public IStates closeCombatAttack() {
         return this;
     }
 
     /**
-     * <p>
-     * Capture.</p>
+     * {@inheritDoc}
      *
-     * @return a
-     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
-     * object.
+     * <p>
+     * capture.</p>
      */
     @Override
-    public IStates Capture() {
+    public IStates capture() {
         return this;
     }
 }

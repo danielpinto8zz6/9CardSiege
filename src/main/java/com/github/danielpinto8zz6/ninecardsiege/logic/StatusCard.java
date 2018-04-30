@@ -28,6 +28,8 @@ public class StatusCard implements Serializable {
      * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
      */
     public StatusCard(GameData gameData) {
+        this.gameData = gameData;
+
         this.troopPosition = 0;
         this.supplies = 0;
     }

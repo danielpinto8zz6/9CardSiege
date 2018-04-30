@@ -27,7 +27,7 @@ public class GameData implements Constants, Serializable {
 
     private final List<String> msgLog;
 
-    private List<Card> cards = new ArrayList<Card>();
+    private List<Card> cards = new ArrayList<>();
 
     /**
      * <p>
@@ -50,7 +50,7 @@ public class GameData implements Constants, Serializable {
 
         shuffleCards();
 
-        msgLog = new ArrayList<String>();
+        msgLog = new ArrayList<>();
     }
 
     /**
@@ -143,9 +143,7 @@ public class GameData implements Constants, Serializable {
         return msgLog;
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         String s;
@@ -159,7 +157,7 @@ public class GameData implements Constants, Serializable {
         s += "\n\t" + "Trebuchet: " + getBattleCard().getTrebuchet();
 
         s = getEnemies().stream().map((enemy) -> "\n\n" + enemy.toString()).reduce(s, String::concat);
-        
+
         return s;
     }
 

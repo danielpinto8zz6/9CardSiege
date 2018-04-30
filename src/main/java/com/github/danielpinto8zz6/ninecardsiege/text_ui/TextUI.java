@@ -34,7 +34,7 @@ public class TextUI {
      */
     public TextUI(Game game) {
         this.game = game;
-        s = new Scanner(System.in);
+        s = new Scanner(System.in, "UTF-8");
     }
 
     private void showGame() {
@@ -60,7 +60,7 @@ public class TextUI {
 
         switch (value) {
             case 1:
-                game.Start();
+                game.start();
                 return;
             case 2:
                 System.out.println("\n\n---------------------------------");
@@ -73,21 +73,18 @@ public class TextUI {
 
                 name = s.next();
 
-                if (name != null) {
-                    getGame().getGameData().getPlayer().setName(name);
-                }
+                getGame().getGameData().getPlayer().setName(name);
+
                 return;
             case 3:
                 try {
                     handleRestoreGameFromFileOption();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (ClassNotFoundException | IOException e) {
+                    System.out.println(e.getMessage());
                 }
                 return;
             case 0:
-                game.Finish();
+                game.finish();
                 return;
             default:
                 System.out.println("Invalid option");
@@ -116,20 +113,18 @@ public class TextUI {
                 try {
                     handleSaveGameToFileOption();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
                 return;
             case 2:
                 try {
                     handleRestoreGameFromFileOption();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                } catch (ClassNotFoundException | IOException e) {
+                    System.out.println(e.getMessage());
                 }
                 return;
             case 0:
-                game.Finish();
+                game.finish();
                 return;
             default:
                 System.out.println("Invalid option");
@@ -158,10 +153,10 @@ public class TextUI {
 
         switch (value) {
             case 1:
-                game.DrawTopCard();
+                game.drawTopCard();
                 return;
             case 0:
-                game.Finish();
+                game.finish();
                 return;
             default:
                 System.out.println("Invalid option");
@@ -178,9 +173,9 @@ public class TextUI {
             if (game.getMsgLog().size() > 0) {
                 System.out.println();
 
-                for (String msg : game.getMsgLog()) {
+                game.getMsgLog().forEach((msg) -> {
                     System.out.println("---> " + msg);
-                }
+                });
                 game.clearMsgLog();
             }
 
@@ -219,15 +214,11 @@ public class TextUI {
      */
     public void handleRestoreGameFromFileOption() throws ClassNotFoundException, IOException {
         String fileName;
-        BufferedReader bin = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader bin = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
 
         System.out.print("File name: ");
 
-        fileName = bin.readLine().trim();
-
-        if (fileName == null) {
-            return;
-        }
+        fileName = bin.readLine();
 
         game = (Game) GameSave.retrieveGameFromFile(fileName);
     }
@@ -236,7 +227,7 @@ public class TextUI {
         String fileName;
 
         System.out.print("File name: ");
-        fileName = new BufferedReader(new InputStreamReader(System.in)).readLine();
+        fileName = new BufferedReader(new InputStreamReader(System.in, "UTF-8")).readLine();
 
         if (fileName == null) {
             return;

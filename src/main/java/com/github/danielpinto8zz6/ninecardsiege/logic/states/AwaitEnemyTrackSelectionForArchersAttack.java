@@ -24,20 +24,16 @@ public class AwaitEnemyTrackSelectionForArchersAttack extends StateAdapter {
         super(g);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public IStates Attack() {
+    public IStates attack() {
         // TODO
         return new AwaitActionSelection(getGame());
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public IStates Finish() {
+    public IStates finish() {
         return new GameOver(getGame());
     }
 }

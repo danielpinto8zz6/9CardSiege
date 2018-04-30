@@ -24,38 +24,30 @@ public class AwaitActionSelection extends StateAdapter {
         super(g);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public IStates ArchersAttack() {
+    public IStates archersAttack() {
         //TODO
         return new AwaitEnemyTrackSelectionForBoilingWaterAttack(getGame());
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public IStates BoilingWaterAttack() {
+    public IStates boilingWaterAttack() {
         //TODO
         return new AwaitEnemyTrackSelectionForBoilingWaterAttack(getGame());
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public IStates CloseCombatAttack() {
+    public IStates closeCombatAttack() {
         //TODO
         return new AwaitActionSelection(getGame());
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
-    public IStates Finish() {
+    public IStates finish() {
         return new GameOver(getGame());
     }
 }
