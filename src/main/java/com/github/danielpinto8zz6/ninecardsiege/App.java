@@ -4,7 +4,8 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.Game;
 import com.github.danielpinto8zz6.ninecardsiege.text_ui.TextUI;
 
 /**
- * <p>App class.</p>
+ * <p>
+ * App class.</p>
  *
  * @author daniel
  * @version $Id: $Id
@@ -12,7 +13,8 @@ import com.github.danielpinto8zz6.ninecardsiege.text_ui.TextUI;
 public class App {
 
     /**
-     * <p>main.</p>
+     * <p>
+     * main.</p>
      *
      * @param args an array of {@link java.lang.String} objects.
      */

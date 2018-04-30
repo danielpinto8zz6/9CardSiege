@@ -4,7 +4,8 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.states;
  * List of expected events when taking into account all the states.
  */
 /**
- * <p>IStates interface.</p>
+ * <p>
+ * IStates interface.</p>
  *
  * @author daniel
  * @version $Id: $Id
@@ -12,58 +13,82 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 public interface IStates {
 
     /**
-     * <p>Start.</p>
+     * <p>
+     * Start.</p>
      *
-     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+     * @return a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+     * object.
      */
     IStates Start();
 
     /**
-     * <p>DrawTopCard.</p>
+     * <p>
+     * DrawTopCard.</p>
      *
-     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+     * @return a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+     * object.
      */
     IStates DrawTopCard();
 
     /**
-     * <p>ArchersAttack.</p>
+     * <p>
+     * ArchersAttack.</p>
      *
-     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+     * @return a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+     * object.
      */
     IStates ArchersAttack();
 
     /**
-     * <p>BoilingWaterAttack.</p>
+     * <p>
+     * BoilingWaterAttack.</p>
      *
-     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+     * @return a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+     * object.
      */
     IStates BoilingWaterAttack();
 
     /**
-     * <p>CloseCombatAttack.</p>
+     * <p>
+     * CloseCombatAttack.</p>
      *
-     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+     * @return a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+     * object.
      */
     IStates CloseCombatAttack();
 
     /**
-     * <p>Capture.</p>
+     * <p>
+     * Capture.</p>
      *
-     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+     * @return a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+     * object.
      */
     IStates Capture();
 
     /**
-     * <p>Attack.</p>
+     * <p>
+     * Attack.</p>
      *
-     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+     * @return a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+     * object.
      */
     IStates Attack();
 
     /**
-     * <p>Finish.</p>
+     * <p>
+     * Finish.</p>
      *
-     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+     * @return a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+     * object.
      */
     IStates Finish();
 }

@@ -8,7 +8,8 @@ import java.util.List;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.*;
 
 /**
- * <p>GameData class.</p>
+ * <p>
+ * GameData class.</p>
  *
  * @author daniel
  * @version $Id: $Id
@@ -29,7 +30,8 @@ public class GameData implements Constants, Serializable {
     private List<Card> cards = new ArrayList<Card>();
 
     /**
-     * <p>Constructor for GameData.</p>
+     * <p>
+     * Constructor for GameData.</p>
      */
     public GameData() {
         this.player = new Player(this, "Player");
@@ -52,7 +54,8 @@ public class GameData implements Constants, Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>day</code>.</p>
+     * <p>
+     * Getter for the field <code>day</code>.</p>
      *
      * @return the day
      */
@@ -61,7 +64,8 @@ public class GameData implements Constants, Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>day</code>.</p>
+     * <p>
+     * Setter for the field <code>day</code>.</p>
      *
      * @param day the day to set
      */
@@ -70,7 +74,8 @@ public class GameData implements Constants, Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>battleCard</code>.</p>
+     * <p>
+     * Getter for the field <code>battleCard</code>.</p>
      *
      * @return the battleCard
      */
@@ -79,7 +84,8 @@ public class GameData implements Constants, Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>statusCard</code>.</p>
+     * <p>
+     * Getter for the field <code>statusCard</code>.</p>
      *
      * @return the statusCard
      */
@@ -88,17 +94,20 @@ public class GameData implements Constants, Serializable {
     }
 
     /**
-     * <p>getEnemy.</p>
+     * <p>
+     * getEnemy.</p>
      *
      * @param name a {@link java.lang.String} object.
-     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Enemy} object.
+     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Enemy}
+     * object.
      */
     public Enemy getEnemy(String name) {
         return getBattleCard().getEnemy(name);
     }
 
     /**
-     * <p>getEnemies.</p>
+     * <p>
+     * getEnemies.</p>
      *
      * @return a {@link java.util.List} object.
      */
@@ -107,14 +116,16 @@ public class GameData implements Constants, Serializable {
     }
 
     /**
-     * <p>clearMsgLog.</p>
+     * <p>
+     * clearMsgLog.</p>
      */
     public void clearMsgLog() {
         msgLog.clear();
     }
 
     /**
-     * <p>addMsgLog.</p>
+     * <p>
+     * addMsgLog.</p>
      *
      * @param msg a {@link java.lang.String} object.
      */
@@ -123,7 +134,8 @@ public class GameData implements Constants, Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>msgLog</code>.</p>
+     * <p>
+     * Getter for the field <code>msgLog</code>.</p>
      *
      * @return a {@link java.util.List} object.
      */
@@ -131,7 +143,9 @@ public class GameData implements Constants, Serializable {
         return msgLog;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         String s;
@@ -144,14 +158,14 @@ public class GameData implements Constants, Serializable {
         s += "\n\n" + "Battle Card: ";
         s += "\n\t" + "Trebuchet: " + getBattleCard().getTrebuchet();
 
-        for (Enemy enemy : getEnemies()) {
-            s += "\n\n" + enemy.toString();
-        }
+        s = getEnemies().stream().map((enemy) -> "\n\n" + enemy.toString()).reduce(s, String::concat);
+        
         return s;
     }
 
     /**
-     * <p>Getter for the field <code>player</code>.</p>
+     * <p>
+     * Getter for the field <code>player</code>.</p>
      *
      * @return the player
      */
@@ -160,7 +174,8 @@ public class GameData implements Constants, Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>cards</code>.</p>
+     * <p>
+     * Getter for the field <code>cards</code>.</p>
      *
      * @return the cards
      */
@@ -169,7 +184,8 @@ public class GameData implements Constants, Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>cards</code>.</p>
+     * <p>
+     * Setter for the field <code>cards</code>.</p>
      *
      * @param cards the cards to set
      */

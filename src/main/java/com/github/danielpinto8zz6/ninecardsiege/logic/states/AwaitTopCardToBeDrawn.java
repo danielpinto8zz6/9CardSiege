@@ -8,7 +8,8 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.StatusCard;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
 
 /**
- * <p>AwaitTopCardToBeDrawn class.</p>
+ * <p>
+ * AwaitTopCardToBeDrawn class.</p>
  *
  * @author daniel
  * @version $Id: $Id
@@ -18,15 +19,19 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
     private static final long serialVersionUID = 1L;
 
     /**
-     * <p>Constructor for AwaitTopCardToBeDrawn.</p>
+     * <p>
+     * Constructor for AwaitTopCardToBeDrawn.</p>
      *
-     * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+     * @param g a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
      */
     public AwaitTopCardToBeDrawn(GameData g) {
         super(g);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public IStates DrawTopCard() {
         List<Card> cards = getGame().getCards();
@@ -71,7 +76,9 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
         }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public IStates Finish() {
         return new GameOver(getGame());

@@ -4,7 +4,8 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
 
 /**
- * <p>EnemyFatigue class.</p>
+ * <p>
+ * EnemyFatigue class.</p>
  *
  * @author daniel
  * @version $Id: $Id
@@ -12,9 +13,11 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
 public class EnemyFatigue {
 
     /**
-     * <p>apply.</p>
+     * <p>
+     * apply.</p>
      *
-     * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+     * @param gameData a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
      */
     public static void apply(GameData gameData) {
         Player player = gameData.getPlayer();

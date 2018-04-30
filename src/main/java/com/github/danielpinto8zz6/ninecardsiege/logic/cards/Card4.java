@@ -8,7 +8,8 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.events.FlamingArrows;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.GateFortified;
 
 /**
- * <p>Card4 class.</p>
+ * <p>
+ * Card4 class.</p>
  *
  * @author daniel
  * @version $Id: $Id
@@ -18,42 +19,54 @@ public class Card4 extends Card {
     private static final long serialVersionUID = 1L;
 
     /**
-     * <p>Constructor for Card4.</p>
+     * <p>
+     * Constructor for Card4.</p>
      *
-     * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+     * @param gameData a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
      */
     public Card4(GameData gameData) {
         super(gameData);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void Day1Event() {
         DeathOfLeader.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void Day2Event() {
         GateFortified.apply(getGameData());
         getPlayer().setActionPoints(2);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void Day3Event() {
         FlamingArrows.apply(getGameData());
         getPlayer().setActionPoints(3);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         return "Card4";
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void moveEnemyDay1() {
         Enemy enemyL = getGameData().getEnemy("Ladders");
@@ -63,7 +76,9 @@ public class Card4 extends Card {
         enemyS.move(Constants.MOVE.UP);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void moveEnemyDay2() {
         Enemy enemyL = getGameData().getEnemy("Ladders");
@@ -73,7 +88,9 @@ public class Card4 extends Card {
         enemyR.move(Constants.MOVE.UP);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void moveEnemyDay3() {
         Enemy enemyS = getGameData().getEnemy("SiegeTower");

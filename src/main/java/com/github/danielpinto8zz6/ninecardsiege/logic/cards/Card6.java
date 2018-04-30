@@ -8,7 +8,8 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.events.EnemyFatigue;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.Rally;
 
 /**
- * <p>Card6 class.</p>
+ * <p>
+ * Card6 class.</p>
  *
  * @author daniel
  * @version $Id: $Id
@@ -18,42 +19,54 @@ public class Card6 extends Card {
     private static final long serialVersionUID = 1L;
 
     /**
-     * <p>Constructor for Card6.</p>
+     * <p>
+     * Constructor for Card6.</p>
      *
-     * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+     * @param gameData a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
      */
     public Card6(GameData gameData) {
         super(gameData);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void Day1Event() {
         CoverOfDarkness.apply(getGameData());
         getPlayer().setActionPoints(3);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void Day2Event() {
         EnemyFatigue.apply(getGameData());
         getPlayer().setActionPoints(3);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void Day3Event() {
         Rally.apply(getGameData());
         getPlayer().setActionPoints(3);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         return "Card6";
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void moveEnemyDay1() {
         int aux = 0;
@@ -72,14 +85,18 @@ public class Card6 extends Card {
         }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void moveEnemyDay2() {
         Enemy enemyL = getGameData().getEnemy("Ladders");
         enemyL.move(Constants.MOVE.UP);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void moveEnemyDay3() {
         Enemy enemyR = getGameData().getEnemy("BattleRam");

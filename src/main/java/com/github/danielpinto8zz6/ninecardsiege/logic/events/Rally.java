@@ -1,10 +1,10 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.events;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
 /**
- * <p>Rally class.</p>
+ * <p>
+ * Rally class.</p>
  *
  * @author daniel
  * @version $Id: $Id
@@ -12,15 +12,15 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 public class Rally {
 
     /**
-     * <p>apply.</p>
+     * <p>
+     * apply.</p>
      *
-     * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+     * @param gameData a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
      */
     public static void apply(GameData gameData) {
-        for (Enemy enemy : gameData.getEnemies()) {
-            if (enemy != null && (enemy.getPosition() == 0 || enemy.getPosition() == 1)) {
-                enemy.setStrength(enemy.getStrength() + 1);
-            }
-        }
+        gameData.getEnemies().stream().filter((enemy) -> (enemy != null && (enemy.getPosition() == 0 || enemy.getPosition() == 1))).forEachOrdered((enemy) -> {
+            enemy.setStrength(enemy.getStrength() + 1);
+        });
     }
 }

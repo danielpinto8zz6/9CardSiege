@@ -3,7 +3,8 @@ package com.github.danielpinto8zz6.ninecardsiege.logic;
 import java.io.Serializable;
 
 /**
- * <p>StatusCard class.</p>
+ * <p>
+ * StatusCard class.</p>
  *
  * @author daniel
  * @version $Id: $Id
@@ -20,9 +21,11 @@ public class StatusCard implements Serializable {
     private int supplies;
 
     /**
-     * <p>Constructor for StatusCard.</p>
+     * <p>
+     * Constructor for StatusCard.</p>
      *
-     * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+     * @param gameData a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
      */
     public StatusCard(GameData gameData) {
         this.troopPosition = 0;
@@ -30,7 +33,8 @@ public class StatusCard implements Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>gameData</code>.</p>
+     * <p>
+     * Getter for the field <code>gameData</code>.</p>
      *
      * @return the gameData
      */
@@ -39,7 +43,8 @@ public class StatusCard implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>gameData</code>.</p>
+     * <p>
+     * Setter for the field <code>gameData</code>.</p>
      *
      * @param gameData the gameData to set
      */
@@ -48,7 +53,8 @@ public class StatusCard implements Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>troopPosition</code>.</p>
+     * <p>
+     * Getter for the field <code>troopPosition</code>.</p>
      *
      * @return the troopPosition
      */
@@ -57,7 +63,8 @@ public class StatusCard implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>troopPosition</code>.</p>
+     * <p>
+     * Setter for the field <code>troopPosition</code>.</p>
      *
      * @param troopPosition the troopPosition to set
      */
@@ -66,7 +73,8 @@ public class StatusCard implements Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>supplies</code>.</p>
+     * <p>
+     * Getter for the field <code>supplies</code>.</p>
      *
      * @return the supplies
      */
@@ -75,7 +83,8 @@ public class StatusCard implements Serializable {
     }
 
     /**
-     * <p>addSupplies.</p>
+     * <p>
+     * addSupplies.</p>
      *
      * @param supplies a int.
      */
@@ -88,7 +97,8 @@ public class StatusCard implements Serializable {
     }
 
     /**
-     * <p>checkCapture.</p>
+     * <p>
+     * checkCapture.</p>
      */
     public void checkCapture() {
 
@@ -99,7 +109,8 @@ public class StatusCard implements Serializable {
     }
 
     /**
-     * <p>removeSupplies.</p>
+     * <p>
+     * removeSupplies.</p>
      */
     public void removeSupplies() {
         this.supplies = 0;

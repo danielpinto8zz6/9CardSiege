@@ -6,7 +6,8 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
 
 /**
- * <p>Abstract Card class.</p>
+ * <p>
+ * Abstract Card class.</p>
  *
  * @author daniel
  * @version $Id: $Id
@@ -21,9 +22,11 @@ public abstract class Card implements Serializable {
     private GameData gameData;
 
     /**
-     * <p>Constructor for Card.</p>
+     * <p>
+     * Constructor for Card.</p>
      *
-     * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+     * @param gameData a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
      */
     public Card(GameData gameData) {
         this.gameData = gameData;
@@ -31,7 +34,8 @@ public abstract class Card implements Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>cardNumber</code>.</p>
+     * <p>
+     * Getter for the field <code>cardNumber</code>.</p>
      *
      * @return the cardNumber
      */
@@ -40,7 +44,8 @@ public abstract class Card implements Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>gameData</code>.</p>
+     * <p>
+     * Getter for the field <code>gameData</code>.</p>
      *
      * @return the gameData
      */
@@ -49,7 +54,8 @@ public abstract class Card implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>gameData</code>.</p>
+     * <p>
+     * Setter for the field <code>gameData</code>.</p>
      *
      * @param gameData the gameData to set
      */
@@ -58,7 +64,8 @@ public abstract class Card implements Serializable {
     }
 
     /**
-     * <p>getPlayer.</p>
+     * <p>
+     * getPlayer.</p>
      *
      * @return the Player
      */
@@ -67,32 +74,38 @@ public abstract class Card implements Serializable {
     }
 
     /**
-     * <p>Day1Event.</p>
+     * <p>
+     * Day1Event.</p>
      */
     public abstract void Day1Event();
 
     /**
-     * <p>Day2Event.</p>
+     * <p>
+     * Day2Event.</p>
      */
     public abstract void Day2Event();
 
     /**
-     * <p>Day3Event.</p>
+     * <p>
+     * Day3Event.</p>
      */
     public abstract void Day3Event();
 
     /**
-     * <p>moveEnemyDay1.</p>
+     * <p>
+     * moveEnemyDay1.</p>
      */
     public abstract void moveEnemyDay1();
 
     /**
-     * <p>moveEnemyDay2.</p>
+     * <p>
+     * moveEnemyDay2.</p>
      */
     public abstract void moveEnemyDay2();
 
     /**
-     * <p>moveEnemyDay3.</p>
+     * <p>
+     * moveEnemyDay3.</p>
      */
     public abstract void moveEnemyDay3();
 }

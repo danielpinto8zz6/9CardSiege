@@ -5,7 +5,8 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
 
 /**
- * <p>Faith class.</p>
+ * <p>
+ * Faith class.</p>
  *
  * @author daniel
  * @version $Id: $Id
@@ -13,9 +14,11 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
 public class Faith {
 
     /**
-     * <p>apply.</p>
+     * <p>
+     * apply.</p>
      *
-     * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+     * @param gameData a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
      */
     public static void apply(GameData gameData) {
         Player player = gameData.getPlayer();

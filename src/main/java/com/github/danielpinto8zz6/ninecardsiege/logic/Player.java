@@ -3,7 +3,8 @@ package com.github.danielpinto8zz6.ninecardsiege.logic;
 import java.io.Serializable;
 
 /**
- * <p>Player class.</p>
+ * <p>
+ * Player class.</p>
  *
  * @author daniel
  * @version $Id: $Id
@@ -37,9 +38,11 @@ public class Player implements Serializable {
     public GameData gameData;
 
     /**
-     * <p>Constructor for Player.</p>
+     * <p>
+     * Constructor for Player.</p>
      *
-     * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+     * @param gameData a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
      * @param name a {@link java.lang.String} object.
      */
     public Player(GameData gameData, String name) {
@@ -64,7 +67,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>mSabotage</code>.</p>
+     * <p>
+     * Getter for the field <code>mSabotage</code>.</p>
      *
      * @return a int.
      */
@@ -73,7 +77,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>mSabotage</code>.</p>
+     * <p>
+     * Setter for the field <code>mSabotage</code>.</p>
      *
      * @param mSabotage a int.
      */
@@ -82,7 +87,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>mRallyTroops</code>.</p>
+     * <p>
+     * Getter for the field <code>mRallyTroops</code>.</p>
      *
      * @return a int.
      */
@@ -91,7 +97,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>mRallyTroops</code>.</p>
+     * <p>
+     * Setter for the field <code>mRallyTroops</code>.</p>
      *
      * @param mRallyTroops a int.
      */
@@ -100,7 +107,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>mCoupure</code>.</p>
+     * <p>
+     * Getter for the field <code>mCoupure</code>.</p>
      *
      * @return a int.
      */
@@ -109,7 +117,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>mCoupure</code>.</p>
+     * <p>
+     * Setter for the field <code>mCoupure</code>.</p>
      *
      * @param mCoupure a int.
      */
@@ -118,7 +127,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>mRaidSupplies</code>.</p>
+     * <p>
+     * Getter for the field <code>mRaidSupplies</code>.</p>
      *
      * @return a int.
      */
@@ -127,7 +137,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>mRaidSupplies</code>.</p>
+     * <p>
+     * Setter for the field <code>mRaidSupplies</code>.</p>
      *
      * @param mRaidSupplies a int.
      */
@@ -136,25 +147,30 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>gameData</code>.</p>
+     * <p>
+     * Getter for the field <code>gameData</code>.</p>
      *
-     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
+     * object.
      */
     public GameData getGameData() {
         return gameData;
     }
 
     /**
-     * <p>Setter for the field <code>gameData</code>.</p>
+     * <p>
+     * Setter for the field <code>gameData</code>.</p>
      *
-     * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+     * @param gameData a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
      */
     public void setGameData(GameData gameData) {
         this.gameData = gameData;
     }
 
     /**
-     * <p>isCanArchersAtack.</p>
+     * <p>
+     * isCanArchersAtack.</p>
      *
      * @return a boolean.
      */
@@ -163,7 +179,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>canArchersAtack</code>.</p>
+     * <p>
+     * Setter for the field <code>canArchersAtack</code>.</p>
      *
      * @param canArchersAtack a boolean.
      */
@@ -172,7 +189,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>isCanBoilingWater.</p>
+     * <p>
+     * isCanBoilingWater.</p>
      *
      * @return a boolean.
      */
@@ -181,7 +199,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>canBoilingWater</code>.</p>
+     * <p>
+     * Setter for the field <code>canBoilingWater</code>.</p>
      *
      * @param canBoilingWater a boolean.
      */
@@ -190,7 +209,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>isCanCloseCombat.</p>
+     * <p>
+     * isCanCloseCombat.</p>
      *
      * @return a boolean.
      */
@@ -199,7 +219,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>canCloseCombat</code>.</p>
+     * <p>
+     * Setter for the field <code>canCloseCombat</code>.</p>
      *
      * @param canCloseCombat a boolean.
      */
@@ -208,7 +229,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>isCanCoupure.</p>
+     * <p>
+     * isCanCoupure.</p>
      *
      * @return a boolean.
      */
@@ -217,7 +239,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>canCoupure</code>.</p>
+     * <p>
+     * Setter for the field <code>canCoupure</code>.</p>
      *
      * @param canCoupure a boolean.
      */
@@ -226,7 +249,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>isCanSupplyRaid.</p>
+     * <p>
+     * isCanSupplyRaid.</p>
      *
      * @return a boolean.
      */
@@ -235,7 +259,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>canSupplyRaid</code>.</p>
+     * <p>
+     * Setter for the field <code>canSupplyRaid</code>.</p>
      *
      * @param canSupplyRaid a boolean.
      */
@@ -244,7 +269,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>isCanSabotage.</p>
+     * <p>
+     * isCanSabotage.</p>
      *
      * @return a boolean.
      */
@@ -253,7 +279,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>canSabotage</code>.</p>
+     * <p>
+     * Setter for the field <code>canSabotage</code>.</p>
      *
      * @param canSabotage a boolean.
      */
@@ -262,7 +289,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>isCanExtraAP.</p>
+     * <p>
+     * isCanExtraAP.</p>
      *
      * @return a boolean.
      */
@@ -271,7 +299,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>canExtraAP</code>.</p>
+     * <p>
+     * Setter for the field <code>canExtraAP</code>.</p>
      *
      * @param canExtraAP a boolean.
      */
@@ -280,7 +309,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>isCanRallyTroops.</p>
+     * <p>
+     * isCanRallyTroops.</p>
      *
      * @return a boolean.
      */
@@ -289,7 +319,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>canRallyTroops</code>.</p>
+     * <p>
+     * Setter for the field <code>canRallyTroops</code>.</p>
      *
      * @param canRallyTroops a boolean.
      */
@@ -298,7 +329,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>isCanTunnelMovement.</p>
+     * <p>
+     * isCanTunnelMovement.</p>
      *
      * @return a boolean.
      */
@@ -307,7 +339,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>canTunnelMovement</code>.</p>
+     * <p>
+     * Setter for the field <code>canTunnelMovement</code>.</p>
      *
      * @param canTunnelMovement a boolean.
      */
@@ -316,7 +349,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>name</code>.</p>
+     * <p>
+     * Getter for the field <code>name</code>.</p>
      *
      * @return the name
      */
@@ -325,7 +359,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>name</code>.</p>
+     * <p>
+     * Setter for the field <code>name</code>.</p>
      *
      * @param name the name to set
      */
@@ -333,7 +368,9 @@ public class Player implements Serializable {
         this.name = name;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         String s;
@@ -346,7 +383,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>actionPoints</code>.</p>
+     * <p>
+     * Getter for the field <code>actionPoints</code>.</p>
      *
      * @return the actionPoints
      */
@@ -355,7 +393,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>actionPoints</code>.</p>
+     * <p>
+     * Setter for the field <code>actionPoints</code>.</p>
      *
      * @param actionPoints the actionPoints to set
      */
@@ -364,7 +403,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>moral</code>.</p>
+     * <p>
+     * Getter for the field <code>moral</code>.</p>
      *
      * @return the moral
      */
@@ -373,7 +413,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>moral</code>.</p>
+     * <p>
+     * Setter for the field <code>moral</code>.</p>
      *
      * @param moral the moral to set
      */
@@ -382,7 +423,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>wallStrength</code>.</p>
+     * <p>
+     * Getter for the field <code>wallStrength</code>.</p>
      *
      * @return the wallStrength
      */
@@ -391,7 +433,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>wallStrength</code>.</p>
+     * <p>
+     * Setter for the field <code>wallStrength</code>.</p>
      *
      * @param wallStrength the wallStrength to set
      */
@@ -400,7 +443,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>supplies</code>.</p>
+     * <p>
+     * Getter for the field <code>supplies</code>.</p>
      *
      * @return the supplies
      */
@@ -409,7 +453,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>supplies</code>.</p>
+     * <p>
+     * Setter for the field <code>supplies</code>.</p>
      *
      * @param supplies the supplies to set
      */
@@ -418,7 +463,8 @@ public class Player implements Serializable {
     }
 
     /**
-     * <p>resetModifiers.</p>
+     * <p>
+     * resetModifiers.</p>
      */
     public void resetModifiers() {
         setmSabotage(0);

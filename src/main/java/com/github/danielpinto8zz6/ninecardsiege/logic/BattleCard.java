@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <p>BattleCard class.</p>
+ * <p>
+ * BattleCard class.</p>
  *
  * @author daniel
  * @version $Id: $Id
@@ -21,9 +22,11 @@ public class BattleCard implements Serializable {
     private int trebuchet;
 
     /**
-     * <p>Constructor for BattleCard.</p>
+     * <p>
+     * Constructor for BattleCard.</p>
      *
-     * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+     * @param gameData a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
      */
     public BattleCard(GameData gameData) {
         this.gameData = gameData;
@@ -38,7 +41,8 @@ public class BattleCard implements Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>gameData</code>.</p>
+     * <p>
+     * Getter for the field <code>gameData</code>.</p>
      *
      * @return the gameData
      */
@@ -47,7 +51,8 @@ public class BattleCard implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>gameData</code>.</p>
+     * <p>
+     * Setter for the field <code>gameData</code>.</p>
      *
      * @param gameData the gameData to set
      */
@@ -56,7 +61,8 @@ public class BattleCard implements Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>enemies</code>.</p>
+     * <p>
+     * Getter for the field <code>enemies</code>.</p>
      *
      * @return the enemies
      */
@@ -65,7 +71,8 @@ public class BattleCard implements Serializable {
     }
 
     /**
-     * <p>Getter for the field <code>trebuchet</code>.</p>
+     * <p>
+     * Getter for the field <code>trebuchet</code>.</p>
      *
      * @return the trebuchet
      */
@@ -74,7 +81,8 @@ public class BattleCard implements Serializable {
     }
 
     /**
-     * <p>Setter for the field <code>trebuchet</code>.</p>
+     * <p>
+     * Setter for the field <code>trebuchet</code>.</p>
      *
      * @param trebuchet the trebuchet to set
      */
@@ -83,10 +91,12 @@ public class BattleCard implements Serializable {
     }
 
     /**
-     * <p>getEnemy.</p>
+     * <p>
+     * getEnemy.</p>
      *
      * @param name a {@link java.lang.String} object.
-     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Enemy} object.
+     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Enemy}
+     * object.
      */
     public Enemy getEnemy(String name) {
         for (Enemy enemy : enemies) {
@@ -98,7 +108,8 @@ public class BattleCard implements Serializable {
     }
 
     /**
-     * <p>checkCloseCombat.</p>
+     * <p>
+     * checkCloseCombat.</p>
      */
     public void checkCloseCombat() {
         int aux, flag = 0;
@@ -108,12 +119,7 @@ public class BattleCard implements Serializable {
             if (gameData.getPlayer().getActionPoints() == 0) {
                 game.Finish();
             }
-            for (Enemy enemy : gameData.getBattleCard().getEnemies()) {
-
-                if (enemy.getPosition() == 0) {
-                    aux++;
-                }
-            }
+            aux = gameData.getBattleCard().getEnemies().stream().filter((enemy) -> (enemy.getPosition() == 0)).map((_item) -> 1).reduce(aux, Integer::sum);
             if (aux == 3) {
                 game.Finish();
             } else {
@@ -126,11 +132,9 @@ public class BattleCard implements Serializable {
                         gameData.getPlayer().setActionPoints(gameData.getPlayer().getActionPoints() - 1);
                     } else {
                         if (aux > 4) {
-                            for (Enemy enemy : gameData.getBattleCard().getEnemies()) {
-                                if (enemy.getPosition() == 0) {
-                                    enemy.move(Constants.MOVE.DOWN);
-                                }
-                            }
+                            gameData.getBattleCard().getEnemies().stream().filter((enemy) -> (enemy.getPosition() == 0)).forEachOrdered((enemy) -> {
+                                enemy.move(Constants.MOVE.DOWN);
+                            });
                             flag = 1;
                             gameData.getPlayer().setActionPoints(gameData.getPlayer().getActionPoints() - 1);
                         } else {
