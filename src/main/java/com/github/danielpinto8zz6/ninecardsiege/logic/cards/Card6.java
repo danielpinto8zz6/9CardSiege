@@ -1,5 +1,8 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.cards;
 
+import java.util.Collections;
+import java.util.Comparator;
+
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
@@ -56,20 +59,8 @@ public class Card6 extends Card {
   /** {@inheritDoc} */
   @Override
   public void moveEnemyDay1() {
-    int aux = 0;
-
-    for (Enemy enemy : getGameData().getBattleCard().getEnemies()) {
-
-      if (enemy.getPosition() > aux) {
-        aux = enemy.getPosition();
-      }
-    }
-
-    for (Enemy enemy : getGameData().getBattleCard().getEnemies()) {
-      if (enemy.getPosition() == aux) {
-        enemy.move(Constants.MOVE.UP);
-      }
-    }
+    Enemy enemy = Collections.max(getGameData().getEnemies(), Comparator.comparingInt(Enemy::getPosition));
+    enemy.move(Constants.MOVE.UP);
   }
 
   /** {@inheritDoc} */
