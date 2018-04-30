@@ -1,8 +1,9 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
+import java.io.Serializable;
+
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
-import java.io.Serializable;
 
 /**
  * StateAdapter class.
@@ -29,7 +30,7 @@ public class StateAdapter implements IStates, Constants, Serializable {
    *
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
    */
-  public GameData getGame() {
+  public GameData getGameData() {
     return game;
   }
 
