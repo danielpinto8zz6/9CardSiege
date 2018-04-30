@@ -3,27 +3,25 @@ package com.github.danielpinto8zz6.ninecardsiege.logic;
 import java.util.Random;
 
 /**
- * <p>
- * Dice class.</p>
+ * Dice class.
  *
  * @author daniel
  * @version $Id: $Id
  */
 public class Dice {
 
-    /**
-     * <p>
-     * roll.</p>
-     *
-     * @return a int.
-     */
-    public static int roll() {
-        int value;
+  /**
+   * roll.
+   *
+   * @return a int.
+   */
+  public static int roll() {
+    int value;
 
-        Random random = new Random();
+    Random random = new Random();
 
-        value = Math.abs(random.nextInt() % 6);
+    value = Math.abs(random.nextInt() % 6);
 
-        return value;
-    }
+    return value;
+  }
 }

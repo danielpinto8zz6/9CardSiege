@@ -3,118 +3,103 @@ package com.github.danielpinto8zz6.ninecardsiege.logic;
 import java.io.Serializable;
 
 /**
- * <p>
- * StatusCard class.</p>
+ * StatusCard class.
  *
  * @author daniel
  * @version $Id: $Id
  */
 public class StatusCard implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    private GameData gameData;
+  private GameData gameData;
 
-    // Could be 0, 1, 2, or 3
-    private int troopPosition;
+  // Could be 0, 1, 2, or 3
+  private int troopPosition;
 
-    private int supplies;
+  private int supplies;
 
-    /**
-     * <p>
-     * Constructor for StatusCard.</p>
-     *
-     * @param gameData a
-     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-     */
-    public StatusCard(GameData gameData) {
-        this.gameData = gameData;
+  /**
+   * Constructor for StatusCard.
+   *
+   * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+   */
+  public StatusCard(GameData gameData) {
+    this.gameData = gameData;
 
-        this.troopPosition = 0;
-        this.supplies = 0;
+    this.troopPosition = 0;
+    this.supplies = 0;
+  }
+
+  /**
+   * Getter for the field <code>gameData</code>.
+   *
+   * @return the gameData
+   */
+  public GameData getGameData() {
+    return gameData;
+  }
+
+  /**
+   * Setter for the field <code>gameData</code>.
+   *
+   * @param gameData the gameData to set
+   */
+  public void setGameData(GameData gameData) {
+    this.gameData = gameData;
+  }
+
+  /**
+   * Getter for the field <code>troopPosition</code>.
+   *
+   * @return the troopPosition
+   */
+  public int getTroopPosition() {
+    return troopPosition;
+  }
+
+  /**
+   * Setter for the field <code>troopPosition</code>.
+   *
+   * @param troopPosition the troopPosition to set
+   */
+  public void setTroopPosition(int troopPosition) {
+    this.troopPosition = troopPosition;
+  }
+
+  /**
+   * Getter for the field <code>supplies</code>.
+   *
+   * @return the supplies
+   */
+  public int getSupplies() {
+    return supplies;
+  }
+
+  /**
+   * addSupplies.
+   *
+   * @param supplies a int.
+   */
+  public void addSupplies(int supplies) {
+    this.supplies += supplies;
+
+    if (this.supplies > 2) {
+      this.supplies = 2;
     }
+  }
 
-    /**
-     * <p>
-     * Getter for the field <code>gameData</code>.</p>
-     *
-     * @return the gameData
-     */
-    public GameData getGameData() {
-        return gameData;
+  /** checkCapture. */
+  public void checkCapture() {
+
+    if (Dice.roll() == 1) {
+      this.troopPosition = 0;
+      gameData.getPlayer().setMoral(gameData.getPlayer().getMoral() - 1);
     }
+  }
 
-    /**
-     * <p>
-     * Setter for the field <code>gameData</code>.</p>
-     *
-     * @param gameData the gameData to set
-     */
-    public void setGameData(GameData gameData) {
-        this.gameData = gameData;
-    }
-
-    /**
-     * <p>
-     * Getter for the field <code>troopPosition</code>.</p>
-     *
-     * @return the troopPosition
-     */
-    public int getTroopPosition() {
-        return troopPosition;
-    }
-
-    /**
-     * <p>
-     * Setter for the field <code>troopPosition</code>.</p>
-     *
-     * @param troopPosition the troopPosition to set
-     */
-    public void setTroopPosition(int troopPosition) {
-        this.troopPosition = troopPosition;
-    }
-
-    /**
-     * <p>
-     * Getter for the field <code>supplies</code>.</p>
-     *
-     * @return the supplies
-     */
-    public int getSupplies() {
-        return supplies;
-    }
-
-    /**
-     * <p>
-     * addSupplies.</p>
-     *
-     * @param supplies a int.
-     */
-    public void addSupplies(int supplies) {
-        this.supplies += supplies;
-
-        if (this.supplies > 2) {
-            this.supplies = 2;
-        }
-    }
-
-    /**
-     * <p>
-     * checkCapture.</p>
-     */
-    public void checkCapture() {
-
-        if (Dice.roll() == 1) {
-            this.troopPosition = 0;
-            gameData.getPlayer().setMoral(gameData.getPlayer().getMoral() - 1);
-        }
-    }
-
-    /**
-     * <p>
-     * removeSupplies.</p>
-     */
-    public void removeSupplies() {
-        this.supplies = 0;
-    }
+  /** removeSupplies. */
+  public void removeSupplies() {
+    this.supplies = 0;
+  }
 }

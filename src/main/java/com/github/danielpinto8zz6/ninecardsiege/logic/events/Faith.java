@@ -5,32 +5,29 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
 
 /**
- * <p>
- * Faith class.</p>
+ * Faith class.
  *
  * @author daniel
  * @version $Id: $Id
  */
 public class Faith {
 
-    /**
-     * <p>
-     * apply.</p>
-     *
-     * @param gameData a
-     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-     */
-    public static void apply(GameData gameData) {
-        Player player = gameData.getPlayer();
-        player.setmRaidSupplies(player.getmRaidSupplies() + 1);
+  /**
+   * apply.
+   *
+   * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+   */
+  public static void apply(GameData gameData) {
+    Player player = gameData.getPlayer();
+    player.setmRaidSupplies(player.getmRaidSupplies() + 1);
 
-        Enemy enemyR = gameData.getEnemy("BattleRam");
-        Enemy enemyL = gameData.getEnemy("Ladders");
-        if (enemyR != null) {
-            enemyR.setStrength(enemyR.getStrength() - 1);
-        }
-        if (enemyL != null) {
-            enemyL.setStrength(enemyL.getStrength() - 1);
-        }
+    Enemy enemyR = gameData.getEnemy("BattleRam");
+    Enemy enemyL = gameData.getEnemy("Ladders");
+    if (enemyR != null) {
+      enemyR.setStrength(enemyR.getStrength() - 1);
     }
+    if (enemyL != null) {
+      enemyL.setStrength(enemyL.getStrength() - 1);
+    }
+  }
 }

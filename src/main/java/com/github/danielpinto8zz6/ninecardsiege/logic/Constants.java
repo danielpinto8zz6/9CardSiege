@@ -1,26 +1,19 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
 /**
- * <p>
- * Constants interface.</p>
+ * Constants interface.
  *
  * @author daniel
  * @version $Id: $Id
  */
 public interface Constants {
 
-    /**
-     * Direction of movement
-     */
-    public static enum MOVE {
+  /** Direction of movement */
+  public static enum MOVE {
 
-        /**
-         * Move up
-         */
-        UP,
-        /**
-         * Move down
-         */
-        DOWN;
-    }
+    /** Move up */
+    UP,
+    /** Move down */
+    DOWN;
+  }
 }
