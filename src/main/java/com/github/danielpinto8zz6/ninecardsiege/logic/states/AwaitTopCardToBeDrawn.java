@@ -79,7 +79,6 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
       while (keepRolling) {
         if (roll == 1) {
           getGameData().getPlayer().setMoral(getGameData().getPlayer().getMoral() - 1);
-          keepRolling = false;
         } else if (roll > 4) {
           for (Enemy enemy : getGameData().getBattleCard().getEnemiesInCloseCombatArea()) {
             enemy.move(Constants.MOVE.DOWN);
