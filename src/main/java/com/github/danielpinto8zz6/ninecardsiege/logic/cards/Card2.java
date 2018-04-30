@@ -6,8 +6,6 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.GuardsDistracted;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.Illness;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.TrebuchetAttack;
-import java.util.Collections;
-import java.util.Comparator;
 
 /**
  * Card2 class.
@@ -64,9 +62,19 @@ public class Card2 extends Card {
   /** {@inheritDoc} */
   @Override
   public void moveEnemyDay2() {
-    Enemy enemy =
-        Collections.max(getGameData().getEnemies(), Comparator.comparingInt(Enemy::getPosition));
-    enemy.move(Constants.MOVE.UP);
+    int max = 0;
+
+    for (Enemy enemy : getGameData().getEnemies()) {
+      if (enemy.getPosition() > max) {
+        max = enemy.getPosition();
+      }
+    }
+
+    for (Enemy enemy : getGameData().getEnemies()) {
+      if (enemy.getPosition() == max) {
+        enemy.move(Constants.MOVE.UP);
+      }
+    }
   }
 
   /** {@inheritDoc} */

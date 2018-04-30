@@ -9,8 +9,15 @@
             "console": "integratedTerminal",
             "stopOnEntry": false,
             "mainClass": "com.github.danielpinto8zz6.ninecardsiege.App",
-            "args": "",
             "projectName": "ninecardsiege",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Attach)",
+            "request": "attach",
+            "hostName": "localhost",
+            "port": 0
         }
     ]
 }

@@ -6,8 +6,6 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.CoverOfDarkness;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.EnemyFatigue;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.Rally;
-import java.util.Collections;
-import java.util.Comparator;
 
 /**
  * Card6 class.
@@ -58,9 +56,19 @@ public class Card6 extends Card {
   /** {@inheritDoc} */
   @Override
   public void moveEnemyDay1() {
-    Enemy enemy =
-        Collections.max(getGameData().getEnemies(), Comparator.comparingInt(Enemy::getPosition));
-    enemy.move(Constants.MOVE.UP);
+    int max = 0;
+
+    for (Enemy enemy : getGameData().getEnemies()) {
+      if (enemy.getPosition() > max) {
+        max = enemy.getPosition();
+      }
+    }
+
+    for (Enemy enemy : getGameData().getEnemies()) {
+      if (enemy.getPosition() == max) {
+        enemy.move(Constants.MOVE.UP);
+      }
+    }
   }
 
   /** {@inheritDoc} */
