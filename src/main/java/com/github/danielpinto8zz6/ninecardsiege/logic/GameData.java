@@ -1,10 +1,5 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card1;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card2;
@@ -13,6 +8,10 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card4;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card5;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card6;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card7;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * GameData class.

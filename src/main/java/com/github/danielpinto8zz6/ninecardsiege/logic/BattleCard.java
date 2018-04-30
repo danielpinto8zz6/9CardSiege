@@ -97,55 +97,20 @@ public class BattleCard implements Serializable {
     return null;
   }
 
-  /** checkCloseCombat. */
-  public void checkCloseCombat() {
-    int aux, flag = 0;
-    Game game = new Game();
-    while (flag == 0) {
-      aux = 0;
-      if (gameData.getPlayer().getActionPoints() == 0) {
-        game.finish();
-      }
-      aux =
-          gameData
-              .getBattleCard()
-              .getEnemies()
-              .stream()
-              .filter((enemy) -> (enemy.getPosition() == 0))
-              .map((_item) -> 1)
-              .reduce(aux, Integer::sum);
-      if (aux == 3) {
-        game.finish();
-      } else {
-        if (aux == 2) {
+  /**
+   * getEnemiesInCloseCombatArea.
+   *
+   * @return a {@link java.util.List} object.
+   */
+  public List<Enemy> getEnemiesInCloseCombatArea() {
+    List<Enemy> enemiesInCloseCombatArea = new ArrayList<>();
 
-          flag = 1;
-          aux = Dice.roll();
-          if (aux == 1) {
-            gameData.getPlayer().setMoral(gameData.getPlayer().getMoral() - 1);
-            gameData.getPlayer().setActionPoints(gameData.getPlayer().getActionPoints() - 1);
-          } else {
-            if (aux > 4) {
-              gameData
-                  .getBattleCard()
-                  .getEnemies()
-                  .stream()
-                  .filter((enemy) -> (enemy.getPosition() == 0))
-                  .forEachOrdered(
-                      (enemy) -> {
-                        enemy.move(Constants.MOVE.DOWN);
-                      });
-              flag = 1;
-              gameData.getPlayer().setActionPoints(gameData.getPlayer().getActionPoints() - 1);
-            } else {
-              gameData.getPlayer().setActionPoints(gameData.getPlayer().getActionPoints() - 1);
-            }
-          }
-
-        } else {
-          flag = 1;
-        }
+    for (Enemy e : enemies) {
+      if (e.getPosition() == 0) {
+        enemiesInCloseCombatArea.add(e);
       }
     }
+
+    return enemiesInCloseCombatArea;
   }
 }
