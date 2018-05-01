@@ -77,6 +77,11 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
       boolean keepRolling = true;
 
       while (keepRolling) {
+          
+      if (getGameData().getPlayer().getActionPoints() == 0) {
+      return new GameOver(getGameData());
+    }
+      
         if (roll == 1) {
           getGameData().getPlayer().setMoral(getGameData().getPlayer().getMoral() - 1);
         } else if (roll > 4) {
@@ -98,11 +103,9 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
     /** After card is drawn, remove it from the deck */
     cards.remove(card);
 
-    if (getGameData().getPlayer().getActionPoints() == 0) {
-      return new GameOver(getGameData());
-    } else {
+ 
       return new AwaitActionSelection(getGameData());
-    }
+    
   }
 
   /** {@inheritDoc} */
