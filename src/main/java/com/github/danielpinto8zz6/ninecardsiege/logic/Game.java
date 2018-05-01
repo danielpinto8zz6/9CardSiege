@@ -18,9 +18,7 @@ public final class Game implements Serializable {
   private IStates state;
   private GameData gameData;
 
-  /**
-   * Constructor for Game.
-   */
+  /** Constructor for Game. */
   public Game() {
     gameData = new GameData();
     setState(new AwaitBeginning(gameData));
@@ -71,9 +69,7 @@ public final class Game implements Serializable {
     return gameData.getMsgLog();
   }
 
-  /**
-   * clearMsgLog.
-   */
+  /** clearMsgLog. */
   public void clearMsgLog() {
     gameData.clearMsgLog();
   }
@@ -84,26 +80,30 @@ public final class Game implements Serializable {
     return gameData.toString();
   }
 
-  // --------------------- Methods that trigger events/actions in the finite state machine
+  // --------------------- Methods that trigger events/actions in the finite state
+  // machine
   // -----------------------
-  /**
-   * start.
-   */
+  /** start. */
   public void start() {
     setState(getState().start());
   }
 
-  /**
-   * finish.
-   */
+  /** finish. */
   public void finish() {
     setState(getState().finish());
   }
 
-  /**
-   * drawTopCard.
-   */
+  /** drawTopCard. */
   public void drawTopCard() {
     setState(getState().drawTopCard());
+  }
+
+  /**
+   * attack enemy
+   *
+   * @param name a {@link java.lang.String} object.
+   */
+  public void attack(String name) {
+    setState(getState().attack(name));
   }
 }

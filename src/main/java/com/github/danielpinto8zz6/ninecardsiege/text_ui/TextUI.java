@@ -4,6 +4,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.Game;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameSave;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitActionSelection;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitEnemyTrackSelectionForArchersAttack;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDrawn;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.GameOver;
 import java.io.BufferedReader;
@@ -156,9 +157,25 @@ public class TextUI {
     }
   }
 
-  /**
-   * run.
-   */
+  private void getUserInputWhileAwaitEnemyTrackSelectionForArchersAttack() {
+    String name;
+
+    System.out.println("\n\n---------------------------------");
+    System.out.println();
+    System.out.println("Enter name of enemy to attack : ");
+
+    System.out.print("\n> ");
+
+    while (!s.hasNext()) {
+      s.next();
+    }
+
+    name = s.next();
+
+    game.attack(name);
+  }
+
+  /** run. */
   public void run() {
     while (!(game.getState() instanceof GameOver)) {
 
@@ -175,6 +192,8 @@ public class TextUI {
         getUserInputWhileAwaitTopCardToBeDrawn();
       } else if (game.getState() instanceof AwaitActionSelection) {
         getUserInputWhileAwaitingOptionSelection();
+      } else if (game.getState() instanceof AwaitEnemyTrackSelectionForArchersAttack) {
+        getUserInputWhileAwaitEnemyTrackSelectionForArchersAttack();
       }
     }
 

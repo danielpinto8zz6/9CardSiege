@@ -57,6 +57,7 @@ public interface IStates {
    * attack.
    *
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+   * @param name a {@link java.lang.String} object.
    */
   IStates attack(String name);
 
