@@ -10,15 +10,14 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
  */
 public class GameOver extends StateAdapter {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    /**
-     * Constructor for GameOver.
-     *
-     * @param g a
-     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-     */
-    public GameOver(GameData g) {
-        super(g);
-    }
+  /**
+   * Constructor for GameOver.
+   *
+   * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+   */
+  public GameOver(GameData g) {
+    super(g);
+  }
 }
