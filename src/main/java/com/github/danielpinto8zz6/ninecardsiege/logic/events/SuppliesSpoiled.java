@@ -10,12 +10,13 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
  */
 public class SuppliesSpoiled {
 
-  /**
-   * apply.
-   *
-   * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-   */
-  public static void apply(GameData gameData) {
-    gameData.getPlayer().setSupplies(gameData.getPlayer().getSupplies() - 1);
-  }
+    /**
+     * apply.
+     *
+     * @param gameData a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+     */
+    public static void apply(GameData gameData) {
+        gameData.getPlayer().setSupplies(gameData.getPlayer().getSupplies() - 1);
+    }
 }

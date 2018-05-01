@@ -21,164 +21,171 @@ import java.util.List;
  */
 public class GameData implements Constants, Serializable {
 
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  private final Player player;
+    private final Player player;
 
-  private int day;
+    private int day;
 
-  private final BattleCard battleCard;
-  private final StatusCard statusCard;
+    private final BattleCard battleCard;
+    private final StatusCard statusCard;
 
-  private final List<String> msgLog;
+    private final List<String> msgLog;
 
-  private List<Card> cards = new ArrayList<>();
+    private List<Card> cards = new ArrayList<>();
 
-  /** Constructor for GameData. */
-  public GameData() {
-    this.player = new Player(this, "Player");
-    this.day = 1;
+    /**
+     * Constructor for GameData.
+     */
+    public GameData() {
+        this.player = new Player(this, "Player");
+        this.day = 1;
 
-    battleCard = new BattleCard(this);
-    statusCard = new StatusCard(this);
+        battleCard = new BattleCard(this);
+        statusCard = new StatusCard(this);
 
-    cards.add(new Card1(this));
-    cards.add(new Card2(this));
-    cards.add(new Card3(this));
-    cards.add(new Card4(this));
-    cards.add(new Card5(this));
-    cards.add(new Card6(this));
-    cards.add(new Card7(this));
+        cards.add(new Card1(this));
+        cards.add(new Card2(this));
+        cards.add(new Card3(this));
+        cards.add(new Card4(this));
+        cards.add(new Card5(this));
+        cards.add(new Card6(this));
+        cards.add(new Card7(this));
 
-    shuffleCards();
+        shuffleCards();
 
-    msgLog = new ArrayList<>();
-  }
+        msgLog = new ArrayList<>();
+    }
 
-  /**
-   * Getter for the field <code>day</code>.
-   *
-   * @return the day
-   */
-  public int getDay() {
-    return day;
-  }
+    /**
+     * Getter for the field <code>day</code>.
+     *
+     * @return the day
+     */
+    public int getDay() {
+        return day;
+    }
 
-  /**
-   * Setter for the field <code>day</code>.
-   *
-   * @param day the day to set
-   */
-  public void setDay(int day) {
-    this.day = day;
-  }
+    /**
+     * Setter for the field <code>day</code>.
+     *
+     * @param day the day to set
+     */
+    public void setDay(int day) {
+        this.day = day;
+    }
 
-  /**
-   * Getter for the field <code>battleCard</code>.
-   *
-   * @return the battleCard
-   */
-  public BattleCard getBattleCard() {
-    return battleCard;
-  }
+    /**
+     * Getter for the field <code>battleCard</code>.
+     *
+     * @return the battleCard
+     */
+    public BattleCard getBattleCard() {
+        return battleCard;
+    }
 
-  /**
-   * Getter for the field <code>statusCard</code>.
-   *
-   * @return the statusCard
-   */
-  public StatusCard getStatusCard() {
-    return statusCard;
-  }
+    /**
+     * Getter for the field <code>statusCard</code>.
+     *
+     * @return the statusCard
+     */
+    public StatusCard getStatusCard() {
+        return statusCard;
+    }
 
-  /**
-   * getEnemy.
-   *
-   * @param name a {@link java.lang.String} object.
-   * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Enemy} object.
-   */
-  public Enemy getEnemy(String name) {
-    return getBattleCard().getEnemy(name);
-  }
+    /**
+     * getEnemy.
+     *
+     * @param name a {@link java.lang.String} object.
+     * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Enemy}
+     * object.
+     */
+    public Enemy getEnemy(String name) {
+        return getBattleCard().getEnemy(name);
+    }
 
-  /**
-   * getEnemies.
-   *
-   * @return a {@link java.util.List} object.
-   */
-  public List<Enemy> getEnemies() {
-    return getBattleCard().getEnemies();
-  }
+    /**
+     * getEnemies.
+     *
+     * @return a {@link java.util.List} object.
+     */
+    public List<Enemy> getEnemies() {
+        return getBattleCard().getEnemies();
+    }
 
-  /** clearMsgLog. */
-  public void clearMsgLog() {
-    msgLog.clear();
-  }
+    /**
+     * clearMsgLog.
+     */
+    public void clearMsgLog() {
+        msgLog.clear();
+    }
 
-  /**
-   * addMsgLog.
-   *
-   * @param msg a {@link java.lang.String} object.
-   */
-  public void addMsgLog(String msg) {
-    msgLog.add(msg);
-  }
+    /**
+     * addMsgLog.
+     *
+     * @param msg a {@link java.lang.String} object.
+     */
+    public void addMsgLog(String msg) {
+        msgLog.add(msg);
+    }
 
-  /**
-   * Getter for the field <code>msgLog</code>.
-   *
-   * @return a {@link java.util.List} object.
-   */
-  public List<String> getMsgLog() {
-    return msgLog;
-  }
+    /**
+     * Getter for the field <code>msgLog</code>.
+     *
+     * @return a {@link java.util.List} object.
+     */
+    public List<String> getMsgLog() {
+        return msgLog;
+    }
 
-  /** {@inheritDoc} */
-  @Override
-  public String toString() {
-    String s;
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        String s;
 
-    s = "Day: " + getDay();
-    s += "\n\n" + getPlayer().toString();
-    s += "\n\n" + "Status Card: ";
-    s += "\n\t" + "Troop Position: " + getStatusCard().getTroopPosition();
-    s += "\n\t" + "Supplies: " + getStatusCard().getSupplies();
-    s += "\n\n" + "Battle Card: ";
-    s += "\n\t" + "Trebuchet: " + getBattleCard().getTrebuchet();
+        s = "Day: " + getDay();
+        s += "\n\n" + getPlayer().toString();
+        s += "\n\n" + "Status Card: ";
+        s += "\n\t" + "Troop Position: " + getStatusCard().getTroopPosition();
+        s += "\n\t" + "Supplies: " + getStatusCard().getSupplies();
+        s += "\n\n" + "Battle Card: ";
+        s += "\n\t" + "Trebuchet: " + getBattleCard().getTrebuchet();
 
-    s = getEnemies().stream().map((enemy) -> "\n\n" + enemy.toString()).reduce(s, String::concat);
+        s = getEnemies().stream().map((enemy) -> "\n\n" + enemy.toString()).reduce(s, String::concat);
 
-    return s;
-  }
+        return s;
+    }
 
-  /**
-   * Getter for the field <code>player</code>.
-   *
-   * @return the player
-   */
-  public Player getPlayer() {
-    return player;
-  }
+    /**
+     * Getter for the field <code>player</code>.
+     *
+     * @return the player
+     */
+    public Player getPlayer() {
+        return player;
+    }
 
-  /**
-   * Getter for the field <code>cards</code>.
-   *
-   * @return the cards
-   */
-  public List<Card> getCards() {
-    return cards;
-  }
+    /**
+     * Getter for the field <code>cards</code>.
+     *
+     * @return the cards
+     */
+    public List<Card> getCards() {
+        return cards;
+    }
 
-  /**
-   * Setter for the field <code>cards</code>.
-   *
-   * @param cards the cards to set
-   */
-  public void setCards(List<Card> cards) {
-    this.cards = cards;
-  }
+    /**
+     * Setter for the field <code>cards</code>.
+     *
+     * @param cards the cards to set
+     */
+    public void setCards(List<Card> cards) {
+        this.cards = cards;
+    }
 
-  private void shuffleCards() {
-    Collections.shuffle(cards);
-  }
+    private void shuffleCards() {
+        Collections.shuffle(cards);
+    }
 }

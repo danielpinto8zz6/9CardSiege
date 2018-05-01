@@ -11,17 +11,18 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
  */
 public class Collapsed {
 
-  /**
-   * apply.
-   *
-   * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-   */
-  public static void apply(GameData gameData) {
-    Enemy enemy = gameData.getEnemy("SiegeTower");
-    if (enemy != null) {
-      if (enemy.getPosition() == 4) {
-        gameData.getEnemies().remove(enemy);
-      }
+    /**
+     * apply.
+     *
+     * @param gameData a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+     */
+    public static void apply(GameData gameData) {
+        Enemy enemy = gameData.getEnemy("SiegeTower");
+        if (enemy != null) {
+            if (enemy.getPosition() == 4) {
+                gameData.getEnemies().remove(enemy);
+            }
+        }
     }
-  }
 }

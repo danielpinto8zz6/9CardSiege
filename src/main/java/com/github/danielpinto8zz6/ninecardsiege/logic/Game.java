@@ -13,87 +13,99 @@ import java.util.List;
  */
 public final class Game implements Serializable {
 
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  private IStates state;
-  private GameData gameData;
+    private IStates state;
+    private GameData gameData;
 
-  /** Constructor for Game. */
-  public Game() {
-    gameData = new GameData();
-    setState(new AwaitBeginning(gameData));
-  }
+    /**
+     * Constructor for Game.
+     */
+    public Game() {
+        gameData = new GameData();
+        setState(new AwaitBeginning(gameData));
+    }
 
-  /**
-   * Getter for the field <code>state</code>.
-   *
-   * @return the state
-   */
-  public IStates getState() {
-    return state;
-  }
+    /**
+     * Getter for the field <code>state</code>.
+     *
+     * @return the state
+     */
+    public IStates getState() {
+        return state;
+    }
 
-  /**
-   * Setter for the field <code>state</code>.
-   *
-   * @param state the state to set
-   */
-  public void setState(IStates state) {
-    this.state = state;
-  }
+    /**
+     * Setter for the field <code>state</code>.
+     *
+     * @param state the state to set
+     */
+    public void setState(IStates state) {
+        this.state = state;
+    }
 
-  /**
-   * Getter for the field <code>gameData</code>.
-   *
-   * @return the gameData
-   */
-  public GameData getGameData() {
-    return gameData;
-  }
+    /**
+     * Getter for the field <code>gameData</code>.
+     *
+     * @return the gameData
+     */
+    public GameData getGameData() {
+        return gameData;
+    }
 
-  /**
-   * Setter for the field <code>gameData</code>.
-   *
-   * @param gameData the gameData to set
-   */
-  public void setGameData(GameData gameData) {
-    this.gameData = gameData;
-  }
+    /**
+     * Setter for the field <code>gameData</code>.
+     *
+     * @param gameData the gameData to set
+     */
+    public void setGameData(GameData gameData) {
+        this.gameData = gameData;
+    }
 
-  /**
-   * getMsgLog.
-   *
-   * @return a {@link java.util.List} object.
-   */
-  public List<String> getMsgLog() {
-    return gameData.getMsgLog();
-  }
+    /**
+     * getMsgLog.
+     *
+     * @return a {@link java.util.List} object.
+     */
+    public List<String> getMsgLog() {
+        return gameData.getMsgLog();
+    }
 
-  /** clearMsgLog. */
-  public void clearMsgLog() {
-    gameData.clearMsgLog();
-  }
+    /**
+     * clearMsgLog.
+     */
+    public void clearMsgLog() {
+        gameData.clearMsgLog();
+    }
 
-  /** {@inheritDoc} */
-  @Override
-  public String toString() {
-    return gameData.toString();
-  }
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return gameData.toString();
+    }
 
-  // --------------------- Methods that trigger events/actions in the finite state machine
-  // -----------------------
-  /** start. */
-  public void start() {
-    setState(getState().start());
-  }
+    // --------------------- Methods that trigger events/actions in the finite state machine
+    // -----------------------
+    /**
+     * start.
+     */
+    public void start() {
+        setState(getState().start());
+    }
 
-  /** finish. */
-  public void finish() {
-    setState(getState().finish());
-  }
+    /**
+     * finish.
+     */
+    public void finish() {
+        setState(getState().finish());
+    }
 
-  /** drawTopCard. */
-  public void drawTopCard() {
-    setState(getState().drawTopCard());
-  }
+    /**
+     * drawTopCard.
+     */
+    public void drawTopCard() {
+        setState(getState().drawTopCard());
+    }
 }

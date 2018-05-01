@@ -10,12 +10,13 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
  */
 public class TrebuchetAttack {
 
-  /**
-   * apply.
-   *
-   * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-   */
-  public static void apply(GameData gameData) {
-    gameData.getPlayer().setWallStrength(gameData.getPlayer().getWallStrength() - 2);
-  }
+    /**
+     * apply.
+     *
+     * @param gameData a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+     */
+    public static void apply(GameData gameData) {
+        gameData.getPlayer().setWallStrength(gameData.getPlayer().getWallStrength() - 2);
+    }
 }
