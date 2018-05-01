@@ -1,5 +1,10 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card1;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card2;
@@ -8,10 +13,6 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card4;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card5;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card6;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card7;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * GameData class.
@@ -34,7 +35,9 @@ public class GameData implements Constants, Serializable {
 
   private List<Card> cards = new ArrayList<>();
 
-  /** Constructor for GameData. */
+  /**
+   * Constructor for GameData.
+   */
   public GameData() {
     this.player = new Player(this, "Player");
     this.day = 1;
@@ -110,7 +113,9 @@ public class GameData implements Constants, Serializable {
     return getBattleCard().getEnemies();
   }
 
-  /** clearMsgLog. */
+  /**
+   * clearMsgLog.
+   */
   public void clearMsgLog() {
     msgLog.clear();
   }

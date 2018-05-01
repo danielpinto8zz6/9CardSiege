@@ -415,7 +415,9 @@ public class Player implements Serializable {
     this.supplies = supplies;
   }
 
-  /** resetModifiers. */
+  /**
+   * resetModifiers.
+   */
   public void resetModifiers() {
     setmSabotage(0);
     setmRallyTroops(0);

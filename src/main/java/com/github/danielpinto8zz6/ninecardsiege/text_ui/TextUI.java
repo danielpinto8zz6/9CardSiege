@@ -156,7 +156,9 @@ public class TextUI {
     }
   }
 
-  /** run. */
+  /**
+   * run.
+   */
   public void run() {
     while (!(game.getState() instanceof GameOver)) {
 

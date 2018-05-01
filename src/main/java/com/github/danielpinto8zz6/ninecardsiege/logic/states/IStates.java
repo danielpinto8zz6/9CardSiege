@@ -58,7 +58,7 @@ public interface IStates {
    *
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
    */
-  IStates attack();
+  IStates attack(String name);
 
   /**
    * finish.

@@ -89,7 +89,9 @@ public class StatusCard implements Serializable {
     }
   }
 
-  /** removeSupplies. */
+  /**
+   * removeSupplies.
+   */
   public void removeSupplies() {
     this.supplies = 0;
   }
