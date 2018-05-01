@@ -96,6 +96,7 @@ public class TextUI {
     System.out.println();
     System.out.println("1 - Save Game");
     System.out.println("2 - Restore Game");
+    System.out.println("3 - Archers Attack");
     System.out.println("0 - Finish Game");
     System.out.print("\n> ");
 
@@ -119,6 +120,9 @@ public class TextUI {
         } catch (ClassNotFoundException | IOException e) {
           System.out.println(e.getMessage());
         }
+        return;
+      case 3:
+        game.archersAttack();
         return;
       case 0:
         game.finish();

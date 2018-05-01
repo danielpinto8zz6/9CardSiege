@@ -106,4 +106,9 @@ public final class Game implements Serializable {
   public void attack(String name) {
     setState(getState().attack(name));
   }
+
+  /** archersAttack. */
+  public void archersAttack() {
+    setState(getState().archersAttack());
+  }
 }

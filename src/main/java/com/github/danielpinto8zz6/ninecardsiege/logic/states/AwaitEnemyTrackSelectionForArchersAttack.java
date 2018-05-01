@@ -30,12 +30,17 @@ public class AwaitEnemyTrackSelectionForArchersAttack extends StateAdapter {
     int roll = Dice.roll();
 
     Enemy enemy = getGameData().getEnemy(name);
-    if (enemy != null) {
-      getGameData().addMsgLog("Perfotming ArchersAttack");
 
-      if (enemy.getStrength() < roll) {
-        enemy.move(Constants.MOVE.DOWN);
-      }
+    if (enemy == null) {
+      getGameData().addMsgLog("Enemy not found");
+      return new AwaitActionSelection(getGameData());
+    }
+
+    getGameData().addMsgLog("Perfotming ArchersAttack");
+    getGameData().addMsgLog("Roll : " + roll);
+
+    if (enemy.getStrength() < roll) {
+      enemy.move(Constants.MOVE.DOWN);
     }
 
     getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
