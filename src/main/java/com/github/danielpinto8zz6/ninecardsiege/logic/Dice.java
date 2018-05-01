@@ -20,8 +20,8 @@ public class Dice {
 
     Random random = new Random();
 
-    value = Math.abs(random.nextInt() % 6);
-
+    value = Math.abs(random.nextInt() % 6) + 1;
+                
     return value;
   }
 }
