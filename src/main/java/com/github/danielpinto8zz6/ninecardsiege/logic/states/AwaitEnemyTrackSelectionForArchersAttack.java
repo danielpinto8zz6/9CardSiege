@@ -78,7 +78,8 @@ public class AwaitEnemyTrackSelectionForArchersAttack extends StateAdapter {
                     System.out.println("Invalid option");
             }
         }
-
+        
+        getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
         return new AwaitActionSelection(getGameData());
     }
 
