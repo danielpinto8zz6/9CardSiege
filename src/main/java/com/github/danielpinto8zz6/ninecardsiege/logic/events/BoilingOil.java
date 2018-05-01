@@ -20,10 +20,7 @@ public class BoilingOil {
    */
   public static void apply(GameData gameData) {
     getEnemiesOnCircleSpaces(gameData)
-        .forEach(
-            (enemy) -> {
-              enemy.setStrength(enemy.getStrength() + 2);
-            });
+        .forEach((enemy) -> enemy.setStrength(enemy.getStrength() + 2));
   }
 
   /**
@@ -39,10 +36,7 @@ public class BoilingOil {
         .getEnemies()
         .stream()
         .filter((enemy) -> (enemy.getPosition() == 1))
-        .forEachOrdered(
-            (enemy) -> {
-              enemiesOnCircleSpaces.add(enemy);
-            }); // Circle Spaces = position 1
+        .forEachOrdered(enemiesOnCircleSpaces::add); // Circle Spaces = position 1
     return enemiesOnCircleSpaces;
   }
 }

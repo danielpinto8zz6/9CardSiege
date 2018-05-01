@@ -34,7 +34,7 @@ public abstract class Card implements Serializable {
    *
    * @return a int.
    */
-  public static int counterPlusPlus() {
+  private static int counterPlusPlus() {
     return Card.counter++;
   }
 

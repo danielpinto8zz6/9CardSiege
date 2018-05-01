@@ -21,9 +21,6 @@ public class Rally {
         .stream()
         .filter(
             (enemy) -> (enemy != null && (enemy.getPosition() == 0 || enemy.getPosition() == 1)))
-        .forEachOrdered(
-            (enemy) -> {
-              enemy.setStrength(enemy.getStrength() + 1);
-            });
+        .forEachOrdered((enemy) -> enemy.setStrength(enemy.getStrength() + 1));
   }
 }

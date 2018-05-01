@@ -32,7 +32,7 @@ public class Player implements Serializable {
   private int mRaidSupplies;
 
   /** */
-  public GameData gameData;
+  private GameData gameData;
 
   /**
    * Constructor for Player.

@@ -128,7 +128,7 @@ public class TextUI {
   }
 
   /** getUserInputWhileAwaitTopCardToBeDrawn. */
-  public void getUserInputWhileAwaitTopCardToBeDrawn() {
+  private void getUserInputWhileAwaitTopCardToBeDrawn() {
     int value;
 
     System.out.println("\n\n---------------------------------");
@@ -163,11 +163,7 @@ public class TextUI {
       if (game.getMsgLog().size() > 0) {
         System.out.println();
 
-        game.getMsgLog()
-            .forEach(
-                (msg) -> {
-                  System.out.println("---> " + msg);
-                });
+        game.getMsgLog().forEach((msg) -> System.out.println("---> " + msg));
         game.clearMsgLog();
       }
 

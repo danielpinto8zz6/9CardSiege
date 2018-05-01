@@ -20,9 +20,6 @@ public class VolleyOfArrows {
         .getEnemies()
         .stream()
         .filter((enemy) -> (enemy != null))
-        .forEachOrdered(
-            (enemy) -> {
-              enemy.setStrength(enemy.getStrength() - 1);
-            });
+        .forEachOrdered((enemy) -> enemy.setStrength(enemy.getStrength() - 1));
   }
 }
