@@ -4,7 +4,7 @@
         {
             "label": "verify",
             "type": "shell",
-            "command": "mvn -B verify",
+            "command": "mvn verify",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -14,13 +14,13 @@
         {
             "label": "test",
             "type": "shell",
-            "command": "mvn -B test",
+            "command": "mvn test",
             "group": "test"
         },
         {
             "label": "clean",
             "type": "shell",
-            "command": "mvn -B clean"
+            "command": "mvn clean"
         },
         {
             "label": "clean install",
@@ -30,8 +30,13 @@
         {
             "label": "exec",
             "type": "shell",
-            "command": "mvn -B exec:java -Dexec.mainClass=com.github.danielpinto8zz6.ninecardsiege.App",
+            "command": "mvn exec:java -Dexec.mainClass=com.github.danielpinto8zz6.ninecardsiege.App",
             "problemMatcher": []
+        },
+        {
+            "label": "format",
+            "type": "shell",
+            "command": "mvn com.coveo:fmt-maven-plugin:format"
         }
     ]
 }
