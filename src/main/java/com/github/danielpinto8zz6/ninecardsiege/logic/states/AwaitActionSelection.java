@@ -25,7 +25,7 @@ public class AwaitActionSelection extends StateAdapter {
   @Override
   public IStates archersAttack() {
     // TODO
-    return new AwaitEnemyTrackSelectionForBoilingWaterAttack(getGameData());
+    return new AwaitEnemyTrackSelectionForArchersAttack(getGameData());
   }
 
   /** {@inheritDoc} */
