@@ -1,11 +1,10 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
-import java.io.Serializable;
-import java.util.List;
-
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * Game class.
@@ -132,9 +131,7 @@ public final class Game implements Serializable {
   /**
    * extraActionPoint
    *
-   * @param extra a
-   *              {@link com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA}
-   *              object.
+   * @param extra a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA} object.
    */
   public void applyExtraActionPoint(EXTRA extra) {
     setState(getState().applyExtraActionPoint(extra));
@@ -145,7 +142,22 @@ public final class Game implements Serializable {
     setState(getState().endOfTurn());
   }
 
+  /** coupure. */
   public void coupure() {
     setState(getState().coupure());
+  }
+
+  /** rallyTroops. */
+  public void rallyTroops() {
+    setState(getState().rallyTroops());
+  }
+
+  /**
+   * applyRallyTroops.
+   *
+   * @param plusOne a boolean.
+   */
+  public void applyRallyTroops(boolean plusOne) {
+    setState(getState().applyRallyTroops(plusOne));
   }
 }

@@ -15,7 +15,7 @@
 - [ ] End of day check
 - [ ] Instant loss
 - [x] Coupure
-- [ ] Rally troops
+- [x] Rally troops
 - [ ] Tunel movement
 - [ ] Supply raid
 - [ ] Sabotage

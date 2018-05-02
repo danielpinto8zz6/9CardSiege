@@ -126,4 +126,12 @@ public interface IStates {
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
    */
   IStates sabotage();
+
+  /**
+   * applyRallyTroops.
+   *
+   * @param plusOne a boolean.
+   * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+   */
+  IStates applyRallyTroops(boolean plusOne);
 }

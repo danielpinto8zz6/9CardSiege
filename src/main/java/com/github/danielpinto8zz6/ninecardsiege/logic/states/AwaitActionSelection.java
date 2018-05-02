@@ -18,8 +18,7 @@ public class AwaitActionSelection extends StateAdapter {
   /**
    * Constructor for AwaitActionSelection.
    *
-   * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
-   *          object.
+   * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
    */
   public AwaitActionSelection(GameData g) {
     super(g);
@@ -28,13 +27,9 @@ public class AwaitActionSelection extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates archersAttack() {
-    if (getGameData().getPlayer().getActionPoints() == 0) {
-      getGameData().addMsgLog("************** End Of Turn *****************");
-      return new AwaitTopCardToBeDrawn(getGameData());
-    }
-
-    if (!getGameData().getPlayer().isCanArchersAtack()) {
-      getGameData().addMsgLog("Can't Archers Attack this turn");
+    if (getGameData().getPlayer().getActionPoints() == 0
+        || !getGameData().getPlayer().isCanArchersAtack()) {
+      getGameData().addMsgLog("Can't perform this action");
       return new AwaitActionSelection(getGameData());
     }
     return new AwaitEnemyTrackSelectionForArchersAttack(getGameData());
@@ -43,12 +38,9 @@ public class AwaitActionSelection extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates boilingWaterAttack() {
-    if (getGameData().getPlayer().getActionPoints() == 0) {
-      getGameData().addMsgLog("************** End Of Turn *****************");
-      return new AwaitTopCardToBeDrawn(getGameData());
-    }
-    if (!getGameData().getPlayer().isCanBoilingWater()) {
-      getGameData().addMsgLog("Can't Boilin Water Attack this turn");
+    if (getGameData().getPlayer().getActionPoints() == 0
+        || !getGameData().getPlayer().isCanBoilingWater()) {
+      getGameData().addMsgLog("Can't perform this action");
       return new AwaitActionSelection(getGameData());
     }
     return new AwaitEnemyTrackSelectionForBoilingWaterAttack(getGameData());
@@ -57,8 +49,9 @@ public class AwaitActionSelection extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates closeCombatAttack() {
-    if (getGameData().getPlayer().getActionPoints() == 0 || !getGameData().getPlayer().isCanCloseCombat()) {
-      getGameData().addMsgLog("Can't Close Combat Attack this turn");
+    if (getGameData().getPlayer().getActionPoints() == 0
+        || !getGameData().getPlayer().isCanCloseCombat()) {
+      getGameData().addMsgLog("Can't perform this action");
       return new AwaitActionSelection(getGameData());
     }
 
@@ -85,7 +78,8 @@ public class AwaitActionSelection extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates extraActionPoint() {
-    if (getGameData().getPlayer().getSupplies() > 0 && getGameData().getPlayer().getMoral() > 0
+    if (getGameData().getPlayer().getSupplies() > 0
+        && getGameData().getPlayer().getMoral() > 0
         && getGameData().getPlayer().isCanExtraAP()) {
       return new AwaitOptionSelectionForExtraActionPoint(getGameData());
     }
@@ -98,6 +92,12 @@ public class AwaitActionSelection extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates coupure() {
+    if (getGameData().getPlayer().getActionPoints() == 0
+        || !getGameData().getPlayer().isCanArchersAtack()) {
+      getGameData().addMsgLog("Can't perform this action");
+      return new AwaitActionSelection(getGameData());
+    }
+
     int roll = Dice.roll();
 
     if (roll > 4)
@@ -111,13 +111,24 @@ public class AwaitActionSelection extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates rallyTroops() {
-    // TODO
-    return this;
+    if (getGameData().getPlayer().getActionPoints() == 0
+        || !getGameData().getPlayer().isCanArchersAtack()) {
+      getGameData().addMsgLog("Can't perform this action");
+      return new AwaitActionSelection(getGameData());
+    }
+
+    return new AwaitActionSelection(getGameData());
   }
 
   /** {@inheritDoc} */
   @Override
   public IStates tunnelMovement() {
+    if (getGameData().getPlayer().getActionPoints() == 0
+        || !getGameData().getPlayer().isCanArchersAtack()) {
+      getGameData().addMsgLog("Can't perform this action");
+      return new AwaitActionSelection(getGameData());
+    }
+
     // TODO
     return this;
   }
@@ -125,6 +136,12 @@ public class AwaitActionSelection extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates supplyRaid() {
+    if (getGameData().getPlayer().getActionPoints() == 0
+        || !getGameData().getPlayer().isCanArchersAtack()) {
+      getGameData().addMsgLog("Can't perform this action");
+      return new AwaitActionSelection(getGameData());
+    }
+
     // TODO
     return this;
   }
@@ -132,6 +149,12 @@ public class AwaitActionSelection extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates sabotage() {
+    if (getGameData().getPlayer().getActionPoints() == 0
+        || !getGameData().getPlayer().isCanArchersAtack()) {
+      getGameData().addMsgLog("Can't perform this action");
+      return new AwaitActionSelection(getGameData());
+    }
+
     // TODO
     return this;
   }

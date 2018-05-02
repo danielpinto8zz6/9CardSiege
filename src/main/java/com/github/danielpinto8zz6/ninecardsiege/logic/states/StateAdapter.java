@@ -169,4 +169,10 @@ public class StateAdapter implements IStates, Constants, Serializable {
   public IStates sabotage() {
     return this;
   }
+
+  /** {@inheritDoc} */
+  @Override
+  public IStates applyRallyTroops(boolean plusOne) {
+    return this;
+  }
 }
