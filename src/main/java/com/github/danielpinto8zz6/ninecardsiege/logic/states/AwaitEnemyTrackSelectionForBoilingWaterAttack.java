@@ -1,5 +1,8 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
+import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
+import com.github.danielpinto8zz6.ninecardsiege.logic.Dice;
+import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
 /**
@@ -10,27 +13,52 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
  */
 public class AwaitEnemyTrackSelectionForBoilingWaterAttack extends StateAdapter {
 
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  /**
-   * Constructor for AwaitEnemyTrackSelectionForBoilingWaterAttack.
-   *
-   * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-   */
-  public AwaitEnemyTrackSelectionForBoilingWaterAttack(GameData g) {
-    super(g);
-  }
+    /**
+     * Constructor for AwaitEnemyTrackSelectionForBoilingWaterAttack.
+     *
+     * @param g a
+     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+     */
+    public AwaitEnemyTrackSelectionForBoilingWaterAttack(GameData g) {
+        super(g);
+    }
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates attack(String name) {
-    // TODO
-    return new AwaitActionSelection(getGameData());
-  }
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public IStates attack(String name) {
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates finish() {
-    return new GameOver(getGameData());
-  }
+        if (getGameData().getPlayer().isCanBoilingWater() == true) {
+            int roll = Dice.roll();
+            getGameData().addMsgLog("1check");
+            Enemy enemy = getGameData().getEnemy(name);
+
+            if (enemy == null) {
+                getGameData().addMsgLog("Enemy not found");
+                return new AwaitActionSelection(getGameData());
+            }
+
+            getGameData().addMsgLog("Perfotming Boilin Water Attack");
+            getGameData().addMsgLog("Roll : " + roll);
+
+            if (enemy.getStrength() < (roll + 2)) {
+                enemy.move(Constants.MOVE.DOWN);
+            }
+            getGameData().getPlayer().setCanBoilingWater(false);
+            getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
+        }
+        return new AwaitActionSelection(getGameData());
+
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public IStates finish() {
+        return new GameOver(getGameData());
+    }
 }
