@@ -10,7 +10,7 @@
 - [x] Load Game
 - [x] Draw Top Card
 - [x] Game Over
-- [ ] End of turn check
+- [x] End of turn check
 - [ ] Win or loose check
 - [ ] End of day check
 - [ ] Instant loss
