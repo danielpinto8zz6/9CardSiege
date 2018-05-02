@@ -10,50 +10,41 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
  */
 public class AwaitActionSelection extends StateAdapter {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    /**
-     * Constructor for AwaitActionSelection.
-     *
-     * @param g a
-     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-     */
-    public AwaitActionSelection(GameData g) {
-        super(g);
-    }
+  /**
+   * Constructor for AwaitActionSelection.
+   *
+   * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+   */
+  public AwaitActionSelection(GameData g) {
+    super(g);
+  }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public IStates archersAttack() {
-        // TODO
-        return new AwaitEnemyTrackSelectionForArchersAttack(getGameData());
-    }
+  /** {@inheritDoc} */
+  @Override
+  public IStates archersAttack() {
+    // TODO
+    return new AwaitEnemyTrackSelectionForArchersAttack(getGameData());
+  }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public IStates boilingWaterAttack() {
-        // TODO
-        return new AwaitEnemyTrackSelectionForBoilingWaterAttack(getGameData());
-    }
+  /** {@inheritDoc} */
+  @Override
+  public IStates boilingWaterAttack() {
+    // TODO
+    return new AwaitEnemyTrackSelectionForBoilingWaterAttack(getGameData());
+  }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public IStates closeCombatAttack() {
-        // TODO
-        return new AwaitActionSelection(getGameData());
-    }
+  /** {@inheritDoc} */
+  @Override
+  public IStates closeCombatAttack() {
+    // TODO
+    return new AwaitActionSelection(getGameData());
+  }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public IStates finish() {
-        return new GameOver(getGameData());
-    }
+  /** {@inheritDoc} */
+  @Override
+  public IStates finish() {
+    return new GameOver(getGameData());
+  }
 }

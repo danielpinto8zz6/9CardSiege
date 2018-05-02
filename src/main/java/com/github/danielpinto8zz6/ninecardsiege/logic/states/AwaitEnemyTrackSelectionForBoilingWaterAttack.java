@@ -13,53 +13,47 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
  */
 public class AwaitEnemyTrackSelectionForBoilingWaterAttack extends StateAdapter {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    /**
-     * Constructor for AwaitEnemyTrackSelectionForBoilingWaterAttack.
-     *
-     * @param g a
-     * {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-     */
-    public AwaitEnemyTrackSelectionForBoilingWaterAttack(GameData g) {
-        super(g);
+  /**
+   * Constructor for AwaitEnemyTrackSelectionForBoilingWaterAttack.
+   *
+   * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+   */
+  public AwaitEnemyTrackSelectionForBoilingWaterAttack(GameData g) {
+    super(g);
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public IStates attack(String name) {
+    if ("stop".equals(name)) {
+      getGameData().addMsgLog("Already Performed Boilin Water Attack this turn");
+      return new AwaitActionSelection(getGameData());
+    }
+    int roll = Dice.roll();
+    Enemy enemy = getGameData().getEnemy(name);
+
+    if (enemy == null) {
+      getGameData().addMsgLog("Enemy not found");
+      return new AwaitActionSelection(getGameData());
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public IStates attack(String name) {
+    getGameData().addMsgLog("Performing Boilin Water Attack");
+    getGameData().addMsgLog("Roll : " + roll);
 
-        if (getGameData().getPlayer().isCanBoilingWater() == true) {
-            int roll = Dice.roll();
-            getGameData().addMsgLog("1check");Enemy enemy = getGameData().getEnemy(name);
-
-            if (enemy == null) {
-                getGameData().addMsgLog("Enemy not found");
-                return new AwaitActionSelection(getGameData());
-            }
-
-            getGameData().addMsgLog("Performing Boilin Water Attack");
-            getGameData().addMsgLog("Roll : " + roll);
-
-            if (enemy.getStrength() < (roll + 2)) {
-                enemy.move(Constants.MOVE.DOWN);
-            }
-            getGameData().getPlayer().setCanBoilingWater(false);
-            getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
-        }else{
-        getGameData().addMsgLog("Already performed Boilin Water Attack this turn");
-        }
-        return new AwaitActionSelection(getGameData());
-
+    if (enemy.getStrength() < (roll + 2)) {
+      enemy.move(Constants.MOVE.DOWN);
     }
+    getGameData().getPlayer().setCanBoilingWater(false);
+    getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public IStates finish() {
-        return new GameOver(getGameData());
-    }
+    return new AwaitActionSelection(getGameData());
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public IStates finish() {
+    return new GameOver(getGameData());
+  }
 }
