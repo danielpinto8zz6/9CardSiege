@@ -33,15 +33,14 @@ public class AwaitEnemyTrackSelectionForBoilingWaterAttack extends StateAdapter 
 
         if (getGameData().getPlayer().isCanBoilingWater() == true) {
             int roll = Dice.roll();
-            getGameData().addMsgLog("1check");
-            Enemy enemy = getGameData().getEnemy(name);
+            getGameData().addMsgLog("1check");Enemy enemy = getGameData().getEnemy(name);
 
             if (enemy == null) {
                 getGameData().addMsgLog("Enemy not found");
                 return new AwaitActionSelection(getGameData());
             }
 
-            getGameData().addMsgLog("Perfotming Boilin Water Attack");
+            getGameData().addMsgLog("Performing Boilin Water Attack");
             getGameData().addMsgLog("Roll : " + roll);
 
             if (enemy.getStrength() < (roll + 2)) {
@@ -49,6 +48,8 @@ public class AwaitEnemyTrackSelectionForBoilingWaterAttack extends StateAdapter 
             }
             getGameData().getPlayer().setCanBoilingWater(false);
             getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
+        }else{
+        getGameData().addMsgLog("Already performed Boilin Water Attack this turn");
         }
         return new AwaitActionSelection(getGameData());
 
