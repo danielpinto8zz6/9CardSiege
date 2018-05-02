@@ -1,11 +1,12 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
+import java.util.List;
+
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Dice;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
-import java.util.List;
 
 /**
  * AwaitTopCardToBeDrawn class.
@@ -20,7 +21,8 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
   /**
    * Constructor for AwaitTopCardToBeDrawn.
    *
-   * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+   * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
+   *          object.
    */
   public AwaitTopCardToBeDrawn(GameData g) {
     super(g);
@@ -29,9 +31,20 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates drawTopCard() {
-    getGameData().addMsgLog("Picking Card...");
-
     List<Card> cards = getGameData().getCards();
+    if (cards.isEmpty()) {
+      if (getGameData().getDay() == 3){
+        getGameData().addMsgLog("Your troops arrived! GAME WON!!!!!");
+        return new GameOver(getGameData());
+      }
+
+      getGameData().addMsgLog("New day! Shuffeling cards");
+      getGameData().addCards();
+      getGameData().shuffleCards();
+
+      getGameData().setDay(getGameData().getDay() + 1);
+    }
+    getGameData().addMsgLog("Picking Card...");
     Card card = cards.get(0);
 
     getGameData().addMsgLog("Picked " + card.toString());
@@ -40,25 +53,25 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
 
     /** Resolve event text Advance enemies */
     switch (getGameData().getDay()) {
-      case 1:
-        card.day1Event();
-        card.moveEnemyDay1();
-        break;
-      case 2:
-        card.day2Event();
-        card.moveEnemyDay2();
-        break;
-      case 3:
-        card.day3Event();
-        card.moveEnemyDay3();
-        break;
-      default:
-        break;
+    case 1:
+      card.day1Event();
+      card.moveEnemyDay1();
+      break;
+    case 2:
+      card.day2Event();
+      card.moveEnemyDay2();
+      break;
+    case 3:
+      card.day3Event();
+      card.moveEnemyDay3();
+      break;
+    default:
+      break;
     }
 
     /**
-     * Perform enemy line check if our troops are on the enemy lines we have to roll a D6 if we roll
-     * a 1 they are captured
+     * Perform enemy line check if our troops are on the enemy lines we have to roll
+     * a D6 if we roll a 1 they are captured
      */
     if (getGameData().getStatusCard().getTroopPosition() == 4) {
       getGameData().addMsgLog("Performing enemy line check");

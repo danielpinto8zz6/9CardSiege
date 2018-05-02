@@ -1,5 +1,10 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card1;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card2;
@@ -8,10 +13,6 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card4;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card5;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card6;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card7;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * GameData class.
@@ -42,6 +43,14 @@ public class GameData implements Constants, Serializable {
     battleCard = new BattleCard(this);
     statusCard = new StatusCard(this);
 
+    addCards();
+
+    shuffleCards();
+
+    msgLog = new ArrayList<>();
+  }
+
+  public void addCards() {
     cards.add(new Card1(this));
     cards.add(new Card2(this));
     cards.add(new Card3(this));
@@ -49,10 +58,6 @@ public class GameData implements Constants, Serializable {
     cards.add(new Card5(this));
     cards.add(new Card6(this));
     cards.add(new Card7(this));
-
-    shuffleCards();
-
-    msgLog = new ArrayList<>();
   }
 
   /**
@@ -95,7 +100,8 @@ public class GameData implements Constants, Serializable {
    * getEnemy.
    *
    * @param name a {@link java.lang.String} object.
-   * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Enemy} object.
+   * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Enemy}
+   *         object.
    */
   public Enemy getEnemy(String name) {
     return getBattleCard().getEnemy(name);
@@ -175,7 +181,7 @@ public class GameData implements Constants, Serializable {
     this.cards = cards;
   }
 
-  private void shuffleCards() {
+  public void shuffleCards() {
     Collections.shuffle(cards);
   }
 }

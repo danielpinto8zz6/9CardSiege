@@ -11,8 +11,8 @@
 - [x] Draw Top Card
 - [x] Game Over
 - [x] End of turn check
-- [ ] Win or loose check
-- [ ] End of day check
+- [x] Win or loose check
+- [x] End of day check
 - [ ] Instant loss
 - [x] Coupure
 - [x] Rally troops
