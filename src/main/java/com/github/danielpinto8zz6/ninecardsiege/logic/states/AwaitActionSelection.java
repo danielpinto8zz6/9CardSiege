@@ -111,7 +111,7 @@ public class AwaitActionSelection extends StateAdapter {
   @Override
   public IStates coupure() {
     if (getGameData().getPlayer().getActionPoints() == 0
-        || !getGameData().getPlayer().isCanArchersAtack()) {
+        || !getGameData().getPlayer().isCanCoupure()) {
       getGameData().addMsgLog("Can't perform this action");
       return new AwaitActionSelection(getGameData());
     }
@@ -130,7 +130,7 @@ public class AwaitActionSelection extends StateAdapter {
   @Override
   public IStates rallyTroops() {
     if (getGameData().getPlayer().getActionPoints() == 0
-        || !getGameData().getPlayer().isCanArchersAtack()) {
+        || !getGameData().getPlayer().isCanRallyTroops()) {
       getGameData().addMsgLog("Can't perform this action");
       return new AwaitActionSelection(getGameData());
     }
@@ -142,7 +142,7 @@ public class AwaitActionSelection extends StateAdapter {
   @Override
   public IStates tunnelMovement() {
     if (getGameData().getPlayer().getActionPoints() == 0
-        || !getGameData().getPlayer().isCanArchersAtack()) {
+        || !getGameData().getPlayer().isCanTunnelMovement()) {
       getGameData().addMsgLog("Can't perform this action");
       return new AwaitActionSelection(getGameData());
     }
@@ -154,8 +154,7 @@ public class AwaitActionSelection extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates supplyRaid() {
-    if (getGameData().getPlayer().getActionPoints() == 0
-        || !getGameData().getPlayer().isCanArchersAtack()) {
+    if (getGameData().getPlayer().getActionPoints() == 0) {
       getGameData().addMsgLog("Can't perform this action");
       return new AwaitActionSelection(getGameData());
     }
@@ -188,8 +187,7 @@ public class AwaitActionSelection extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates sabotage() {
-    if (getGameData().getPlayer().getActionPoints() == 0
-        || !getGameData().getPlayer().isCanArchersAtack()) {
+    if (getGameData().getPlayer().getActionPoints() == 0) {
       getGameData().addMsgLog("Can't perform this action");
       return new AwaitActionSelection(getGameData());
     }

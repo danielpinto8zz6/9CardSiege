@@ -21,8 +21,6 @@ public class Player implements Serializable {
   private boolean canBoilingWater;
   private boolean canCloseCombat;
   private boolean canCoupure;
-  private boolean canSupplyRaid;
-  private boolean canSabotage;
   private boolean canExtraAP;
   private boolean canRallyTroops;
   private boolean canTunnelMovement;
@@ -51,8 +49,6 @@ public class Player implements Serializable {
     this.canCloseCombat = true;
     this.canCoupure = true;
     this.canExtraAP = true;
-    this.canSupplyRaid = true;
-    this.canSabotage = true;
     this.canRallyTroops = true;
     this.canTunnelMovement = true;
     this.mCoupure = 0;
@@ -224,42 +220,6 @@ public class Player implements Serializable {
   }
 
   /**
-   * isCanSupplyRaid.
-   *
-   * @return a boolean.
-   */
-  public boolean isCanSupplyRaid() {
-    return canSupplyRaid;
-  }
-
-  /**
-   * Setter for the field <code>canSupplyRaid</code>.
-   *
-   * @param canSupplyRaid a boolean.
-   */
-  public void setCanSupplyRaid(boolean canSupplyRaid) {
-    this.canSupplyRaid = canSupplyRaid;
-  }
-
-  /**
-   * isCanSabotage.
-   *
-   * @return a boolean.
-   */
-  public boolean isCanSabotage() {
-    return canSabotage;
-  }
-
-  /**
-   * Setter for the field <code>canSabotage</code>.
-   *
-   * @param canSabotage a boolean.
-   */
-  public void setCanSabotage(boolean canSabotage) {
-    this.canSabotage = canSabotage;
-  }
-
-  /**
    * isCanExtraAP.
    *
    * @return a boolean.
@@ -426,8 +386,6 @@ public class Player implements Serializable {
     setCanBoilingWater(true);
     setCanCloseCombat(true);
     setCanCoupure(true);
-    setCanSupplyRaid(true);
-    setCanSabotage(true);
     setCanExtraAP(true);
     setCanRallyTroops(true);
     setCanTunnelMovement(true);
