@@ -19,7 +19,6 @@ public class AwaitActionSelection extends StateAdapter {
    */
   public AwaitActionSelection(GameData g) {
     super(g);
-    
   }
 
   /** {@inheritDoc} */
