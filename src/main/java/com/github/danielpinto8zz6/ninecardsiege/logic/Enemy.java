@@ -123,6 +123,7 @@ public class Enemy implements Serializable {
    * Getter for the field <code>initialStrength</code>.
    *
    * @return a int.
+   * @return a int.
    */
   public int getInitialStrength() {
     return initialStrength;
