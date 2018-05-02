@@ -113,4 +113,15 @@ public class BattleCard implements Serializable {
 
     return enemiesInCloseCombatArea;
   }
+
+  /** {@inheritDoc} */
+  @Override
+  public String toString() {
+    String s;
+
+    s = "Battle Card: ";
+    s += "\n\t" + "Trebuchet: " + getTrebuchet();
+
+    return s;
+  }
 }

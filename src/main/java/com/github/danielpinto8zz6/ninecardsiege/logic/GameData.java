@@ -34,7 +34,9 @@ public class GameData implements Constants, Serializable {
 
   private List<Card> cards = new ArrayList<>();
 
-  /** Constructor for GameData. */
+  /**
+   * Constructor for GameData.
+   */
   public GameData() {
     this.player = new Player(this, "Player");
     this.day = 1;
@@ -110,7 +112,9 @@ public class GameData implements Constants, Serializable {
     return getBattleCard().getEnemies();
   }
 
-  /** clearMsgLog. */
+  /**
+   * clearMsgLog.
+   */
   public void clearMsgLog() {
     msgLog.clear();
   }
@@ -140,11 +144,8 @@ public class GameData implements Constants, Serializable {
 
     s = "Day: " + getDay();
     s += "\n\n" + getPlayer().toString();
-    s += "\n\n" + "Status Card: ";
-    s += "\n\t" + "Troop Position: " + getStatusCard().getTroopPosition();
-    s += "\n\t" + "Supplies: " + getStatusCard().getSupplies();
-    s += "\n\n" + "Battle Card: ";
-    s += "\n\t" + "Trebuchet: " + getBattleCard().getTrebuchet();
+    s += "\n\n" + getStatusCard().toString();
+    s += "\n\n" + getBattleCard().toString();
 
     s = getEnemies().stream().map((enemy) -> "\n\n" + enemy.toString()).reduce(s, String::concat);
 

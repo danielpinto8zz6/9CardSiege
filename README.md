@@ -17,5 +17,5 @@
 - [x] Coupure
 - [x] Rally troops
 - [ ] Tunel movement
-- [ ] Supply raid
+- [x] Supply raid
 - [ ] Sabotage

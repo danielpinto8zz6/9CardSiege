@@ -142,8 +142,29 @@ public class AwaitActionSelection extends StateAdapter {
       return new AwaitActionSelection(getGameData());
     }
 
-    // TODO
-    return this;
+    if (getGameData().getStatusCard().getTroopPosition() == 4) {
+      int roll = Dice.roll();
+      switch (roll) {
+        case 1:
+          getGameData().getPlayer().setMoral(getGameData().getPlayer().getMoral() - 1);
+          getGameData().getStatusCard().setTroopPosition(0);
+          getGameData().getStatusCard().removeSupplies();
+          getGameData().addMsgLog("Reduce moral by 1\nTroops captured\nRemoved supplies");
+          break;
+        case 3:
+        case 4:
+        case 5:
+          getGameData().getStatusCard().addSupplies(1);
+          getGameData().addMsgLog("Added 1 supply (max 2)");
+          break;
+        case 6:
+          getGameData().getStatusCard().addSupplies(2);
+          getGameData().addMsgLog("Added 2 supplies (max 2)");
+          break;
+      }
+    }
+
+    return new AwaitActionSelection(getGameData());
   }
 
   /** {@inheritDoc} */

@@ -74,21 +74,33 @@ public abstract class Card implements Serializable {
     return getGameData().getPlayer();
   }
 
-  /** Day1Event. */
+  /**
+   * Day1Event.
+   */
   public abstract void day1Event();
 
-  /** Day2Event. */
+  /**
+   * Day2Event.
+   */
   public abstract void day2Event();
 
-  /** Day3Event. */
+  /**
+   * Day3Event.
+   */
   public abstract void day3Event();
 
-  /** moveEnemyDay1. */
+  /**
+   * moveEnemyDay1.
+   */
   public abstract void moveEnemyDay1();
 
-  /** moveEnemyDay2. */
+  /**
+   * moveEnemyDay2.
+   */
   public abstract void moveEnemyDay2();
 
-  /** moveEnemyDay3. */
+  /**
+   * moveEnemyDay3.
+   */
   public abstract void moveEnemyDay3();
 }

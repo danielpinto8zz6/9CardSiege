@@ -89,8 +89,22 @@ public class StatusCard implements Serializable {
     }
   }
 
-  /** removeSupplies. */
+  /**
+   * removeSupplies.
+   */
   public void removeSupplies() {
     this.supplies = 0;
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public String toString() {
+    String s;
+
+    s = "Status Card: ";
+    s += "\n\t" + "Troop Position: " + getTroopPosition();
+    s += "\n\t" + "Supplies: " + getSupplies();
+
+    return s;
   }
 }
