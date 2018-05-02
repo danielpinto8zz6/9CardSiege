@@ -14,7 +14,7 @@
 - [ ] Win or loose check
 - [ ] End of day check
 - [ ] Instant loss
-- [ ] Coupure
+- [x] Coupure
 - [ ] Rally troops
 - [ ] Tunel movement
 - [ ] Supply raid

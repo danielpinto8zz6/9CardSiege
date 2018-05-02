@@ -18,7 +18,8 @@ public class AwaitActionSelection extends StateAdapter {
   /**
    * Constructor for AwaitActionSelection.
    *
-   * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+   * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
+   *          object.
    */
   public AwaitActionSelection(GameData g) {
     super(g);
@@ -56,8 +57,7 @@ public class AwaitActionSelection extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates closeCombatAttack() {
-    if (getGameData().getPlayer().getActionPoints() == 0
-        || !getGameData().getPlayer().isCanCloseCombat()) {
+    if (getGameData().getPlayer().getActionPoints() == 0 || !getGameData().getPlayer().isCanCloseCombat()) {
       getGameData().addMsgLog("Can't Close Combat Attack this turn");
       return new AwaitActionSelection(getGameData());
     }
@@ -85,8 +85,7 @@ public class AwaitActionSelection extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates extraActionPoint() {
-    if (getGameData().getPlayer().getSupplies() > 0
-        && getGameData().getPlayer().getMoral() > 0
+    if (getGameData().getPlayer().getSupplies() > 0 && getGameData().getPlayer().getMoral() > 0
         && getGameData().getPlayer().isCanExtraAP()) {
       return new AwaitOptionSelectionForExtraActionPoint(getGameData());
     }
@@ -99,8 +98,14 @@ public class AwaitActionSelection extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates coupure() {
-    // TODO
-    return this;
+    int roll = Dice.roll();
+
+    if (roll > 4)
+      getGameData().getPlayer().setWallStrength(getGameData().getPlayer().getWallStrength() + 1);
+
+    getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
+
+    return new AwaitActionSelection(getGameData());
   }
 
   /** {@inheritDoc} */

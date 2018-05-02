@@ -1,5 +1,10 @@
 package com.github.danielpinto8zz6.ninecardsiege.text_ui;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Game;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameSave;
@@ -10,10 +15,6 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitEnemyTrackSele
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitOptionSelectionForExtraActionPoint;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDrawn;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.GameOver;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Scanner;
 
 /**
  * TextUI class
@@ -30,7 +31,8 @@ public class TextUI {
   /**
    * Constructor for TextUI.
    *
-   * @param game a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Game} object.
+   * @param game a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Game}
+   *             object.
    */
   public TextUI(Game game) {
     this.game = game;
@@ -59,35 +61,35 @@ public class TextUI {
     value = s.nextInt();
 
     switch (value) {
-      case 1:
-        game.start();
-        return;
-      case 2:
-        System.out.println("\n\n---------------------------------");
-        System.out.println("Type your Player name");
-        System.out.print("\n> ");
+    case 1:
+      game.start();
+      return;
+    case 2:
+      System.out.println("\n\n---------------------------------");
+      System.out.println("Type your Player name");
+      System.out.print("\n> ");
 
-        while (!s.hasNext()) {
-          s.next();
-        }
+      while (!s.hasNext()) {
+        s.next();
+      }
 
-        name = s.next();
+      name = s.next();
 
-        getGame().getGameData().getPlayer().setName(name);
+      getGame().getGameData().getPlayer().setName(name);
 
-        return;
-      case 3:
-        try {
-          handleRestoreGameFromFileOption();
-        } catch (ClassNotFoundException | IOException e) {
-          System.out.println(e.getMessage());
-        }
-        return;
-      case 0:
-        game.finish();
-        return;
-      default:
-        System.out.println("Invalid option");
+      return;
+    case 3:
+      try {
+        handleRestoreGameFromFileOption();
+      } catch (ClassNotFoundException | IOException e) {
+        System.out.println(e.getMessage());
+      }
+      return;
+    case 0:
+      game.finish();
+      return;
+    default:
+      System.out.println("Invalid option");
     }
   }
 
@@ -104,6 +106,7 @@ public class TextUI {
     System.out.println("5 - Close Combat Attack");
     System.out.println("6 - Next turn");
     System.out.println("7 - Extra Action Point");
+    System.out.println("8 - Coupure");
     System.out.println("0 - Finish Game");
     System.out.print("\n> ");
 
@@ -114,39 +117,41 @@ public class TextUI {
     value = s.nextInt();
 
     switch (value) {
-      case 1:
-        try {
-          handleSaveGameToFileOption();
-        } catch (IOException e) {
-          System.out.println(e.getMessage());
-        }
-        return;
-      case 2:
-        try {
-          handleRestoreGameFromFileOption();
-        } catch (ClassNotFoundException | IOException e) {
-          System.out.println(e.getMessage());
-        }
-        return;
-      case 3:
-        game.archersAttack();
-        return;
-      case 4:
-        game.boilingWaterAttack();
-        return;
-      case 5:
-        game.closeCombatAttack();
-        return;
-      case 6:
-        game.endOfTurn();
-        return;
-      case 7:
-        game.extraActionPoint();
-      case 0:
-        game.finish();
-        return;
-      default:
-        System.out.println("Invalid option");
+    case 1:
+      try {
+        handleSaveGameToFileOption();
+      } catch (IOException e) {
+        System.out.println(e.getMessage());
+      }
+      return;
+    case 2:
+      try {
+        handleRestoreGameFromFileOption();
+      } catch (ClassNotFoundException | IOException e) {
+        System.out.println(e.getMessage());
+      }
+      return;
+    case 3:
+      game.archersAttack();
+      return;
+    case 4:
+      game.boilingWaterAttack();
+      return;
+    case 5:
+      game.closeCombatAttack();
+      return;
+    case 6:
+      game.endOfTurn();
+      return;
+    case 7:
+      game.extraActionPoint();
+    case 8:
+      game.coupure();
+    case 0:
+      game.finish();
+      return;
+    default:
+      System.out.println("Invalid option");
     }
   }
 
@@ -168,14 +173,14 @@ public class TextUI {
     value = s.nextInt();
 
     switch (value) {
-      case 1:
-        game.drawTopCard();
-        return;
-      case 0:
-        game.finish();
-        return;
-      default:
-        System.out.println("Invalid option");
+    case 1:
+      game.drawTopCard();
+      return;
+    case 0:
+      game.finish();
+      return;
+    default:
+      System.out.println("Invalid option");
     }
   }
 
@@ -194,7 +199,8 @@ public class TextUI {
 
     name = s.next();
 
-    if (name != "0") game.attack(name);
+    if (name != "0")
+      game.attack(name);
 
     game.finish();
   }
@@ -217,12 +223,12 @@ public class TextUI {
     value = s.nextInt();
 
     switch (value) {
-      case 1:
-        getGame().applyExtraActionPoint(Constants.EXTRA.MORAL);
-        return;
-      case 2:
-        getGame().applyExtraActionPoint(Constants.EXTRA.SUPPLIES);
-        return;
+    case 1:
+      getGame().applyExtraActionPoint(Constants.EXTRA.MORAL);
+      return;
+    case 2:
+      getGame().applyExtraActionPoint(Constants.EXTRA.SUPPLIES);
+      return;
     }
   }
 
