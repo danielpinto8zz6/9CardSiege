@@ -8,6 +8,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitEnemyTrackSele
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitEnemyTrackSelectionForBoilingWaterAttack;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDrawn;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.GameOver;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -201,6 +202,9 @@ public class TextUI {
       } else if (game.getState() instanceof AwaitTopCardToBeDrawn) {
         getUserInputWhileAwaitTopCardToBeDrawn();
       } else if (game.getState() instanceof AwaitActionSelection) {
+          if(game.getGameData().getPlayer().getActionPoints() == 0){
+          newDraw();
+          }
         getUserInputWhileAwaitingOptionSelection();
       } else if (game.getState() instanceof AwaitEnemyTrackSelectionForArchersAttack) {
         getUserInputWhileAwaitEnemyTrackSelection();
@@ -218,7 +222,12 @@ public class TextUI {
 
     showGame();
   }
-
+  
+  public IStates newDraw(){
+  
+  return new AwaitTopCardToBeDrawn(game.getGameData());
+      
+  }
   /**
    * Getter for the field <code>game</code>.
    *
