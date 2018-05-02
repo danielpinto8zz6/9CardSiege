@@ -176,8 +176,21 @@ public class AwaitActionSelection extends StateAdapter {
       return new AwaitActionSelection(getGameData());
     }
 
-    // TODO
-    return this;
+    if (getGameData().getStatusCard().getTroopPosition() == 4) {
+      int roll = Dice.roll();
+      if (roll > 4) {
+        int trebuchet = (getGameData().getBattleCard().getTrebuchet() - 1);
+        getGameData().getBattleCard().setTrebuchet(trebuchet > 0 ? trebuchet : 0);
+        getGameData().addMsgLog("Reduce trebuchet by 1 (min 0)");
+      } else if (roll == 1) {
+        getGameData().getPlayer().setMoral(getGameData().getPlayer().getMoral() - 1);
+        getGameData().getStatusCard().setTroopPosition(0);
+        getGameData().getStatusCard().removeSupplies();
+        getGameData().addMsgLog("Reduce moral by 1\nTroops captured\nRemoved supplies");
+      }
+    }
+
+    return new AwaitActionSelection(getGameData());
   }
 
   /** {@inheritDoc} */

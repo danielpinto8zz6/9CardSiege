@@ -18,4 +18,4 @@
 - [x] Rally troops
 - [ ] Tunel movement
 - [x] Supply raid
-- [ ] Sabotage
+- [x] Sabotage

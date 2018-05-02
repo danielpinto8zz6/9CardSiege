@@ -34,9 +34,7 @@ public class GameData implements Constants, Serializable {
 
   private List<Card> cards = new ArrayList<>();
 
-  /**
-   * Constructor for GameData.
-   */
+  /** Constructor for GameData. */
   public GameData() {
     this.player = new Player(this, "Player");
     this.day = 1;
@@ -112,9 +110,7 @@ public class GameData implements Constants, Serializable {
     return getBattleCard().getEnemies();
   }
 
-  /**
-   * clearMsgLog.
-   */
+  /** clearMsgLog. */
   public void clearMsgLog() {
     msgLog.clear();
   }

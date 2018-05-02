@@ -107,6 +107,8 @@ public class TextUI {
     System.out.println("7 - Extra Action Point");
     System.out.println("8 - Coupure");
     System.out.println("9 - Rally troops");
+    System.out.println("10 - Supply Raid");
+    System.out.println("11 - Sabotage");
     System.out.println("0 - Finish Game");
     System.out.print("\n> ");
 
@@ -151,6 +153,12 @@ public class TextUI {
         return;
       case 9:
         game.rallyTroops();
+        return;
+      case 10:
+        game.supplyRaid();
+        return;
+      case 11:
+        game.sabotage();
         return;
       case 0:
         game.finish();
@@ -272,9 +280,7 @@ public class TextUI {
     }
   }
 
-  /**
-   * run.
-   */
+  /** run. */
   public void run() {
     while (!(game.getState() instanceof GameOver)) {
 

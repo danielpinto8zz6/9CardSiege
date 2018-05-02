@@ -1,10 +1,11 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
+import java.io.Serializable;
+import java.util.List;
+
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates;
-import java.io.Serializable;
-import java.util.List;
 
 /**
  * Game class.
@@ -19,9 +20,7 @@ public final class Game implements Serializable {
   private IStates state;
   private GameData gameData;
 
-  /**
-   * Constructor for Game.
-   */
+  /** Constructor for Game. */
   public Game() {
     gameData = new GameData();
     setState(new AwaitBeginning(gameData));
@@ -72,9 +71,7 @@ public final class Game implements Serializable {
     return gameData.getMsgLog();
   }
 
-  /**
-   * clearMsgLog.
-   */
+  /** clearMsgLog. */
   public void clearMsgLog() {
     gameData.clearMsgLog();
   }
@@ -88,23 +85,17 @@ public final class Game implements Serializable {
   // --------------------- Methods that trigger events/actions in the finite state
   // machine
   // -----------------------
-  /**
-   * start.
-   */
+  /** start. */
   public void start() {
     setState(getState().start());
   }
 
-  /**
-   * finish.
-   */
+  /** finish. */
   public void finish() {
     setState(getState().finish());
   }
 
-  /**
-   * drawTopCard.
-   */
+  /** drawTopCard. */
   public void drawTopCard() {
     setState(getState().drawTopCard());
   }
@@ -118,30 +109,22 @@ public final class Game implements Serializable {
     setState(getState().attack(name));
   }
 
-  /**
-   * archersAttack.
-   */
+  /** archersAttack. */
   public void archersAttack() {
     setState(getState().archersAttack());
   }
 
-  /**
-   * boilingWaterAttack.
-   */
+  /** boilingWaterAttack. */
   public void boilingWaterAttack() {
     setState(getState().boilingWaterAttack());
   }
 
-  /**
-   * closeCombatAttack.
-   */
+  /** closeCombatAttack. */
   public void closeCombatAttack() {
     setState(getState().closeCombatAttack());
   }
 
-  /**
-   * extraActionPoint
-   */
+  /** extraActionPoint */
   public void extraActionPoint() {
     setState(getState().extraActionPoint());
   }
@@ -155,23 +138,17 @@ public final class Game implements Serializable {
     setState(getState().applyExtraActionPoint(extra));
   }
 
-  /**
-   * endOfTurn
-   */
+  /** endOfTurn */
   public void endOfTurn() {
     setState(getState().endOfTurn());
   }
 
-  /**
-   * coupure.
-   */
+  /** coupure. */
   public void coupure() {
     setState(getState().coupure());
   }
 
-  /**
-   * rallyTroops.
-   */
+  /** rallyTroops. */
   public void rallyTroops() {
     setState(getState().rallyTroops());
   }
@@ -183,5 +160,15 @@ public final class Game implements Serializable {
    */
   public void applyRallyTroops(boolean plusOne) {
     setState(getState().applyRallyTroops(plusOne));
+  }
+
+  /** supplyRaid. */
+  public void supplyRaid() {
+    setState(getState().supplyRaid());
+  }
+
+  /** sabotage. */
+  public void sabotage() {
+    setState(getState().sabotage());
   }
 }
