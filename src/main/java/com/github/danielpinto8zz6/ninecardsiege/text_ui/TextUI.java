@@ -98,17 +98,18 @@ public class TextUI {
     System.out.println("\n\n---------------------------------");
     showGame();
     System.out.println();
-    System.out.println("1 - Save Game");
-    System.out.println("2 - Restore Game");
-    System.out.println("3 - Archers Attack");
-    System.out.println("4 - Boiling Water Attack");
-    System.out.println("5 - Close Combat Attack");
-    System.out.println("6 - Next turn");
-    System.out.println("7 - Extra Action Point");
-    System.out.println("8 - Coupure");
-    System.out.println("9 - Rally troops");
-    System.out.println("10 - Supply Raid");
-    System.out.println("11 - Sabotage");
+    System.out.println("1 - Archers Attack");
+    System.out.println("2 - Boiling Water Attack");
+    System.out.println("3 - Close Combat Attack");
+    System.out.println("4 - Coupure");
+    System.out.println("5 - Rally troops");
+    System.out.println("6 - Tunel Movement");
+    System.out.println("7 - Supply Raid");
+    System.out.println("8 - Sabotage");
+    System.out.println("9 - Extra Action Point");
+    System.out.println("10 - Next turn");
+    System.out.println("11 - Save Game");
+    System.out.println("12 - Restore Game");
     System.out.println("0 - Finish Game");
     System.out.print("\n> ");
 
@@ -120,45 +121,47 @@ public class TextUI {
 
     switch (value) {
       case 1:
+        game.archersAttack();
+        return;
+      case 2:
+        game.boilingWaterAttack();
+        return;
+      case 3:
+        game.closeCombatAttack();
+        return;
+      case 4:
+        game.coupure();
+        return;
+      case 5:
+        game.rallyTroops();
+        return;
+      case 6:
+        return;
+      case 7:
+        game.supplyRaid();
+        return;
+      case 8:
+        game.sabotage();
+        return;
+      case 9:
+        game.extraActionPoint();
+        return;
+      case 10:
+        game.endOfTurn();
+        return;
+      case 11:
         try {
           handleSaveGameToFileOption();
         } catch (IOException e) {
           System.out.println(e.getMessage());
         }
         return;
-      case 2:
+      case 12:
         try {
           handleRestoreGameFromFileOption();
         } catch (ClassNotFoundException | IOException e) {
           System.out.println(e.getMessage());
         }
-        return;
-      case 3:
-        game.archersAttack();
-        return;
-      case 4:
-        game.boilingWaterAttack();
-        return;
-      case 5:
-        game.closeCombatAttack();
-        return;
-      case 6:
-        game.endOfTurn();
-        return;
-      case 7:
-        game.extraActionPoint();
-        return;
-      case 8:
-        game.coupure();
-        return;
-      case 9:
-        game.rallyTroops();
-        return;
-      case 10:
-        game.supplyRaid();
-        return;
-      case 11:
-        game.sabotage();
         return;
       case 0:
         game.finish();
@@ -173,7 +176,7 @@ public class TextUI {
     int value;
 
     System.out.println("\n\n---------------------------------");
-    showGame();
+    // showGame();
     System.out.println();
     System.out.println("1 - Draw top card");
     System.out.println("0 - Finish Game");
@@ -194,6 +197,7 @@ public class TextUI {
         return;
       default:
         System.out.println("Invalid option");
+        return;
     }
   }
 
@@ -312,6 +316,8 @@ public class TextUI {
     System.out.println("************** Game over *****************");
 
     showGame();
+
+    game.getMsgLog().forEach((msg) -> System.out.println("---> " + msg));
   }
 
   /**

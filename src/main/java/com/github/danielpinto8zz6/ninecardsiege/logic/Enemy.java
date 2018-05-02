@@ -13,6 +13,7 @@ public class Enemy implements Serializable {
 
   private static final long serialVersionUID = 1L;
   private String name;
+  private final int initialStrength;
   private int strength;
   private int position;
 
@@ -26,6 +27,7 @@ public class Enemy implements Serializable {
     this.name = name;
     this.strength = strength;
     this.position = 4;
+    this.initialStrength = strength;
   }
 
   /**
@@ -100,6 +102,11 @@ public class Enemy implements Serializable {
     }
   }
 
+  /** resetStrenght. */
+  public void resetStrenght() {
+    this.strength = getInitialStrength();
+  }
+
   /** {@inheritDoc} */
   @Override
   public String toString() {
@@ -109,5 +116,15 @@ public class Enemy implements Serializable {
     s += "\n\t" + "Strength: " + getStrength();
     s += "\n\t" + "Position: " + getPosition();
     return s;
+  }
+
+  /** @return the initialStrength */
+  /**
+   * Getter for the field <code>initialStrength</code>.
+   *
+   * @return a int.
+   */
+  public int getInitialStrength() {
+    return initialStrength;
   }
 }
