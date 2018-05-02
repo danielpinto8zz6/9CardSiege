@@ -21,11 +21,13 @@ public class AwaitOptionSelectionForExtraActionPoint extends StateAdapter {
     super(g);
   }
 
+  /** {@inheritDoc} */
   @Override
   public IStates endOfTurn() {
     return new AwaitTopCardToBeDrawn(getGameData());
   }
 
+  /** {@inheritDoc} */
   @Override
   public IStates applyExtraActionPoint(EXTRA extra) {
     getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() + 1);

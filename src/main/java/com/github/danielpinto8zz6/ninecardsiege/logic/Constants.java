@@ -17,8 +17,13 @@ public interface Constants {
     DOWN
   }
 
+  /** */
   enum EXTRA {
+
+    /** Moral */
     MORAL,
+
+    /** Supplies */
     SUPPLIES
   }
 }

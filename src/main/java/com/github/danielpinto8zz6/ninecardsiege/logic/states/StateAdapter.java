@@ -1,9 +1,8 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
-import java.io.Serializable;
-
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
+import java.io.Serializable;
 
 /**
  * StateAdapter class.
@@ -123,18 +122,51 @@ public class StateAdapter implements IStates, Constants, Serializable {
     return this;
   }
 
+  /** {@inheritDoc} */
   @Override
   public IStates endOfTurn() {
     return this;
   }
 
+  /** {@inheritDoc} */
   @Override
   public IStates extraActionPoint() {
     return this;
   }
 
+  /** {@inheritDoc} */
   @Override
   public IStates applyExtraActionPoint(EXTRA extra) {
+    return this;
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public IStates coupure() {
+    return this;
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public IStates rallyTroops() {
+    return this;
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public IStates tunnelMovement() {
+    return this;
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public IStates supplyRaid() {
+    return this;
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public IStates sabotage() {
     return this;
   }
 }

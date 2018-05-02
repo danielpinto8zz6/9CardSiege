@@ -18,8 +18,7 @@ public class AwaitActionSelection extends StateAdapter {
   /**
    * Constructor for AwaitActionSelection.
    *
-   * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
-   *          object.
+   * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
    */
   public AwaitActionSelection(GameData g) {
     super(g);
@@ -57,7 +56,8 @@ public class AwaitActionSelection extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates closeCombatAttack() {
-    if (getGameData().getPlayer().getActionPoints() == 0 || !getGameData().getPlayer().isCanCloseCombat()) {
+    if (getGameData().getPlayer().getActionPoints() == 0
+        || !getGameData().getPlayer().isCanCloseCombat()) {
       getGameData().addMsgLog("Can't Close Combat Attack this turn");
       return new AwaitActionSelection(getGameData());
     }
@@ -76,14 +76,17 @@ public class AwaitActionSelection extends StateAdapter {
     return new AwaitActionSelection(getGameData());
   }
 
+  /** {@inheritDoc} */
   @Override
   public IStates endOfTurn() {
     return new AwaitTopCardToBeDrawn(getGameData());
   }
 
+  /** {@inheritDoc} */
   @Override
   public IStates extraActionPoint() {
-    if (getGameData().getPlayer().getSupplies() > 0 && getGameData().getPlayer().getMoral() > 0
+    if (getGameData().getPlayer().getSupplies() > 0
+        && getGameData().getPlayer().getMoral() > 0
         && getGameData().getPlayer().isCanExtraAP()) {
       return new AwaitOptionSelectionForExtraActionPoint(getGameData());
     }
@@ -91,6 +94,41 @@ public class AwaitActionSelection extends StateAdapter {
     getGameData().addMsgLog("Can't add extra action points");
 
     return new AwaitActionSelection(getGameData());
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public IStates coupure() {
+    // TODO
+    return this;
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public IStates rallyTroops() {
+    // TODO
+    return this;
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public IStates tunnelMovement() {
+    // TODO
+    return this;
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public IStates supplyRaid() {
+    // TODO
+    return this;
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public IStates sabotage() {
+    // TODO
+    return this;
   }
 
   /** {@inheritDoc} */
