@@ -212,9 +212,9 @@ public class TextUI {
 
     name = s.next();
 
-    if (name != "0") game.attack(name);
+    if (name.equals("0")) game.finish();
 
-    game.finish();
+    game.attack(name);
   }
 
   private void getUserInputWhileAwaitOptionSelectionForExtraActionPoint() {
@@ -303,8 +303,9 @@ public class TextUI {
         getUserInputWhileAwaitEnemyTrackSelection();
       } else if (game.getState() instanceof AwaitOptionSelectionForExtraActionPoint) {
         getUserInputWhileAwaitOptionSelectionForExtraActionPoint();
-      } else if (game.getState() instanceof AwaitOptionSelectionForRallyTroops)
+      } else if (game.getState() instanceof AwaitOptionSelectionForRallyTroops) {
         getUserInputWhileAwaitOptionSelectionForRallyTroops();
+      }
     }
 
     System.out.println();
