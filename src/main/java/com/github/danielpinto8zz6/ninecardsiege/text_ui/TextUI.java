@@ -1,11 +1,13 @@
 package com.github.danielpinto8zz6.ninecardsiege.text_ui;
 
+import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Game;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameSave;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitActionSelection;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitEnemyTrackSelectionForArchersAttack;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitEnemyTrackSelectionForBoilingWaterAttack;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitOptionSelectionForExtraActionPoint;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDrawn;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.GameOver;
 import java.io.BufferedReader;
@@ -172,7 +174,7 @@ public class TextUI {
 
     System.out.println("\n\n---------------------------------");
     System.out.println();
-    System.out.println("Enter name of enemy to attack : ");
+    System.out.println("Enter name of enemy to attack (0 to end game): ");
 
     System.out.print("\n> ");
 
@@ -182,7 +184,63 @@ public class TextUI {
 
     name = s.next();
 
-    game.attack(name);
+    if (name != "0") game.attack(name);
+
+    game.finish();
+  }
+
+  private void getUserInputWhileAwaitOptionSelectionForExtraActionPoint() {
+    int value;
+
+    System.out.println("\n\n---------------------------------");
+    System.out.println();
+    System.out.println("Do you want extra action point : ");
+    System.out.println();
+    System.out.println("1 - Yes");
+    System.out.println("2 - No");
+    System.out.println("0 - End Game");
+
+    System.out.print("\n> ");
+
+    while (!s.hasNextInt()) {
+      s.nextInt();
+    }
+
+    value = s.nextInt();
+
+    switch (value) {
+      case 1:
+        if (getGame().getGameData().getPlayer().getSupplies() > 0
+            && getGame().getGameData().getPlayer().getMoral() > 0) {
+          System.out.println("Do you want to trade moral or supplies : ");
+          System.out.println();
+          System.out.println("1 - Moral");
+          System.out.println("2 - Supplies");
+          System.out.print("\n> ");
+
+          while (!s.hasNextInt()) {
+            s.nextInt();
+          }
+
+          value = s.nextInt();
+
+          switch (value) {
+            case 1:
+              getGame().extraActionPoint(Constants.EXTRA.MORAL);
+              return;
+            case 2:
+              getGame().extraActionPoint(Constants.EXTRA.SUPPLIES);
+              return;
+          }
+        }
+        return;
+      case 2:
+        getGame().endOfTurn();
+        return;
+      case 0:
+        getGame().finish();
+        return;
+    }
   }
 
   /** run. */
@@ -201,20 +259,13 @@ public class TextUI {
       } else if (game.getState() instanceof AwaitTopCardToBeDrawn) {
         getUserInputWhileAwaitTopCardToBeDrawn();
       } else if (game.getState() instanceof AwaitActionSelection) {
-        if (game.getGameData().getPlayer().getActionPoints() == 0) {
-          System.out.println("************** End Of Turn *****************");
-          game.endOfTurn();
-        } else {
-          getUserInputWhileAwaitingOptionSelection();
-        }
+        getUserInputWhileAwaitingOptionSelection();
       } else if (game.getState() instanceof AwaitEnemyTrackSelectionForArchersAttack) {
         getUserInputWhileAwaitEnemyTrackSelection();
       } else if (game.getState() instanceof AwaitEnemyTrackSelectionForBoilingWaterAttack) {
-        if (game.getGameData().getPlayer().isCanBoilingWater() == false) {
-          game.attack("stop");
-        } else {
-          getUserInputWhileAwaitEnemyTrackSelection();
-        }
+        getUserInputWhileAwaitEnemyTrackSelection();
+      } else if (game.getState() instanceof AwaitOptionSelectionForExtraActionPoint) {
+        getUserInputWhileAwaitOptionSelectionForExtraActionPoint();
       }
     }
 

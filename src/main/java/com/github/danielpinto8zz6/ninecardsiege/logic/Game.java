@@ -1,7 +1,6 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
-import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDrawn;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates;
 import java.io.Serializable;
 import java.util.List;
@@ -118,7 +117,13 @@ public final class Game implements Serializable {
     setState(getState().boilingWaterAttack());
   }
 
+  /** extraActionPoint */
+  public void extraActionPoint(Constants.EXTRA extra) {
+    setState(getState().extraActionPoint(extra));
+  }
+
+  /** endOfTurn */
   public void endOfTurn() {
-    setState(new AwaitTopCardToBeDrawn(gameData));
+    setState(getState().endOfTurn());
   }
 }

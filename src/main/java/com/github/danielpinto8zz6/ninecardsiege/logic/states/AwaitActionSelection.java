@@ -24,18 +24,42 @@ public class AwaitActionSelection extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates archersAttack() {
+    if (getGameData().getPlayer().getActionPoints() == 0) {
+      getGameData().addMsgLog("************** End Of Turn *****************");
+      return new AwaitTopCardToBeDrawn(getGameData());
+    }
+    if (!getGameData().getPlayer().isCanArchersAtack()) {
+      getGameData().addMsgLog("Can't Archers Attack this turn");
+      return new AwaitActionSelection(getGameData());
+    }
     return new AwaitEnemyTrackSelectionForArchersAttack(getGameData());
   }
 
   /** {@inheritDoc} */
   @Override
   public IStates boilingWaterAttack() {
+    if (getGameData().getPlayer().getActionPoints() == 0) {
+      getGameData().addMsgLog("************** End Of Turn *****************");
+      return new AwaitTopCardToBeDrawn(getGameData());
+    }
+    if (!getGameData().getPlayer().isCanBoilingWater()) {
+      getGameData().addMsgLog("Can't Boilin Water Attack this turn");
+      return new AwaitActionSelection(getGameData());
+    }
     return new AwaitEnemyTrackSelectionForBoilingWaterAttack(getGameData());
   }
 
   /** {@inheritDoc} */
   @Override
   public IStates closeCombatAttack() {
+    if (getGameData().getPlayer().getActionPoints() == 0) {
+      getGameData().addMsgLog("************** End Of Turn *****************");
+      return new AwaitTopCardToBeDrawn(getGameData());
+    }
+    if (!getGameData().getPlayer().isCanCloseCombat()) {
+      getGameData().addMsgLog("Can't Close Combat Attack this turn");
+      return new AwaitActionSelection(getGameData());
+    }
     return new AwaitActionSelection(getGameData());
   }
 

@@ -1,5 +1,7 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
+import com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA;
+
 /*
  * List of expected events when taking into account all the states.
  */
@@ -67,4 +69,8 @@ public interface IStates {
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
    */
   IStates finish();
+
+  IStates endOfTurn();
+
+  IStates extraActionPoint(EXTRA extra);
 }

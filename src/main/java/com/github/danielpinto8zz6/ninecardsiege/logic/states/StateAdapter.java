@@ -121,4 +121,14 @@ public class StateAdapter implements IStates, Constants, Serializable {
   public IStates capture() {
     return this;
   }
+
+  @Override
+  public IStates endOfTurn() {
+    return this;
+  }
+
+  @Override
+  public IStates extraActionPoint(EXTRA extra) {
+    return this;
+  }
 }

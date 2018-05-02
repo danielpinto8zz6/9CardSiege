@@ -27,10 +27,6 @@ public class AwaitEnemyTrackSelectionForBoilingWaterAttack extends StateAdapter 
   /** {@inheritDoc} */
   @Override
   public IStates attack(String name) {
-    if ("stop".equals(name)) {
-      getGameData().addMsgLog("Already Performed Boilin Water Attack this turn");
-      return new AwaitActionSelection(getGameData());
-    }
     int roll = Dice.roll();
     Enemy enemy = getGameData().getEnemy(name);
 
