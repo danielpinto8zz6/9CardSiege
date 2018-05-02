@@ -18,7 +18,8 @@ public class AwaitEnemyTrackSelectionForArchersAttack extends StateAdapter {
   /**
    * Constructor for AwaitEnemyTrackSelectionForArchersAttack.
    *
-   * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+   * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
+   *          object.
    */
   public AwaitEnemyTrackSelectionForArchersAttack(GameData g) {
     super(g);
@@ -44,6 +45,7 @@ public class AwaitEnemyTrackSelectionForArchersAttack extends StateAdapter {
     }
 
     getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
+
     return new AwaitActionSelection(getGameData());
   }
 

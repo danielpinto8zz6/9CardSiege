@@ -1,8 +1,9 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
+import java.io.Serializable;
+
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
-import java.io.Serializable;
 
 /**
  * StateAdapter class.
@@ -128,7 +129,12 @@ public class StateAdapter implements IStates, Constants, Serializable {
   }
 
   @Override
-  public IStates extraActionPoint(EXTRA extra) {
+  public IStates extraActionPoint() {
+    return this;
+  }
+
+  @Override
+  public IStates applyExtraActionPoint(EXTRA extra) {
     return this;
   }
 }

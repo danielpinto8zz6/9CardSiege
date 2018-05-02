@@ -16,49 +16,63 @@ public interface IStates {
   /**
    * start.
    *
-   * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+   * @return a
+   *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+   *         object.
    */
   IStates start();
 
   /**
    * drawTopCard.
    *
-   * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+   * @return a
+   *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+   *         object.
    */
   IStates drawTopCard();
 
   /**
    * archersAttack.
    *
-   * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+   * @return a
+   *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+   *         object.
    */
   IStates archersAttack();
 
   /**
    * boilingWaterAttack.
    *
-   * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+   * @return a
+   *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+   *         object.
    */
   IStates boilingWaterAttack();
 
   /**
    * closeCombatAttack.
    *
-   * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+   * @return a
+   *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+   *         object.
    */
   IStates closeCombatAttack();
 
   /**
    * capture.
    *
-   * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+   * @return a
+   *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+   *         object.
    */
   IStates capture();
 
   /**
    * attack.
    *
-   * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+   * @return a
+   *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+   *         object.
    * @param name a {@link java.lang.String} object.
    */
   IStates attack(String name);
@@ -66,11 +80,15 @@ public interface IStates {
   /**
    * finish.
    *
-   * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+   * @return a
+   *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+   *         object.
    */
   IStates finish();
 
   IStates endOfTurn();
 
-  IStates extraActionPoint(EXTRA extra);
+  IStates extraActionPoint();
+
+  IStates applyExtraActionPoint(EXTRA extra);
 }
