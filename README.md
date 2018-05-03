@@ -14,7 +14,7 @@
 - [x] Win or loose check
 - [x] End of day check
 - [x] End of day apply rules
-- [ ] Instant loss
+- [x] Instant loss
 - [x] Coupure
 - [x] Rally troops
 - [ ] Tunel movement
