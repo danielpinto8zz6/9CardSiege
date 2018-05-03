@@ -6,6 +6,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.GuardsDistracted;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.Illness;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.TrebuchetAttack;
+import com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException;
 
 /**
  * Card2 class.
@@ -56,7 +57,11 @@ public class Card2 extends Card {
   /** {@inheritDoc} */
   @Override
   public void moveEnemyDay1() {
-    getGameData().getEnemy("SiegeTower").move(Constants.MOVE.UP);
+    try {
+      getGameData().getEnemy("SiegeTower").move(Constants.MOVE.UP);
+    } catch (EnemyNotFoundException e) {
+      getGameData().addMsgLog(e.getMessage());
+    }
   }
 
   /** {@inheritDoc} */

@@ -6,6 +6,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.Collapsed;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.RepairedTrebuchet;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.VolleyOfArrows;
+import com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException;
 
 /**
  * Card5 class.
@@ -56,24 +57,48 @@ public class Card5 extends Card {
   /** {@inheritDoc} */
   @Override
   public void moveEnemyDay1() {
-    Enemy enemyR = getGameData().getEnemy("BattleRam");
-    enemyR.move(Constants.MOVE.UP);
+    Enemy enemyR;
+    try {
+      enemyR = getGameData().getEnemy("BattleRam");
+
+      enemyR.move(Constants.MOVE.UP);
+    } catch (EnemyNotFoundException e) {
+      getGameData().addMsgLog(e.getMessage());
+    }
   }
 
   /** {@inheritDoc} */
   @Override
   public void moveEnemyDay2() {
-    Enemy enemyL = getGameData().getEnemy("Ladders");
-    enemyL.move(Constants.MOVE.UP);
+    Enemy enemyL;
+    try {
+      enemyL = getGameData().getEnemy("Ladders");
 
-    Enemy enemyR = getGameData().getEnemy("BattleRam");
-    enemyR.move(Constants.MOVE.UP);
+      enemyL.move(Constants.MOVE.UP);
+    } catch (EnemyNotFoundException e) {
+      getGameData().addMsgLog(e.getMessage());
+    }
+
+    Enemy enemyR;
+    try {
+      enemyR = getGameData().getEnemy("BattleRam");
+
+      enemyR.move(Constants.MOVE.UP);
+    } catch (EnemyNotFoundException e) {
+      getGameData().addMsgLog(e.getMessage());
+    }
   }
 
   /** {@inheritDoc} */
   @Override
   public void moveEnemyDay3() {
-    Enemy enemyL = getGameData().getEnemy("Ladders");
-    enemyL.move(Constants.MOVE.UP);
+    Enemy enemyL;
+    try {
+      enemyL = getGameData().getEnemy("Ladders");
+
+      enemyL.move(Constants.MOVE.UP);
+    } catch (EnemyNotFoundException e) {
+      getGameData().addMsgLog(e.getMessage());
+    }
   }
 }

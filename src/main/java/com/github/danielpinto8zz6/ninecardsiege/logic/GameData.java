@@ -8,6 +8,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card4;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card5;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card6;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card7;
+import com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -101,8 +102,9 @@ public class GameData implements Constants, Serializable {
    *
    * @param name a {@link java.lang.String} object.
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Enemy} object.
+   * @throws EnemyNotFoundException
    */
-  public Enemy getEnemy(String name) {
+  public Enemy getEnemy(String name) throws EnemyNotFoundException {
     return getBattleCard().getEnemy(name);
   }
 

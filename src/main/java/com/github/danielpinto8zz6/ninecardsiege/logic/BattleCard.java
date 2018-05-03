@@ -1,5 +1,6 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
+import com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -88,13 +89,13 @@ public class BattleCard implements Serializable {
    * @param name a {@link java.lang.String} object.
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Enemy} object.
    */
-  public Enemy getEnemy(String name) {
+  public Enemy getEnemy(String name) throws EnemyNotFoundException {
     for (Enemy enemy : enemies) {
       if (enemy.getName() == null ? name == null : enemy.getName().equals(name)) {
         return enemy;
       }
     }
-    return null;
+    throw new EnemyNotFoundException("Enemy " + name + " not found!");
   }
 
   /**

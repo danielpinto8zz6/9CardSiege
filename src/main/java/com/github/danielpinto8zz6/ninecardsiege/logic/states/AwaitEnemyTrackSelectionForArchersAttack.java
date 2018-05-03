@@ -4,6 +4,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Dice;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
+import com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException;
 
 /**
  * AwaitEnemyTrackSelectionForArchersAttack class.
@@ -29,21 +30,21 @@ public class AwaitEnemyTrackSelectionForArchersAttack extends StateAdapter {
   public IStates attack(String name) {
     int roll = Dice.roll();
 
-    Enemy enemy = getGameData().getEnemy(name);
+    Enemy enemy;
+    try {
+      enemy = getGameData().getEnemy(name);
 
-    if (enemy == null) {
-      getGameData().addMsgLog("Enemy not found");
-      return new AwaitActionSelection(getGameData());
+      getGameData().addMsgLog("Perfotming ArchersAttack");
+      getGameData().addMsgLog("Roll : " + roll);
+
+      if (enemy.getStrength() < roll) {
+        enemy.move(Constants.MOVE.DOWN);
+      }
+
+      getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
+    } catch (EnemyNotFoundException e) {
+      getGameData().addMsgLog(e.getMessage());
     }
-
-    getGameData().addMsgLog("Perfotming ArchersAttack");
-    getGameData().addMsgLog("Roll : " + roll);
-
-    if (enemy.getStrength() < roll) {
-      enemy.move(Constants.MOVE.DOWN);
-    }
-
-    getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
 
     return new AwaitActionSelection(getGameData());
   }

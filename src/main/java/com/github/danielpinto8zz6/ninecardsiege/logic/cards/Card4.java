@@ -6,6 +6,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.DeathOfLeader;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.FlamingArrows;
 import com.github.danielpinto8zz6.ninecardsiege.logic.events.GateFortified;
+import com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException;
 
 /**
  * Card4 class.
@@ -56,27 +57,57 @@ public class Card4 extends Card {
   /** {@inheritDoc} */
   @Override
   public void moveEnemyDay1() {
-    Enemy enemyL = getGameData().getEnemy("Ladders");
-    enemyL.move(Constants.MOVE.UP);
+    Enemy enemyL;
+    try {
+      enemyL = getGameData().getEnemy("Ladders");
 
-    Enemy enemyS = getGameData().getEnemy("SiegeTower");
-    enemyS.move(Constants.MOVE.UP);
+      enemyL.move(Constants.MOVE.UP);
+    } catch (EnemyNotFoundException e) {
+      getGameData().addMsgLog(e.getMessage());
+    }
+
+    Enemy enemyS;
+    try {
+      enemyS = getGameData().getEnemy("SiegeTower");
+
+      enemyS.move(Constants.MOVE.UP);
+    } catch (EnemyNotFoundException e) {
+      getGameData().addMsgLog(e.getMessage());
+    }
   }
 
   /** {@inheritDoc} */
   @Override
   public void moveEnemyDay2() {
-    Enemy enemyL = getGameData().getEnemy("Ladders");
-    enemyL.move(Constants.MOVE.UP);
+    Enemy enemyL;
+    try {
+      enemyL = getGameData().getEnemy("Ladders");
 
-    Enemy enemyR = getGameData().getEnemy("BattleRam");
-    enemyR.move(Constants.MOVE.UP);
+      enemyL.move(Constants.MOVE.UP);
+    } catch (EnemyNotFoundException e) {
+      getGameData().addMsgLog(e.getMessage());
+    }
+
+    Enemy enemyR;
+    try {
+      enemyR = getGameData().getEnemy("BattleRam");
+
+      enemyR.move(Constants.MOVE.UP);
+    } catch (EnemyNotFoundException e) {
+      getGameData().addMsgLog(e.getMessage());
+    }
   }
 
   /** {@inheritDoc} */
   @Override
   public void moveEnemyDay3() {
-    Enemy enemyS = getGameData().getEnemy("SiegeTower");
-    enemyS.move(Constants.MOVE.UP);
+    Enemy enemyS;
+    try {
+      enemyS = getGameData().getEnemy("SiegeTower");
+
+      enemyS.move(Constants.MOVE.UP);
+    } catch (EnemyNotFoundException e) {
+      getGameData().addMsgLog(e.getMessage());
+    }
   }
 }
