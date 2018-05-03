@@ -89,6 +89,7 @@ public class TextUI {
         return;
       default:
         System.out.println("Invalid option");
+        return;
     }
   }
 
@@ -168,6 +169,7 @@ public class TextUI {
         return;
       default:
         System.out.println("Invalid option");
+        return;
     }
   }
 
@@ -249,6 +251,9 @@ public class TextUI {
       case 0:
         getGame().finish();
         return;
+      default:
+        System.out.println("Invalid option");
+        return;
     }
   }
 
@@ -280,6 +285,9 @@ public class TextUI {
         return;
       case 0:
         getGame().finish();
+        return;
+      default:
+        System.out.println("Invalid option");
         return;
     }
   }
