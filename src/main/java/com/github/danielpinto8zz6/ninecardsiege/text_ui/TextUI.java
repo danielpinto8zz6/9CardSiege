@@ -302,6 +302,7 @@ public class TextUI {
         game.getMsgLog().forEach((msg) -> System.out.println("---> " + msg));
         game.clearMsgLog();
       }
+      game.checkStatus();
 
       if (game.getState() instanceof AwaitBeginning) {
         getUserInputWhileAwaitingBeginning();

@@ -128,6 +128,12 @@ public interface IStates {
   IStates sabotage();
 
   /**
+   * checkStatus.
+   *
+   * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+   */
+  IStates checkStatus();
+  /**
    * applyRallyTroops.
    *
    * @param plusOne a boolean.

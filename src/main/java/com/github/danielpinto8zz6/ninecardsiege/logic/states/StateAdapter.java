@@ -170,6 +170,11 @@ public class StateAdapter implements IStates, Constants, Serializable {
     return this;
   }
 
+  @Override
+  public IStates checkStatus() {
+    return this;
+  }
+
   /** {@inheritDoc} */
   @Override
   public IStates applyRallyTroops(boolean plusOne) {

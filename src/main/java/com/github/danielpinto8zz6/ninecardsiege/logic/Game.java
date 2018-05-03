@@ -170,4 +170,8 @@ public final class Game implements Serializable {
   public void sabotage() {
     setState(getState().sabotage());
   }
+  /** checkStatus. */
+  public void checkStatus() {
+    setState(getState().checkStatus());
+  }
 }

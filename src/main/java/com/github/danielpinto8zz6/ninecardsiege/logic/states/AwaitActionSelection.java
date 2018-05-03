@@ -57,6 +57,8 @@ public class AwaitActionSelection extends StateAdapter {
 
     int roll = Dice.roll();
 
+    getGameData().addMsgLog("close combat roll" + roll);
+
     if (roll == 1) {
       getGameData().getPlayer().setMoral(getGameData().getPlayer().getMoral() - 1);
     } else if (roll > 4) {
@@ -208,7 +210,28 @@ public class AwaitActionSelection extends StateAdapter {
 
     return new AwaitActionSelection(getGameData());
   }
+  /** {@inheritDoc} */
+  @Override
+  public IStates checkStatus() {
 
+    int value = 0;
+
+    if (getGameData().getPlayer().getMoral() <= 0) {
+      value++;
+    }
+    if (getGameData().getPlayer().getWallStrength() <= 0) {
+      value++;
+    }
+    if (getGameData().getPlayer().getSupplies() <= 0) {
+      value++;
+    }
+
+    if (value >= 2) {
+      getGameData().addMsgLog(value + " Status at 0");
+      return new GameOver(getGameData());
+    }
+    return this;
+  }
   /** {@inheritDoc} */
   @Override
   public IStates finish() {
