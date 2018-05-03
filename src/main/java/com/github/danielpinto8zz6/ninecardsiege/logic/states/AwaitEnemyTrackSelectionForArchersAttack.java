@@ -34,7 +34,7 @@ public class AwaitEnemyTrackSelectionForArchersAttack extends StateAdapter {
     try {
       enemy = getGameData().getEnemy(name);
 
-      getGameData().addMsgLog("Perfotming ArchersAttack");
+      getGameData().addMsgLog("Performing ArchersAttack");
       getGameData().addMsgLog("Roll : " + roll);
 
       if (enemy.getStrength() < roll) {
