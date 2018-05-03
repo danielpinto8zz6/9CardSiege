@@ -39,8 +39,28 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
       getGameData().addMsgLog("New day! Shuffeling cards");
       getGameData().addCards();
       getGameData().shuffleCards();
-
       getGameData().setDay(getGameData().getDay() + 1);
+      getGameData().getPlayer().setSupplies(getGameData().getPlayer().getSupplies() - 1);
+
+      if (getGameData().getStatusCard().getTroopPosition() == 4) {
+        getGameData()
+            .addMsgLog(
+                "Your troops have been captured!\n"
+                    + "They here in enemy lines at the end of the day");
+
+        getGameData().getStatusCard().setTroopPosition(0);
+        getGameData().getPlayer().setMoral(getGameData().getPlayer().getMoral() - 1);
+
+      } else {
+        getGameData().addMsgLog("Your troops arived at the castle");
+        getGameData().getStatusCard().setTroopPosition(0);
+        getGameData()
+            .getPlayer()
+            .setSupplies(
+                getGameData().getPlayer().getSupplies()
+                    + getGameData().getStatusCard().getSupplies());
+        getGameData().getStatusCard().removeSupplies();
+      }
     }
     getGameData().addMsgLog("Picking Card...");
     Card card = cards.get(0);
