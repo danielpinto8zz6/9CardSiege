@@ -16,7 +16,7 @@ public class StatusCard implements Serializable {
 
   // Could be 0, 1, 2, or 3
   private int troopPosition;
-
+  private int direction;
   private int supplies;
 
   /**
@@ -65,6 +65,14 @@ public class StatusCard implements Serializable {
    */
   public void setTroopPosition(int troopPosition) {
     this.troopPosition = troopPosition;
+  }
+
+  public int getDirection() {
+    return direction;
+  }
+
+  public void setDirection(int direction) {
+    this.direction = direction;
   }
 
   /**

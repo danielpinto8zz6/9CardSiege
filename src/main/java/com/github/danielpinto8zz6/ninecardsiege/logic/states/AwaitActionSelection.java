@@ -149,8 +149,29 @@ public class AwaitActionSelection extends StateAdapter {
       return new AwaitActionSelection(getGameData());
     }
 
-    // TODO
-    return this;
+    if (getGameData().getStatusCard().getTroopPosition() == 0) {
+      getGameData().getStatusCard().setTroopPosition(1);
+      getGameData().getStatusCard().setDirection(0);
+    } else if (getGameData().getStatusCard().getTroopPosition() == 3) {
+      getGameData().getStatusCard().setTroopPosition(2);
+      getGameData().getStatusCard().setDirection(1);
+    } else if (getGameData().getStatusCard().getDirection() == 0) {
+      getGameData().getStatusCard().setTroopPosition(3);
+    } else {
+      getGameData().getStatusCard().setTroopPosition(0);
+      getGameData()
+          .getPlayer()
+          .setSupplies(
+              getGameData().getPlayer().getSupplies()
+                  + getGameData().getStatusCard().getSupplies());
+      getGameData().getStatusCard().removeSupplies();
+      if (getGameData().getPlayer().getSupplies() > 4) {
+        getGameData().getPlayer().setSupplies(4);
+      }
+    }
+
+    getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
+    return new AwaitActionSelection(getGameData());
   }
 
   /** {@inheritDoc} */
@@ -161,7 +182,7 @@ public class AwaitActionSelection extends StateAdapter {
       return new AwaitActionSelection(getGameData());
     }
 
-    if (getGameData().getStatusCard().getTroopPosition() == 4) {
+    if (getGameData().getStatusCard().getTroopPosition() == 3) {
       int roll = Dice.roll();
       switch (roll) {
         case 1:
@@ -194,7 +215,7 @@ public class AwaitActionSelection extends StateAdapter {
       return new AwaitActionSelection(getGameData());
     }
 
-    if (getGameData().getStatusCard().getTroopPosition() == 4) {
+    if (getGameData().getStatusCard().getTroopPosition() == 3) {
       int roll = Dice.roll();
       if (roll > 4) {
         int trebuchet = (getGameData().getBattleCard().getTrebuchet() - 1);

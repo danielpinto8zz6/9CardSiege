@@ -28,12 +28,14 @@ public class AwaitOptionSelectionForRallyTroops extends StateAdapter {
     int roll = Dice.roll();
 
     if (plusOne) {
-        roll++;
-        getGameData().getPlayer().setSupplies(getGameData().getPlayer().getSupplies() - 1);
+      roll++;
+      getGameData().getPlayer().setSupplies(getGameData().getPlayer().getSupplies() - 1);
     }
 
-    if (roll > 4)
+    if (roll > 4) {
       getGameData().getPlayer().setMoral(getGameData().getPlayer().getMoral() + 1);
+      if (getGameData().getPlayer().getMoral() > 4) getGameData().getPlayer().setMoral(4);
+    }
 
     getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
     return new AwaitActionSelection(getGameData());

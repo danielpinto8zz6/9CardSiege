@@ -137,6 +137,7 @@ public class TextUI {
         game.rallyTroops();
         return;
       case 6:
+        game.tunnelMovement();
         return;
       case 7:
         game.supplyRaid();

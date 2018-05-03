@@ -151,7 +151,10 @@ public final class Game implements Serializable {
   public void rallyTroops() {
     setState(getState().rallyTroops());
   }
-
+  /** tunelMovement. */
+  public void tunnelMovement() {
+    setState(getState().tunnelMovement());
+  }
   /**
    * applyRallyTroops.
    *
