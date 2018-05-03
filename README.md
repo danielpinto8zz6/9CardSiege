@@ -19,3 +19,4 @@
 - [ ] Tunel movement
 - [x] Supply raid
 - [x] Sabotage
+- [ ] Free troops movement
