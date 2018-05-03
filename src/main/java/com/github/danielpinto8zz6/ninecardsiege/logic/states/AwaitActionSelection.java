@@ -137,7 +137,7 @@ public class AwaitActionSelection extends StateAdapter {
       return new AwaitActionSelection(getGameData());
     }
 
-    return new AwaitActionSelection(getGameData());
+    return new AwaitOptionSelectionForRallyTroops(getGameData());
   }
 
   /** {@inheritDoc} */
