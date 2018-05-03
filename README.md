@@ -13,6 +13,7 @@
 - [x] End of turn check
 - [x] Win or loose check
 - [x] End of day check
+- [x] End of day apply rules
 - [ ] Instant loss
 - [x] Coupure
 - [x] Rally troops
