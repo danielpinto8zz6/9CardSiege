@@ -119,7 +119,7 @@ public class AwaitActionSelection extends StateAdapter {
     }
 
     int roll = Dice.roll();
-
+    getGameData().addMsgLog("rolled" + roll + "on coupure");
     if (roll > 4)
       getGameData().getPlayer().setWallStrength(getGameData().getPlayer().getWallStrength() + 1);
 
@@ -177,10 +177,6 @@ public class AwaitActionSelection extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates supplyRaid() {
-    if (getGameData().getPlayer().getActionPoints() == 0) {
-      getGameData().addMsgLog("Can't perform this action");
-      return new AwaitActionSelection(getGameData());
-    }
 
     if (getGameData().getStatusCard().getTroopPosition() == 3) {
       int roll = Dice.roll();

@@ -36,6 +36,7 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
         return new GameOver(getGameData());
       }
 
+      
       getGameData().addMsgLog("New day! Shuffeling cards");
       getGameData().addCards();
       getGameData().shuffleCards();
@@ -95,12 +96,39 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
       getGameData().addMsgLog("Performing enemy line check");
 
       if (Dice.roll() == 1) {
+        getGameData().addMsgLog("Troops have been Captured");
         getGameData().getStatusCard().setTroopPosition(0);
         getGameData().getStatusCard().removeSupplies();
         getGameData().getPlayer().setMoral(getGameData().getPlayer().getMoral() - 1);
       }
     }
 
+    /** Perform the Free Movement */
+    if (getGameData().getStatusCard().getTroopPosition() < 3
+        && getGameData().getStatusCard().getTroopPosition() > 0) {
+      getGameData().addMsgLog("Performing Free Movement");
+      if (getGameData().getStatusCard().getDirection() == 0) {
+        getGameData()
+            .getStatusCard()
+            .setTroopPosition(getGameData().getStatusCard().getTroopPosition() + 1);
+      } else {
+        getGameData()
+            .getStatusCard()
+            .setTroopPosition(getGameData().getStatusCard().getTroopPosition() - 1);
+
+        if (getGameData().getStatusCard().getTroopPosition() == 0) {
+          getGameData()
+              .getPlayer()
+              .setSupplies(
+                  getGameData().getPlayer().getSupplies()
+                      + getGameData().getStatusCard().getSupplies());
+          getGameData().getStatusCard().removeSupplies();
+          if (getGameData().getPlayer().getSupplies() > 4) {
+            getGameData().getPlayer().setSupplies(4);
+          }
+        }
+      }
+    }
     /** Perform close combat action if 2 enemies in close combat area */
     if (getGameData().getBattleCard().getEnemiesInCloseCombatArea().size() == 2) {
       getGameData().addMsgLog("Performing close combat action");

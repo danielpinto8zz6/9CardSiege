@@ -26,6 +26,7 @@ public class AwaitOptionSelectionForRallyTroops extends StateAdapter {
   @Override
   public IStates applyRallyTroops(boolean plusOne) {
     int roll = Dice.roll();
+    getGameData().addMsgLog("rolled" + roll + "on rally troops");
 
     if (plusOne) {
       roll++;
