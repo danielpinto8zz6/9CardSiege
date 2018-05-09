@@ -104,7 +104,10 @@ public class Enemy implements Serializable {
 
   /** resetStrenght. */
   public void resetStrenght() {
-    this.strength = getInitialStrength();
+    if (this.position != 0) {
+
+      this.strength = getInitialStrength();
+    }
   }
 
   /** {@inheritDoc} */

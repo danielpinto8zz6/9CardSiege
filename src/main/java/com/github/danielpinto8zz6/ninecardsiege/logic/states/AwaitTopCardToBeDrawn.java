@@ -36,7 +36,6 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
         return new GameOver(getGameData());
       }
 
-      
       getGameData().addMsgLog("New day! Shuffeling cards");
       getGameData().addCards();
       getGameData().shuffleCards();
