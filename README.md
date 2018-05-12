@@ -17,7 +17,7 @@
 - [x] Instant loss
 - [x] Coupure
 - [x] Rally troops
-- [ ] Tunel movement
+- [x] Tunel movement
 - [x] Supply raid
 - [x] Sabotage
-- [ ] Free troops movement
+- [x] Free troops movement
