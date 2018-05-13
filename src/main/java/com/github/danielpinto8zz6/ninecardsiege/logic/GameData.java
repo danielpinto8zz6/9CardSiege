@@ -105,8 +105,8 @@ public final class GameData implements Constants, Serializable {
    *
    * @param name a {@link java.lang.String} object.
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Enemy} object.
-   * @throws com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException enemy
-   *     is not found
+   * @throws com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException if
+   *     any.
    */
   public Enemy getEnemy(String name) throws EnemyNotFoundException {
     return getBattleCard().getEnemy(name);
@@ -191,6 +191,7 @@ public final class GameData implements Constants, Serializable {
     Collections.shuffle(cards);
   }
 
+  /** reset. */
   public void reset() {
     this.day = 1;
 

@@ -150,6 +150,7 @@ public class StateAdapter implements IStates, Constants, Serializable {
     return this;
   }
 
+  /** {@inheritDoc} */
   @Override
   public IStates playAgain() {
     return this;

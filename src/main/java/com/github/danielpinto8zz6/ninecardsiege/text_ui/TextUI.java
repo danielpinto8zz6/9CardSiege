@@ -311,7 +311,7 @@ public class TextUI {
         getGame().playAgain();
         return;
       case 2:
-        System.exit(0);
+        Runtime.getRuntime().exit(0);
         return;
       default:
         System.out.println("Invalid option");

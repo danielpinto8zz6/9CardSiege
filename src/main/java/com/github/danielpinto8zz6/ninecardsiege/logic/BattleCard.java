@@ -130,11 +130,12 @@ public class BattleCard implements Serializable {
     return s;
   }
 
+  /** reset. */
   public void reset() {
     this.trebuchet = 3;
 
-    for (Enemy enemy : getGameData().getEnemies()) {
-      enemy.reset();
-    }
+    getGameData().getEnemies().forEach((enemy) -> {
+        enemy.reset();
+      });
   }
 }

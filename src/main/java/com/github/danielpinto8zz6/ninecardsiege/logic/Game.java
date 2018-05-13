@@ -182,6 +182,7 @@ public final class Game implements Serializable {
     setState(getState().checkStatus());
   }
 
+  /** playAgain. */
   public void playAgain() {
     setState(getState().playAgain());
   }

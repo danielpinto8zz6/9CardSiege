@@ -397,6 +397,7 @@ public class Player implements Serializable {
     setCanTunnelMovement(true);
   }
 
+  /** reset. */
   public void reset() {
     this.moral = 4;
     this.wallStrength = 4;

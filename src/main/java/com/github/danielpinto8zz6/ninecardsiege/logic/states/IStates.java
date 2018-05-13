@@ -142,5 +142,10 @@ public interface IStates {
    */
   IStates applyRallyTroops(boolean plusOne);
 
+  /**
+   * playAgain.
+   *
+   * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+   */
   IStates playAgain();
 }
