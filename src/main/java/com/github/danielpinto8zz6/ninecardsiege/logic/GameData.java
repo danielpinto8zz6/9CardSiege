@@ -91,13 +91,13 @@ public final class GameData implements Constants, Serializable {
     return battleCard;
   }
 
-    public int getEndGame() {
-        return endGame;
-    }
+  public int getEndGame() {
+    return endGame;
+  }
 
-    public void setEndGame(int endGame) {
-        this.endGame = endGame;
-    }
+  public void setEndGame(int endGame) {
+    this.endGame = endGame;
+  }
 
   /**
    * Getter for the field <code>statusCard</code>.

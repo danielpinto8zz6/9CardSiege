@@ -17,7 +17,6 @@ public class GameOver extends StateAdapter {
    *
    * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
    */
-  
   public GameOver(GameData g) {
     super(g);
   }
@@ -25,6 +24,9 @@ public class GameOver extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates playAgain() {
+    getGameData().getPlayer().reset();
+    getGameData().getBattleCard().reset();
+    getGameData().getStatusCard().reset();
 
     return new AwaitBeginning(getGameData());
   }

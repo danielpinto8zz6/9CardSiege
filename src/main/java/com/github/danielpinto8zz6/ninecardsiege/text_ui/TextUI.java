@@ -311,7 +311,7 @@ public class TextUI {
         getGame().playAgain();
         return;
       case 2:
-          game.getGameData().setEndGame(0);
+        game.getGameData().setEndGame(0);
         Runtime.getRuntime().exit(0);
         return;
       default:
