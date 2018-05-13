@@ -89,7 +89,6 @@ public class TextUI {
         return;
       default:
         System.out.println("Invalid option");
-        return;
     }
   }
 
@@ -170,7 +169,6 @@ public class TextUI {
         return;
       default:
         System.out.println("Invalid option");
-        return;
     }
   }
 
@@ -200,7 +198,6 @@ public class TextUI {
         return;
       default:
         System.out.println("Invalid option");
-        return;
     }
   }
 
@@ -254,7 +251,6 @@ public class TextUI {
         return;
       default:
         System.out.println("Invalid option");
-        return;
     }
   }
 
@@ -289,7 +285,36 @@ public class TextUI {
         return;
       default:
         System.out.println("Invalid option");
+    }
+  }
+
+  private void getUserInputWhileGameOver() {
+    int value;
+
+    System.out.println("\n\n---------------------------------");
+    System.out.println();
+    System.out.println("Do you wanna play again : ");
+    System.out.println();
+    System.out.println("1 - Yes");
+    System.out.println("2 - No");
+
+    System.out.print("\n> ");
+
+    while (!s.hasNextInt()) {
+      s.nextInt();
+    }
+
+    value = s.nextInt();
+
+    switch (value) {
+      case 1:
+        getGame().playAgain();
         return;
+      case 2:
+        Runtime.getRuntime().exit(0);
+        return;
+      default:
+        System.out.println("Invalid option");
     }
   }
 
@@ -319,6 +344,8 @@ public class TextUI {
         getUserInputWhileAwaitOptionSelectionForExtraActionPoint();
       } else if (game.getState() instanceof AwaitOptionSelectionForRallyTroops) {
         getUserInputWhileAwaitOptionSelectionForRallyTroops();
+      } else if (game.getState() instanceof GameOver) {
+        getUserInputWhileGameOver();
       }
     }
 

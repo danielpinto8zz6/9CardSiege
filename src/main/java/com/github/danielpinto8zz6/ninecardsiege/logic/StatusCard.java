@@ -3,7 +3,7 @@ package com.github.danielpinto8zz6.ninecardsiege.logic;
 import java.io.Serializable;
 
 /**
- * StatusCard class.
+ * StatusCard class. Manage info about status of player
  *
  * @author daniel
  * @version $Id: $Id
@@ -67,10 +67,20 @@ public class StatusCard implements Serializable {
     this.troopPosition = troopPosition;
   }
 
+  /**
+   * Getter for the field <code>direction</code>.
+   *
+   * @return a int.
+   */
   public int getDirection() {
     return direction;
   }
 
+  /**
+   * Setter for the field <code>direction</code>.
+   *
+   * @param direction a int.
+   */
   public void setDirection(int direction) {
     this.direction = direction;
   }
@@ -112,5 +122,11 @@ public class StatusCard implements Serializable {
     s += "\n\t" + "Supplies: " + getSupplies();
 
     return s;
+  }
+
+  /** reset. */
+  public void reset() {
+    this.troopPosition = 0;
+    this.supplies = 0;
   }
 }

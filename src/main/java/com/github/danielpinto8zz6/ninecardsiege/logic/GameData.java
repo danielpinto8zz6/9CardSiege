@@ -20,7 +20,7 @@ import java.util.List;
  * @author daniel
  * @version $Id: $Id
  */
-public class GameData implements Constants, Serializable {
+public final class GameData implements Constants, Serializable {
 
   private static final long serialVersionUID = 1L;
 
@@ -31,12 +31,15 @@ public class GameData implements Constants, Serializable {
   private final BattleCard battleCard;
   private final StatusCard statusCard;
 
+  /** This vector of string aggregate all the game logs to eventually be displayed by the game UI */
   private final List<String> msgLog;
 
   private List<Card> cards = new ArrayList<>();
 
   /** Constructor for GameData. */
   public GameData() {
+
+    /** Creates player with default name */
     this.player = new Player(this, "Player");
     this.day = 1;
 
@@ -50,7 +53,7 @@ public class GameData implements Constants, Serializable {
     msgLog = new ArrayList<>();
   }
 
-  /** addCards. */
+  /** addCards. Adds all the existing cards to the game */
   public void addCards() {
     cards.add(new Card1(this));
     cards.add(new Card2(this));
@@ -102,7 +105,8 @@ public class GameData implements Constants, Serializable {
    *
    * @param name a {@link java.lang.String} object.
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Enemy} object.
-   * @throws EnemyNotFoundException
+   * @throws com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException if
+   *     any.
    */
   public Enemy getEnemy(String name) throws EnemyNotFoundException {
     return getBattleCard().getEnemy(name);
@@ -182,8 +186,23 @@ public class GameData implements Constants, Serializable {
     this.cards = cards;
   }
 
-  /** shuffleCards. */
+  /** shuffleCards. Shuffle all the existing cards in the deck (list) with the collections method */
   public void shuffleCards() {
     Collections.shuffle(cards);
+  }
+
+  /** reset. */
+  public void reset() {
+    this.day = 1;
+
+    getCards().clear();
+
+    addCards();
+
+    shuffleCards();
+
+    getBattleCard().reset();
+    getStatusCard().reset();
+    getPlayer().reset();
   }
 }

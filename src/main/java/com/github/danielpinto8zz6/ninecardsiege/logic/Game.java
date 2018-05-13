@@ -81,10 +81,11 @@ public final class Game implements Serializable {
     return gameData.toString();
   }
 
-  // --------------------- Methods that trigger events/actions in the finite state
-  // machine
-  // -----------------------
-  /** start. */
+  /**
+   * Methods that trigger events/actions in the finite state machine /
+   *
+   * <p>start.
+   */
   public void start() {
     setState(getState().start());
   }
@@ -151,10 +152,12 @@ public final class Game implements Serializable {
   public void rallyTroops() {
     setState(getState().rallyTroops());
   }
+
   /** tunelMovement. */
   public void tunnelMovement() {
     setState(getState().tunnelMovement());
   }
+
   /**
    * applyRallyTroops.
    *
@@ -173,8 +176,14 @@ public final class Game implements Serializable {
   public void sabotage() {
     setState(getState().sabotage());
   }
+
   /** checkStatus. */
   public void checkStatus() {
     setState(getState().checkStatus());
+  }
+
+  /** playAgain. */
+  public void playAgain() {
+    setState(getState().playAgain());
   }
 }

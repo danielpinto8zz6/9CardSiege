@@ -42,81 +42,49 @@ public class StateAdapter implements IStates, Constants, Serializable {
     this.game = game;
   }
 
-  /**
-   * {@inheritDoc}
-   *
-   * <p>start.
-   */
+  /** {@inheritDoc} */
   @Override
   public IStates start() {
     return this;
   }
 
-  /**
-   * {@inheritDoc}
-   *
-   * <p>finish.
-   */
+  /** {@inheritDoc} */
   @Override
   public IStates finish() {
     return this;
   }
 
-  /**
-   * {@inheritDoc}
-   *
-   * <p>drawTopCard.
-   */
+  /** {@inheritDoc} */
   @Override
   public IStates drawTopCard() {
     return this;
   }
 
-  /**
-   * {@inheritDoc}
-   *
-   * <p>archersAttack.
-   */
+  /** {@inheritDoc} */
   @Override
   public IStates archersAttack() {
     return this;
   }
 
-  /**
-   * {@inheritDoc}
-   *
-   * <p>boilingWaterAttack.
-   */
+  /** {@inheritDoc} */
   @Override
   public IStates boilingWaterAttack() {
     return this;
   }
 
-  /**
-   * {@inheritDoc}
-   *
-   * <p>attack.
-   */
+  /** {@inheritDoc} */
   @Override
   public IStates attack(String name) {
     return this;
   }
 
-  /**
-   * {@inheritDoc}
-   *
-   * <p>closeCombatAttack.
-   */
+  /** {@inheritDoc} */
   @Override
   public IStates closeCombatAttack() {
     return this;
   }
 
-  /**
-   * {@inheritDoc}
-   *
-   * <p>capture.
-   */
+  /** {@inheritDoc} */
   @Override
   public IStates capture() {
     return this;
@@ -170,6 +138,7 @@ public class StateAdapter implements IStates, Constants, Serializable {
     return this;
   }
 
+  /** {@inheritDoc} */
   @Override
   public IStates checkStatus() {
     return this;
@@ -178,6 +147,12 @@ public class StateAdapter implements IStates, Constants, Serializable {
   /** {@inheritDoc} */
   @Override
   public IStates applyRallyTroops(boolean plusOne) {
+    return this;
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public IStates playAgain() {
     return this;
   }
 }

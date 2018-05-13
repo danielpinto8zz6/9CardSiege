@@ -15,6 +15,8 @@ public abstract class Card implements Serializable {
   private static final long serialVersionUID = 1L;
 
   private static int counter = 0;
+
+  /** CardNumber could be understood as a unique id for the card */
   private final int cardNumber;
 
   private GameData gameData;
@@ -30,7 +32,7 @@ public abstract class Card implements Serializable {
   }
 
   /**
-   * counterPlusPlus.
+   * counterPlusPlus. Increate card counter by 1
    *
    * @return a int.
    */

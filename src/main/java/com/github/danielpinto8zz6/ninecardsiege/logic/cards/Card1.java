@@ -46,19 +46,19 @@ public class Card1 extends Card {
   /** {@inheritDoc} */
   @Override
   public void moveEnemyDay1() {
-    // no enemy movement
+    /** no enemy movement */
   }
 
   /** {@inheritDoc} */
   @Override
   public void moveEnemyDay2() {
-    // no enemy movement
+    /** no enemy movement */
   }
 
   /** {@inheritDoc} */
   @Override
   public void moveEnemyDay3() {
-    // no enemy movement
+    /** no enemy movement */
   }
 
   /** {@inheritDoc} */

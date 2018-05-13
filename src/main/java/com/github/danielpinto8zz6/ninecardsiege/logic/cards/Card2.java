@@ -67,6 +67,7 @@ public class Card2 extends Card {
   /** {@inheritDoc} */
   @Override
   public void moveEnemyDay2() {
+    /** Gets the max position of the enemies */
     int max = 0;
 
     for (Enemy enemy : getGameData().getEnemies()) {
@@ -75,6 +76,7 @@ public class Card2 extends Card {
       }
     }
 
+    /** moves all the enemies in the max positions */
     for (Enemy enemy : getGameData().getEnemies()) {
       if (enemy.getPosition() == max) {
         enemy.move(Constants.MOVE.UP);
@@ -85,6 +87,6 @@ public class Card2 extends Card {
   /** {@inheritDoc} */
   @Override
   public void moveEnemyDay3() {
-    // no enemy movement
+    /** no enemy movement */
   }
 }

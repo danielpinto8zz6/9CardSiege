@@ -17,7 +17,7 @@ public interface Constants {
     DOWN
   }
 
-  /** */
+  /** Extra type */
   enum EXTRA {
 
     /** Moral */

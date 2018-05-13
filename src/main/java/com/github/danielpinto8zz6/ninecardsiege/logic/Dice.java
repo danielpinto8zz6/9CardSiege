@@ -11,7 +11,7 @@ import java.util.Random;
 public class Dice {
 
   /**
-   * roll.
+   * roll. returns a random number between 1 and 6
    *
    * @return a int.
    */

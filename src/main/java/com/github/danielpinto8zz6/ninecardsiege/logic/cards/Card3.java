@@ -70,7 +70,7 @@ public class Card3 extends Card {
   /** {@inheritDoc} */
   @Override
   public void moveEnemyDay2() {
-    // no enemy movement
+    /** no enemy movement */
   }
 
   /** {@inheritDoc} */

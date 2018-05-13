@@ -2,7 +2,6 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Dice;
-import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
 /**
@@ -62,9 +61,13 @@ public class AwaitActionSelection extends StateAdapter {
     if (roll == 1) {
       getGameData().getPlayer().setMoral(getGameData().getPlayer().getMoral() - 1);
     } else if (roll > 4) {
-      for (Enemy enemy : getGameData().getBattleCard().getEnemiesInCloseCombatArea()) {
-        enemy.move(Constants.MOVE.DOWN);
-      }
+      getGameData()
+          .getBattleCard()
+          .getEnemiesInCloseCombatArea()
+          .forEach(
+              (enemy) -> {
+                enemy.move(Constants.MOVE.DOWN);
+              });
     }
     getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
 
@@ -88,9 +91,12 @@ public class AwaitActionSelection extends StateAdapter {
     getGameData().getPlayer().resetModifiers();
 
     /** Reset enemies strength */
-    for (Enemy enemy : getGameData().getEnemies()) {
-      enemy.resetStrenght();
-    }
+    getGameData()
+        .getEnemies()
+        .forEach(
+            (enemy) -> {
+              enemy.resetStrenght();
+            });
 
     return new AwaitTopCardToBeDrawn(getGameData());
   }
@@ -196,6 +202,8 @@ public class AwaitActionSelection extends StateAdapter {
         case 6:
           getGameData().getStatusCard().addSupplies(2);
           getGameData().addMsgLog("Added 2 supplies (max 2)");
+          break;
+        default:
           break;
       }
     }
