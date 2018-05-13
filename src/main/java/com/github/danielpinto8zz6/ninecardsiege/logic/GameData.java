@@ -27,7 +27,7 @@ public final class GameData implements Constants, Serializable {
   private final Player player;
 
   private int day;
-  private int endGame;
+  private boolean endGame;
   private final BattleCard battleCard;
   private final StatusCard statusCard;
 
@@ -42,7 +42,7 @@ public final class GameData implements Constants, Serializable {
     /** Creates player with default name */
     this.player = new Player(this, "Player");
     this.day = 1;
-    this.endGame = 1;
+    this.endGame = false;
     battleCard = new BattleCard(this);
     statusCard = new StatusCard(this);
 
@@ -89,14 +89,6 @@ public final class GameData implements Constants, Serializable {
    */
   public BattleCard getBattleCard() {
     return battleCard;
-  }
-
-  public int getEndGame() {
-    return endGame;
-  }
-
-  public void setEndGame(int endGame) {
-    this.endGame = endGame;
   }
 
   /**
@@ -212,5 +204,23 @@ public final class GameData implements Constants, Serializable {
     getBattleCard().reset();
     getStatusCard().reset();
     getPlayer().reset();
+  }
+
+  /**
+   * isEndGame.
+   *
+   * @return a boolean.
+   */
+  public boolean isEndGame() {
+    return endGame;
+  }
+
+  /**
+   * Setter for the field <code>endGame</code>.
+   *
+   * @param endGame a boolean.
+   */
+  public void setEndGame(boolean endGame) {
+    this.endGame = endGame;
   }
 }

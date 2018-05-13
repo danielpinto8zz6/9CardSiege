@@ -311,8 +311,7 @@ public class TextUI {
         getGame().playAgain();
         return;
       case 2:
-        game.getGameData().setEndGame(0);
-        Runtime.getRuntime().exit(0);
+        getGame().getGameData().setEndGame(true);
         return;
       default:
         System.out.println("Invalid option");
@@ -321,7 +320,7 @@ public class TextUI {
 
   /** run. */
   public void run() {
-    while (game.getGameData().getEndGame() == 1) {
+    while (!getGame().getGameData().isEndGame()) {
 
       if (game.getMsgLog().size() > 0) {
         System.out.println();
