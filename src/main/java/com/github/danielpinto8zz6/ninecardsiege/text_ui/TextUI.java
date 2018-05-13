@@ -311,6 +311,7 @@ public class TextUI {
         getGame().playAgain();
         return;
       case 2:
+          game.getGameData().setEndGame(0);
         Runtime.getRuntime().exit(0);
         return;
       default:
@@ -320,7 +321,7 @@ public class TextUI {
 
   /** run. */
   public void run() {
-    while (!(game.getState() instanceof GameOver)) {
+    while (game.getGameData().getEndGame() == 1) {
 
       if (game.getMsgLog().size() > 0) {
         System.out.println();

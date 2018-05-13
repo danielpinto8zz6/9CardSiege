@@ -17,6 +17,7 @@ public class GameOver extends StateAdapter {
    *
    * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
    */
+  
   public GameOver(GameData g) {
     super(g);
   }

@@ -24,6 +24,9 @@ public class AwaitBeginning extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates start() {
+    getGameData().getPlayer().reset();
+    getGameData().getBattleCard().reset();
+    getGameData().getStatusCard().reset();
     return new AwaitTopCardToBeDrawn(getGameData());
   }
 
