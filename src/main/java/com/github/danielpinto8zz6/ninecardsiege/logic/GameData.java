@@ -190,4 +190,18 @@ public final class GameData implements Constants, Serializable {
   public void shuffleCards() {
     Collections.shuffle(cards);
   }
+
+  public void reset() {
+    this.day = 1;
+
+    getCards().clear();
+
+    addCards();
+
+    shuffleCards();
+
+    getBattleCard().reset();
+    getStatusCard().reset();
+    getPlayer().reset();
+  }
 }

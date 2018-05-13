@@ -130,4 +130,9 @@ public class Enemy implements Serializable {
   public int getInitialStrength() {
     return initialStrength;
   }
+
+  public void reset() {
+    this.strength = this.initialStrength;
+    this.position = 4;
+  }
 }

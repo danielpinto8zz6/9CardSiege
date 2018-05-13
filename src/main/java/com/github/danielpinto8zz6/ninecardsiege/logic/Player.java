@@ -396,4 +396,22 @@ public class Player implements Serializable {
     setCanRallyTroops(true);
     setCanTunnelMovement(true);
   }
+
+  public void reset() {
+    this.moral = 4;
+    this.wallStrength = 4;
+    this.supplies = 4;
+    this.actionPoints = 0;
+    this.canArchersAtack = true;
+    this.canBoilingWater = true;
+    this.canCloseCombat = true;
+    this.canCoupure = true;
+    this.canExtraAP = true;
+    this.canRallyTroops = true;
+    this.canTunnelMovement = true;
+    this.mCoupure = 0;
+    this.mRallyTroops = 0;
+    this.mRaidSupplies = 0;
+    this.mSabotage = 0;
+  }
 }

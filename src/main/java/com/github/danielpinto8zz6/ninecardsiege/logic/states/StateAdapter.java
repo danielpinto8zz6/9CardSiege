@@ -149,4 +149,9 @@ public class StateAdapter implements IStates, Constants, Serializable {
   public IStates applyRallyTroops(boolean plusOne) {
     return this;
   }
+
+  @Override
+  public IStates playAgain() {
+    return this;
+  }
 }

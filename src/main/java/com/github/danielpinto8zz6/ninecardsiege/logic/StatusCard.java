@@ -123,4 +123,9 @@ public class StatusCard implements Serializable {
 
     return s;
   }
+
+  public void reset() {
+    this.troopPosition = 0;
+    this.supplies = 0;
+  }
 }

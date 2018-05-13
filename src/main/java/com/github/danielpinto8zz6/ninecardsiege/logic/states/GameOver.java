@@ -20,4 +20,11 @@ public class GameOver extends StateAdapter {
   public GameOver(GameData g) {
     super(g);
   }
+
+  /** {@inheritDoc} */
+  @Override
+  public IStates playAgain() {
+
+    return new AwaitBeginning(getGameData());
+  }
 }
