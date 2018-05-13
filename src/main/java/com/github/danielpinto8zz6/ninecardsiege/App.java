@@ -17,6 +17,8 @@ public class App {
    * @param args an array of {@link java.lang.String} objects.
    */
   public static void main(String[] args) {
+
+    /** Run the game in the textUI mode */
     TextUI textUI = new TextUI(new Game());
     textUI.run();
   }

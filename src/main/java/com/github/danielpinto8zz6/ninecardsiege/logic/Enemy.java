@@ -85,7 +85,8 @@ public class Enemy implements Serializable {
   }
 
   /**
-   * move.
+   * move. Reveices an enum indicating where to move and move the enemy to that position (UP or
+   * DOWN)
    *
    * @param move a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Constants.MOVE} object.
    */
@@ -102,7 +103,7 @@ public class Enemy implements Serializable {
     }
   }
 
-  /** resetStrenght. */
+  /** resetStrenght. Resets the strength */
   public void resetStrenght() {
     if (this.position != 0) {
 
@@ -121,11 +122,9 @@ public class Enemy implements Serializable {
     return s;
   }
 
-  /** @return the initialStrength */
   /**
-   * Getter for the field <code>initialStrength</code>.
+   * Getter for the field <code>initialStrength</code>. returns the initial strenght of the enemy
    *
-   * @return a int.
    * @return a int.
    */
   public int getInitialStrength() {

@@ -14,49 +14,49 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA;
 public interface IStates {
 
   /**
-   * start.
+   * start. starts the game
    *
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
    */
   IStates start();
 
   /**
-   * drawTopCard.
+   * drawTopCard. draws the card on the top of the deck
    *
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
    */
   IStates drawTopCard();
 
   /**
-   * archersAttack.
+   * archersAttack. performs archers attack
    *
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
    */
   IStates archersAttack();
 
   /**
-   * boilingWaterAttack.
+   * boilingWaterAttack. performs boiling water attack
    *
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
    */
   IStates boilingWaterAttack();
 
   /**
-   * closeCombatAttack.
+   * closeCombatAttack. performs close combat attack
    *
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
    */
   IStates closeCombatAttack();
 
   /**
-   * capture.
+   * capture. performs capture
    *
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
    */
   IStates capture();
 
   /**
-   * attack.
+   * attack. performs attack
    *
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
    * @param name a {@link java.lang.String} object.
@@ -64,28 +64,28 @@ public interface IStates {
   IStates attack(String name);
 
   /**
-   * finish.
+   * finish. finishes the game
    *
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
    */
   IStates finish();
 
   /**
-   * endOfTurn.
+   * endOfTurn. performs the end of the turn
    *
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
    */
   IStates endOfTurn();
 
   /**
-   * extraActionPoint.
+   * extraActionPoint. checks if is possible to add extra action point
    *
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
    */
   IStates extraActionPoint();
 
   /**
-   * applyExtraActionPoint.
+   * applyExtraActionPoint. adds extra action point whit the type received by parameter
    *
    * @param extra a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA} object.
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
@@ -93,21 +93,21 @@ public interface IStates {
   IStates applyExtraActionPoint(EXTRA extra);
 
   /**
-   * coupure.
+   * coupure. performs coupure
    *
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
    */
   IStates coupure();
 
   /**
-   * rallyTroops.
+   * rallyTroops. performs rally troops
    *
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
    */
   IStates rallyTroops();
 
   /**
-   * tunnelMovement.
+   * tunnelMovement. performs tunnel movement
    *
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
    */
@@ -121,20 +121,21 @@ public interface IStates {
   IStates supplyRaid();
 
   /**
-   * sabotage.
+   * sabotage. performs sabotage
    *
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
    */
   IStates sabotage();
 
   /**
-   * checkStatus.
+   * checkStatus. check the current status
    *
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
    */
   IStates checkStatus();
+
   /**
-   * applyRallyTroops.
+   * applyRallyTroops. applies rally troops
    *
    * @param plusOne a boolean.
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.

@@ -81,10 +81,11 @@ public final class Game implements Serializable {
     return gameData.toString();
   }
 
-  // --------------------- Methods that trigger events/actions in the finite state
-  // machine
-  // -----------------------
-  /** start. */
+  /**
+   * Methods that trigger events/actions in the finite state machine /
+   *
+   * <p>/** start.
+   */
   public void start() {
     setState(getState().start());
   }

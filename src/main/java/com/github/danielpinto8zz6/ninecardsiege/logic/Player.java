@@ -17,13 +17,17 @@ public class Player implements Serializable {
   private int wallStrength;
   private int supplies;
   private int actionPoints;
+
+  /** These booleans indicate if the player can or not do the specified action */
   private boolean canArchersAtack;
+
   private boolean canBoilingWater;
   private boolean canCloseCombat;
   private boolean canCoupure;
   private boolean canExtraAP;
   private boolean canRallyTroops;
   private boolean canTunnelMovement;
+
   private int mSabotage;
   private int mRallyTroops;
   private int mCoupure;
@@ -39,6 +43,8 @@ public class Player implements Serializable {
    * @param name a {@link java.lang.String} object.
    */
   public Player(GameData gameData, String name) {
+
+    /** Set all the initial values */
     this.name = name;
     this.moral = 4;
     this.wallStrength = 4;
@@ -376,7 +382,7 @@ public class Player implements Serializable {
     this.supplies = supplies;
   }
 
-  /** resetModifiers. */
+  /** resetModifiers. Set all the modifiers to their initial state */
   public void resetModifiers() {
     setmSabotage(0);
     setmRallyTroops(0);

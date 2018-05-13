@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * BattleCard class.
+ * BattleCard class. Manage enemies in the battlefield
  *
  * @author daniel
  * @version $Id: $Id
@@ -84,10 +84,12 @@ public class BattleCard implements Serializable {
   }
 
   /**
-   * getEnemy.
+   * getEnemy. If enemy not found throw exception indicating the name is not found
    *
    * @param name a {@link java.lang.String} object.
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Enemy} object.
+   * @throws com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException if
+   *     any.
    */
   public Enemy getEnemy(String name) throws EnemyNotFoundException {
     for (Enemy enemy : enemies) {
@@ -99,7 +101,7 @@ public class BattleCard implements Serializable {
   }
 
   /**
-   * getEnemiesInCloseCombatArea.
+   * getEnemiesInCloseCombatArea. return a vector of the enemies in close combat area
    *
    * @return a {@link java.util.List} object.
    */

@@ -24,7 +24,7 @@ public class BoilingOil {
   }
 
   /**
-   * getEnemiesOnCircleSpaces.
+   * getEnemiesOnCircleSpaces. returns a list of all the enemies on circle spaces (position 1)
    *
    * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
    * @return a {@link java.util.List} object.
