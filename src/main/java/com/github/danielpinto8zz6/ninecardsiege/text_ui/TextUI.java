@@ -89,7 +89,6 @@ public class TextUI {
         return;
       default:
         System.out.println("Invalid option");
-        return;
     }
   }
 
@@ -170,7 +169,6 @@ public class TextUI {
         return;
       default:
         System.out.println("Invalid option");
-        return;
     }
   }
 
@@ -200,7 +198,6 @@ public class TextUI {
         return;
       default:
         System.out.println("Invalid option");
-        return;
     }
   }
 
@@ -254,7 +251,6 @@ public class TextUI {
         return;
       default:
         System.out.println("Invalid option");
-        return;
     }
   }
 
@@ -289,7 +285,6 @@ public class TextUI {
         return;
       default:
         System.out.println("Invalid option");
-        return;
     }
   }
 

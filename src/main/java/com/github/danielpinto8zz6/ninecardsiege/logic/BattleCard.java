@@ -108,11 +108,13 @@ public class BattleCard implements Serializable {
   public List<Enemy> getEnemiesInCloseCombatArea() {
     List<Enemy> enemiesInCloseCombatArea = new ArrayList<>();
 
-    for (Enemy e : enemies) {
-      if (e.getPosition() == 0) {
-        enemiesInCloseCombatArea.add(e);
-      }
-    }
+    enemies
+        .stream()
+        .filter((e) -> (e.getPosition() == 0))
+        .forEachOrdered(
+            (e) -> {
+              enemiesInCloseCombatArea.add(e);
+            });
 
     return enemiesInCloseCombatArea;
   }

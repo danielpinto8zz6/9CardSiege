@@ -20,7 +20,7 @@ import java.util.List;
  * @author daniel
  * @version $Id: $Id
  */
-public class GameData implements Constants, Serializable {
+public final class GameData implements Constants, Serializable {
 
   private static final long serialVersionUID = 1L;
 
@@ -105,7 +105,8 @@ public class GameData implements Constants, Serializable {
    *
    * @param name a {@link java.lang.String} object.
    * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Enemy} object.
-   * @throws com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException
+   * @throws com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException enemy
+   *     is not found
    */
   public Enemy getEnemy(String name) throws EnemyNotFoundException {
     return getBattleCard().getEnemy(name);
