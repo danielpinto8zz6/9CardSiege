@@ -1,7 +1,5 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
-import com.github.danielpinto8zz6.ninecardsiege.logic.Dice;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
 /**
@@ -29,7 +27,7 @@ public class AwaitActionSelection extends StateAdapter {
     if (getGameData().getPlayer().getActionPoints() == 0
         || !getGameData().getPlayer().isCanArchersAtack()) {
       getGameData().addMsgLog("Can't perform this action");
-      return new AwaitActionSelection(getGameData());
+      return this;
     }
     return new AwaitEnemyTrackSelectionForArchersAttack(getGameData());
   }
@@ -40,7 +38,7 @@ public class AwaitActionSelection extends StateAdapter {
     if (getGameData().getPlayer().getActionPoints() == 0
         || !getGameData().getPlayer().isCanBoilingWater()) {
       getGameData().addMsgLog("Can't perform this action");
-      return new AwaitActionSelection(getGameData());
+      return this;
     }
     return new AwaitEnemyTrackSelectionForBoilingWaterAttack(getGameData());
   }
@@ -51,27 +49,12 @@ public class AwaitActionSelection extends StateAdapter {
     if (getGameData().getPlayer().getActionPoints() == 0
         || !getGameData().getPlayer().isCanCloseCombat()) {
       getGameData().addMsgLog("Can't perform this action");
-      return new AwaitActionSelection(getGameData());
+      return this;
     }
 
-    int roll = Dice.roll();
+    getGameData().closeCombatAttack();
 
-    getGameData().addMsgLog("close combat roll" + roll);
-
-    if (roll == 1) {
-      getGameData().getPlayer().setMoral(getGameData().getPlayer().getMoral() - 1);
-    } else if (roll > 4) {
-      getGameData()
-          .getBattleCard()
-          .getEnemiesInCloseCombatArea()
-          .forEach(
-              (enemy) -> {
-                enemy.move(Constants.MOVE.DOWN);
-              });
-    }
-    getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
-
-    return new AwaitActionSelection(getGameData());
+    return this;
   }
 
   /** {@inheritDoc} */
@@ -87,16 +70,8 @@ public class AwaitActionSelection extends StateAdapter {
       getGameData().addMsgLog("GAME OVER! 1 status at 0");
       return new GameOver(getGameData());
     }
-    /** Reset player modifiers */
-    getGameData().getPlayer().resetModifiers();
 
-    /** Reset enemies strength */
-    getGameData()
-        .getEnemies()
-        .forEach(
-            (enemy) -> {
-              enemy.resetStrenght();
-            });
+    getGameData().endOfTurn();
 
     return new AwaitTopCardToBeDrawn(getGameData());
   }
@@ -112,7 +87,7 @@ public class AwaitActionSelection extends StateAdapter {
 
     getGameData().addMsgLog("Can't add extra action points");
 
-    return new AwaitActionSelection(getGameData());
+    return this;
   }
 
   /** {@inheritDoc} */
@@ -121,17 +96,12 @@ public class AwaitActionSelection extends StateAdapter {
     if (getGameData().getPlayer().getActionPoints() == 0
         || !getGameData().getPlayer().isCanCoupure()) {
       getGameData().addMsgLog("Can't perform this action");
-      return new AwaitActionSelection(getGameData());
+      return this;
     }
 
-    int roll = Dice.roll();
-    getGameData().addMsgLog("rolled" + roll + "on coupure");
-    if (roll > 4)
-      getGameData().getPlayer().setWallStrength(getGameData().getPlayer().getWallStrength() + 1);
+    getGameData().coupure();
 
-    getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
-
-    return new AwaitActionSelection(getGameData());
+    return this;
   }
 
   /** {@inheritDoc} */
@@ -140,7 +110,7 @@ public class AwaitActionSelection extends StateAdapter {
     if (getGameData().getPlayer().getActionPoints() == 0
         || !getGameData().getPlayer().isCanRallyTroops()) {
       getGameData().addMsgLog("Can't perform this action");
-      return new AwaitActionSelection(getGameData());
+      return this;
     }
 
     return new AwaitOptionSelectionForRallyTroops(getGameData());
@@ -152,63 +122,21 @@ public class AwaitActionSelection extends StateAdapter {
     if (getGameData().getPlayer().getActionPoints() == 0
         || !getGameData().getPlayer().isCanTunnelMovement()) {
       getGameData().addMsgLog("Can't perform this action");
-      return new AwaitActionSelection(getGameData());
+      return this;
     }
 
-    if (getGameData().getStatusCard().getTroopPosition() == 0) {
-      getGameData().getStatusCard().setTroopPosition(1);
-      getGameData().getStatusCard().setDirection(0);
-    } else if (getGameData().getStatusCard().getTroopPosition() == 3) {
-      getGameData().getStatusCard().setTroopPosition(2);
-      getGameData().getStatusCard().setDirection(1);
-    } else if (getGameData().getStatusCard().getDirection() == 0) {
-      getGameData().getStatusCard().setTroopPosition(3);
-    } else {
-      getGameData().getStatusCard().setTroopPosition(0);
-      getGameData()
-          .getPlayer()
-          .setSupplies(
-              getGameData().getPlayer().getSupplies()
-                  + getGameData().getStatusCard().getSupplies());
-      getGameData().getStatusCard().removeSupplies();
-      if (getGameData().getPlayer().getSupplies() > 4) {
-        getGameData().getPlayer().setSupplies(4);
-      }
-    }
+    getGameData().tunnelMovement();
 
-    getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
-    return new AwaitActionSelection(getGameData());
+    return this;
   }
 
   /** {@inheritDoc} */
   @Override
   public IStates supplyRaid() {
 
-    if (getGameData().getStatusCard().getTroopPosition() == 3) {
-      int roll = Dice.roll();
-      switch (roll) {
-        case 1:
-          getGameData().getPlayer().setMoral(getGameData().getPlayer().getMoral() - 1);
-          getGameData().getStatusCard().setTroopPosition(0);
-          getGameData().getStatusCard().removeSupplies();
-          getGameData().addMsgLog("Reduce moral by 1\nTroops captured\nRemoved supplies");
-          break;
-        case 3:
-        case 4:
-        case 5:
-          getGameData().getStatusCard().addSupplies(1);
-          getGameData().addMsgLog("Added 1 supply (max 2)");
-          break;
-        case 6:
-          getGameData().getStatusCard().addSupplies(2);
-          getGameData().addMsgLog("Added 2 supplies (max 2)");
-          break;
-        default:
-          break;
-      }
-    }
+    getGameData().supplyRaid();
 
-    return new AwaitActionSelection(getGameData());
+    return this;
   }
 
   /** {@inheritDoc} */
@@ -216,25 +144,14 @@ public class AwaitActionSelection extends StateAdapter {
   public IStates sabotage() {
     if (getGameData().getPlayer().getActionPoints() == 0) {
       getGameData().addMsgLog("Can't perform this action");
-      return new AwaitActionSelection(getGameData());
+      return this;
     }
 
-    if (getGameData().getStatusCard().getTroopPosition() == 3) {
-      int roll = Dice.roll();
-      if (roll > 4) {
-        int trebuchet = (getGameData().getBattleCard().getTrebuchet() - 1);
-        getGameData().getBattleCard().setTrebuchet(trebuchet > 0 ? trebuchet : 0);
-        getGameData().addMsgLog("Reduce trebuchet by 1 (min 0)");
-      } else if (roll == 1) {
-        getGameData().getPlayer().setMoral(getGameData().getPlayer().getMoral() - 1);
-        getGameData().getStatusCard().setTroopPosition(0);
-        getGameData().getStatusCard().removeSupplies();
-        getGameData().addMsgLog("Reduce moral by 1\nTroops captured\nRemoved supplies");
-      }
-    }
+    getGameData().sabotage();
 
-    return new AwaitActionSelection(getGameData());
+    return this;
   }
+
   /** {@inheritDoc} */
   @Override
   public IStates checkStatus() {
@@ -257,6 +174,7 @@ public class AwaitActionSelection extends StateAdapter {
     }
     return this;
   }
+
   /** {@inheritDoc} */
   @Override
   public IStates finish() {

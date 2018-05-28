@@ -1,6 +1,5 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.Dice;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
 /**
@@ -25,20 +24,9 @@ public class AwaitOptionSelectionForRallyTroops extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates applyRallyTroops(boolean plusOne) {
-    int roll = Dice.roll();
-    getGameData().addMsgLog("rolled" + roll + "on rally troops");
 
-    if (plusOne) {
-      roll++;
-      getGameData().getPlayer().setSupplies(getGameData().getPlayer().getSupplies() - 1);
-    }
+    getGameData().rallyTroops(plusOne);
 
-    if (roll > 4) {
-      getGameData().getPlayer().setMoral(getGameData().getPlayer().getMoral() + 1);
-      if (getGameData().getPlayer().getMoral() > 4) getGameData().getPlayer().setMoral(4);
-    }
-
-    getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() - 1);
     return new AwaitActionSelection(getGameData());
   }
 

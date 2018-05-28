@@ -30,15 +30,9 @@ public class AwaitOptionSelectionForExtraActionPoint extends StateAdapter {
   /** {@inheritDoc} */
   @Override
   public IStates applyExtraActionPoint(EXTRA extra) {
-    getGameData().getPlayer().setActionPoints(getGameData().getPlayer().getActionPoints() + 1);
-    switch (extra) {
-      case MORAL:
-        getGameData().getPlayer().setMoral(getGameData().getPlayer().getMoral() - 1);
-        break;
-      case SUPPLIES:
-        getGameData().getPlayer().setSupplies(getGameData().getPlayer().getSupplies() - 1);
-        break;
-    }
+
+    getGameData().extraActionPoint(extra);
+
     return new AwaitActionSelection(getGameData());
   }
 

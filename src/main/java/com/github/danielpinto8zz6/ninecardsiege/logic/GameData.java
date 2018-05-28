@@ -223,4 +223,177 @@ public final class GameData implements Constants, Serializable {
   public void setEndGame(boolean endGame) {
     this.endGame = endGame;
   }
+
+  public void coupure() {
+    int roll = Dice.roll();
+
+    addMsgLog("rolled" + roll + "on coupure");
+
+    if (roll > 4) getPlayer().setWallStrength(getPlayer().getWallStrength() + 1);
+
+    getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
+  }
+
+  public void tunnelMovement() {
+    if (getStatusCard().getTroopPosition() == 0) {
+      getStatusCard().setTroopPosition(1);
+      getStatusCard().setDirection(0);
+    } else if (getStatusCard().getTroopPosition() == 3) {
+      getStatusCard().setTroopPosition(2);
+      getStatusCard().setDirection(1);
+    } else if (getStatusCard().getDirection() == 0) {
+      getStatusCard().setTroopPosition(3);
+    } else {
+      getStatusCard().setTroopPosition(0);
+      getPlayer().setSupplies(getPlayer().getSupplies() + getStatusCard().getSupplies());
+      getStatusCard().removeSupplies();
+      if (getPlayer().getSupplies() > 4) {
+        getPlayer().setSupplies(4);
+      }
+    }
+
+    getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
+  }
+
+  public void supplyRaid() {
+    if (getStatusCard().getTroopPosition() == 3) {
+      int roll = Dice.roll();
+      switch (roll) {
+        case 1:
+          getPlayer().setMoral(getPlayer().getMoral() - 1);
+          getStatusCard().setTroopPosition(0);
+          getStatusCard().removeSupplies();
+          addMsgLog("Reduce moral by 1\nTroops captured\nRemoved supplies");
+          break;
+        case 3:
+        case 4:
+        case 5:
+          getStatusCard().addSupplies(1);
+          addMsgLog("Added 1 supply (max 2)");
+          break;
+        case 6:
+          getStatusCard().addSupplies(2);
+          addMsgLog("Added 2 supplies (max 2)");
+          break;
+        default:
+          break;
+      }
+    }
+  }
+
+  public void sabotage() {
+    if (getStatusCard().getTroopPosition() == 3) {
+      int roll = Dice.roll();
+      if (roll > 4) {
+        int trebuchet = (getBattleCard().getTrebuchet() - 1);
+        getBattleCard().setTrebuchet(trebuchet > 0 ? trebuchet : 0);
+        addMsgLog("Reduce trebuchet by 1 (min 0)");
+      } else if (roll == 1) {
+        getPlayer().setMoral(getPlayer().getMoral() - 1);
+        getStatusCard().setTroopPosition(0);
+        getStatusCard().removeSupplies();
+        addMsgLog("Reduce moral by 1\nTroops captured\nRemoved supplies");
+      }
+    }
+  }
+
+  public void endOfTurn() {
+    /** Reset player modifiers */
+    getPlayer().resetModifiers();
+
+    /** Reset enemies strength */
+    getEnemies()
+        .forEach(
+            (enemy) -> {
+              enemy.resetStrenght();
+            });
+  }
+
+  public void closeCombatAttack() {
+    int roll = Dice.roll();
+
+    addMsgLog("close combat roll" + roll);
+
+    if (roll == 1) {
+      getPlayer().setMoral(getPlayer().getMoral() - 1);
+    } else if (roll > 4) {
+      getBattleCard()
+          .getEnemiesInCloseCombatArea()
+          .forEach(
+              (enemy) -> {
+                enemy.move(Constants.MOVE.DOWN);
+              });
+    }
+    getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
+  }
+
+  public void archersAttack(String name) {
+    int roll = Dice.roll();
+
+    Enemy enemy;
+    try {
+      enemy = getEnemy(name);
+
+      addMsgLog("Performing ArchersAttack");
+      addMsgLog("Roll : " + roll);
+
+      if (enemy.getStrength() < roll) {
+        enemy.move(Constants.MOVE.DOWN);
+      }
+
+      getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
+    } catch (EnemyNotFoundException e) {
+      addMsgLog(e.getMessage());
+    }
+  }
+
+  public void boilingWaterAttack(String name) {
+    int roll = Dice.roll();
+
+    Enemy enemy;
+
+    try {
+      enemy = getEnemy(name);
+
+      addMsgLog("Performing Boilin Water Attack");
+      addMsgLog("Roll : " + roll);
+
+      if (enemy.getStrength() < (roll + 2)) {
+        enemy.move(Constants.MOVE.DOWN);
+      }
+      getPlayer().setCanBoilingWater(false);
+      getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
+    } catch (EnemyNotFoundException e) {
+      addMsgLog(e.getMessage());
+    }
+  }
+
+  public void extraActionPoint(EXTRA extra) {
+    getPlayer().setActionPoints(getPlayer().getActionPoints() + 1);
+    switch (extra) {
+      case MORAL:
+        getPlayer().setMoral(getPlayer().getMoral() - 1);
+        break;
+      case SUPPLIES:
+        getPlayer().setSupplies(getPlayer().getSupplies() - 1);
+        break;
+    }
+  }
+
+  public void rallyTroops(boolean plusOne) {
+    int roll = Dice.roll();
+    addMsgLog("rolled" + roll + "on rally troops");
+
+    if (plusOne) {
+      roll++;
+      getPlayer().setSupplies(getPlayer().getSupplies() - 1);
+    }
+
+    if (roll > 4) {
+      getPlayer().setMoral(getPlayer().getMoral() + 1);
+      if (getPlayer().getMoral() > 4) getPlayer().setMoral(4);
+    }
+
+    getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
+  }
 }
