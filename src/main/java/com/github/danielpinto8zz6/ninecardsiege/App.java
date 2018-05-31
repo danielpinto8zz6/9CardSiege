@@ -1,7 +1,7 @@
 package com.github.danielpinto8zz6.ninecardsiege;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.Game;
-import com.github.danielpinto8zz6.ninecardsiege.text_ui.TextUI;
+import com.github.danielpinto8zz6.ninecardsiege.gui.Gui;
+import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 
 /**
  * App class.
@@ -19,7 +19,9 @@ public class App {
   public static void main(String[] args) {
 
     /** Run the game in the textUI mode */
-    TextUI textUI = new TextUI(new Game());
-    textUI.run();
+    // TextUI textUI = new TextUI(new Game());
+    // textUI.run();
+
+    Gui gui = new Gui(new ObservableGame());
   }
 }

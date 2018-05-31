@@ -186,4 +186,8 @@ public final class Game implements Serializable {
   public void playAgain() {
     setState(getState().playAgain());
   }
+
+  public boolean isOver() {
+    return getGameData().isEndGame();
+  }
 }
