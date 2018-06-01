@@ -1,6 +1,8 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
+import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
+import java.util.List;
 
 /**
  * AwaitActionSelection class.
@@ -70,7 +72,38 @@ public class AwaitActionSelection extends StateAdapter {
       getGameData().addMsgLog("GAME OVER! 1 status at 0");
       return new GameOver(getGameData());
     }
+    
+        List<Card> cards = getGameData().getCards();
+    if (cards.isEmpty()) {
+      if (getGameData().getDay() == 3) {
+        getGameData().addMsgLog("Your troops arrived! GAME WON!!!!!");
+        return new GameOver(getGameData());
+      }
+      getGameData().addMsgLog("New day! Shuffeling cards");
+      getGameData().addCards();
+      getGameData().shuffleCards();
+      getGameData().setDay(getGameData().getDay() + 1);
+      
+      if (getGameData().getStatusCard().getTroopPosition() == 4) {
+        getGameData()
+            .addMsgLog(
+                "Your troops have been captured!\n"
+                    + "They here in enemy lines at the end of the day");
 
+        getGameData().getStatusCard().setTroopPosition(0);
+        getGameData().getPlayer().setMoral(getGameData().getPlayer().getMoral() - 1);
+
+      } else {
+        getGameData().addMsgLog("Your troops arived at the castle");
+        getGameData().getStatusCard().setTroopPosition(0);
+        getGameData()
+            .getPlayer()
+            .setSupplies(
+                getGameData().getPlayer().getSupplies()
+                    + getGameData().getStatusCard().getSupplies());
+        getGameData().getStatusCard().removeSupplies();
+      }
+    }
     getGameData().endOfTurn();
 
     return new AwaitTopCardToBeDrawn(getGameData());

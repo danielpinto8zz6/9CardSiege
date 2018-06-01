@@ -27,6 +27,8 @@ public interface IStates {
    */
   IStates drawTopCard();
 
+  IStates StartOfTheTurn();
+
   /**
    * archersAttack. performs archers attack
    *

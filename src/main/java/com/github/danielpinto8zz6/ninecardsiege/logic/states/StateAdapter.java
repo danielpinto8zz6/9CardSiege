@@ -62,6 +62,12 @@ public class StateAdapter implements IStates, Constants, Serializable {
 
   /** {@inheritDoc} */
   @Override
+    public IStates StartOfTheTurn(){
+        return this;
+    }
+
+  /** {@inheritDoc} */
+  @Override
   public IStates archersAttack() {
     return this;
   }

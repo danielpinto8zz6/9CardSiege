@@ -52,6 +52,7 @@ public final class Game implements Serializable {
     return gameData;
   }
 
+  
   /**
    * Setter for the field <code>gameData</code>.
    *
@@ -98,6 +99,10 @@ public final class Game implements Serializable {
   /** drawTopCard. */
   public void drawTopCard() {
     setState(getState().drawTopCard());
+  }
+  
+    public void StartOfTheTurn() {
+    setState(getState().StartOfTheTurn());
   }
 
   /**

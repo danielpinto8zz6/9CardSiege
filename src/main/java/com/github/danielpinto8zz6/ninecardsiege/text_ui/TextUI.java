@@ -4,6 +4,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Game;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameSave;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitActionSelection;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBegginingOfTheTurn;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitEnemyTrackSelectionForArchersAttack;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitEnemyTrackSelectionForBoilingWaterAttack;
@@ -122,30 +123,48 @@ public class TextUI {
     switch (value) {
       case 1:
         game.archersAttack();
+              game.checkStatus();
+
         return;
       case 2:
         game.boilingWaterAttack();
+              game.checkStatus();
+
         return;
       case 3:
         game.closeCombatAttack();
+              game.checkStatus();
+
         return;
       case 4:
         game.coupure();
+              game.checkStatus();
+
         return;
       case 5:
         game.rallyTroops();
+              game.checkStatus();
+
         return;
       case 6:
         game.tunnelMovement();
+              game.checkStatus();
+
         return;
       case 7:
         game.supplyRaid();
+              game.checkStatus();
+
         return;
       case 8:
         game.sabotage();
+              game.checkStatus();
+
         return;
       case 9:
         game.extraActionPoint();
+              game.checkStatus();
+
         return;
       case 10:
         game.endOfTurn();
@@ -171,7 +190,30 @@ public class TextUI {
         System.out.println("Invalid option");
     }
   }
+private void getUserInputWhileAwaitBegginingOfTheTurn(){
+    int value;
+    System.out.println();
+    System.out.println("1 - start");
+    System.out.println("0 - Finish Game");
+    System.out.print("\n> ");
 
+    while (!s.hasNextInt()) {
+      s.next();
+    }
+
+    value = s.nextInt();
+
+    switch (value) {
+      case 1:
+        game.StartOfTheTurn();
+        return;
+      case 0:
+        game.finish();
+        return;
+      default:
+        System.out.println("Invalid option");
+    }
+}
   /** getUserInputWhileAwaitTopCardToBeDrawn. */
   private void getUserInputWhileAwaitTopCardToBeDrawn() {
     int value;
@@ -328,12 +370,13 @@ public class TextUI {
         game.getMsgLog().forEach((msg) -> System.out.println("---> " + msg));
         game.clearMsgLog();
       }
-      game.checkStatus();
 
       if (game.getState() instanceof AwaitBeginning) {
         getUserInputWhileAwaitingBeginning();
       } else if (game.getState() instanceof AwaitTopCardToBeDrawn) {
         getUserInputWhileAwaitTopCardToBeDrawn();
+              } else if (game.getState() instanceof AwaitBegginingOfTheTurn) {
+        getUserInputWhileAwaitBegginingOfTheTurn();
       } else if (game.getState() instanceof AwaitActionSelection) {
         getUserInputWhileAwaitingOptionSelection();
       } else if (game.getState() instanceof AwaitEnemyTrackSelectionForArchersAttack) {
