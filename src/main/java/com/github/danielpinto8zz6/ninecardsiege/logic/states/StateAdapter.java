@@ -156,6 +156,18 @@ public class StateAdapter implements IStates, Constants, Serializable {
     return this;
   }
 
+        @Override
+  public IStates leaveLocation(){
+    return this;
+  }
+        @Override
+  public IStates freeMovement(boolean up){
+    return this;
+  }
+          @Override
+  public IStates fastMovement(boolean up){
+    return this;
+  }
   /** {@inheritDoc} */
   @Override
   public IStates playAgain() {

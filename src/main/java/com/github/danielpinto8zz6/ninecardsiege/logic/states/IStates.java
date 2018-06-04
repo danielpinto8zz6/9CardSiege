@@ -144,6 +144,15 @@ public interface IStates {
    */
   IStates applyRallyTroops(boolean plusOne);
 
+  
+    IStates leaveLocation();
+    
+      IStates freeMovement(boolean up);
+      
+        IStates fastMovement(boolean up);
+
+
+
   /**
    * playAgain.
    *

@@ -16,6 +16,8 @@ public class DeathOfLeader {
    * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
    */
   public static void apply(GameData gameData) {
+      if( gameData.getPlayer().getMoral() >= 1 ){
     gameData.getPlayer().setMoral(gameData.getPlayer().getMoral() - 1);
+  }
   }
 }

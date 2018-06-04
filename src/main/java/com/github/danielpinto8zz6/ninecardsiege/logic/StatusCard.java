@@ -16,7 +16,7 @@ public class StatusCard implements Serializable {
 
   // Could be 0, 1, 2, or 3
   private int troopPosition;
-  private int direction;
+  private int freeMov;
   private int supplies;
 
   /**
@@ -29,6 +29,7 @@ public class StatusCard implements Serializable {
 
     this.troopPosition = 0;
     this.supplies = 0;
+    this.freeMov = 0;
   }
 
   /**
@@ -67,23 +68,15 @@ public class StatusCard implements Serializable {
     this.troopPosition = troopPosition;
   }
 
-  /**
-   * Getter for the field <code>direction</code>.
-   *
-   * @return a int.
-   */
-  public int getDirection() {
-    return direction;
-  }
+    public int getFreeMov() {
+        return freeMov;
+    }
 
-  /**
-   * Setter for the field <code>direction</code>.
-   *
-   * @param direction a int.
-   */
-  public void setDirection(int direction) {
-    this.direction = direction;
-  }
+    public void setFreeMov(int freeMov) {
+        this.freeMov = freeMov;
+    }
+
+
 
   /**
    * Getter for the field <code>supplies</code>.

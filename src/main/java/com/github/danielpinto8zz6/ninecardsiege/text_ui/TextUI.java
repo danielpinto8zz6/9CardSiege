@@ -8,6 +8,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBegginingOfThe
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitEnemyTrackSelectionForArchersAttack;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitEnemyTrackSelectionForBoilingWaterAttack;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitOptionForTroopsMovement;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitOptionSelectionForExtraActionPoint;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitOptionSelectionForRallyTroops;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDrawn;
@@ -193,7 +194,7 @@ public class TextUI {
 private void getUserInputWhileAwaitBegginingOfTheTurn(){
     int value;
     System.out.println();
-    System.out.println("1 - start");
+    System.out.println("1 - start turn");
     System.out.println("0 - Finish Game");
     System.out.print("\n> ");
 
@@ -262,6 +263,101 @@ private void getUserInputWhileAwaitBegginingOfTheTurn(){
 
     game.attack(name);
   }
+   private void getUserInputWhileAwaitTroopsMovementSelection(){
+    int value;
+
+    System.out.println("\n\n---------------------------------");
+    System.out.println();
+    System.out.println("Troops Movement to do: ");
+    System.out.println();
+    System.out.println("1 - Leave The Location");
+    System.out.println("2 - Free Movement");
+    System.out.println("3 - Fast Movement");
+    System.out.println("0 - End Game");
+    System.out.print("\n> ");
+
+    while (!s.hasNextInt()) {
+      s.nextInt();
+    }
+
+    value = s.nextInt();
+
+    switch (value) {
+      case 1:
+        getGame().leaveLocation();
+        return;
+      case 2:
+          
+    System.out.println("1 - Direction enemy lines");
+    System.out.println("2 - Direction castle");
+    System.out.println("0 - End Game");
+    System.out.print("\n> ");
+
+    while (!s.hasNextInt()) {
+      s.nextInt();
+    }
+
+    value = s.nextInt();
+        switch (value) {
+
+            case 1:
+
+        getGame().freeMovement(false);
+        return;
+        
+            case 2:
+
+        getGame().freeMovement(true);
+        return;
+        
+              case 0:
+        getGame().finish();
+        return;
+        
+              default:
+        System.out.println("Invalid option");
+        }
+              case 3:
+System.out.println("1 - Direction Enemy lines");
+    System.out.println("2 - Direction castle");
+    System.out.println("0 - End Game");
+    System.out.print("\n> ");
+
+    while (!s.hasNextInt()) {
+      s.nextInt();
+    }
+
+    value = s.nextInt();
+        switch (value) {
+
+            case 1:
+
+        getGame().fastMovement(false);
+        return;
+        
+            case 2:
+
+        getGame().fastMovement(true);
+        return;
+        
+              case 0:
+        getGame().finish();
+        return;
+        
+              default:
+        System.out.println("Invalid option");
+        }
+        return;
+        
+      case 0:
+        getGame().finish();
+        return;
+      default:
+        System.out.println("Invalid option");
+    }
+
+
+   }
 
   private void getUserInputWhileAwaitOptionSelectionForExtraActionPoint() {
     int value;
@@ -383,6 +479,8 @@ private void getUserInputWhileAwaitBegginingOfTheTurn(){
         getUserInputWhileAwaitEnemyTrackSelection();
       } else if (game.getState() instanceof AwaitEnemyTrackSelectionForBoilingWaterAttack) {
         getUserInputWhileAwaitEnemyTrackSelection();
+              } else if (game.getState() instanceof AwaitOptionForTroopsMovement) {
+        getUserInputWhileAwaitTroopsMovementSelection();
       } else if (game.getState() instanceof AwaitOptionSelectionForExtraActionPoint) {
         getUserInputWhileAwaitOptionSelectionForExtraActionPoint();
       } else if (game.getState() instanceof AwaitOptionSelectionForRallyTroops) {
