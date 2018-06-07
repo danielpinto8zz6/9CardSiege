@@ -62,9 +62,9 @@ public class StateAdapter implements IStates, Constants, Serializable {
 
   /** {@inheritDoc} */
   @Override
-    public IStates StartOfTheTurn(){
-        return this;
-    }
+  public IStates StartOfTheTurn() {
+    return this;
+  }
 
   /** {@inheritDoc} */
   @Override
@@ -156,16 +156,18 @@ public class StateAdapter implements IStates, Constants, Serializable {
     return this;
   }
 
-        @Override
-  public IStates leaveLocation(){
+  @Override
+  public IStates leaveLocation() {
     return this;
   }
-        @Override
-  public IStates freeMovement(boolean up){
+
+  @Override
+  public IStates freeMovement(boolean up) {
     return this;
   }
-          @Override
-  public IStates fastMovement(boolean up){
+
+  @Override
+  public IStates fastMovement(boolean up) {
     return this;
   }
   /** {@inheritDoc} */

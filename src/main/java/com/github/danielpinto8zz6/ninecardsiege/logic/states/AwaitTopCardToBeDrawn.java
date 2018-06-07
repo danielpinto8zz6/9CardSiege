@@ -1,8 +1,5 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
-import com.github.danielpinto8zz6.ninecardsiege.logic.Dice;
-import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card;
 import java.util.List;
@@ -30,7 +27,7 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
   @Override
   public IStates drawTopCard() {
 
-        List<Card> cards = getGameData().getCards();
+    List<Card> cards = getGameData().getCards();
     getGameData().addMsgLog("Picking Card...");
     Card card = cards.get(0);
 

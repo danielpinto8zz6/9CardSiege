@@ -32,8 +32,8 @@ public class TrebuchetAttack {
       default:
         break;
     }
-    if (gameData.getPlayer().getWallStrength() < 0){
-        gameData.getPlayer().setWallStrength(0);
+    if (gameData.getPlayer().getWallStrength() < 0) {
+      gameData.getPlayer().setWallStrength(0);
     }
   }
 }

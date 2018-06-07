@@ -72,14 +72,14 @@ public class AwaitActionSelection extends StateAdapter {
       getGameData().addMsgLog("GAME OVER! 1 status at 0");
       return new GameOver(getGameData());
     }
-            List<Card> cards = getGameData().getCards();
+    List<Card> cards = getGameData().getCards();
     if (cards.isEmpty()) {
-        getGameData().setNewDay(true);
-    
-    if(getGameData().getDay() == 3){
-                getGameData().addMsgLog("Your troops arrived! GAME WON!!!!!");
+      getGameData().setNewDay(true);
+
+      if (getGameData().getDay() == 3) {
+        getGameData().addMsgLog("Your troops arrived! GAME WON!!!!!");
         return new GameOver(getGameData());
-    }
+      }
     }
     getGameData().endOfTurn();
 
@@ -135,8 +135,7 @@ public class AwaitActionSelection extends StateAdapter {
       return this;
     }
 
-      return new AwaitOptionForTroopsMovement(getGameData());
-
+    return new AwaitOptionForTroopsMovement(getGameData());
   }
 
   /** {@inheritDoc} */

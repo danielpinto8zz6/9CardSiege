@@ -26,6 +26,12 @@
         6. Victory or Loss Check Phase
         7. End of Day Phase</description>
     <build>
+      <resources>
+     <resource>
+       <directory>src/main/resources</directory>
+       <filtering>false</filtering>
+    </resource>
+    </resources>
         <plugins>
             <plugin>
                 <groupId>com.coveo</groupId>
@@ -38,6 +44,11 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
             </plugin>
         </plugins>
     </build>

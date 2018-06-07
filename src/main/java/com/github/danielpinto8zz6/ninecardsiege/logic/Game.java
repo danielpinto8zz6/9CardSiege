@@ -52,7 +52,6 @@ public final class Game implements Serializable {
     return gameData;
   }
 
-  
   /**
    * Setter for the field <code>gameData</code>.
    *
@@ -100,8 +99,8 @@ public final class Game implements Serializable {
   public void drawTopCard() {
     setState(getState().drawTopCard());
   }
-  
-    public void StartOfTheTurn() {
+
+  public void StartOfTheTurn() {
     setState(getState().StartOfTheTurn());
   }
 
@@ -181,18 +180,19 @@ public final class Game implements Serializable {
   public void sabotage() {
     setState(getState().sabotage());
   }
-  
-    public void leaveLocation() {
+
+  public void leaveLocation() {
     setState(getState().leaveLocation());
   }
 
-        public void freeMovement(boolean up) {
+  public void freeMovement(boolean up) {
     setState(getState().freeMovement(up));
   }
-                public void fastMovement(boolean up) {
+
+  public void fastMovement(boolean up) {
     setState(getState().fastMovement(up));
   }
-        
+
   /** checkStatus. */
   public void checkStatus() {
     setState(getState().checkStatus());
@@ -202,7 +202,6 @@ public final class Game implements Serializable {
   public void playAgain() {
     setState(getState().playAgain());
   }
-  
 
   public boolean isOver() {
     return getGameData().isEndGame();

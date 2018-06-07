@@ -9,7 +9,6 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card5;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card6;
 import com.github.danielpinto8zz6.ninecardsiege.logic.cards.Card7;
 import com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException;
-import com.github.danielpinto8zz6.ninecardsiege.logic.states.GameOver;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,7 +28,7 @@ public final class GameData implements Constants, Serializable {
 
   private int day;
   private boolean endGame;
-    private boolean newDay;
+  private boolean newDay;
 
   private final BattleCard battleCard;
   private final StatusCard statusCard;
@@ -86,13 +85,13 @@ public final class GameData implements Constants, Serializable {
     this.day = day;
   }
 
-    public boolean isNewDay() {
-        return newDay;
-    }
+  public boolean isNewDay() {
+    return newDay;
+  }
 
-    public void setNewDay(boolean newDay) {
-        this.newDay = newDay;
-    }
+  public void setNewDay(boolean newDay) {
+    this.newDay = newDay;
+  }
 
   /**
    * Getter for the field <code>battleCard</code>.
@@ -246,7 +245,7 @@ public final class GameData implements Constants, Serializable {
     getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
   }
 
- /* public void tunnelMovement() {
+  /* public void tunnelMovement() {
     if (getStatusCard().getTroopPosition() == 0) {
       getStatusCard().setTroopPosition(1);
       getStatusCard().setDirection(0);
@@ -266,77 +265,70 @@ public final class GameData implements Constants, Serializable {
 
     getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
   }*/
-  
-  public void leaveM(){
-      
-       if (getStatusCard().getTroopPosition() == 0
-              || getStatusCard().getTroopPosition() == 3){
-      if (getStatusCard().getTroopPosition() == 0){
-                    addMsgLog("Movemente executed leaving the castle ");
-    getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
-          getStatusCard().setTroopPosition(1);
-                    getStatusCard().setTroopPosition(1);
-                    getStatusCard().setFreeMov(2);
-      }else{
-                getStatusCard().setTroopPosition(2);
-                                    getStatusCard().setFreeMov(2);
 
-                          addMsgLog("Movemente executed leaving the enemy lines ");
-getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
+  public void leaveM() {
 
+    if (getStatusCard().getTroopPosition() == 0 || getStatusCard().getTroopPosition() == 3) {
+      if (getStatusCard().getTroopPosition() == 0) {
+        addMsgLog("Movemente executed leaving the castle ");
+        getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
+        getStatusCard().setTroopPosition(1);
+        getStatusCard().setTroopPosition(1);
+        getStatusCard().setFreeMov(2);
+      } else {
+        getStatusCard().setTroopPosition(2);
+        getStatusCard().setFreeMov(2);
 
-      }                
+        addMsgLog("Movemente executed leaving the enemy lines ");
+        getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
+      }
 
-      }else {
-             addMsgLog("Can't do this movemente... ");
-       }
- 
+    } else {
+      addMsgLog("Can't do this movemente... ");
+    }
   }
 
-    public void freeM(boolean up){
-        
-        if(getStatusCard().getFreeMov()!= 1 || (getStatusCard().getTroopPosition() == 0 || getStatusCard().getTroopPosition() == 3)){
-                     addMsgLog("Can't do this movemente... ");
+  public void freeM(boolean up) {
 
-    }else if (up){
-        getStatusCard().setTroopPosition(getStatusCard().getTroopPosition() - 1);
-                     addMsgLog("movemente done, going to the castle ");
+    if (getStatusCard().getFreeMov() != 1
+        || (getStatusCard().getTroopPosition() == 0 || getStatusCard().getTroopPosition() == 3)) {
+      addMsgLog("Can't do this movemente... ");
 
+    } else if (up) {
+      getStatusCard().setTroopPosition(getStatusCard().getTroopPosition() - 1);
+      addMsgLog("movemente done, going to the castle ");
 
-    }else{        getStatusCard().setTroopPosition(getStatusCard().getTroopPosition() + 1);
-                         addMsgLog("movemente done, going to the enemi lines ");
-
-}
-}
-    
-        public void fastM(boolean up){
-            
-                    if(getStatusCard().getTroopPosition() == 0 || getStatusCard().getTroopPosition() == 3){
-                     addMsgLog("Can't do this movemente... ");
-    }else if (up){
-        getStatusCard().setTroopPosition(getStatusCard().getTroopPosition() - 1);
-        getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
-                     addMsgLog("movemente done, going to the castle ");
-
-
-    }else{        
-        getStatusCard().setTroopPosition(getStatusCard().getTroopPosition() + 1);
-        getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
-
-                         addMsgLog("movemente done, going to the enemi lines ");
-
-}
+    } else {
+      getStatusCard().setTroopPosition(getStatusCard().getTroopPosition() + 1);
+      addMsgLog("movemente done, going to the enemi lines ");
     }
-        
-        
+  }
+
+  public void fastM(boolean up) {
+
+    if (getStatusCard().getTroopPosition() == 0 || getStatusCard().getTroopPosition() == 3) {
+      addMsgLog("Can't do this movemente... ");
+    } else if (up) {
+      getStatusCard().setTroopPosition(getStatusCard().getTroopPosition() - 1);
+      getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
+      addMsgLog("movemente done, going to the castle ");
+
+    } else {
+      getStatusCard().setTroopPosition(getStatusCard().getTroopPosition() + 1);
+      getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
+
+      addMsgLog("movemente done, going to the enemi lines ");
+    }
+  }
+
   public void supplyRaid() {
     if (getStatusCard().getTroopPosition() == 3) {
       int roll = Dice.roll();
       switch (roll) {
         case 1:
-      if( getPlayer().getMoral() >= 1 ){
-    getPlayer().setMoral(getPlayer().getMoral() - 1);
-  }
+          if (getPlayer().getMoral() >= 1) {
+            getPlayer().setMoral(getPlayer().getMoral() - 1);
+          }
           getStatusCard().setTroopPosition(0);
           getStatusCard().removeSupplies();
           addMsgLog("Reduce moral by 1\nTroops captured\nRemoved supplies");
@@ -374,27 +366,26 @@ getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
   }
 
   public void endOfTurn() {
-      
+
     if (newDay) {
       addMsgLog("New day! Shuffeling cards");
       addCards();
       shuffleCards();
       setDay(getDay() + 1);
-      
+
       if (getStatusCard().getTroopPosition() == 4) {
-    addMsgLog(
-                "Your troops have been captured!\n"
-                    + "They here in enemy lines at the end of the day");
+        addMsgLog(
+            "Your troops have been captured!\n" + "They here in enemy lines at the end of the day");
 
         getStatusCard().setTroopPosition(0);
-      if( getPlayer().getMoral() >= 1 ){
-    getPlayer().setMoral(getPlayer().getMoral() - 1);
-  }
+        if (getPlayer().getMoral() >= 1) {
+          getPlayer().setMoral(getPlayer().getMoral() - 1);
+        }
 
       } else {
         addMsgLog("Your troops arived at the castle");
         getStatusCard().setTroopPosition(0);
-            getPlayer().setSupplies(getPlayer().getSupplies() + getStatusCard().getSupplies());
+        getPlayer().setSupplies(getPlayer().getSupplies() + getStatusCard().getSupplies());
         getStatusCard().removeSupplies();
       }
       newDay = false;
@@ -416,9 +407,9 @@ getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
     addMsgLog("close combat roll" + roll);
 
     if (roll == 1) {
-     if( getPlayer().getMoral() >= 1 ){
-    getPlayer().setMoral(getPlayer().getMoral() - 1);
-  }
+      if (getPlayer().getMoral() >= 1) {
+        getPlayer().setMoral(getPlayer().getMoral() - 1);
+      }
     } else if (roll > 4) {
       getBattleCard()
           .getEnemiesInCloseCombatArea()

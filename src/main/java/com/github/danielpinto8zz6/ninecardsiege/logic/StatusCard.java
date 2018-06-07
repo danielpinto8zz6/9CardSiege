@@ -68,15 +68,13 @@ public class StatusCard implements Serializable {
     this.troopPosition = troopPosition;
   }
 
-    public int getFreeMov() {
-        return freeMov;
-    }
+  public int getFreeMov() {
+    return freeMov;
+  }
 
-    public void setFreeMov(int freeMov) {
-        this.freeMov = freeMov;
-    }
-
-
+  public void setFreeMov(int freeMov) {
+    this.freeMov = freeMov;
+  }
 
   /**
    * Getter for the field <code>supplies</code>.

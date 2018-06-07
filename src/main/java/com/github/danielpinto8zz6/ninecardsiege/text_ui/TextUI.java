@@ -124,47 +124,47 @@ public class TextUI {
     switch (value) {
       case 1:
         game.archersAttack();
-              game.checkStatus();
+        game.checkStatus();
 
         return;
       case 2:
         game.boilingWaterAttack();
-              game.checkStatus();
+        game.checkStatus();
 
         return;
       case 3:
         game.closeCombatAttack();
-              game.checkStatus();
+        game.checkStatus();
 
         return;
       case 4:
         game.coupure();
-              game.checkStatus();
+        game.checkStatus();
 
         return;
       case 5:
         game.rallyTroops();
-              game.checkStatus();
+        game.checkStatus();
 
         return;
       case 6:
         game.tunnelMovement();
-              game.checkStatus();
+        game.checkStatus();
 
         return;
       case 7:
         game.supplyRaid();
-              game.checkStatus();
+        game.checkStatus();
 
         return;
       case 8:
         game.sabotage();
-              game.checkStatus();
+        game.checkStatus();
 
         return;
       case 9:
         game.extraActionPoint();
-              game.checkStatus();
+        game.checkStatus();
 
         return;
       case 10:
@@ -191,7 +191,8 @@ public class TextUI {
         System.out.println("Invalid option");
     }
   }
-private void getUserInputWhileAwaitBegginingOfTheTurn(){
+
+  private void getUserInputWhileAwaitBegginingOfTheTurn() {
     int value;
     System.out.println();
     System.out.println("1 - start turn");
@@ -214,7 +215,7 @@ private void getUserInputWhileAwaitBegginingOfTheTurn(){
       default:
         System.out.println("Invalid option");
     }
-}
+  }
   /** getUserInputWhileAwaitTopCardToBeDrawn. */
   private void getUserInputWhileAwaitTopCardToBeDrawn() {
     int value;
@@ -263,7 +264,8 @@ private void getUserInputWhileAwaitBegginingOfTheTurn(){
 
     game.attack(name);
   }
-   private void getUserInputWhileAwaitTroopsMovementSelection(){
+
+  private void getUserInputWhileAwaitTroopsMovementSelection() {
     int value;
 
     System.out.println("\n\n---------------------------------");
@@ -287,77 +289,68 @@ private void getUserInputWhileAwaitBegginingOfTheTurn(){
         getGame().leaveLocation();
         return;
       case 2:
-          
-    System.out.println("1 - Direction enemy lines");
-    System.out.println("2 - Direction castle");
-    System.out.println("0 - End Game");
-    System.out.print("\n> ");
+        System.out.println("1 - Direction enemy lines");
+        System.out.println("2 - Direction castle");
+        System.out.println("0 - End Game");
+        System.out.print("\n> ");
 
-    while (!s.hasNextInt()) {
-      s.nextInt();
-    }
-
-    value = s.nextInt();
-        switch (value) {
-
-            case 1:
-
-        getGame().freeMovement(false);
-        return;
-        
-            case 2:
-
-        getGame().freeMovement(true);
-        return;
-        
-              case 0:
-        getGame().finish();
-        return;
-        
-              default:
-        System.out.println("Invalid option");
+        while (!s.hasNextInt()) {
+          s.nextInt();
         }
-              case 3:
-System.out.println("1 - Direction Enemy lines");
-    System.out.println("2 - Direction castle");
-    System.out.println("0 - End Game");
-    System.out.print("\n> ");
 
-    while (!s.hasNextInt()) {
-      s.nextInt();
-    }
-
-    value = s.nextInt();
+        value = s.nextInt();
         switch (value) {
+          case 1:
+            getGame().freeMovement(false);
+            return;
 
-            case 1:
+          case 2:
+            getGame().freeMovement(true);
+            return;
 
-        getGame().fastMovement(false);
-        return;
-        
-            case 2:
+          case 0:
+            getGame().finish();
+            return;
 
-        getGame().fastMovement(true);
-        return;
-        
-              case 0:
-        getGame().finish();
-        return;
-        
-              default:
-        System.out.println("Invalid option");
+          default:
+            System.out.println("Invalid option");
+        }
+      case 3:
+        System.out.println("1 - Direction Enemy lines");
+        System.out.println("2 - Direction castle");
+        System.out.println("0 - End Game");
+        System.out.print("\n> ");
+
+        while (!s.hasNextInt()) {
+          s.nextInt();
+        }
+
+        value = s.nextInt();
+        switch (value) {
+          case 1:
+            getGame().fastMovement(false);
+            return;
+
+          case 2:
+            getGame().fastMovement(true);
+            return;
+
+          case 0:
+            getGame().finish();
+            return;
+
+          default:
+            System.out.println("Invalid option");
         }
         return;
-        
+
       case 0:
         getGame().finish();
         return;
       default:
         System.out.println("Invalid option");
     }
-
-
-   }
+  }
 
   private void getUserInputWhileAwaitOptionSelectionForExtraActionPoint() {
     int value;
@@ -471,7 +464,7 @@ System.out.println("1 - Direction Enemy lines");
         getUserInputWhileAwaitingBeginning();
       } else if (game.getState() instanceof AwaitTopCardToBeDrawn) {
         getUserInputWhileAwaitTopCardToBeDrawn();
-              } else if (game.getState() instanceof AwaitBegginingOfTheTurn) {
+      } else if (game.getState() instanceof AwaitBegginingOfTheTurn) {
         getUserInputWhileAwaitBegginingOfTheTurn();
       } else if (game.getState() instanceof AwaitActionSelection) {
         getUserInputWhileAwaitingOptionSelection();
@@ -479,7 +472,7 @@ System.out.println("1 - Direction Enemy lines");
         getUserInputWhileAwaitEnemyTrackSelection();
       } else if (game.getState() instanceof AwaitEnemyTrackSelectionForBoilingWaterAttack) {
         getUserInputWhileAwaitEnemyTrackSelection();
-              } else if (game.getState() instanceof AwaitOptionForTroopsMovement) {
+      } else if (game.getState() instanceof AwaitOptionForTroopsMovement) {
         getUserInputWhileAwaitTroopsMovementSelection();
       } else if (game.getState() instanceof AwaitOptionSelectionForExtraActionPoint) {
         getUserInputWhileAwaitOptionSelectionForExtraActionPoint();

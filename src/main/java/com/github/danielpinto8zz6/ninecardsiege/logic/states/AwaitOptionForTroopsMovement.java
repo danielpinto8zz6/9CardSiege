@@ -7,39 +7,33 @@ package com.github.danielpinto8zz6.ninecardsiege.logic.states;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
-/**
- *
- * @author tiago_000
- */
+/** @author tiago_000 */
 public class AwaitOptionForTroopsMovement extends StateAdapter {
-          private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    
   public AwaitOptionForTroopsMovement(GameData g) {
     super(g);
   }
-  
-  
-          @Override
-  public IStates leaveLocation(){
+
+  @Override
+  public IStates leaveLocation() {
     getGameData().leaveM();
     return new AwaitActionSelection(getGameData());
-
   }
-          @Override
-  public IStates freeMovement(boolean up){
-      
-          getGameData().freeM(up);
+
+  @Override
+  public IStates freeMovement(boolean up) {
+
+    getGameData().freeM(up);
 
     return new AwaitActionSelection(getGameData());
-
   }
-            @Override
-  public IStates fastMovement(boolean up){
-      
-                getGameData().fastM(up);
+
+  @Override
+  public IStates fastMovement(boolean up) {
+
+    getGameData().fastM(up);
 
     return new AwaitActionSelection(getGameData());
-
   }
 }
