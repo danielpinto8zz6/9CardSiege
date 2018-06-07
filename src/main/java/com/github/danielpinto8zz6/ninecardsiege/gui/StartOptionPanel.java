@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDrawn;
+import java.awt.BorderLayout;
 
 /**
  * Painel que apresenta as varias opcoes de configuracao e permite iniciar o game Observa o game
@@ -28,13 +30,16 @@ class StartOptionPanel extends JPanel implements Observer {
   ObservableGame game;
 
   JButton start = new JButton("Start");
+    JButton end = new JButton("End");
+    JButton attack = new JButton("atack");
+
   PlayerNameBox playerName;
 
   StartOptionPanel(ObservableGame g) {
     game = g;
     game.addObserver(this);
 
-    setBackground(Color.GREEN);
+    setBackground(Color.GRAY);
     setupComponents();
     setupLayout();
 
@@ -46,7 +51,7 @@ class StartOptionPanel extends JPanel implements Observer {
 
     start.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-    add(Box.createVerticalStrut(10));
+    add(Box.createVerticalStrut(20));
     add(start);
 
     playerName.setMinimumSize(new Dimension(120, 20));
@@ -56,7 +61,24 @@ class StartOptionPanel extends JPanel implements Observer {
 
     add(Box.createVerticalStrut(10));
     add(playerName);
+    
+    end.setAlignmentX(Component.CENTER_ALIGNMENT);
+        end.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+    add(Box.createVerticalStrut(10));
+    add(end);
 
+    validate();
+  }
+  
+    private void reSetupLayout() {
+            setBackground(Color.BLUE);
+
+setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+    attack.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+    add(Box.createVerticalStrut(20));
+    add(attack);
+    
     validate();
   }
 
@@ -69,12 +91,23 @@ class StartOptionPanel extends JPanel implements Observer {
           public void actionPerformed(ActionEvent ev) {
             game.setPlayerName(playerName.getText());
             game.start();
+
+          }
+        });
+    
+        end.addActionListener(
+        new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent ev) {
+            game.finish();
+            System.exit(0);
+
           }
         });
   }
 
   @Override
   public void update(Observable o, Object arg) {
-    setVisible(game.getState() instanceof AwaitBeginning);
+        setVisible(game.getState() instanceof AwaitBeginning);
   }
 }
