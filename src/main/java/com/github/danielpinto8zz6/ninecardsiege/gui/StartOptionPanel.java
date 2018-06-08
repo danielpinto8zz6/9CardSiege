@@ -13,77 +13,74 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
- * Painel que apresenta as varias opcoes de configuracao e permite iniciar o game Observa o game
- * para se tornar invisivel/visivel conforme um game esteja em curso ou nao.
+ * Painel que apresenta as varias opcoes de configuracao e permite iniciar o
+ * game Observa o game para se tornar invisivel/visivel conforme um game esteja
+ * em curso ou nao.
  *
  * @author JMSousa (base)
  */
-class StartOptionPanel extends JPanel  {
-  private static final long serialVersionUID = 1L;
+class StartOptionPanel extends JPanel {
+	private static final long serialVersionUID = 1L;
 
-  ObservableGame game;
+	ObservableGame game;
 
-  JButton start = new JButton("Start");
-  JButton end = new JButton("End");
-  JButton attack = new JButton("atack");
+	JButton start = new JButton("Start");
+	JButton end = new JButton("End");
+	JButton attack = new JButton("atack");
 
-  PlayerNameBox playerName;
+	PlayerNameBox playerName;
 
-  StartOptionPanel(ObservableGame g) {
-    game = g;
+	StartOptionPanel(ObservableGame g) {
+		game = g;
 
+		setBackground(Color.GRAY);
+		setupComponents();
+		setupLayout();
 
-    setBackground(Color.GRAY);
-    setupComponents();
-    setupLayout();
+		setVisible(game.getState() instanceof AwaitBeginning);
+	}
 
-    setVisible(game.getState() instanceof AwaitBeginning);
-  }
+	private void setupLayout() {
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-  private void setupLayout() {
-    setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		start.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-    start.setAlignmentX(Component.CENTER_ALIGNMENT);
+		add(Box.createVerticalStrut(20));
+		add(start);
 
-    add(Box.createVerticalStrut(20));
-    add(start);
+		playerName.setMinimumSize(new Dimension(120, 20));
 
-    playerName.setMinimumSize(new Dimension(120, 20));
+		playerName.setAlignmentX(Component.CENTER_ALIGNMENT);
+		playerName.setOpaque(false);
 
-    playerName.setAlignmentX(Component.CENTER_ALIGNMENT);
-    playerName.setOpaque(false);
+		add(Box.createVerticalStrut(10));
+		add(playerName);
 
-    add(Box.createVerticalStrut(10));
-    add(playerName);
+		end.setAlignmentX(Component.CENTER_ALIGNMENT);
+		end.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+		add(Box.createVerticalStrut(10));
+		add(end);
 
-    end.setAlignmentX(Component.CENTER_ALIGNMENT);
-    end.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-    add(Box.createVerticalStrut(10));
-    add(end);
+		validate();
+	}
 
-    validate();
-  }
+	private void setupComponents() {
+		playerName = new PlayerNameBox(game);
 
+		start.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent ev) {
+				game.setPlayerName(playerName.getText());
+				game.start();
+			}
+		});
 
-  private void setupComponents() {
-    playerName = new PlayerNameBox(game);
-
-    start.addActionListener(
-        new ActionListener() {
-          @Override
-          public void actionPerformed(ActionEvent ev) {
-            game.setPlayerName(playerName.getText());
-            game.start();
-          }
-        });
-
-    end.addActionListener(
-        new ActionListener() {
-          @Override
-          public void actionPerformed(ActionEvent ev) {
-            System.exit(0);
-          }
-        });
-  }
+		end.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent ev) {
+				System.exit(0);
+			}
+		});
+	}
 
 }

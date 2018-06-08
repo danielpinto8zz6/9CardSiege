@@ -12,19 +12,21 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundEx
  */
 public class DeterminedEnemy {
 
-  /**
-   * apply.
-   *
-   * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-   */
-  public static void apply(GameData gameData) {
-    Enemy enemy;
-    try {
-      enemy = gameData.getEnemy("BattleRam");
+	/**
+	 * apply.
+	 *
+	 * @param gameData
+	 *            a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
+	 *            object.
+	 */
+	public static void apply(GameData gameData) {
+		Enemy enemy;
+		try {
+			enemy = gameData.getEnemy("BattleRam");
 
-      enemy.setStrength(enemy.getStrength() + 1);
-    } catch (EnemyNotFoundException e) {
-      gameData.addMsgLog(e.getMessage());
-    }
-  }
+			enemy.setStrength(enemy.getStrength() + 1);
+		} catch (EnemyNotFoundException e) {
+			gameData.addMsgLog(e.getMessage());
+		}
+	}
 }

@@ -10,29 +10,31 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
  */
 public class AwaitEnemyTrackSelectionForBoilingWaterAttack extends StateAdapter {
 
-  private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-  /**
-   * Constructor for AwaitEnemyTrackSelectionForBoilingWaterAttack.
-   *
-   * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-   */
-  public AwaitEnemyTrackSelectionForBoilingWaterAttack(GameData g) {
-    super(g);
-  }
+	/**
+	 * Constructor for AwaitEnemyTrackSelectionForBoilingWaterAttack.
+	 *
+	 * @param g
+	 *            a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
+	 *            object.
+	 */
+	public AwaitEnemyTrackSelectionForBoilingWaterAttack(GameData g) {
+		super(g);
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates attack(String name) {
+	/** {@inheritDoc} */
+	@Override
+	public IStates attack(String name) {
 
-    getGameData().boilingWaterAttack(name);
+		getGameData().boilingWaterAttack(name);
 
-    return new AwaitActionSelection(getGameData());
-  }
+		return new AwaitActionSelection(getGameData());
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates finish() {
-    return new GameOver(getGameData());
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates finish() {
+		return new GameOver(getGameData());
+	}
 }

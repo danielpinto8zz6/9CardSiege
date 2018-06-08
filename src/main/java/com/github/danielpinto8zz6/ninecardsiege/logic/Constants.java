@@ -8,22 +8,22 @@ package com.github.danielpinto8zz6.ninecardsiege.logic;
  */
 public interface Constants {
 
-  /** Direction of movement */
-  enum MOVE {
+	/** Direction of movement */
+	enum MOVE {
 
-    /** Move up */
-    UP,
-    /** Move down */
-    DOWN
-  }
+		/** Move up */
+		UP,
+		/** Move down */
+		DOWN
+	}
 
-  /** Extra type */
-  enum EXTRA {
+	/** Extra type */
+	enum EXTRA {
 
-    /** Moral */
-    MORAL,
+		/** Moral */
+		MORAL,
 
-    /** Supplies */
-    SUPPLIES
-  }
+		/** Supplies */
+		SUPPLIES
+	}
 }

@@ -16,45 +16,43 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /** @author tiago_000 */
-public class OptionPanel extends JPanel  {
-  private static final long serialVersionUID = 1L;
+public class OptionPanel extends JPanel {
+	private static final long serialVersionUID = 1L;
 
-  ObservableGame game;
-  JButton end = new JButton("End");
+	ObservableGame game;
+	JButton end = new JButton("End");
 
-  OptionPanel(ObservableGame g) {
+	OptionPanel(ObservableGame g) {
 
-    game = g;
+		game = g;
 
+		setBackground(Color.GRAY);
+		setupComponents();
+		setupLayout();
 
-    setBackground(Color.GRAY);
-    setupComponents();
-    setupLayout();
+		setVisible(false);
+	}
 
-    setVisible(false);
-  }
+	private void setupComponents() {
 
-  private void setupComponents() {
+		end.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent ev) {
+				System.exit(0);
+			}
+		});
+	}
 
-    end.addActionListener(
-        new ActionListener() {
-          @Override
-          public void actionPerformed(ActionEvent ev) {
-            System.exit(0);
-          }
-        });
-  }
+	private void setupLayout() {
 
-  private void setupLayout() {
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-    setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		end.setAlignmentX(Component.CENTER_ALIGNMENT);
+		end.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+		add(Box.createVerticalStrut(10));
+		add(end);
 
-    end.setAlignmentX(Component.CENTER_ALIGNMENT);
-    end.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-    add(Box.createVerticalStrut(10));
-    add(end);
-
-    validate();
-  }
+		validate();
+	}
 
 }

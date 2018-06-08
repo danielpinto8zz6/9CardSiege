@@ -16,94 +16,96 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundEx
  */
 public class Card6 extends Card {
 
-  private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-  /**
-   * Constructor for Card6.
-   *
-   * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-   */
-  public Card6(GameData gameData) {
-    super(gameData);
-  }
+	/**
+	 * Constructor for Card6.
+	 *
+	 * @param gameData
+	 *            a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
+	 *            object.
+	 */
+	public Card6(GameData gameData) {
+		super(gameData);
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public void day1Event() {
-    CoverOfDarkness.apply(getGameData());
-    getPlayer().setActionPoints(3);
-  }
+	/** {@inheritDoc} */
+	@Override
+	public void day1Event() {
+		CoverOfDarkness.apply(getGameData());
+		getPlayer().setActionPoints(3);
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public void day2Event() {
-    EnemyFatigue.apply(getGameData());
-    getPlayer().setActionPoints(3);
-  }
+	/** {@inheritDoc} */
+	@Override
+	public void day2Event() {
+		EnemyFatigue.apply(getGameData());
+		getPlayer().setActionPoints(3);
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public void day3Event() {
-    Rally.apply(getGameData());
-    getPlayer().setActionPoints(3);
-  }
+	/** {@inheritDoc} */
+	@Override
+	public void day3Event() {
+		Rally.apply(getGameData());
+		getPlayer().setActionPoints(3);
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public String toString() {
-    return "Card6";
-  }
+	/** {@inheritDoc} */
+	@Override
+	public String toString() {
+		return "Card6";
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public void moveEnemyDay1() {
-    int max = 0;
+	/** {@inheritDoc} */
+	@Override
+	public void moveEnemyDay1() {
+		int max = 0;
 
-    for (Enemy enemy : getGameData().getEnemies()) {
-      if (enemy.getPosition() > max) {
-        max = enemy.getPosition();
-      }
-    }
+		for (Enemy enemy : getGameData().getEnemies()) {
+			if (enemy.getPosition() > max) {
+				max = enemy.getPosition();
+			}
+		}
 
-    for (Enemy enemy : getGameData().getEnemies()) {
-      if (enemy.getPosition() == max) {
-        enemy.move(Constants.MOVE.UP);
-      }
-    }
-  }
+		for (Enemy enemy : getGameData().getEnemies()) {
+			if (enemy.getPosition() == max) {
+				enemy.move(Constants.MOVE.UP);
+			}
+		}
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public void moveEnemyDay2() {
-    Enemy enemyL;
-    try {
-      enemyL = getGameData().getEnemy("Ladders");
+	/** {@inheritDoc} */
+	@Override
+	public void moveEnemyDay2() {
+		Enemy enemyL;
+		try {
+			enemyL = getGameData().getEnemy("Ladders");
 
-      enemyL.move(Constants.MOVE.UP);
-    } catch (EnemyNotFoundException e) {
-      getGameData().addMsgLog(e.getMessage());
-    }
-  }
+			enemyL.move(Constants.MOVE.UP);
+		} catch (EnemyNotFoundException e) {
+			getGameData().addMsgLog(e.getMessage());
+		}
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public void moveEnemyDay3() {
-    Enemy enemyR;
-    try {
-      enemyR = getGameData().getEnemy("BattleRam");
+	/** {@inheritDoc} */
+	@Override
+	public void moveEnemyDay3() {
+		Enemy enemyR;
+		try {
+			enemyR = getGameData().getEnemy("BattleRam");
 
-      enemyR.move(Constants.MOVE.UP);
-    } catch (EnemyNotFoundException e) {
-      getGameData().addMsgLog(e.getMessage());
-    }
+			enemyR.move(Constants.MOVE.UP);
+		} catch (EnemyNotFoundException e) {
+			getGameData().addMsgLog(e.getMessage());
+		}
 
-    Enemy enemyS;
-    try {
-      enemyS = getGameData().getEnemy("SiegeTower");
+		Enemy enemyS;
+		try {
+			enemyS = getGameData().getEnemy("SiegeTower");
 
-      enemyS.move(Constants.MOVE.UP);
-    } catch (EnemyNotFoundException e) {
-      getGameData().addMsgLog(e.getMessage());
-    }
-  }
+			enemyS.move(Constants.MOVE.UP);
+		} catch (EnemyNotFoundException e) {
+			getGameData().addMsgLog(e.getMessage());
+		}
+	}
 }

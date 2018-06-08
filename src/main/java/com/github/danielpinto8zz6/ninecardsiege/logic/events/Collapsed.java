@@ -12,21 +12,23 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundEx
  */
 public class Collapsed {
 
-  /**
-   * apply.
-   *
-   * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-   */
-  public static void apply(GameData gameData) {
-    Enemy enemy;
-    try {
-      enemy = gameData.getEnemy("SiegeTower");
+	/**
+	 * apply.
+	 *
+	 * @param gameData
+	 *            a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
+	 *            object.
+	 */
+	public static void apply(GameData gameData) {
+		Enemy enemy;
+		try {
+			enemy = gameData.getEnemy("SiegeTower");
 
-      if (enemy.getPosition() == 4) {
-        gameData.getEnemies().remove(enemy);
-      }
-    } catch (EnemyNotFoundException e) {
-      gameData.addMsgLog(e.getMessage());
-    }
-  }
+			if (enemy.getPosition() == 4) {
+				gameData.getEnemies().remove(enemy);
+			}
+		} catch (EnemyNotFoundException e) {
+			gameData.addMsgLog(e.getMessage());
+		}
+	}
 }

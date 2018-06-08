@@ -17,63 +17,59 @@ import javax.swing.event.DocumentListener;
  * @author JMSousa (base)
  */
 class PlayerNameBox extends JPanel {
-  private static final long serialVersionUID = 1L;
-  ObservableGame game;
-  JTextField nameField;
+	private static final long serialVersionUID = 1L;
+	ObservableGame game;
+	JTextField nameField;
 
-  PlayerNameBox(ObservableGame g) {
-    String nome;
+	PlayerNameBox(ObservableGame g) {
+		String nome;
 
-    game = g;
+		game = g;
 
-    nome = g.getPlayer().getName();
+		nome = g.getPlayer().getName();
 
-    nameField = new JTextField(15);
-    nameField.setText(nome);
+		nameField = new JTextField(15);
+		nameField.setText(nome);
 
-    // Listen for changes in the text
-    nameField
-        .getDocument()
-        .addDocumentListener(
-            new DocumentListener() {
+		// Listen for changes in the text
+		nameField.getDocument().addDocumentListener(new DocumentListener() {
 
-              @Override
-              public void changedUpdate(DocumentEvent e) {
-                game.setPlayerName(nameField.getText());
-              }
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				game.setPlayerName(nameField.getText());
+			}
 
-              @Override
-              public void insertUpdate(DocumentEvent e) {
-                game.setPlayerName(nameField.getText());
-              }
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				game.setPlayerName(nameField.getText());
+			}
 
-              @Override
-              public void removeUpdate(DocumentEvent e) {
-                game.setPlayerName(nameField.getText());
-              }
-            });
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				game.setPlayerName(nameField.getText());
+			}
+		});
 
-    // <Enter> pressed
-    nameField.addActionListener(
-        new ActionListener() {
-          @Override
-          public void actionPerformed(ActionEvent e) {
-            game.setPlayerName(nameField.getText());
-            game.start();
-          }
-        });
+		// <Enter> pressed
+		nameField.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				game.setPlayerName(nameField.getText());
+				game.start();
+			}
+		});
 
-    setMaximumSize(new Dimension(200, 40));
-    setupLayout();
-  }
+		setMaximumSize(new Dimension(200, 40));
+		setupLayout();
+	}
 
-  private void setupLayout() {
-    setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-    add(new JLabel("Player " + " name"));
-    add(nameField);
-  }
+	private void setupLayout() {
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		add(new JLabel("Player " + " name"));
+		add(nameField);
+	}
 
-  public String getText() {
-    return nameField.getText();
-  }
+	public String getText() {
+		return nameField.getText();
+	}
 }

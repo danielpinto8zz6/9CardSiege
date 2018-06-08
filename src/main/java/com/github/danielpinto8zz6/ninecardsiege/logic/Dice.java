@@ -10,18 +10,18 @@ import java.util.Random;
  */
 public class Dice {
 
-  /**
-   * roll. returns a random number between 1 and 6
-   *
-   * @return a int.
-   */
-  public static int roll() {
-    int value;
+	/**
+	 * roll. returns a random number between 1 and 6
+	 *
+	 * @return a int.
+	 */
+	public static int roll() {
+		int value;
 
-    Random random = new Random();
+		Random random = new Random();
 
-    value = Math.abs(random.nextInt() % 6) + 1;
+		value = Math.abs(random.nextInt() % 6) + 1;
 
-    return value;
-  }
+		return value;
+	}
 }

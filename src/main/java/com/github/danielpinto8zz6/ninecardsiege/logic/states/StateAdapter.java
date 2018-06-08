@@ -12,167 +12,173 @@ import java.io.Serializable;
  */
 public class StateAdapter implements IStates, Constants, Serializable {
 
-  private static final long serialVersionUID = 1L;
-  private GameData game;
+	private static final long serialVersionUID = 1L;
+	private GameData game;
 
-  /**
-   * Constructor for StateAdapter.
-   *
-   * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-   */
-  public StateAdapter(GameData g) {
-    this.game = g;
-  }
+	/**
+	 * Constructor for StateAdapter.
+	 *
+	 * @param g
+	 *            a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
+	 *            object.
+	 */
+	public StateAdapter(GameData g) {
+		this.game = g;
+	}
 
-  /**
-   * Getter for the field <code>game</code>.
-   *
-   * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-   */
-  public GameData getGameData() {
-    return game;
-  }
+	/**
+	 * Getter for the field <code>game</code>.
+	 *
+	 * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
+	 *         object.
+	 */
+	public GameData getGameData() {
+		return game;
+	}
 
-  /**
-   * Setter for the field <code>game</code>.
-   *
-   * @param game a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-   */
-  public void setGame(GameData game) {
-    this.game = game;
-  }
+	/**
+	 * Setter for the field <code>game</code>.
+	 *
+	 * @param game
+	 *            a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
+	 *            object.
+	 */
+	public void setGame(GameData game) {
+		this.game = game;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates start() {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates start() {
+		return this;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates finish() {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates finish() {
+		return this;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates drawTopCard() {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates drawTopCard() {
+		return this;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates StartOfTheTurn() {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates StartOfTheTurn() {
+		return this;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates archersAttack() {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates archersAttack() {
+		return this;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates boilingWaterAttack() {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates boilingWaterAttack() {
+		return this;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates attack(String name) {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates attack(String name) {
+		return this;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates closeCombatAttack() {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates closeCombatAttack() {
+		return this;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates capture() {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates capture() {
+		return this;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates endOfTurn() {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates endOfTurn() {
+		return this;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates extraActionPoint() {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates extraActionPoint() {
+		return this;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates applyExtraActionPoint(EXTRA extra) {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates applyExtraActionPoint(EXTRA extra) {
+		return this;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates coupure() {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates coupure() {
+		return this;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates rallyTroops() {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates rallyTroops() {
+		return this;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates tunnelMovement() {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates tunnelMovement() {
+		return this;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates supplyRaid() {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates supplyRaid() {
+		return this;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates sabotage() {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates sabotage() {
+		return this;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates checkStatus() {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates checkStatus() {
+		return this;
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates applyRallyTroops(boolean plusOne) {
-    return this;
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates applyRallyTroops(boolean plusOne) {
+		return this;
+	}
 
-  @Override
-  public IStates leaveLocation() {
-    return this;
-  }
+	@Override
+	public IStates leaveLocation() {
+		return this;
+	}
 
-  @Override
-  public IStates freeMovement(boolean up) {
-    return this;
-  }
+	@Override
+	public IStates freeMovement(boolean up) {
+		return this;
+	}
 
-  @Override
-  public IStates fastMovement(boolean up) {
-    return this;
-  }
-  /** {@inheritDoc} */
-  @Override
-  public IStates playAgain() {
-    return this;
-  }
+	@Override
+	public IStates fastMovement(boolean up) {
+		return this;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates playAgain() {
+		return this;
+	}
 }

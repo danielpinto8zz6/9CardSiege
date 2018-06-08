@@ -8,38 +8,38 @@ import java.util.Observer;
 import javax.swing.JFrame;
 
 public class Gui extends JFrame implements Observer {
-  private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-  ObservableGame game;
-  GamePanel panel;
+	ObservableGame game;
+	GamePanel panel;
 
-  public Gui(ObservableGame game) {
-    super("9CardSiege");
-    this.game = game;
-    game.addObserver(this);
-    panel = new GamePanel(game);
+	public Gui(ObservableGame game) {
+		super("9CardSiege");
+		this.game = game;
+		game.addObserver(this);
+		panel = new GamePanel(game);
 
-    addComponents();
+		addComponents();
 
-    setVisible(true);
-    this.setSize(1000, 500);
-    this.setResizable(false);
-    // this.setMinimumSize(new Dimension(650, 450));
-    setLocationRelativeTo(null);
-    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		this.setSize(1000, 500);
+		this.setResizable(false);
+		// this.setMinimumSize(new Dimension(650, 450));
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    validate();
-  }
+		validate();
+	}
 
-  private void addComponents() {
-    Container cp = getContentPane();
+	private void addComponents() {
+		Container cp = getContentPane();
 
-    cp.setLayout(new BorderLayout());
-    cp.add(panel, BorderLayout.CENTER);
-  }
+		cp.setLayout(new BorderLayout());
+		cp.add(panel, BorderLayout.CENTER);
+	}
 
-  @Override
-  public void update(Observable o, Object arg) {
-    repaint();
-  }
+	@Override
+	public void update(Observable o, Object arg) {
+		repaint();
+	}
 }

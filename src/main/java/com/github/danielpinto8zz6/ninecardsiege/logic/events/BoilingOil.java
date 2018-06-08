@@ -13,30 +13,30 @@ import java.util.List;
  */
 public class BoilingOil {
 
-  /**
-   * apply.
-   *
-   * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-   */
-  public static void apply(GameData gameData) {
-    getEnemiesOnCircleSpaces(gameData)
-        .forEach((enemy) -> enemy.setStrength(enemy.getStrength() + 2));
-  }
+	/**
+	 * apply.
+	 *
+	 * @param gameData
+	 *            a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
+	 *            object.
+	 */
+	public static void apply(GameData gameData) {
+		getEnemiesOnCircleSpaces(gameData).forEach((enemy) -> enemy.setStrength(enemy.getStrength() + 2));
+	}
 
-  /**
-   * getEnemiesOnCircleSpaces. returns a list of all the enemies on circle spaces (position 1)
-   *
-   * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-   * @return a {@link java.util.List} object.
-   */
-  public static List<Enemy> getEnemiesOnCircleSpaces(GameData gameData) {
-    List<Enemy> enemiesOnCircleSpaces = new ArrayList<>();
-    gameData
-        .getBattleCard()
-        .getEnemies()
-        .stream()
-        .filter((enemy) -> (enemy.getPosition() == 1))
-        .forEachOrdered(enemiesOnCircleSpaces::add); // Circle Spaces = position 1
-    return enemiesOnCircleSpaces;
-  }
+	/**
+	 * getEnemiesOnCircleSpaces. returns a list of all the enemies on circle spaces
+	 * (position 1)
+	 *
+	 * @param gameData
+	 *            a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
+	 *            object.
+	 * @return a {@link java.util.List} object.
+	 */
+	public static List<Enemy> getEnemiesOnCircleSpaces(GameData gameData) {
+		List<Enemy> enemiesOnCircleSpaces = new ArrayList<>();
+		gameData.getBattleCard().getEnemies().stream().filter((enemy) -> (enemy.getPosition() == 1))
+				.forEachOrdered(enemiesOnCircleSpaces::add); // Circle Spaces = position 1
+		return enemiesOnCircleSpaces;
+	}
 }

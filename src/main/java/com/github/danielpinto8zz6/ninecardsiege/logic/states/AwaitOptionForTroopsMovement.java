@@ -9,31 +9,31 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
 /** @author tiago_000 */
 public class AwaitOptionForTroopsMovement extends StateAdapter {
-  private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-  public AwaitOptionForTroopsMovement(GameData g) {
-    super(g);
-  }
+	public AwaitOptionForTroopsMovement(GameData g) {
+		super(g);
+	}
 
-  @Override
-  public IStates leaveLocation() {
-    getGameData().leaveM();
-    return new AwaitActionSelection(getGameData());
-  }
+	@Override
+	public IStates leaveLocation() {
+		getGameData().leaveM();
+		return new AwaitActionSelection(getGameData());
+	}
 
-  @Override
-  public IStates freeMovement(boolean up) {
+	@Override
+	public IStates freeMovement(boolean up) {
 
-    getGameData().freeM(up);
+		getGameData().freeM(up);
 
-    return new AwaitActionSelection(getGameData());
-  }
+		return new AwaitActionSelection(getGameData());
+	}
 
-  @Override
-  public IStates fastMovement(boolean up) {
+	@Override
+	public IStates fastMovement(boolean up) {
 
-    getGameData().fastM(up);
+		getGameData().fastM(up);
 
-    return new AwaitActionSelection(getGameData());
-  }
+		return new AwaitActionSelection(getGameData());
+	}
 }

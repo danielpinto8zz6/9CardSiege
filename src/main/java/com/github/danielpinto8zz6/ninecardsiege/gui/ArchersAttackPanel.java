@@ -10,5 +10,5 @@ package com.github.danielpinto8zz6.ninecardsiege.gui;
  * @author tiago_000
  */
 public class ArchersAttackPanel {
-    
+
 }

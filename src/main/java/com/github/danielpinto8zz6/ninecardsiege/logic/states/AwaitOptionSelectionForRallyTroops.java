@@ -10,29 +10,31 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
  */
 public class AwaitOptionSelectionForRallyTroops extends StateAdapter {
 
-  private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-  /**
-   * Constructor for AwaitOptionSelectionForRallyTroops.
-   *
-   * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-   */
-  public AwaitOptionSelectionForRallyTroops(GameData g) {
-    super(g);
-  }
+	/**
+	 * Constructor for AwaitOptionSelectionForRallyTroops.
+	 *
+	 * @param g
+	 *            a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
+	 *            object.
+	 */
+	public AwaitOptionSelectionForRallyTroops(GameData g) {
+		super(g);
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates applyRallyTroops(boolean plusOne) {
+	/** {@inheritDoc} */
+	@Override
+	public IStates applyRallyTroops(boolean plusOne) {
 
-    getGameData().rallyTroops(plusOne);
+		getGameData().rallyTroops(plusOne);
 
-    return new AwaitActionSelection(getGameData());
-  }
+		return new AwaitActionSelection(getGameData());
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public IStates finish() {
-    return new GameOver(getGameData());
-  }
+	/** {@inheritDoc} */
+	@Override
+	public IStates finish() {
+		return new GameOver(getGameData());
+	}
 }

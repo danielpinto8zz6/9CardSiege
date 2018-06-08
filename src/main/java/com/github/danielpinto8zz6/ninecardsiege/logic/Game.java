@@ -14,196 +14,204 @@ import java.util.List;
  */
 public final class Game implements Serializable {
 
-  private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-  private IStates state;
-  private GameData gameData;
+	private IStates state;
+	private GameData gameData;
 
-  /** Constructor for Game. */
-  public Game() {
-    gameData = new GameData();
-    setState(new AwaitBeginning(gameData));
-  }
+	/** Constructor for Game. */
+	public Game() {
+		gameData = new GameData();
+		setState(new AwaitBeginning(gameData));
+	}
 
-  /**
-   * Getter for the field <code>state</code>.
-   *
-   * @return the state
-   */
-  public IStates getState() {
-    return state;
-  }
+	/**
+	 * Getter for the field <code>state</code>.
+	 *
+	 * @return the state
+	 */
+	public IStates getState() {
+		return state;
+	}
 
-  /**
-   * Setter for the field <code>state</code>.
-   *
-   * @param state the state to set
-   */
-  public void setState(IStates state) {
-    this.state = state;
-  }
+	/**
+	 * Setter for the field <code>state</code>.
+	 *
+	 * @param state
+	 *            the state to set
+	 */
+	public void setState(IStates state) {
+		this.state = state;
+	}
 
-  /**
-   * Getter for the field <code>gameData</code>.
-   *
-   * @return the gameData
-   */
-  public GameData getGameData() {
-    return gameData;
-  }
+	/**
+	 * Getter for the field <code>gameData</code>.
+	 *
+	 * @return the gameData
+	 */
+	public GameData getGameData() {
+		return gameData;
+	}
 
-  /**
-   * Setter for the field <code>gameData</code>.
-   *
-   * @param gameData the gameData to set
-   */
-  public void setGameData(GameData gameData) {
-    this.gameData = gameData;
-  }
+	/**
+	 * Setter for the field <code>gameData</code>.
+	 *
+	 * @param gameData
+	 *            the gameData to set
+	 */
+	public void setGameData(GameData gameData) {
+		this.gameData = gameData;
+	}
 
-  /**
-   * getMsgLog.
-   *
-   * @return a {@link java.util.List} object.
-   */
-  public List<String> getMsgLog() {
-    return gameData.getMsgLog();
-  }
+	/**
+	 * getMsgLog.
+	 *
+	 * @return a {@link java.util.List} object.
+	 */
+	public List<String> getMsgLog() {
+		return gameData.getMsgLog();
+	}
 
-  /** clearMsgLog. */
-  public void clearMsgLog() {
-    gameData.clearMsgLog();
-  }
+	/** clearMsgLog. */
+	public void clearMsgLog() {
+		gameData.clearMsgLog();
+	}
 
-  /** {@inheritDoc} */
-  @Override
-  public String toString() {
-    return gameData.toString();
-  }
+	/** {@inheritDoc} */
+	@Override
+	public String toString() {
+		return gameData.toString();
+	}
 
-  /**
-   * Methods that trigger events/actions in the finite state machine /
-   *
-   * <p>start.
-   */
-  public void start() {
-    setState(getState().start());
-  }
+	/**
+	 * Methods that trigger events/actions in the finite state machine /
+	 *
+	 * <p>
+	 * start.
+	 */
+	public void start() {
+		setState(getState().start());
+	}
 
-  /** finish. */
-  public void finish() {
-    setState(getState().finish());
-  }
+	/** finish. */
+	public void finish() {
+		setState(getState().finish());
+	}
 
-  /** drawTopCard. */
-  public void drawTopCard() {
-    setState(getState().drawTopCard());
-  }
+	/** drawTopCard. */
+	public void drawTopCard() {
+		setState(getState().drawTopCard());
+	}
 
-  public void StartOfTheTurn() {
-    setState(getState().StartOfTheTurn());
-  }
+	public void StartOfTheTurn() {
+		setState(getState().StartOfTheTurn());
+	}
 
-  /**
-   * attack enemy
-   *
-   * @param name a {@link java.lang.String} object.
-   */
-  public void attack(String name) {
-    setState(getState().attack(name));
-  }
+	/**
+	 * attack enemy
+	 *
+	 * @param name
+	 *            a {@link java.lang.String} object.
+	 */
+	public void attack(String name) {
+		setState(getState().attack(name));
+	}
 
-  /** archersAttack. */
-  public void archersAttack() {
-    setState(getState().archersAttack());
-  }
+	/** archersAttack. */
+	public void archersAttack() {
+		setState(getState().archersAttack());
+	}
 
-  /** boilingWaterAttack. */
-  public void boilingWaterAttack() {
-    setState(getState().boilingWaterAttack());
-  }
+	/** boilingWaterAttack. */
+	public void boilingWaterAttack() {
+		setState(getState().boilingWaterAttack());
+	}
 
-  /** closeCombatAttack. */
-  public void closeCombatAttack() {
-    setState(getState().closeCombatAttack());
-  }
+	/** closeCombatAttack. */
+	public void closeCombatAttack() {
+		setState(getState().closeCombatAttack());
+	}
 
-  /** extraActionPoint */
-  public void extraActionPoint() {
-    setState(getState().extraActionPoint());
-  }
+	/** extraActionPoint */
+	public void extraActionPoint() {
+		setState(getState().extraActionPoint());
+	}
 
-  /**
-   * extraActionPoint
-   *
-   * @param extra a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA} object.
-   */
-  public void applyExtraActionPoint(EXTRA extra) {
-    setState(getState().applyExtraActionPoint(extra));
-  }
+	/**
+	 * extraActionPoint
+	 *
+	 * @param extra
+	 *            a
+	 *            {@link com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA}
+	 *            object.
+	 */
+	public void applyExtraActionPoint(EXTRA extra) {
+		setState(getState().applyExtraActionPoint(extra));
+	}
 
-  /** endOfTurn */
-  public void endOfTurn() {
-    setState(getState().endOfTurn());
-  }
+	/** endOfTurn */
+	public void endOfTurn() {
+		setState(getState().endOfTurn());
+	}
 
-  /** coupure. */
-  public void coupure() {
-    setState(getState().coupure());
-  }
+	/** coupure. */
+	public void coupure() {
+		setState(getState().coupure());
+	}
 
-  /** rallyTroops. */
-  public void rallyTroops() {
-    setState(getState().rallyTroops());
-  }
+	/** rallyTroops. */
+	public void rallyTroops() {
+		setState(getState().rallyTroops());
+	}
 
-  /** tunelMovement. */
-  public void tunnelMovement() {
-    setState(getState().tunnelMovement());
-  }
+	/** tunelMovement. */
+	public void tunnelMovement() {
+		setState(getState().tunnelMovement());
+	}
 
-  /**
-   * applyRallyTroops.
-   *
-   * @param plusOne a boolean.
-   */
-  public void applyRallyTroops(boolean plusOne) {
-    setState(getState().applyRallyTroops(plusOne));
-  }
+	/**
+	 * applyRallyTroops.
+	 *
+	 * @param plusOne
+	 *            a boolean.
+	 */
+	public void applyRallyTroops(boolean plusOne) {
+		setState(getState().applyRallyTroops(plusOne));
+	}
 
-  /** supplyRaid. */
-  public void supplyRaid() {
-    setState(getState().supplyRaid());
-  }
+	/** supplyRaid. */
+	public void supplyRaid() {
+		setState(getState().supplyRaid());
+	}
 
-  /** sabotage. */
-  public void sabotage() {
-    setState(getState().sabotage());
-  }
+	/** sabotage. */
+	public void sabotage() {
+		setState(getState().sabotage());
+	}
 
-  public void leaveLocation() {
-    setState(getState().leaveLocation());
-  }
+	public void leaveLocation() {
+		setState(getState().leaveLocation());
+	}
 
-  public void freeMovement(boolean up) {
-    setState(getState().freeMovement(up));
-  }
+	public void freeMovement(boolean up) {
+		setState(getState().freeMovement(up));
+	}
 
-  public void fastMovement(boolean up) {
-    setState(getState().fastMovement(up));
-  }
+	public void fastMovement(boolean up) {
+		setState(getState().fastMovement(up));
+	}
 
-  /** checkStatus. */
-  public void checkStatus() {
-    setState(getState().checkStatus());
-  }
+	/** checkStatus. */
+	public void checkStatus() {
+		setState(getState().checkStatus());
+	}
 
-  /** playAgain. */
-  public void playAgain() {
-    setState(getState().playAgain());
-  }
+	/** playAgain. */
+	public void playAgain() {
+		setState(getState().playAgain());
+	}
 
-  public boolean isOver() {
-    return getGameData().isEndGame();
-  }
+	public boolean isOver() {
+		return getGameData().isEndGame();
+	}
 }

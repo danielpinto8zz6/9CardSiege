@@ -13,17 +13,18 @@ import com.github.danielpinto8zz6.ninecardsiege.text_ui.TextUI;
  */
 public class App {
 
-  /**
-   * main.
-   *
-   * @param args an array of {@link java.lang.String} objects.
-   */
-  public static void main(String[] args) {
+	/**
+	 * main.
+	 *
+	 * @param args
+	 *            an array of {@link java.lang.String} objects.
+	 */
+	public static void main(String[] args) {
 
-    /** Run the game in the textUI mode */
-     //TextUI textUI = new TextUI(new Game());
-     //textUI.run();
+		/** Run the game in the textUI mode */
+		// TextUI textUI = new TextUI(new Game());
+		// textUI.run();
 
-   Gui gui = new Gui(new ObservableGame());
-  }
+		Gui gui = new Gui(new ObservableGame());
+	}
 }

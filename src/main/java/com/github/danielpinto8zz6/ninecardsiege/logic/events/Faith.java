@@ -13,31 +13,33 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundEx
  */
 public class Faith {
 
-  /**
-   * apply.
-   *
-   * @param gameData a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
-   */
-  public static void apply(GameData gameData) {
-    Player player = gameData.getPlayer();
-    player.setmRaidSupplies(player.getmRaidSupplies() + 1);
+	/**
+	 * apply.
+	 *
+	 * @param gameData
+	 *            a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
+	 *            object.
+	 */
+	public static void apply(GameData gameData) {
+		Player player = gameData.getPlayer();
+		player.setmRaidSupplies(player.getmRaidSupplies() + 1);
 
-    Enemy enemyR;
-    try {
-      enemyR = gameData.getEnemy("BattleRam");
+		Enemy enemyR;
+		try {
+			enemyR = gameData.getEnemy("BattleRam");
 
-      enemyR.setStrength(enemyR.getStrength() - 1);
-    } catch (EnemyNotFoundException e) {
-      gameData.addMsgLog(e.getMessage());
-    }
+			enemyR.setStrength(enemyR.getStrength() - 1);
+		} catch (EnemyNotFoundException e) {
+			gameData.addMsgLog(e.getMessage());
+		}
 
-    Enemy enemyL;
-    try {
-      enemyL = gameData.getEnemy("Ladders");
+		Enemy enemyL;
+		try {
+			enemyL = gameData.getEnemy("Ladders");
 
-      enemyL.setStrength(enemyL.getStrength() - 1);
-    } catch (EnemyNotFoundException e) {
-      gameData.addMsgLog(e.getMessage());
-    }
-  }
+			enemyL.setStrength(enemyL.getStrength() - 1);
+		} catch (EnemyNotFoundException e) {
+			gameData.addMsgLog(e.getMessage());
+		}
+	}
 }
