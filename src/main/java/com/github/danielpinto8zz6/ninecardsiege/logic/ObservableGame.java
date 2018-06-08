@@ -37,10 +37,17 @@ public class ObservableGame extends Observable {
 
   public void start() {
     game.start();
+    
     setChanged();
     notifyObservers();
   }
 
+  public void drawTopCard(){
+          game.drawTopCard();
+          
+    setChanged();
+    notifyObservers(); 
+  }
   public void finish() {
     game.finish();
     notifyObservers();

@@ -27,6 +27,8 @@ public final class GameData implements Constants, Serializable {
   private final Player player;
 
   private int day;
+  private int numCard;
+
   private boolean endGame;
   private boolean newDay;
 
@@ -76,6 +78,7 @@ public final class GameData implements Constants, Serializable {
     return day;
   }
 
+ 
   /**
    * Setter for the field <code>day</code>.
    *
@@ -92,6 +95,14 @@ public final class GameData implements Constants, Serializable {
   public void setNewDay(boolean newDay) {
     this.newDay = newDay;
   }
+
+    public int getNumCard() {
+        return numCard;
+    }
+
+    public void setNumCard(int numCard) {
+        this.numCard = numCard;
+    }
 
   /**
    * Getter for the field <code>battleCard</code>.
