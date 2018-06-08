@@ -6,20 +6,17 @@
 package com.github.danielpinto8zz6.ninecardsiege.gui;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
-import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDrawn;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Observable;
-import java.util.Observer;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /** @author tiago_000 */
-public class OptionPanel extends JPanel implements Observer {
+public class OptionPanel extends JPanel  {
   private static final long serialVersionUID = 1L;
 
   ObservableGame game;
@@ -28,9 +25,9 @@ public class OptionPanel extends JPanel implements Observer {
   OptionPanel(ObservableGame g) {
 
     game = g;
-    game.addObserver(this);
 
-    setBackground(Color.BLACK);
+
+    setBackground(Color.GRAY);
     setupComponents();
     setupLayout();
 
@@ -60,9 +57,4 @@ public class OptionPanel extends JPanel implements Observer {
     validate();
   }
 
-  @Override
-  public void update(Observable o, Object arg) {
-
-    setVisible(game.getState() instanceof AwaitTopCardToBeDrawn);
-  }
 }

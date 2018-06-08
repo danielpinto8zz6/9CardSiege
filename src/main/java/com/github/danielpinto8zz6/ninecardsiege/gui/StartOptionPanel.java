@@ -7,8 +7,6 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Observable;
-import java.util.Observer;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -20,7 +18,7 @@ import javax.swing.JPanel;
  *
  * @author JMSousa (base)
  */
-class StartOptionPanel extends JPanel implements Observer {
+class StartOptionPanel extends JPanel  {
   private static final long serialVersionUID = 1L;
 
   ObservableGame game;
@@ -33,7 +31,7 @@ class StartOptionPanel extends JPanel implements Observer {
 
   StartOptionPanel(ObservableGame g) {
     game = g;
-    game.addObserver(this);
+
 
     setBackground(Color.GRAY);
     setupComponents();
@@ -66,17 +64,6 @@ class StartOptionPanel extends JPanel implements Observer {
     validate();
   }
 
-  private void reSetupLayout() {
-    setBackground(Color.BLUE);
-
-    setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-    attack.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-    add(Box.createVerticalStrut(20));
-    add(attack);
-
-    validate();
-  }
 
   private void setupComponents() {
     playerName = new PlayerNameBox(game);
@@ -94,14 +81,9 @@ class StartOptionPanel extends JPanel implements Observer {
         new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent ev) {
-            game.finish();
             System.exit(0);
           }
         });
   }
 
-  @Override
-  public void update(Observable o, Object arg) {
-    setVisible(game.getState() instanceof AwaitBeginning);
-  }
 }
