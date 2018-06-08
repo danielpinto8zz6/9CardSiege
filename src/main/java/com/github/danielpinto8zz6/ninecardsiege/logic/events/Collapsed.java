@@ -27,7 +27,7 @@ public class Collapsed {
 			if (enemy.getPosition() == 4) {
 				gameData.getEnemies().remove(enemy);
 			}
-		} catch (EnemyNotFoundException e) {
+		} catch (final EnemyNotFoundException e) {
 			gameData.addMsgLog(e.getMessage());
 		}
 	}

@@ -20,7 +20,7 @@ public class GamePanel extends JPanel implements Observer {
 	static Image bGImage;
 	static final String imageFiles[] = { "/back_1.jpg", "/card1.jpg", "/card2.jpg", "/card3.jpg", "/card4.jpg",
 			"/card5.jpg", "/card6.jpg", "/card7.jpg", "/back_2.jpg", "/batlle.jpg", "/status.jpg" };
-	static Image gameImgs[] = new Image[imageFiles.length];
+	static Image gameImgs[] = new Image[GamePanel.imageFiles.length];
 	ObservableGame game;
 	StartOptionPanel optionPanel;
 	OptionPanel optionPane2;

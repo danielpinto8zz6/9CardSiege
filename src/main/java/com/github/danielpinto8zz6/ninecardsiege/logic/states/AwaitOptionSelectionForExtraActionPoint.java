@@ -25,17 +25,17 @@ public class AwaitOptionSelectionForExtraActionPoint extends StateAdapter {
 
 	/** {@inheritDoc} */
 	@Override
-	public IStates endOfTurn() {
-		return new AwaitTopCardToBeDrawn(getGameData());
-	}
-
-	/** {@inheritDoc} */
-	@Override
 	public IStates applyExtraActionPoint(EXTRA extra) {
 
 		getGameData().extraActionPoint(extra);
 
 		return new AwaitActionSelection(getGameData());
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates endOfTurn() {
+		return new AwaitTopCardToBeDrawn(getGameData());
 	}
 
 	/** {@inheritDoc} */

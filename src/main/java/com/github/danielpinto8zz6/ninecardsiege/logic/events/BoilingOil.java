@@ -22,7 +22,7 @@ public class BoilingOil {
 	 *            object.
 	 */
 	public static void apply(GameData gameData) {
-		getEnemiesOnCircleSpaces(gameData).forEach((enemy) -> enemy.setStrength(enemy.getStrength() + 2));
+		BoilingOil.getEnemiesOnCircleSpaces(gameData).forEach((enemy) -> enemy.setStrength(enemy.getStrength() + 2));
 	}
 
 	/**
@@ -35,7 +35,7 @@ public class BoilingOil {
 	 * @return a {@link java.util.List} object.
 	 */
 	public static List<Enemy> getEnemiesOnCircleSpaces(GameData gameData) {
-		List<Enemy> enemiesOnCircleSpaces = new ArrayList<>();
+		final List<Enemy> enemiesOnCircleSpaces = new ArrayList<>();
 		gameData.getBattleCard().getEnemies().stream().filter((enemy) -> (enemy.getPosition() == 1))
 				.forEachOrdered(enemiesOnCircleSpaces::add); // Circle Spaces = position 1
 		return enemiesOnCircleSpaces;

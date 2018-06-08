@@ -11,38 +11,6 @@ public class ObservableGame extends Observable {
 		game = new Game();
 	}
 
-	public Game getGame() {
-		return game;
-	}
-
-	public void setGameModel(Game game) {
-		this.game = game;
-
-		setChanged();
-		notifyObservers();
-	}
-
-	public GameData getGameData() {
-		return game.getGameData();
-	}
-
-	public IStates getState() {
-		return game.getState();
-	}
-
-	// Methods retrieve data from the game
-
-	public Player getPlayer() {
-		return game.getGameData().getPlayer();
-	}
-
-	public void start() {
-		game.start();
-
-		setChanged();
-		notifyObservers();
-	}
-
 	public void drawTopCard() {
 		game.drawTopCard();
 
@@ -55,12 +23,44 @@ public class ObservableGame extends Observable {
 		notifyObservers();
 	}
 
+	public Game getGame() {
+		return game;
+	}
+
+	public GameData getGameData() {
+		return game.getGameData();
+	}
+
+	// Methods retrieve data from the game
+
+	public Player getPlayer() {
+		return game.getGameData().getPlayer();
+	}
+
+	public IStates getState() {
+		return game.getState();
+	}
+
 	public boolean isOver() {
 		return game.isOver();
 	}
 
+	public void setGameModel(Game game) {
+		this.game = game;
+
+		setChanged();
+		notifyObservers();
+	}
+
 	public void setPlayerName(String text) {
 		game.getGameData().getPlayer().setName(text);
+		setChanged();
+		notifyObservers();
+	}
+
+	public void start() {
+		game.start();
+
 		setChanged();
 		notifyObservers();
 	}

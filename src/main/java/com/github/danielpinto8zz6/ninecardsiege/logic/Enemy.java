@@ -29,8 +29,18 @@ public class Enemy implements Serializable {
 	public Enemy(String name, int strength) {
 		this.name = name;
 		this.strength = strength;
-		this.position = 4;
-		this.initialStrength = strength;
+		position = 4;
+		initialStrength = strength;
+	}
+
+	/**
+	 * Getter for the field <code>initialStrength</code>. returns the initial
+	 * strenght of the enemy
+	 *
+	 * @return a int.
+	 */
+	public int getInitialStrength() {
+		return initialStrength;
 	}
 
 	/**
@@ -43,35 +53,6 @@ public class Enemy implements Serializable {
 	}
 
 	/**
-	 * Setter for the field <code>name</code>.
-	 *
-	 * @param name
-	 *            the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
-	 * Getter for the field <code>strength</code>.
-	 *
-	 * @return the strength
-	 */
-	public int getStrength() {
-		return strength;
-	}
-
-	/**
-	 * Setter for the field <code>strength</code>.
-	 *
-	 * @param strength
-	 *            the strength to set
-	 */
-	public void setStrength(int strength) {
-		this.strength = strength;
-	}
-
-	/**
 	 * Getter for the field <code>position</code>.
 	 *
 	 * @return the position
@@ -81,13 +62,12 @@ public class Enemy implements Serializable {
 	}
 
 	/**
-	 * Setter for the field <code>position</code>.
+	 * Getter for the field <code>strength</code>.
 	 *
-	 * @param position
-	 *            the position to set
+	 * @return the strength
 	 */
-	public void setPosition(int position) {
-		this.position = position;
+	public int getStrength() {
+		return strength;
 	}
 
 	/**
@@ -101,23 +81,59 @@ public class Enemy implements Serializable {
 	 */
 	public void move(MOVE move) {
 		if (move == MOVE.UP) {
-			this.position--;
+			position--;
 		} else if (move == MOVE.DOWN) {
-			this.position++;
+			position++;
 		}
-		if (this.position > 4) {
-			this.position = 4;
-		} else if (this.position < 0) {
-			this.position = 0;
+		if (position > 4) {
+			position = 4;
+		} else if (position < 0) {
+			position = 0;
 		}
+	}
+
+	/** reset. */
+	public void reset() {
+		strength = initialStrength;
+		position = 4;
 	}
 
 	/** resetStrenght. Resets the strength */
 	public void resetStrenght() {
-		if (this.position != 0) {
+		if (position != 0) {
 
-			this.strength = getInitialStrength();
+			strength = getInitialStrength();
 		}
+	}
+
+	/**
+	 * Setter for the field <code>name</code>.
+	 *
+	 * @param name
+	 *            the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * Setter for the field <code>position</code>.
+	 *
+	 * @param position
+	 *            the position to set
+	 */
+	public void setPosition(int position) {
+		this.position = position;
+	}
+
+	/**
+	 * Setter for the field <code>strength</code>.
+	 *
+	 * @param strength
+	 *            the strength to set
+	 */
+	public void setStrength(int strength) {
+		this.strength = strength;
 	}
 
 	/** {@inheritDoc} */
@@ -129,21 +145,5 @@ public class Enemy implements Serializable {
 		s += "\n\t" + "Strength: " + getStrength();
 		s += "\n\t" + "Position: " + getPosition();
 		return s;
-	}
-
-	/**
-	 * Getter for the field <code>initialStrength</code>. returns the initial
-	 * strenght of the enemy
-	 *
-	 * @return a int.
-	 */
-	public int getInitialStrength() {
-		return initialStrength;
-	}
-
-	/** reset. */
-	public void reset() {
-		this.strength = this.initialStrength;
-		this.position = 4;
 	}
 }

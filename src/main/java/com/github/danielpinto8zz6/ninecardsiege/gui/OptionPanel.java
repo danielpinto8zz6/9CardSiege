@@ -7,8 +7,6 @@ package com.github.danielpinto8zz6.ninecardsiege.gui;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -37,12 +35,7 @@ public class OptionPanel extends JPanel {
 
 	private void setupComponents() {
 
-		end.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent ev) {
-				System.exit(0);
-			}
-		});
+		end.addActionListener(ev -> System.exit(0));
 	}
 
 	private void setupLayout() {

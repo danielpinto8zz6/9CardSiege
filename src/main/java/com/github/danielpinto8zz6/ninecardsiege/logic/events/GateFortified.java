@@ -25,7 +25,7 @@ public class GateFortified {
 			enemy = gameData.getEnemy("BattleRam");
 
 			enemy.setStrength(enemy.getStrength() - 1);
-		} catch (EnemyNotFoundException e) {
+		} catch (final EnemyNotFoundException e) {
 			gameData.addMsgLog(e.getMessage());
 		}
 	}

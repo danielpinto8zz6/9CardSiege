@@ -27,9 +27,10 @@ public class TrebuchetAttack {
 			gameData.getPlayer().setWallStrength(gameData.getPlayer().getWallStrength() - 1);
 			break;
 		case 1:
-			int roll = Dice.roll();
-			if (roll > 3)
+			final int roll = Dice.roll();
+			if (roll > 3) {
 				gameData.getPlayer().setWallStrength(gameData.getPlayer().getWallStrength() - 1);
+			}
 			break;
 		default:
 			break;

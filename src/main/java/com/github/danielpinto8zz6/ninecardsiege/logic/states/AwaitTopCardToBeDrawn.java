@@ -30,9 +30,9 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
 	@Override
 	public IStates drawTopCard() {
 
-		List<Card> cards = getGameData().getCards();
+		final List<Card> cards = getGameData().getCards();
 		getGameData().addMsgLog("Picking Card...");
-		Card card = cards.get(0);
+		final Card card = cards.get(0);
 		getGameData().setNumCard(card.getCardNumber());
 		getGameData().addMsgLog("Picked " + card.toString());
 

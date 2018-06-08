@@ -29,64 +29,9 @@ public class StatusCard implements Serializable {
 	public StatusCard(GameData gameData) {
 		this.gameData = gameData;
 
-		this.troopPosition = 0;
-		this.supplies = 0;
-		this.freeMov = 0;
-	}
-
-	/**
-	 * Getter for the field <code>gameData</code>.
-	 *
-	 * @return the gameData
-	 */
-	public GameData getGameData() {
-		return gameData;
-	}
-
-	/**
-	 * Setter for the field <code>gameData</code>.
-	 *
-	 * @param gameData
-	 *            the gameData to set
-	 */
-	public void setGameData(GameData gameData) {
-		this.gameData = gameData;
-	}
-
-	/**
-	 * Getter for the field <code>troopPosition</code>.
-	 *
-	 * @return the troopPosition
-	 */
-	public int getTroopPosition() {
-		return troopPosition;
-	}
-
-	/**
-	 * Setter for the field <code>troopPosition</code>.
-	 *
-	 * @param troopPosition
-	 *            the troopPosition to set
-	 */
-	public void setTroopPosition(int troopPosition) {
-		this.troopPosition = troopPosition;
-	}
-
-	public int getFreeMov() {
-		return freeMov;
-	}
-
-	public void setFreeMov(int freeMov) {
-		this.freeMov = freeMov;
-	}
-
-	/**
-	 * Getter for the field <code>supplies</code>.
-	 *
-	 * @return the supplies
-	 */
-	public int getSupplies() {
-		return supplies;
+		troopPosition = 0;
+		supplies = 0;
+		freeMov = 0;
 	}
 
 	/**
@@ -103,9 +48,70 @@ public class StatusCard implements Serializable {
 		}
 	}
 
+	public int getFreeMov() {
+		return freeMov;
+	}
+
+	/**
+	 * Getter for the field <code>gameData</code>.
+	 *
+	 * @return the gameData
+	 */
+	public GameData getGameData() {
+		return gameData;
+	}
+
+	/**
+	 * Getter for the field <code>supplies</code>.
+	 *
+	 * @return the supplies
+	 */
+	public int getSupplies() {
+		return supplies;
+	}
+
+	/**
+	 * Getter for the field <code>troopPosition</code>.
+	 *
+	 * @return the troopPosition
+	 */
+	public int getTroopPosition() {
+		return troopPosition;
+	}
+
 	/** removeSupplies. */
 	public void removeSupplies() {
-		this.supplies = 0;
+		supplies = 0;
+	}
+
+	/** reset. */
+	public void reset() {
+		troopPosition = 0;
+		supplies = 0;
+	}
+
+	public void setFreeMov(int freeMov) {
+		this.freeMov = freeMov;
+	}
+
+	/**
+	 * Setter for the field <code>gameData</code>.
+	 *
+	 * @param gameData
+	 *            the gameData to set
+	 */
+	public void setGameData(GameData gameData) {
+		this.gameData = gameData;
+	}
+
+	/**
+	 * Setter for the field <code>troopPosition</code>.
+	 *
+	 * @param troopPosition
+	 *            the troopPosition to set
+	 */
+	public void setTroopPosition(int troopPosition) {
+		this.troopPosition = troopPosition;
 	}
 
 	/** {@inheritDoc} */
@@ -118,11 +124,5 @@ public class StatusCard implements Serializable {
 		s += "\n\t" + "Supplies: " + getSupplies();
 
 		return s;
-	}
-
-	/** reset. */
-	public void reset() {
-		this.troopPosition = 0;
-		this.supplies = 0;
 	}
 }

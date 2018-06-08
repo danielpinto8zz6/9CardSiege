@@ -21,7 +21,7 @@ public class Faith {
 	 *            object.
 	 */
 	public static void apply(GameData gameData) {
-		Player player = gameData.getPlayer();
+		final Player player = gameData.getPlayer();
 		player.setmRaidSupplies(player.getmRaidSupplies() + 1);
 
 		Enemy enemyR;
@@ -29,7 +29,7 @@ public class Faith {
 			enemyR = gameData.getEnemy("BattleRam");
 
 			enemyR.setStrength(enemyR.getStrength() - 1);
-		} catch (EnemyNotFoundException e) {
+		} catch (final EnemyNotFoundException e) {
 			gameData.addMsgLog(e.getMessage());
 		}
 
@@ -38,7 +38,7 @@ public class Faith {
 			enemyL = gameData.getEnemy("Ladders");
 
 			enemyL.setStrength(enemyL.getStrength() - 1);
-		} catch (EnemyNotFoundException e) {
+		} catch (final EnemyNotFoundException e) {
 			gameData.addMsgLog(e.getMessage());
 		}
 	}

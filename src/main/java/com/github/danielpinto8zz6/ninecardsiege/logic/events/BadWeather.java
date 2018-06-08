@@ -19,7 +19,7 @@ public class BadWeather {
 	 *            object.
 	 */
 	public static void apply(GameData gameData) {
-		Player player = gameData.getPlayer();
+		final Player player = gameData.getPlayer();
 		player.setCanArchersAtack(false);
 		player.setCanBoilingWater(false);
 		player.setCanCoupure(false);

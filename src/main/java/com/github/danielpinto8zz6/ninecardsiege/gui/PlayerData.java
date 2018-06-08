@@ -2,6 +2,7 @@ package com.github.danielpinto8zz6.ninecardsiege.gui;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -42,19 +43,29 @@ class PlayerData extends JPanel implements Observer {
 		setupLayout();
 	}
 
+	@Override
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+
+		final Graphics2D g2 = (Graphics2D) g;
+		g2.setStroke(new BasicStroke(8)); // espessura da linha
+		g2.setColor(Color.GREEN);
+		g2.drawRect(0, 0, getWidth(), getHeight());
+	}
+
 	private void setupLayout() {
-		Player player = game.getPlayer();
+		final Player player = game.getPlayer();
 
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
 		setPreferredSize(new Dimension(200, 80));
 
 		name.setText(player.getName());
-		name.setAlignmentX(CENTER_ALIGNMENT);
-		name.setAlignmentY(CENTER_ALIGNMENT);
+		name.setAlignmentX(Component.CENTER_ALIGNMENT);
+		name.setAlignmentY(Component.CENTER_ALIGNMENT);
 
 		victoryMessage.setVisible(false);
-		victoryMessage.setAlignmentX(CENTER_ALIGNMENT);
+		victoryMessage.setAlignmentX(Component.CENTER_ALIGNMENT);
 		victoryMessage.setFont(new Font("Dialog", Font.BOLD, 30));
 
 		add(name);
@@ -62,19 +73,9 @@ class PlayerData extends JPanel implements Observer {
 	}
 
 	@Override
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
-
-		Graphics2D g2 = (Graphics2D) g;
-		g2.setStroke(new BasicStroke(8)); // espessura da linha
-		g2.setColor(Color.GREEN);
-		g2.drawRect(0, 0, getWidth(), getHeight());
-	}
-
-	@Override
 	public void update(Observable arg0, Object arg1) {
 
-		Player player = game.getPlayer();
+		final Player player = game.getPlayer();
 
 		name.setText(player.getName());
 

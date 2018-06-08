@@ -19,7 +19,7 @@ public class Rally {
 	 */
 	public static void apply(GameData gameData) {
 		gameData.getEnemies().stream()
-				.filter((enemy) -> (enemy != null && (enemy.getPosition() == 0 || enemy.getPosition() == 1)))
+				.filter((enemy) -> ((enemy != null) && ((enemy.getPosition() == 0) || (enemy.getPosition() == 1))))
 				.forEachOrdered((enemy) -> enemy.setStrength(enemy.getStrength() + 1));
 	}
 }

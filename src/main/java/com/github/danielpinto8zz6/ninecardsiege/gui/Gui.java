@@ -25,7 +25,7 @@ public class Gui extends JFrame implements Observer {
 
 		setVisible(true);
 		this.setSize(1000, 500);
-		this.setResizable(false);
+		setResizable(false);
 		// this.setMinimumSize(new Dimension(650, 450));
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -34,7 +34,7 @@ public class Gui extends JFrame implements Observer {
 	}
 
 	private void addComponents() {
-		Container cp = getContentPane();
+		final Container cp = getContentPane();
 
 		cp.setLayout(new BorderLayout());
 		cp.add(panel, BorderLayout.CENTER);

@@ -14,24 +14,29 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA;
 public interface IStates {
 
 	/**
-	 * start. starts the game
+	 * applyExtraActionPoint. adds extra action point whit the type received by
+	 * parameter
 	 *
+	 * @param extra
+	 *            a
+	 *            {@link com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA}
+	 *            object.
 	 * @return a
 	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
 	 *         object.
 	 */
-	IStates start();
+	IStates applyExtraActionPoint(EXTRA extra);
 
 	/**
-	 * drawTopCard. draws the card on the top of the deck
+	 * applyRallyTroops. applies rally troops
 	 *
+	 * @param plusOne
+	 *            a boolean.
 	 * @return a
 	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
 	 *         object.
 	 */
-	IStates drawTopCard();
-
-	IStates StartOfTheTurn();
+	IStates applyRallyTroops(boolean plusOne);
 
 	/**
 	 * archersAttack. performs archers attack
@@ -41,33 +46,6 @@ public interface IStates {
 	 *         object.
 	 */
 	IStates archersAttack();
-
-	/**
-	 * boilingWaterAttack. performs boiling water attack
-	 *
-	 * @return a
-	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
-	 *         object.
-	 */
-	IStates boilingWaterAttack();
-
-	/**
-	 * closeCombatAttack. performs close combat attack
-	 *
-	 * @return a
-	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
-	 *         object.
-	 */
-	IStates closeCombatAttack();
-
-	/**
-	 * capture. performs capture
-	 *
-	 * @return a
-	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
-	 *         object.
-	 */
-	IStates capture();
 
 	/**
 	 * attack. performs attack
@@ -81,13 +59,58 @@ public interface IStates {
 	IStates attack(String name);
 
 	/**
-	 * finish. finishes the game
+	 * boilingWaterAttack. performs boiling water attack
 	 *
 	 * @return a
 	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
 	 *         object.
 	 */
-	IStates finish();
+	IStates boilingWaterAttack();
+
+	/**
+	 * capture. performs capture
+	 *
+	 * @return a
+	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+	 *         object.
+	 */
+	IStates capture();
+
+	/**
+	 * checkStatus. check the current status
+	 *
+	 * @return a
+	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+	 *         object.
+	 */
+	IStates checkStatus();
+
+	/**
+	 * closeCombatAttack. performs close combat attack
+	 *
+	 * @return a
+	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+	 *         object.
+	 */
+	IStates closeCombatAttack();
+
+	/**
+	 * coupure. performs coupure
+	 *
+	 * @return a
+	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+	 *         object.
+	 */
+	IStates coupure();
+
+	/**
+	 * drawTopCard. draws the card on the top of the deck
+	 *
+	 * @return a
+	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+	 *         object.
+	 */
+	IStates drawTopCard();
 
 	/**
 	 * endOfTurn. performs the end of the turn
@@ -107,28 +130,29 @@ public interface IStates {
 	 */
 	IStates extraActionPoint();
 
-	/**
-	 * applyExtraActionPoint. adds extra action point whit the type received by
-	 * parameter
-	 *
-	 * @param extra
-	 *            a
-	 *            {@link com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA}
-	 *            object.
-	 * @return a
-	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
-	 *         object.
-	 */
-	IStates applyExtraActionPoint(EXTRA extra);
+	IStates fastMovement(boolean up);
 
 	/**
-	 * coupure. performs coupure
+	 * finish. finishes the game
 	 *
 	 * @return a
 	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
 	 *         object.
 	 */
-	IStates coupure();
+	IStates finish();
+
+	IStates freeMovement(boolean up);
+
+	IStates leaveLocation();
+
+	/**
+	 * playAgain.
+	 *
+	 * @return a
+	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+	 *         object.
+	 */
+	IStates playAgain();
 
 	/**
 	 * rallyTroops. performs rally troops
@@ -140,13 +164,24 @@ public interface IStates {
 	IStates rallyTroops();
 
 	/**
-	 * tunnelMovement. performs tunnel movement
+	 * sabotage. performs sabotage
 	 *
 	 * @return a
 	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
 	 *         object.
 	 */
-	IStates tunnelMovement();
+	IStates sabotage();
+
+	/**
+	 * start. starts the game
+	 *
+	 * @return a
+	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+	 *         object.
+	 */
+	IStates start();
+
+	IStates StartOfTheTurn();
 
 	/**
 	 * supplyRaid.
@@ -158,46 +193,11 @@ public interface IStates {
 	IStates supplyRaid();
 
 	/**
-	 * sabotage. performs sabotage
+	 * tunnelMovement. performs tunnel movement
 	 *
 	 * @return a
 	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
 	 *         object.
 	 */
-	IStates sabotage();
-
-	/**
-	 * checkStatus. check the current status
-	 *
-	 * @return a
-	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
-	 *         object.
-	 */
-	IStates checkStatus();
-
-	/**
-	 * applyRallyTroops. applies rally troops
-	 *
-	 * @param plusOne
-	 *            a boolean.
-	 * @return a
-	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
-	 *         object.
-	 */
-	IStates applyRallyTroops(boolean plusOne);
-
-	IStates leaveLocation();
-
-	IStates freeMovement(boolean up);
-
-	IStates fastMovement(boolean up);
-
-	/**
-	 * playAgain.
-	 *
-	 * @return a
-	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
-	 *         object.
-	 */
-	IStates playAgain();
+	IStates tunnelMovement();
 }

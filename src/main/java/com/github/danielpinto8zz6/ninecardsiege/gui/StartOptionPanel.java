@@ -3,8 +3,6 @@ package com.github.danielpinto8zz6.ninecardsiege.gui;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -42,6 +40,17 @@ class StartOptionPanel extends JPanel {
 		setVisible(game.getState() instanceof AwaitBeginning);
 	}
 
+	private void setupComponents() {
+		playerName = new PlayerNameBox(game);
+
+		start.addActionListener(ev -> {
+			game.setPlayerName(playerName.getText());
+			game.start();
+		});
+
+		end.addActionListener(ev -> System.exit(0));
+	}
+
 	private void setupLayout() {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
@@ -64,25 +73,6 @@ class StartOptionPanel extends JPanel {
 		add(end);
 
 		validate();
-	}
-
-	private void setupComponents() {
-		playerName = new PlayerNameBox(game);
-
-		start.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent ev) {
-				game.setPlayerName(playerName.getText());
-				game.start();
-			}
-		});
-
-		end.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent ev) {
-				System.exit(0);
-			}
-		});
 	}
 
 }

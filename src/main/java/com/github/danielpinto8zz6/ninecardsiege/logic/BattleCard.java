@@ -38,26 +38,7 @@ public class BattleCard implements Serializable {
 		enemies.add(new Enemy("BattleRam", 3));
 		enemies.add(new Enemy("SiegeTower", 4));
 
-		this.trebuchet = 3;
-	}
-
-	/**
-	 * Getter for the field <code>gameData</code>.
-	 *
-	 * @return the gameData
-	 */
-	public GameData getGameData() {
-		return gameData;
-	}
-
-	/**
-	 * Setter for the field <code>gameData</code>.
-	 *
-	 * @param gameData
-	 *            the gameData to set
-	 */
-	public void setGameData(GameData gameData) {
-		this.gameData = gameData;
+		trebuchet = 3;
 	}
 
 	/**
@@ -70,22 +51,19 @@ public class BattleCard implements Serializable {
 	}
 
 	/**
-	 * Getter for the field <code>trebuchet</code>.
+	 * getEnemiesInCloseCombatArea. return a vector of the enemies in close combat
+	 * area
 	 *
-	 * @return the trebuchet
+	 * @return a {@link java.util.List} object.
 	 */
-	public int getTrebuchet() {
-		return trebuchet;
-	}
+	public List<Enemy> getEnemiesInCloseCombatArea() {
+		final List<Enemy> enemiesInCloseCombatArea = new ArrayList<>();
 
-	/**
-	 * Setter for the field <code>trebuchet</code>.
-	 *
-	 * @param trebuchet
-	 *            the trebuchet to set
-	 */
-	public void setTrebuchet(int trebuchet) {
-		this.trebuchet = trebuchet;
+		enemies.stream().filter((e) -> (e.getPosition() == 0)).forEachOrdered((e) -> {
+			enemiesInCloseCombatArea.add(e);
+		});
+
+		return enemiesInCloseCombatArea;
 	}
 
 	/**
@@ -99,7 +77,7 @@ public class BattleCard implements Serializable {
 	 *             if any.
 	 */
 	public Enemy getEnemy(String name) throws EnemyNotFoundException {
-		for (Enemy enemy : enemies) {
+		for (final Enemy enemy : enemies) {
 			if (enemy.getName() == null ? name == null : enemy.getName().equals(name)) {
 				return enemy;
 			}
@@ -108,19 +86,50 @@ public class BattleCard implements Serializable {
 	}
 
 	/**
-	 * getEnemiesInCloseCombatArea. return a vector of the enemies in close combat
-	 * area
+	 * Getter for the field <code>gameData</code>.
 	 *
-	 * @return a {@link java.util.List} object.
+	 * @return the gameData
 	 */
-	public List<Enemy> getEnemiesInCloseCombatArea() {
-		List<Enemy> enemiesInCloseCombatArea = new ArrayList<>();
+	public GameData getGameData() {
+		return gameData;
+	}
 
-		enemies.stream().filter((e) -> (e.getPosition() == 0)).forEachOrdered((e) -> {
-			enemiesInCloseCombatArea.add(e);
+	/**
+	 * Getter for the field <code>trebuchet</code>.
+	 *
+	 * @return the trebuchet
+	 */
+	public int getTrebuchet() {
+		return trebuchet;
+	}
+
+	/** reset. */
+	public void reset() {
+		trebuchet = 3;
+
+		getGameData().getEnemies().forEach((enemy) -> {
+			enemy.reset();
 		});
+	}
 
-		return enemiesInCloseCombatArea;
+	/**
+	 * Setter for the field <code>gameData</code>.
+	 *
+	 * @param gameData
+	 *            the gameData to set
+	 */
+	public void setGameData(GameData gameData) {
+		this.gameData = gameData;
+	}
+
+	/**
+	 * Setter for the field <code>trebuchet</code>.
+	 *
+	 * @param trebuchet
+	 *            the trebuchet to set
+	 */
+	public void setTrebuchet(int trebuchet) {
+		this.trebuchet = trebuchet;
 	}
 
 	/** {@inheritDoc} */
@@ -132,14 +141,5 @@ public class BattleCard implements Serializable {
 		s += "\n\t" + "Trebuchet: " + getTrebuchet();
 
 		return s;
-	}
-
-	/** reset. */
-	public void reset() {
-		this.trebuchet = 3;
-
-		getGameData().getEnemies().forEach((enemy) -> {
-			enemy.reset();
-		});
 	}
 }

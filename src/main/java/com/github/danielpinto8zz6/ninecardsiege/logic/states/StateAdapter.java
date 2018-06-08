@@ -24,7 +24,95 @@ public class StateAdapter implements IStates, Constants, Serializable {
 	 *            object.
 	 */
 	public StateAdapter(GameData g) {
-		this.game = g;
+		game = g;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates applyExtraActionPoint(EXTRA extra) {
+		return this;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates applyRallyTroops(boolean plusOne) {
+		return this;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates archersAttack() {
+		return this;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates attack(String name) {
+		return this;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates boilingWaterAttack() {
+		return this;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates capture() {
+		return this;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates checkStatus() {
+		return this;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates closeCombatAttack() {
+		return this;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates coupure() {
+		return this;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates drawTopCard() {
+		return this;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates endOfTurn() {
+		return this;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates extraActionPoint() {
+		return this;
+	}
+
+	@Override
+	public IStates fastMovement(boolean up) {
+		return this;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates finish() {
+		return this;
+	}
+
+	@Override
+	public IStates freeMovement(boolean up) {
+		return this;
 	}
 
 	/**
@@ -35,6 +123,29 @@ public class StateAdapter implements IStates, Constants, Serializable {
 	 */
 	public GameData getGameData() {
 		return game;
+	}
+
+	@Override
+	public IStates leaveLocation() {
+		return this;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates playAgain() {
+		return this;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates rallyTroops() {
+		return this;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates sabotage() {
+		return this;
 	}
 
 	/**
@@ -56,85 +167,7 @@ public class StateAdapter implements IStates, Constants, Serializable {
 
 	/** {@inheritDoc} */
 	@Override
-	public IStates finish() {
-		return this;
-	}
-
-	/** {@inheritDoc} */
-	@Override
-	public IStates drawTopCard() {
-		return this;
-	}
-
-	/** {@inheritDoc} */
-	@Override
 	public IStates StartOfTheTurn() {
-		return this;
-	}
-
-	/** {@inheritDoc} */
-	@Override
-	public IStates archersAttack() {
-		return this;
-	}
-
-	/** {@inheritDoc} */
-	@Override
-	public IStates boilingWaterAttack() {
-		return this;
-	}
-
-	/** {@inheritDoc} */
-	@Override
-	public IStates attack(String name) {
-		return this;
-	}
-
-	/** {@inheritDoc} */
-	@Override
-	public IStates closeCombatAttack() {
-		return this;
-	}
-
-	/** {@inheritDoc} */
-	@Override
-	public IStates capture() {
-		return this;
-	}
-
-	/** {@inheritDoc} */
-	@Override
-	public IStates endOfTurn() {
-		return this;
-	}
-
-	/** {@inheritDoc} */
-	@Override
-	public IStates extraActionPoint() {
-		return this;
-	}
-
-	/** {@inheritDoc} */
-	@Override
-	public IStates applyExtraActionPoint(EXTRA extra) {
-		return this;
-	}
-
-	/** {@inheritDoc} */
-	@Override
-	public IStates coupure() {
-		return this;
-	}
-
-	/** {@inheritDoc} */
-	@Override
-	public IStates rallyTroops() {
-		return this;
-	}
-
-	/** {@inheritDoc} */
-	@Override
-	public IStates tunnelMovement() {
 		return this;
 	}
 
@@ -146,40 +179,7 @@ public class StateAdapter implements IStates, Constants, Serializable {
 
 	/** {@inheritDoc} */
 	@Override
-	public IStates sabotage() {
-		return this;
-	}
-
-	/** {@inheritDoc} */
-	@Override
-	public IStates checkStatus() {
-		return this;
-	}
-
-	/** {@inheritDoc} */
-	@Override
-	public IStates applyRallyTroops(boolean plusOne) {
-		return this;
-	}
-
-	@Override
-	public IStates leaveLocation() {
-		return this;
-	}
-
-	@Override
-	public IStates freeMovement(boolean up) {
-		return this;
-	}
-
-	@Override
-	public IStates fastMovement(boolean up) {
-		return this;
-	}
-
-	/** {@inheritDoc} */
-	@Override
-	public IStates playAgain() {
+	public IStates tunnelMovement() {
 		return this;
 	}
 }

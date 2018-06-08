@@ -1,8 +1,6 @@
 package com.github.danielpinto8zz6.ninecardsiege.gui;
 
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
@@ -53,25 +51,22 @@ class PlayerNameBox extends JPanel {
 		});
 
 		// <Enter> pressed
-		nameField.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				game.setPlayerName(nameField.getText());
-				game.start();
-			}
+		nameField.addActionListener(e -> {
+			game.setPlayerName(nameField.getText());
+			game.start();
 		});
 
 		setMaximumSize(new Dimension(200, 40));
 		setupLayout();
 	}
 
+	public String getText() {
+		return nameField.getText();
+	}
+
 	private void setupLayout() {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		add(new JLabel("Player " + " name"));
 		add(nameField);
-	}
-
-	public String getText() {
-		return nameField.getText();
 	}
 }

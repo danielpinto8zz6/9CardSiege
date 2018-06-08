@@ -52,19 +52,13 @@ public class Card7 extends Card {
 
 	/** {@inheritDoc} */
 	@Override
-	public String toString() {
-		return "Card7";
-	}
-
-	/** {@inheritDoc} */
-	@Override
 	public void moveEnemyDay1() {
 		Enemy enemyR;
 		try {
 			enemyR = getGameData().getEnemy("BattleRam");
 
 			enemyR.move(Constants.MOVE.UP);
-		} catch (EnemyNotFoundException e) {
+		} catch (final EnemyNotFoundException e) {
 			getGameData().addMsgLog(e.getMessage());
 		}
 	}
@@ -77,7 +71,7 @@ public class Card7 extends Card {
 			enemyS = getGameData().getEnemy("SiegeTower");
 
 			enemyS.move(Constants.MOVE.UP);
-		} catch (EnemyNotFoundException e) {
+		} catch (final EnemyNotFoundException e) {
 			getGameData().addMsgLog(e.getMessage());
 		}
 	}
@@ -90,7 +84,7 @@ public class Card7 extends Card {
 			enemyL = getGameData().getEnemy("Ladders");
 
 			enemyL.move(Constants.MOVE.UP);
-		} catch (EnemyNotFoundException e) {
+		} catch (final EnemyNotFoundException e) {
 			getGameData().addMsgLog(e.getMessage());
 		}
 
@@ -99,7 +93,7 @@ public class Card7 extends Card {
 			enemyR = getGameData().getEnemy("BattleRam");
 
 			enemyR.move(Constants.MOVE.UP);
-		} catch (EnemyNotFoundException e) {
+		} catch (final EnemyNotFoundException e) {
 			getGameData().addMsgLog(e.getMessage());
 		}
 
@@ -108,8 +102,14 @@ public class Card7 extends Card {
 			enemyS = getGameData().getEnemy("SiegeTower");
 
 			enemyS.move(Constants.MOVE.UP);
-		} catch (EnemyNotFoundException e) {
+		} catch (final EnemyNotFoundException e) {
 			getGameData().addMsgLog(e.getMessage());
 		}
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public String toString() {
+		return "Card7";
 	}
 }

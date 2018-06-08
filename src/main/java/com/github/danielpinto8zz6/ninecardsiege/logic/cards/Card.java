@@ -17,6 +17,15 @@ public abstract class Card implements Serializable {
 
 	private static int counter = 0;
 
+	/**
+	 * counterPlusPlus. Increate card counter by 1
+	 *
+	 * @return a int.
+	 */
+	private static int counterPlusPlus() {
+		return Card.counter++;
+	}
+
 	/** CardNumber could be understood as a unique id for the card */
 	private final int cardNumber;
 
@@ -31,17 +40,17 @@ public abstract class Card implements Serializable {
 	 */
 	public Card(GameData gameData) {
 		this.gameData = gameData;
-		this.cardNumber = counterPlusPlus();
+		cardNumber = Card.counterPlusPlus();
 	}
 
-	/**
-	 * counterPlusPlus. Increate card counter by 1
-	 *
-	 * @return a int.
-	 */
-	private static int counterPlusPlus() {
-		return Card.counter++;
-	}
+	/** Day1Event. */
+	public abstract void day1Event();
+
+	/** Day2Event. */
+	public abstract void day2Event();
+
+	/** Day3Event. */
+	public abstract void day3Event();
 
 	/**
 	 * Getter for the field <code>cardNumber</code>.
@@ -62,16 +71,6 @@ public abstract class Card implements Serializable {
 	}
 
 	/**
-	 * Setter for the field <code>gameData</code>.
-	 *
-	 * @param gameData
-	 *            the gameData to set
-	 */
-	public void setGameData(GameData gameData) {
-		this.gameData = gameData;
-	}
-
-	/**
 	 * getPlayer.
 	 *
 	 * @return the Player
@@ -79,15 +78,6 @@ public abstract class Card implements Serializable {
 	public Player getPlayer() {
 		return getGameData().getPlayer();
 	}
-
-	/** Day1Event. */
-	public abstract void day1Event();
-
-	/** Day2Event. */
-	public abstract void day2Event();
-
-	/** Day3Event. */
-	public abstract void day3Event();
 
 	/** moveEnemyDay1. */
 	public abstract void moveEnemyDay1();
@@ -97,4 +87,14 @@ public abstract class Card implements Serializable {
 
 	/** moveEnemyDay3. */
 	public abstract void moveEnemyDay3();
+
+	/**
+	 * Setter for the field <code>gameData</code>.
+	 *
+	 * @param gameData
+	 *            the gameData to set
+	 */
+	public void setGameData(GameData gameData) {
+		this.gameData = gameData;
+	}
 }

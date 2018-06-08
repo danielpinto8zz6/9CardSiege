@@ -19,7 +19,7 @@ public class CoverOfDarkness {
 	 *            object.
 	 */
 	public static void apply(GameData gameData) {
-		Player player = gameData.getPlayer();
+		final Player player = gameData.getPlayer();
 		player.setmRaidSupplies(player.getmRaidSupplies() + 1);
 		player.setmSabotage(player.getmSabotage() + 1);
 	}

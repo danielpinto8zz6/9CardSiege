@@ -18,7 +18,7 @@ public class Dice {
 	public static int roll() {
 		int value;
 
-		Random random = new Random();
+		final Random random = new Random();
 
 		value = Math.abs(random.nextInt() % 6) + 1;
 

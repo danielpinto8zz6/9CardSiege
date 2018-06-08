@@ -19,10 +19,6 @@ public class App {
 	 */
 	public static void main(String[] args) {
 
-		/** Run the game in the textUI mode */
-		// TextUI textUI = new TextUI(new Game());
-		// textUI.run();
-
-		Gui gui = new Gui(new ObservableGame());
+		new Gui(new ObservableGame());
 	}
 }

@@ -43,8 +43,62 @@ public class TextUI {
 		s = new Scanner(System.in, "UTF-8");
 	}
 
-	private void showGame() {
-		System.out.println(game);
+	/**
+	 * Getter for the field <code>game</code>.
+	 *
+	 * @return the game
+	 */
+	public Game getGame() {
+		return game;
+	}
+
+	private void getUserInputWhileAwaitBegginingOfTheTurn() {
+		int value;
+		System.out.println();
+		System.out.println("1 - start turn");
+		System.out.println("0 - Finish Game");
+		System.out.print("\n> ");
+
+		while (!s.hasNextInt()) {
+			s.next();
+		}
+
+		value = s.nextInt();
+
+		switch (value) {
+		case 1:
+			game.StartOfTheTurn();
+			return;
+		case 0:
+			game.finish();
+			getGame().getGameData().setEndGame(true);
+
+			return;
+		default:
+			System.out.println("Invalid option");
+		}
+	}
+
+	private void getUserInputWhileAwaitEnemyTrackSelection() {
+		String name;
+
+		System.out.println("\n\n---------------------------------");
+		System.out.println();
+		System.out.println("Enter name of enemy to attack (0 to end game): ");
+
+		System.out.print("\n> ");
+
+		while (!s.hasNext()) {
+			s.next();
+		}
+
+		name = s.next();
+
+		if (name.equals("0")) {
+			game.finish();
+		}
+
+		game.attack(name);
 	}
 
 	private void getUserInputWhileAwaitingBeginning() {
@@ -176,7 +230,7 @@ public class TextUI {
 		case 11:
 			try {
 				handleSaveGameToFileOption();
-			} catch (IOException e) {
+			} catch (final IOException e) {
 				System.out.println(e.getMessage());
 			}
 			return;
@@ -195,27 +249,67 @@ public class TextUI {
 		}
 	}
 
-	private void getUserInputWhileAwaitBegginingOfTheTurn() {
+	private void getUserInputWhileAwaitOptionSelectionForExtraActionPoint() {
 		int value;
+
+		System.out.println("\n\n---------------------------------");
 		System.out.println();
-		System.out.println("1 - start turn");
-		System.out.println("0 - Finish Game");
+		System.out.println("Do you want to trade moral or supplies : ");
+		System.out.println();
+		System.out.println("1 - Moral");
+		System.out.println("2 - Supplies");
+		System.out.println("0 - End Game");
 		System.out.print("\n> ");
 
 		while (!s.hasNextInt()) {
-			s.next();
+			s.nextInt();
 		}
 
 		value = s.nextInt();
 
 		switch (value) {
 		case 1:
-			game.StartOfTheTurn();
+			getGame().applyExtraActionPoint(Constants.EXTRA.MORAL);
+			return;
+		case 2:
+			getGame().applyExtraActionPoint(Constants.EXTRA.SUPPLIES);
 			return;
 		case 0:
-			game.finish();
-			getGame().getGameData().setEndGame(true);
+			getGame().finish();
+			return;
+		default:
+			System.out.println("Invalid option");
+		}
+	}
 
+	private void getUserInputWhileAwaitOptionSelectionForRallyTroops() {
+		int value;
+
+		System.out.println("\n\n---------------------------------");
+		System.out.println();
+		System.out.println("Do you want to add more 1 to the roll : ");
+		System.out.println();
+		System.out.println("1 - Yes");
+		System.out.println("2 - No");
+		System.out.println("0 - End Game");
+
+		System.out.print("\n> ");
+
+		while (!s.hasNextInt()) {
+			s.nextInt();
+		}
+
+		value = s.nextInt();
+
+		switch (value) {
+		case 1:
+			getGame().applyRallyTroops(true);
+			return;
+		case 2:
+			getGame().applyRallyTroops(false);
+			return;
+		case 0:
+			getGame().finish();
 			return;
 		default:
 			System.out.println("Invalid option");
@@ -249,27 +343,6 @@ public class TextUI {
 		default:
 			System.out.println("Invalid option");
 		}
-	}
-
-	private void getUserInputWhileAwaitEnemyTrackSelection() {
-		String name;
-
-		System.out.println("\n\n---------------------------------");
-		System.out.println();
-		System.out.println("Enter name of enemy to attack (0 to end game): ");
-
-		System.out.print("\n> ");
-
-		while (!s.hasNext()) {
-			s.next();
-		}
-
-		name = s.next();
-
-		if (name.equals("0"))
-			game.finish();
-
-		game.attack(name);
 	}
 
 	private void getUserInputWhileAwaitTroopsMovementSelection() {
@@ -361,73 +434,6 @@ public class TextUI {
 		}
 	}
 
-	private void getUserInputWhileAwaitOptionSelectionForExtraActionPoint() {
-		int value;
-
-		System.out.println("\n\n---------------------------------");
-		System.out.println();
-		System.out.println("Do you want to trade moral or supplies : ");
-		System.out.println();
-		System.out.println("1 - Moral");
-		System.out.println("2 - Supplies");
-		System.out.println("0 - End Game");
-		System.out.print("\n> ");
-
-		while (!s.hasNextInt()) {
-			s.nextInt();
-		}
-
-		value = s.nextInt();
-
-		switch (value) {
-		case 1:
-			getGame().applyExtraActionPoint(Constants.EXTRA.MORAL);
-			return;
-		case 2:
-			getGame().applyExtraActionPoint(Constants.EXTRA.SUPPLIES);
-			return;
-		case 0:
-			getGame().finish();
-			return;
-		default:
-			System.out.println("Invalid option");
-		}
-	}
-
-	private void getUserInputWhileAwaitOptionSelectionForRallyTroops() {
-		int value;
-
-		System.out.println("\n\n---------------------------------");
-		System.out.println();
-		System.out.println("Do you want to add more 1 to the roll : ");
-		System.out.println();
-		System.out.println("1 - Yes");
-		System.out.println("2 - No");
-		System.out.println("0 - End Game");
-
-		System.out.print("\n> ");
-
-		while (!s.hasNextInt()) {
-			s.nextInt();
-		}
-
-		value = s.nextInt();
-
-		switch (value) {
-		case 1:
-			getGame().applyRallyTroops(true);
-			return;
-		case 2:
-			getGame().applyRallyTroops(false);
-			return;
-		case 0:
-			getGame().finish();
-			return;
-		default:
-			System.out.println("Invalid option");
-		}
-	}
-
 	private void getUserInputWhileGameOver() {
 		int value;
 
@@ -456,6 +462,42 @@ public class TextUI {
 		default:
 			System.out.println("Invalid option");
 		}
+	}
+
+	/**
+	 * handleRestoreGameFromFileOption.
+	 *
+	 * @throws java.lang.ClassNotFoundException
+	 *             if any.
+	 * @throws java.io.IOException
+	 *             if any.
+	 */
+	public void handleRestoreGameFromFileOption() throws ClassNotFoundException, IOException {
+		String fileName;
+		final BufferedReader bin = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
+
+		System.out.print("File name: ");
+
+		fileName = bin.readLine();
+
+		game = (Game) GameSave.retrieveGameFromFile(fileName);
+	}
+
+	private void handleSaveGameToFileOption() throws IOException {
+		String fileName;
+
+		System.out.print("File name: ");
+		fileName = new BufferedReader(new InputStreamReader(System.in, "UTF-8")).readLine();
+
+		if (fileName == null) {
+			return;
+		}
+
+		if (fileName.length() < 1) {
+			return;
+		}
+
+		GameSave.saveGameToFile(game, fileName);
 	}
 
 	/** run. */
@@ -500,48 +542,7 @@ public class TextUI {
 		game.getMsgLog().forEach((msg) -> System.out.println("---> " + msg));
 	}
 
-	/**
-	 * Getter for the field <code>game</code>.
-	 *
-	 * @return the game
-	 */
-	public Game getGame() {
-		return game;
-	}
-
-	/**
-	 * handleRestoreGameFromFileOption.
-	 *
-	 * @throws java.lang.ClassNotFoundException
-	 *             if any.
-	 * @throws java.io.IOException
-	 *             if any.
-	 */
-	public void handleRestoreGameFromFileOption() throws ClassNotFoundException, IOException {
-		String fileName;
-		BufferedReader bin = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
-
-		System.out.print("File name: ");
-
-		fileName = bin.readLine();
-
-		game = (Game) GameSave.retrieveGameFromFile(fileName);
-	}
-
-	private void handleSaveGameToFileOption() throws IOException {
-		String fileName;
-
-		System.out.print("File name: ");
-		fileName = new BufferedReader(new InputStreamReader(System.in, "UTF-8")).readLine();
-
-		if (fileName == null) {
-			return;
-		}
-
-		if (fileName.length() < 1) {
-			return;
-		}
-
-		GameSave.saveGameToFile(game, fileName);
+	private void showGame() {
+		System.out.println(game);
 	}
 }

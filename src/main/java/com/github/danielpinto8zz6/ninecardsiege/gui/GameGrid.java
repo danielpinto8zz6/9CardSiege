@@ -1,8 +1,5 @@
 package com.github.danielpinto8zz6.ninecardsiege.gui;
 
-import static com.github.danielpinto8zz6.ninecardsiege.gui.GamePanel.gameImgs;
-import static com.github.danielpinto8zz6.ninecardsiege.gui.GamePanel.imageFiles;
-
 import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -25,59 +22,129 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDra
 class GameGrid extends JPanel implements Constants, Observer {
 	private static final long serialVersionUID = 1L;
 
+	static void loadImages(ObservableGame game) {
+
+		int i = 0;
+		for (final String fileName : GamePanel.imageFiles) {
+			try {
+				GamePanel.gameImgs[i++] = ImageIO.read(Resources.getResourceFile(fileName));
+			} catch (final IOException e) {
+				System.err.println(e.getMessage());
+			}
+		}
+	}
+
 	ObservableGame game;
 	JPanel battleC;
 	JPanel statusC;
 	JPanel backCard;
+
 	JPanel frontCard;
 
 	GameGrid(ObservableGame g) {
 		game = g;
-		loadImages(game);
+		GameGrid.loadImages(game);
 
 		setupLayout();
+	}
+
+	public JPanel getBackCard() {
+		return backCard;
+	}
+
+	public JPanel getBattleC() {
+		return battleC;
+	}
+
+	public JPanel getFrontCard() {
+		return frontCard;
+	}
+
+	public JPanel getStatusC() {
+		return statusC;
+	}
+
+	public void setBackCard(JPanel backCard) {
+		this.backCard = backCard;
+	}
+
+	public void setBattleC(JPanel battleC) {
+		this.battleC = battleC;
+	}
+
+	public void setFrontCard(JPanel frontCard) {
+		this.frontCard = frontCard;
+	}
+
+	public void setStatusC(JPanel statusC) {
+		this.statusC = statusC;
 	}
 
 	void setupLayout() {
 		setLayout(new BorderLayout());
 
-		JPanel backGround = new JPanel() {
+		final JPanel backGround = new JPanel() {
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				g.drawImage(gameImgs[0], 0, 0, getWidth(), getHeight(), null);
+				g.drawImage(GamePanel.gameImgs[0], 0, 0, getWidth(), getHeight(), null);
 			}
 		};
 
 		backGround.setLayout(new GridLayout(0, 3));
 
 		battleC = new JPanel() {
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				g.drawImage(gameImgs[9], 0, 0, getWidth(), getHeight(), null);
+				g.drawImage(GamePanel.gameImgs[9], 0, 0, getWidth(), getHeight(), null);
 			}
 		};
 		statusC = new JPanel() {
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				g.drawImage(gameImgs[10], 0, 0, getWidth(), getHeight(), null);
+				g.drawImage(GamePanel.gameImgs[10], 0, 0, getWidth(), getHeight(), null);
 			}
 		};
 		backCard = new JPanel() {
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				g.drawImage(gameImgs[8], 0, 0, getWidth(), getHeight(), null);
+				g.drawImage(GamePanel.gameImgs[8], 0, 0, getWidth(), getHeight(), null);
 			}
 		};
 		frontCard = new JPanel() {
+			/**
+			 *
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				int i = game.getGameData().getNumCard();
-				g.drawImage(gameImgs[i], 0, 0, getWidth(), getHeight(), null);
+				final int i = game.getGameData().getNumCard();
+				g.drawImage(GamePanel.gameImgs[i], 0, 0, getWidth(), getHeight(), null);
 			}
 		};
 
@@ -93,18 +160,6 @@ class GameGrid extends JPanel implements Constants, Observer {
 
 	}
 
-	static void loadImages(ObservableGame game) {
-
-		int i = 0;
-		for (String fileName : imageFiles) {
-			try {
-				gameImgs[i++] = ImageIO.read(Resources.getResourceFile(fileName));
-			} catch (IOException e) {
-				System.err.println(e.getMessage());
-			}
-		}
-	}
-
 	@Override
 	public void update(Observable o, Object arg) {
 
@@ -114,38 +169,6 @@ class GameGrid extends JPanel implements Constants, Observer {
 			statusC.setVisible(false);
 			frontCard.setVisible(false);
 		}
-	}
-
-	public JPanel getBattleC() {
-		return battleC;
-	}
-
-	public void setBattleC(JPanel battleC) {
-		this.battleC = battleC;
-	}
-
-	public JPanel getStatusC() {
-		return statusC;
-	}
-
-	public void setStatusC(JPanel statusC) {
-		this.statusC = statusC;
-	}
-
-	public JPanel getBackCard() {
-		return backCard;
-	}
-
-	public void setBackCard(JPanel backCard) {
-		this.backCard = backCard;
-	}
-
-	public JPanel getFrontCard() {
-		return frontCard;
-	}
-
-	public void setFrontCard(JPanel frontCard) {
-		this.frontCard = frontCard;
 	}
 
 }

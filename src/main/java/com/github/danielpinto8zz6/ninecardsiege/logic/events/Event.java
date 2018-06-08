@@ -35,22 +35,12 @@ public class Event implements Serializable {
 	}
 
 	/**
-	 * Getter for the field <code>gameData</code>.
+	 * getEnemies.
 	 *
-	 * @return the gameData
+	 * @return a {@link java.util.List} object.
 	 */
-	public GameData getGameData() {
-		return gameData;
-	}
-
-	/**
-	 * Setter for the field <code>gameData</code>.
-	 *
-	 * @param gameData
-	 *            the gameData to set
-	 */
-	public void setGameData(GameData gameData) {
-		this.gameData = gameData;
+	public List<Enemy> getEnemies() {
+		return gameData.getBattleCard().getEnemies();
 	}
 
 	/**
@@ -63,24 +53,12 @@ public class Event implements Serializable {
 	}
 
 	/**
-	 * Setter for the field <code>eventName</code>.
+	 * Getter for the field <code>gameData</code>.
 	 *
-	 * @param eventName
-	 *            the eventName to set
+	 * @return the gameData
 	 */
-	public void setEventName(String eventName) {
-		this.eventName = eventName;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>
-	 * toString.
-	 */
-	@Override
-	public String toString() {
-		return this.eventName;
+	public GameData getGameData() {
+		return gameData;
 	}
 
 	/**
@@ -94,11 +72,33 @@ public class Event implements Serializable {
 	}
 
 	/**
-	 * getEnemies.
+	 * Setter for the field <code>eventName</code>.
 	 *
-	 * @return a {@link java.util.List} object.
+	 * @param eventName
+	 *            the eventName to set
 	 */
-	public List<Enemy> getEnemies() {
-		return gameData.getBattleCard().getEnemies();
+	public void setEventName(String eventName) {
+		this.eventName = eventName;
+	}
+
+	/**
+	 * Setter for the field <code>gameData</code>.
+	 *
+	 * @param gameData
+	 *            the gameData to set
+	 */
+	public void setGameData(GameData gameData) {
+		this.gameData = gameData;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>
+	 * toString.
+	 */
+	@Override
+	public String toString() {
+		return eventName;
 	}
 }

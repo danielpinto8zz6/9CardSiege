@@ -52,16 +52,10 @@ public class Card2 extends Card {
 
 	/** {@inheritDoc} */
 	@Override
-	public String toString() {
-		return "Card2";
-	}
-
-	/** {@inheritDoc} */
-	@Override
 	public void moveEnemyDay1() {
 		try {
 			getGameData().getEnemy("SiegeTower").move(Constants.MOVE.UP);
-		} catch (EnemyNotFoundException e) {
+		} catch (final EnemyNotFoundException e) {
 			getGameData().addMsgLog(e.getMessage());
 		}
 	}
@@ -72,14 +66,14 @@ public class Card2 extends Card {
 		/** Gets the max position of the enemies */
 		int max = 0;
 
-		for (Enemy enemy : getGameData().getEnemies()) {
+		for (final Enemy enemy : getGameData().getEnemies()) {
 			if (enemy.getPosition() > max) {
 				max = enemy.getPosition();
 			}
 		}
 
 		/** moves all the enemies in the max positions */
-		for (Enemy enemy : getGameData().getEnemies()) {
+		for (final Enemy enemy : getGameData().getEnemies()) {
 			if (enemy.getPosition() == max) {
 				enemy.move(Constants.MOVE.UP);
 			}
@@ -90,5 +84,11 @@ public class Card2 extends Card {
 	@Override
 	public void moveEnemyDay3() {
 		/** no enemy movement */
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public String toString() {
+		return "Card2";
 	}
 }
