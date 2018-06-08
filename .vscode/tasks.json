@@ -2,16 +2,6 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "verify",
-            "type": "shell",
-            "command": "mvn verify",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": []
-        },
-        {
             "label": "test",
             "type": "shell",
             "command": "mvn test",
@@ -26,17 +16,6 @@
             "label": "clean install",
             "type": "shell",
             "command": "mvn -B clean install"
-        },
-        {
-            "label": "exec",
-            "type": "shell",
-            "command": "mvn exec:java -Dexec.mainClass=com.github.danielpinto8zz6.ninecardsiege.App",
-            "problemMatcher": []
-        },
-        {
-            "label": "format",
-            "type": "shell",
-            "command": "mvn com.coveo:fmt-maven-plugin:format"
         }
     ]
 }

@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.github.danielpinto8zz6</groupId>
-    <artifactId>ninecardsiege</artifactId>
-    <version>1.0</version>
-    <packaging>jar</packaging>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-    <name>9CardSiege</name>
-    <description>9 Card Siege is a solitaire micro card game. In this game, you must defend a medieval European fortress from a besieging army. You must defend against medieval siege engines such as ladders, a battering ram, siege tower, and trebuchets. You've also got to ensure there are adequate supplies to feed your army and keep their morale high. You must survive the siege for three days. At this point your army will arrive and drive away the invading forces.
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.github.danielpinto8zz6</groupId>
+	<artifactId>ninecardsiege</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	<name>9CardSiege</name>
+	<description>9 Card Siege is a solitaire micro card game. In this game, you must defend a medieval European fortress from a besieging army. You must defend against medieval siege engines such as ladders, a battering ram, siege tower, and trebuchets. You've also got to ensure there are adequate supplies to feed your army and keep their morale high. You must survive the siege for three days. At this point your army will arrive and drive away the invading forces.
 
         The game uses a States of Siege system similar to games like Israeli Independence and Constantinople. Each turn you will draw a card and resolve the event, move enemy units, and gain action points for your units. You will have to decide how to best use your limited resources to protect your fortress.
 
@@ -25,43 +27,39 @@
         5. Player Actions
         6. Victory or Loss Check Phase
         7. End of Day Phase</description>
-    <build>
-      <resources>
-     <resource>
-       <directory>src/main/resources</directory>
-       <filtering>false</filtering>
-    </resource>
-    </resources>
-        <plugins>
-            <plugin>
-                <groupId>com.coveo</groupId>
-                <artifactId>fmt-maven-plugin</artifactId>
-                <version>2.4.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>format</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.1.0</version>
-            </plugin>
-        </plugins>
-    </build>
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.0.0</version>
-                <configuration>
-                    <configLocation>config/sun_checks.xml</configLocation>
-                </configuration>
-            </plugin>
-        </plugins>
-    </reporting>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>com.github.danielpinto8zz6.ninecardsiege.App</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>
+								${project.build.directory}/dependency-jars/
+							</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
