@@ -1,10 +1,11 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
+import java.io.Serializable;
+import java.util.List;
+
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates;
-import java.io.Serializable;
-import java.util.List;
 
 /**
  * Game class.

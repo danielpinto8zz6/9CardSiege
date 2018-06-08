@@ -1,7 +1,8 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.Constants.MOVE;
 import java.io.Serializable;
+
+import com.github.danielpinto8zz6.ninecardsiege.logic.Constants.MOVE;
 
 /**
  * Enemy class.

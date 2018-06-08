@@ -1,15 +1,17 @@
 package com.github.danielpinto8zz6.ninecardsiege.gui;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+
+import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 
 /**
  * Apresenta um label e campo de texto para alteracao do nome de um jogador..

@@ -1,16 +1,18 @@
 package com.github.danielpinto8zz6.ninecardsiege.gui;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
-import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
 
 /**
  * Painel que apresenta as varias opcoes de configuracao e permite iniciar o

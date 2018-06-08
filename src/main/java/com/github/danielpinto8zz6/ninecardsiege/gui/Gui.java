@@ -1,11 +1,13 @@
 package com.github.danielpinto8zz6.ninecardsiege.gui;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.util.Observable;
 import java.util.Observer;
+
 import javax.swing.JFrame;
+
+import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 
 public class Gui extends JFrame implements Observer {
 	private static final long serialVersionUID = 1L;

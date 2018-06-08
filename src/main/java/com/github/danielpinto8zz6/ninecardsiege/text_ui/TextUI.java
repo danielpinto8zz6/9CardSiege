@@ -1,5 +1,10 @@
 package com.github.danielpinto8zz6.ninecardsiege.text_ui;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Game;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameSave;
@@ -13,10 +18,6 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitOptionSelectio
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitOptionSelectionForRallyTroops;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDrawn;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.GameOver;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Scanner;
 
 /**
  * TextUI class

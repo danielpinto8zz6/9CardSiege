@@ -1,9 +1,10 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.events;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
-import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
+import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
 /**
  * BoilingOil class.

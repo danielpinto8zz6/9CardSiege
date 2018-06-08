@@ -1,23 +1,21 @@
 package com.github.danielpinto8zz6.ninecardsiege.gui;
 
-import static com.github.danielpinto8zz6.ninecardsiege.gui.GamePanel.bGImage;
 import static com.github.danielpinto8zz6.ninecardsiege.gui.GamePanel.gameImgs;
 import static com.github.danielpinto8zz6.ninecardsiege.gui.GamePanel.imageFiles;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
-import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
-import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBegginingOfTheTurn;
-import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
-import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDrawn;
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
+
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+
+import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
+import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDrawn;
 
 /**
  * Grelha de celulas... E' apenas um contentor

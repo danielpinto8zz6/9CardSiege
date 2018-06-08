@@ -1,10 +1,11 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.events;
 
+import java.io.Serializable;
+import java.util.List;
+
 import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
-import java.io.Serializable;
-import java.util.List;
 
 /**
  * Event class.

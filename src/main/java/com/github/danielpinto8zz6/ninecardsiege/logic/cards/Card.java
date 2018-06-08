@@ -1,8 +1,9 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic.cards;
 
+import java.io.Serializable;
+
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
-import java.io.Serializable;
 
 /**
  * Abstract Card class.

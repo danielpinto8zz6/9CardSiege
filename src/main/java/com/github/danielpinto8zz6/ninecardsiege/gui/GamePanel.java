@@ -1,14 +1,16 @@
 package com.github.danielpinto8zz6.ninecardsiege.gui;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
-import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
-import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDrawn;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Image;
 import java.util.Observable;
 import java.util.Observer;
+
 import javax.swing.JPanel;
+
+import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDrawn;
 
 // import java.io.FileInputStream;
 

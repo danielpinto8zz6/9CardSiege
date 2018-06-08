@@ -1,9 +1,10 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException;
 
 /**
  * BattleCard class. Manage enemies in the battlefield

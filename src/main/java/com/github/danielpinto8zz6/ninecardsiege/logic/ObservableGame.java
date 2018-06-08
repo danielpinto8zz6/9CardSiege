@@ -1,7 +1,8 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates;
 import java.util.Observable;
+
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates;
 
 public class ObservableGame extends Observable {
 	Game game;

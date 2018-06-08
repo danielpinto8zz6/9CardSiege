@@ -5,15 +5,17 @@
  */
 package com.github.danielpinto8zz6.ninecardsiege.gui;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 
 /** @author tiago_000 */
 public class OptionPanel extends JPanel {

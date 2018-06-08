@@ -1,7 +1,5 @@
 package com.github.danielpinto8zz6.ninecardsiege.gui;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
-import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,9 +8,13 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.Observable;
 import java.util.Observer;
+
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
+import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
 
 /**
  * Painel que apresenta os dados do jogador: indica o nome, conteudo da mao,
