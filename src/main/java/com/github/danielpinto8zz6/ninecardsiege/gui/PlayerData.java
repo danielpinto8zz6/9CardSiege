@@ -17,7 +17,6 @@ import javax.swing.JPanel;
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
-import javax.swing.JTextField;
 
 /**
  * Painel que apresenta os dados do jogador: indica o nome, conteudo da mao,

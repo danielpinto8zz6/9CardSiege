@@ -1,5 +1,7 @@
 package com.github.danielpinto8zz6.ninecardsiege.logic;
 
+import java.awt.Component;
+import java.awt.List;
 import java.util.Observable;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates;
@@ -85,6 +87,14 @@ public class ObservableGame extends Observable {
 
 		setChanged();
 		notifyObservers();
+	}
+
+	public java.util.List<String> getMsgLog() {
+		return game.getMsgLog();
+	}
+
+	public void clearMsgLog() {
+		game.clearMsgLog();
 	}
 
 }
