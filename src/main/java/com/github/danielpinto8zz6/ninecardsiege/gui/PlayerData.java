@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.GameOver;
 
 /**
  * Painel que apresenta os dados do jogador: indica o nome, conteudo da mao,
@@ -39,7 +40,7 @@ class PlayerData extends JPanel implements Observer {
 		this.game.addObserver(this);
 		this.playerNumber = playerNumber;
 
-		victoryMessage = new JLabel("WINNER !!");
+		victoryMessage = new JLabel("Loooser!!");
 
 		name = new JLabel();
 		actionPoints = new JLabel();
@@ -107,7 +108,9 @@ class PlayerData extends JPanel implements Observer {
 			return;
 		}
 
-		if (game.isOver()) {
+		if (game.getState() instanceof GameOver) {
+                        dia.setVisible(false);
+			actionPoints.setVisible(false);
 			victoryMessage.setVisible(true);
 
 		}
