@@ -108,5 +108,38 @@ public class ObservableGame extends Observable {
 		setChanged();
 		notifyObservers();
 	}
+	public void closeCombatAttack() {
+            game.closeCombatAttack();
+            
+            	setChanged();
+		notifyObservers();
+	}
+        
+        	public void coupure() {
+            game.coupure();
 
+                setChanged();
+		notifyObservers();
+	}
+                
+                	public void rallyTroops() {
+		game.rallyTroops();
+                
+                                setChanged();
+		notifyObservers();
+	}
+                        
+                        	public void supplyRaid() {
+		game.supplyRaid();
+                
+                                                setChanged();
+		notifyObservers();
+	}
+                                
+                                	public void sabotage() {
+		game.sabotage();
+                
+                                                                setChanged();
+		notifyObservers();
+	}
 }
