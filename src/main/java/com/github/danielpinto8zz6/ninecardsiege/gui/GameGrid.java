@@ -11,7 +11,6 @@ import java.util.Observer;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
 
@@ -22,21 +21,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
  */
 class GameGrid extends JPanel implements Observer {
 	private static final long serialVersionUID = 1L;
-	ObservableGame game;
-	JPanel battleC;
-	JPanel statusC;
-	JPanel backCard;
-        JPanel backGround;
-	JPanel frontCard;
 
-	GameGrid(ObservableGame g) {
-		this.game = g;
-		game.addObserver(this);
-		GameGrid.loadImages(game);
-
-		setupLayout();
-	}
-        
 	static void loadImages(ObservableGame game) {
 
 		int i = 0;
@@ -49,8 +34,21 @@ class GameGrid extends JPanel implements Observer {
 		}
 	}
 
+	ObservableGame game;
+	JPanel battleC;
+	JPanel statusC;
+	JPanel backCard;
+	JPanel backGround;
 
+	JPanel frontCard;
 
+	GameGrid(ObservableGame g) {
+		game = g;
+		game.addObserver(this);
+		GameGrid.loadImages(game);
+
+		setupLayout();
+	}
 
 	private void setupLayout() {
 		setLayout(new BorderLayout());
@@ -78,8 +76,8 @@ class GameGrid extends JPanel implements Observer {
 				super.paintComponent(g);
 				g.drawImage(GamePanel.gameImgs[8], 0, 0, getWidth(), getHeight(), null);
 				g.setColor(Color.RED);
-				int x = 20;
-				int y = 127;
+				final int x = 20;
+				final int y = 127;
 				g.fillOval(x, y, 40, 40);
 			}
 		};
@@ -94,8 +92,8 @@ class GameGrid extends JPanel implements Observer {
 				super.paintComponent(g);
 				g.drawImage(GamePanel.gameImgs[9], 0, 0, getWidth(), getHeight(), null);
 				g.setColor(Color.GREEN);
-				int x = 18;
-				int y = 13;
+				final int x = 18;
+				final int y = 13;
 				g.fillOval(x, y, 40, 40);
 			}
 		};
@@ -121,7 +119,7 @@ class GameGrid extends JPanel implements Observer {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				int i = game.getGameData().getNumCard();
-                                i--;
+				i--;
 				g.drawImage(GamePanel.gameImgs[i], 0, 0, getWidth(), getHeight(), null);
 			}
 		};
@@ -132,27 +130,26 @@ class GameGrid extends JPanel implements Observer {
 		 */
 
 		add(backGround, BorderLayout.CENTER);
-                battleC.setVisible(false);
-                statusC.setVisible(false);
-                frontCard.setVisible(false);
+		battleC.setVisible(false);
+		statusC.setVisible(false);
+		frontCard.setVisible(false);
 
 		backGround.add(battleC);
 		backGround.add(statusC);
 		backGround.add(frontCard);
-                
-                validate();
+
+		validate();
 
 	}
 
-        
 	@Override
 	public void update(Observable o, Object arg) {
-            
-                if (!(game.getState() instanceof AwaitBeginning)) {
-                battleC.setVisible(true);
-                statusC.setVisible(true);
-                frontCard.setVisible(true);
-                        }
+
+		if (!(game.getState() instanceof AwaitBeginning)) {
+			battleC.setVisible(true);
+			statusC.setVisible(true);
+			frontCard.setVisible(true);
+		}
 	}
 
 }

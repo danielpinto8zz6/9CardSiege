@@ -88,6 +88,10 @@ public final class Game implements Serializable {
 		setState(getState().coupure());
 	}
 
+	public void dontAttack() {
+		setState(getState().dontAttack());
+	}
+
 	/** drawTopCard. */
 	public void drawTopCard() {
 		setState(getState().drawTopCard());
@@ -194,10 +198,6 @@ public final class Game implements Serializable {
 	 */
 	public void start() {
 		setState(getState().start());
-	}
-        
-        public void dontAttack() {
-		setState(getState().dontAttack());
 	}
 
 	public void StartOfTheTurn() {

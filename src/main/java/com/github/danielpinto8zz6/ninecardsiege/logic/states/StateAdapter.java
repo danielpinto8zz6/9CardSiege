@@ -44,12 +44,6 @@ public class StateAdapter implements IStates, Constants, Serializable {
 	public IStates archersAttack() {
 		return this;
 	}
-        
-        	/** {@inheritDoc} */
-	@Override
-	public IStates dontAttack() {
-		return this;
-	}
 
 	/** {@inheritDoc} */
 	@Override
@@ -84,6 +78,12 @@ public class StateAdapter implements IStates, Constants, Serializable {
 	/** {@inheritDoc} */
 	@Override
 	public IStates coupure() {
+		return this;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public IStates dontAttack() {
 		return this;
 	}
 

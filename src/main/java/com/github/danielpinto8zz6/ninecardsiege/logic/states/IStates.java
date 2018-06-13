@@ -47,7 +47,6 @@ public interface IStates {
 	 */
 	IStates archersAttack();
 
-        IStates dontAttack();
 	/**
 	 * attack. performs attack
 	 *
@@ -103,6 +102,8 @@ public interface IStates {
 	 *         object.
 	 */
 	IStates coupure();
+
+	IStates dontAttack();
 
 	/**
 	 * drawTopCard. draws the card on the top of the deck

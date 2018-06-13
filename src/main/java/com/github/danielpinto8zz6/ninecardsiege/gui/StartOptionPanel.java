@@ -58,7 +58,7 @@ class StartOptionPanel extends JPanel {
 
 		add(Box.createVerticalStrut(20));
 		add(start);
-                
+
 		playerName.setMinimumSize(new Dimension(120, 20));
 		playerName.setAlignmentX(Component.CENTER_ALIGNMENT);
 		playerName.setOpaque(false);

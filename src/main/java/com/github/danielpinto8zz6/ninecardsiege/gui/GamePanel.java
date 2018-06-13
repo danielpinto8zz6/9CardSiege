@@ -25,9 +25,9 @@ public class GamePanel extends JPanel implements Observer {
 
 	static Image bGImage;
 
-	static final String imageFiles[] = { "/card1.jpg", "/card2.jpg", "/card3.jpg", "/card4.jpg",
-			"/card5.jpg", "/card6.jpg", "/card7.jpg", "/back_1.jpg", "/batlle.jpg", "/status.jpg", "/back_2.jpg" };
-			
+	static final String imageFiles[] = { "/card1.jpg", "/card2.jpg", "/card3.jpg", "/card4.jpg", "/card5.jpg",
+			"/card6.jpg", "/card7.jpg", "/back_1.jpg", "/batlle.jpg", "/status.jpg", "/back_2.jpg" };
+
 	static Image gameImgs[] = new Image[GamePanel.imageFiles.length];
 	ObservableGame game;
 	StartOptionPanel optionPanel;
@@ -62,7 +62,8 @@ public class GamePanel extends JPanel implements Observer {
 		gameLog = new JTextArea();
 
 		scrollPane = new JScrollPane(gameLog);
-		scrollPane.setPreferredSize(new Dimension(scrollPane.getMinimumSize().width, scrollPane.getPreferredSize().height));
+		scrollPane.setPreferredSize(
+				new Dimension(scrollPane.getMinimumSize().width, scrollPane.getPreferredSize().height));
 	}
 
 	private void setupLayout() {

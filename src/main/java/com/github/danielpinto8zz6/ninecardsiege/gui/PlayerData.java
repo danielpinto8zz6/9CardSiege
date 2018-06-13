@@ -28,9 +28,8 @@ class PlayerData extends JPanel implements Observer {
 	private static final long serialVersionUID = 1L;
 	JLabel victoryMessage;
 	JLabel name;
-        JLabel actionPoints;
-        JLabel dia;
-        
+	JLabel actionPoints;
+	JLabel dia;
 
 	ObservableGame game;
 	int playerNumber;
@@ -43,9 +42,8 @@ class PlayerData extends JPanel implements Observer {
 		victoryMessage = new JLabel("WINNER !!");
 
 		name = new JLabel();
-                actionPoints = new JLabel();
-                dia = new JLabel();
-
+		actionPoints = new JLabel();
+		dia = new JLabel();
 
 		setupLayout();
 	}
@@ -70,26 +68,25 @@ class PlayerData extends JPanel implements Observer {
 		name.setText(player.getName());
 		name.setAlignmentX(Component.CENTER_ALIGNMENT);
 		name.setAlignmentY(Component.CENTER_ALIGNMENT);
-                
-                dia.setText("Dia :" + String.valueOf(game.getGameData().getDay()));
-                dia.setBounds(0, 0, 200, 50);
-                dia.setVisible(false);
 
-                actionPoints.setText("Action Points :" + String.valueOf(game.getGameData().getPlayer().getActionPoints()));
-                actionPoints.setBounds(0, 20, 200, 50);
-                actionPoints.setVisible(false);
-                
+		dia.setText("Dia :" + String.valueOf(game.getGameData().getDay()));
+		dia.setBounds(0, 0, 200, 50);
+		dia.setVisible(false);
+
+		actionPoints.setText("Action Points :" + String.valueOf(game.getGameData().getPlayer().getActionPoints()));
+		actionPoints.setBounds(0, 20, 200, 50);
+		actionPoints.setVisible(false);
+
 		victoryMessage.setVisible(false);
 		victoryMessage.setAlignmentX(Component.CENTER_ALIGNMENT);
 		victoryMessage.setFont(new Font("Dialog", Font.BOLD, 30));
 
-                
 		add(name);
-                add(dia);
-                add(actionPoints);
+		add(dia);
+		add(actionPoints);
 		add(victoryMessage);
-                
-                                validate();
+
+		validate();
 
 	}
 
@@ -99,19 +96,19 @@ class PlayerData extends JPanel implements Observer {
 		final Player player = game.getPlayer();
 
 		name.setText(player.getName());
-                dia.setText("Dia :" + String.valueOf(game.getGameData().getDay()));
-                actionPoints.setText("Action Points :" + String.valueOf(game.getGameData().getPlayer().getActionPoints()));
+		dia.setText("Dia :" + String.valueOf(game.getGameData().getDay()));
+		actionPoints.setText("Action Points :" + String.valueOf(game.getGameData().getPlayer().getActionPoints()));
 
 		if (!(game.getState() instanceof AwaitBeginning)) {
-                dia.setVisible(true);               
-                actionPoints.setVisible(true);
-                }
+			dia.setVisible(true);
+			actionPoints.setVisible(true);
+		}
 		if (game == null) {
 			return;
 		}
 
 		if (game.isOver()) {
-                victoryMessage.setVisible(true);
+			victoryMessage.setVisible(true);
 
 		}
 	}

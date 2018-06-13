@@ -23,9 +23,76 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.Game;
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 
 public class Gui extends JFrame implements Observer {
+	class AboutListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JOptionPane.showMessageDialog(Gui.this,
+					"9CardSiege\nProgramação Avançada\nDaniel Pinto 21250143\nTiago Rodrigues 21230180", "About",
+					JOptionPane.INFORMATION_MESSAGE);
+		}
+	}
+
+	class ExitListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			System.exit(0);
+		}
+	}
+
+	class HelpContentListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JOptionPane.showMessageDialog(Gui.this,
+					"Get help at: https://boardgamegeek.com/boardgame/224596/9-card-siege", "Help Contents",
+					JOptionPane.PLAIN_MESSAGE);
+		}
+	}
+
+	class LoadObjMenuBarListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			final JFileChooser fc = new JFileChooser("./data");
+			final int returnVal = fc.showOpenDialog(Gui.this);
+			if (returnVal == JFileChooser.APPROVE_OPTION) {
+				final File file = fc.getSelectedFile();
+				try {
+					game.setGame((Game) FileUtility.retrieveGameFromFile(file));
+				} catch (IOException | ClassNotFoundException ex) {
+					JOptionPane.showMessageDialog(Gui.this, "Operation failed: \r\n\r\n" + e);
+				}
+
+			} else {
+				System.out.println("Operation canceled ");
+			}
+		}
+	}
+
+	class SaveObjMenuBarListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			final JFileChooser fc = new JFileChooser("./data");
+			final int returnVal = fc.showSaveDialog(Gui.this);
+			if (returnVal == JFileChooser.APPROVE_OPTION) {
+				final File file = fc.getSelectedFile();
+				try {
+					FileUtility.saveGameToFile(file, game.getGame());
+				} catch (final IOException ex) {
+					JOptionPane.showMessageDialog(Gui.this, "Operation failed: \r\n\r\n" + e);
+				}
+			} else {
+				System.out.println("Operation canceled ");
+			}
+		}
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	ObservableGame game;
+
 	GamePanel panel;
 
 	public Gui(ObservableGame game) {
@@ -47,21 +114,28 @@ public class Gui extends JFrame implements Observer {
 		validate();
 	}
 
+	private void addComponents() {
+		final Container cp = getContentPane();
+
+		cp.setLayout(new BorderLayout());
+		cp.add(panel, BorderLayout.CENTER);
+	}
+
 	private void menus() {
-		JMenuBar menuBar = new JMenuBar();
+		final JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
 		// game menu
-		JMenu gameMenu = new JMenu("Game");
+		final JMenu gameMenu = new JMenu("Game");
 		gameMenu.setMnemonic(KeyEvent.VK_G);
 
-		JMenuItem readObjJMI = new JMenuItem("Load");
+		final JMenuItem readObjJMI = new JMenuItem("Load");
 		readObjJMI.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, ActionEvent.CTRL_MASK));
 
-		JMenuItem saveObjJMI = new JMenuItem("Save");
+		final JMenuItem saveObjJMI = new JMenuItem("Save");
 		saveObjJMI.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
 
-		JMenuItem exitJMI = new JMenuItem("Exit");
+		final JMenuItem exitJMI = new JMenuItem("Exit");
 		exitJMI.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, ActionEvent.CTRL_MASK));
 
 		gameMenu.add(readObjJMI);
@@ -75,13 +149,13 @@ public class Gui extends JFrame implements Observer {
 		exitJMI.addActionListener(new ExitListener());
 
 		// help menu
-		JMenu helpMenu = new JMenu("Help");
+		final JMenu helpMenu = new JMenu("Help");
 		helpMenu.setMnemonic(KeyEvent.VK_H);
 
-		JMenuItem helpContentJMI = new JMenuItem("Help Contents");
+		final JMenuItem helpContentJMI = new JMenuItem("Help Contents");
 		helpContentJMI.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, ActionEvent.CTRL_MASK));
 
-		JMenuItem aboutJMI = new JMenuItem("About");
+		final JMenuItem aboutJMI = new JMenuItem("About");
 		aboutJMI.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, ActionEvent.CTRL_MASK));
 
 		helpMenu.add(helpContentJMI);
@@ -92,82 +166,9 @@ public class Gui extends JFrame implements Observer {
 		aboutJMI.addActionListener(new AboutListener());
 	}
 
-	private void addComponents() {
-		final Container cp = getContentPane();
-
-		cp.setLayout(new BorderLayout());
-		cp.add(panel, BorderLayout.CENTER);
-	}
-
 	@Override
 	public void update(Observable o, Object arg) {
 		repaint();
-	}
-
-	class LoadObjMenuBarListener implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			JFileChooser fc = new JFileChooser("./data");
-			int returnVal = fc.showOpenDialog(Gui.this);
-			if (returnVal == JFileChooser.APPROVE_OPTION) {
-				File file = fc.getSelectedFile();
-				try {
-					game.setGame((Game) FileUtility.retrieveGameFromFile(file));
-				} catch (IOException | ClassNotFoundException ex) {
-					JOptionPane.showMessageDialog(Gui.this, "Operation failed: \r\n\r\n" + e);
-				}
-
-			} else {
-				System.out.println("Operation canceled ");
-			}
-		}
-	}
-
-	class SaveObjMenuBarListener implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			JFileChooser fc = new JFileChooser("./data");
-			int returnVal = fc.showSaveDialog(Gui.this);
-			if (returnVal == JFileChooser.APPROVE_OPTION) {
-				File file = fc.getSelectedFile();
-				try {
-					FileUtility.saveGameToFile(file, game.getGame());
-				} catch (IOException ex) {
-					JOptionPane.showMessageDialog(Gui.this, "Operation failed: \r\n\r\n" + e);
-				}
-			} else {
-				System.out.println("Operation canceled ");
-			}
-		}
-	}
-
-	class ExitListener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			System.exit(0);
-		}
-	}
-
-	class HelpContentListener implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			JOptionPane.showMessageDialog(Gui.this,
-					"Get help at: https://boardgamegeek.com/boardgame/224596/9-card-siege", "Help Contents",
-					JOptionPane.PLAIN_MESSAGE);
-		}
-	}
-
-	class AboutListener implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			JOptionPane.showMessageDialog(Gui.this,
-					"9CardSiege\nProgramação Avançada\nDaniel Pinto 21250143\nTiago Rodrigues 21230180", "About",
-					JOptionPane.INFORMATION_MESSAGE);
-		}
 	}
 
 }
