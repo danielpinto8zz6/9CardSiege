@@ -47,6 +47,7 @@ public interface IStates {
 	 */
 	IStates archersAttack();
 
+        IStates dontAttack();
 	/**
 	 * attack. performs attack
 	 *

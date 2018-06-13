@@ -31,6 +31,11 @@ public class AwaitEnemyTrackSelectionForArchersAttack extends StateAdapter {
 
 		return new AwaitActionSelection(getGameData());
 	}
+        
+        	@Override
+	public IStates dontAttack() {
+		return new AwaitActionSelection(getGameData());
+	}
 
 	/** {@inheritDoc} */
 	@Override

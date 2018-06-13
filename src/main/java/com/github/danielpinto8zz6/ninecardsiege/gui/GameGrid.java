@@ -12,7 +12,9 @@ import javax.swing.JPanel;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
+import javax.swing.ImageIcon;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDrawn;
+import java.awt.Color;
 
 /**
  * Grelha de celulas... E' apenas um contentor
@@ -108,6 +110,10 @@ class GameGrid extends JPanel implements Constants, Observer {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(GamePanel.gameImgs[9], 0, 0, getWidth(), getHeight(), null);
+         g.setColor(Color.RED);
+        int x = 21 ;
+        int y = 194;
+        g.fillRect(x, y, 40, 40);
 			}
 		};
 		statusC = new JPanel() {
@@ -120,6 +126,10 @@ class GameGrid extends JPanel implements Constants, Observer {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(GamePanel.gameImgs[10], 0, 0, getWidth(), getHeight(), null);
+                                         g.setColor(Color.GREEN);
+        int x = 18 ;
+        int y = 13;
+        g.fillRect(x, y, 40, 40);
 			}
 		};
 		backCard = new JPanel() {
@@ -143,7 +153,7 @@ class GameGrid extends JPanel implements Constants, Observer {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				final int i = game.getGameData().getNumCard();
+                                int i = game.getGameData().getNumCard();
 				g.drawImage(GamePanel.gameImgs[i], 0, 0, getWidth(), getHeight(), null);
 			}
 		};
@@ -163,12 +173,7 @@ class GameGrid extends JPanel implements Constants, Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 
-		if (game.getState() instanceof AwaitTopCardToBeDrawn) {
-			System.exit(0);
-			battleC.setVisible(false);
-			statusC.setVisible(false);
-			frontCard.setVisible(false);
-		}
+
 	}
 
 }

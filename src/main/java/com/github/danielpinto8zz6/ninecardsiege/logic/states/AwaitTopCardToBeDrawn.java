@@ -33,7 +33,7 @@ public class AwaitTopCardToBeDrawn extends StateAdapter {
 		final List<Card> cards = getGameData().getCards();
 		getGameData().addMsgLog("Picking Card...");
 		final Card card = cards.get(0);
-		getGameData().setNumCard(card.getCardNumber());
+		getGameData().setNumCard((card.getCardNumber() + 1));
 		getGameData().addMsgLog("Picked " + card.toString());
 
 		getGameData().addMsgLog("Resolving event text Advance enemies");
