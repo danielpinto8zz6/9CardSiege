@@ -72,6 +72,7 @@ class PlayerNameBox extends JPanel {
 		add(nameField);
                 
                 
+                validate();
 
 	}
 }

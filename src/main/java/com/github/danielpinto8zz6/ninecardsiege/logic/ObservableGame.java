@@ -88,6 +88,21 @@ public class ObservableGame extends Observable {
 		setChanged();
 		notifyObservers();
 	}
+        
+        	public void checkStatus(){
+                        game.checkStatus();
+                        
+                setChanged();
+		notifyObservers();
+                }
+                
+public void endOfTurn() {
+    game.endOfTurn();
+    
+                    setChanged();
+		notifyObservers();
+}
+
 
 	public java.util.List<String> getMsgLog() {
 		return game.getMsgLog();

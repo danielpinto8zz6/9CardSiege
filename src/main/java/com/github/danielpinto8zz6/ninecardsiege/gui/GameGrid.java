@@ -11,17 +11,32 @@ import java.util.Observer;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
+
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
 
 /**
  * Grelha de celulas... E' apenas um contentor
  *
  * @author JMSousa (base)
  */
-class GameGrid extends JPanel implements Constants, Observer {
+class GameGrid extends JPanel implements Observer {
 	private static final long serialVersionUID = 1L;
+	ObservableGame game;
+	JPanel battleC;
+	JPanel statusC;
+	JPanel backCard;
+        JPanel backGround;
+	JPanel frontCard;
 
+	GameGrid(ObservableGame g) {
+		this.game = g;
+		game.addObserver(this);
+		GameGrid.loadImages(game);
+
+		setupLayout();
+	}
+        
 	static void loadImages(ObservableGame game) {
 
 		int i = 0;
@@ -34,70 +49,24 @@ class GameGrid extends JPanel implements Constants, Observer {
 		}
 	}
 
-	ObservableGame game;
-	JPanel battleC;
-	JPanel statusC;
-	JPanel backCard;
 
-	JPanel frontCard;
 
-	GameGrid(ObservableGame g) {
-		game = g;
-		GameGrid.loadImages(game);
 
-		setupLayout();
-	}
-
-	public JPanel getBackCard() {
-		return backCard;
-	}
-
-	public JPanel getBattleC() {
-		return battleC;
-	}
-
-	public JPanel getFrontCard() {
-		return frontCard;
-	}
-
-	public JPanel getStatusC() {
-		return statusC;
-	}
-
-	public void setBackCard(JPanel backCard) {
-		this.backCard = backCard;
-	}
-
-	public void setBattleC(JPanel battleC) {
-		this.battleC = battleC;
-	}
-
-	public void setFrontCard(JPanel frontCard) {
-		this.frontCard = frontCard;
-	}
-
-	public void setStatusC(JPanel statusC) {
-		this.statusC = statusC;
-	}
-
-	void setupLayout() {
+	private void setupLayout() {
 		setLayout(new BorderLayout());
 
-		final JPanel backGround = new JPanel() {
-			/**
-			 *
-			 */
+		backGround = new JPanel() {
+
 			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				g.drawImage(GamePanel.gameImgs[0], 0, 0, getWidth(), getHeight(), null);
+				g.drawImage(GamePanel.gameImgs[7], 0, 0, getWidth(), getHeight(), null);
 			}
 		};
 
 		backGround.setLayout(new GridLayout(0, 3));
-
 		battleC = new JPanel() {
 			/**
 			 *
@@ -107,7 +76,7 @@ class GameGrid extends JPanel implements Constants, Observer {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				g.drawImage(GamePanel.gameImgs[9], 0, 0, getWidth(), getHeight(), null);
+				g.drawImage(GamePanel.gameImgs[8], 0, 0, getWidth(), getHeight(), null);
 				g.setColor(Color.RED);
 				int x = 20;
 				int y = 127;
@@ -123,7 +92,7 @@ class GameGrid extends JPanel implements Constants, Observer {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				g.drawImage(GamePanel.gameImgs[10], 0, 0, getWidth(), getHeight(), null);
+				g.drawImage(GamePanel.gameImgs[9], 0, 0, getWidth(), getHeight(), null);
 				g.setColor(Color.GREEN);
 				int x = 18;
 				int y = 13;
@@ -139,7 +108,7 @@ class GameGrid extends JPanel implements Constants, Observer {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				g.drawImage(GamePanel.gameImgs[8], 0, 0, getWidth(), getHeight(), null);
+				g.drawImage(GamePanel.gameImgs[10], 0, 0, getWidth(), getHeight(), null);
 			}
 		};
 		frontCard = new JPanel() {
@@ -152,6 +121,7 @@ class GameGrid extends JPanel implements Constants, Observer {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				int i = game.getGameData().getNumCard();
+                                i--;
 				g.drawImage(GamePanel.gameImgs[i], 0, 0, getWidth(), getHeight(), null);
 			}
 		};
@@ -162,15 +132,27 @@ class GameGrid extends JPanel implements Constants, Observer {
 		 */
 
 		add(backGround, BorderLayout.CENTER);
+                battleC.setVisible(false);
+                statusC.setVisible(false);
+                frontCard.setVisible(false);
+
 		backGround.add(battleC);
 		backGround.add(statusC);
 		backGround.add(frontCard);
+                
+                validate();
 
 	}
 
+        
 	@Override
 	public void update(Observable o, Object arg) {
-
+            
+                if (!(game.getState() instanceof AwaitBeginning)) {
+                battleC.setVisible(true);
+                statusC.setVisible(true);
+                frontCard.setVisible(true);
+                        }
 	}
 
 }

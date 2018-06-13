@@ -24,8 +24,10 @@ public class GamePanel extends JPanel implements Observer {
 	private static final long serialVersionUID = 1L;
 
 	static Image bGImage;
-	static final String imageFiles[] = { "/back_2.jpg", "/card1.jpg", "/card2.jpg", "/card3.jpg", "/card4.jpg",
-			"/card5.jpg", "/card6.jpg", "/card7.jpg", "/back_1.jpg", "/batlle.jpg", "/status.jpg" };
+
+	static final String imageFiles[] = { "/card1.jpg", "/card2.jpg", "/card3.jpg", "/card4.jpg",
+			"/card5.jpg", "/card6.jpg", "/card7.jpg", "/back_1.jpg", "/batlle.jpg", "/status.jpg", "/back_2.jpg" };
+			
 	static Image gameImgs[] = new Image[GamePanel.imageFiles.length];
 	ObservableGame game;
 	StartOptionPanel optionPanel;
