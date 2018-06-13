@@ -116,6 +116,7 @@ public class GamePanel extends JPanel implements Observer {
 		}
 
 		updateGameLog();
+                game.checkStatus();
 	}
 
 	private void updateGameLog() {
