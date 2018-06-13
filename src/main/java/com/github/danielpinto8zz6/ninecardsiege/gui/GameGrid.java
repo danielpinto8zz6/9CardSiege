@@ -109,7 +109,8 @@ class GameGrid extends JPanel implements Constants, Observer {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				g.drawImage(GamePanel.gameImgs[9], 0, 0, getWidth(), getHeight(), null);
+                                g.drawImage(GamePanel.gameImgs[9], 0, 0, getWidth(), getHeight(), null);
+                                
          g.setColor(Color.RED);
         int x = 21 ;
         int y = 194;

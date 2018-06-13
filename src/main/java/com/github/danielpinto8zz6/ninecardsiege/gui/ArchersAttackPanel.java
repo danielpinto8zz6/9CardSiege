@@ -39,7 +39,10 @@ public class ArchersAttackPanel extends JPanel {
         
         private void setupComponents(){
             
-            
+            bt1.addActionListener( ev -> game.attack("Ladders"));
+            bt2.addActionListener( ev -> game.attack("BattleRam"));
+            bt3.addActionListener( ev -> game.attack("SiegeEngine"));
+
                 dNA.addActionListener(ev -> game.callMenu());
    		end.addActionListener(ev -> System.exit(0));
 

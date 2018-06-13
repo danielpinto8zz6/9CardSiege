@@ -78,4 +78,12 @@ public class ObservableGame extends Observable {
 		setChanged();
 		notifyObservers();
 	}
+                
+                 public void attack(String name) {
+		game.attack(name);
+
+		setChanged();
+		notifyObservers();
+	}     
+                
 }

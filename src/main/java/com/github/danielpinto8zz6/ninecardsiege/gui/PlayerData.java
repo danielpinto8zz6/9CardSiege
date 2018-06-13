@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
+import javax.swing.JTextField;
 
 /**
  * Painel que apresenta os dados do jogador: indica o nome, conteudo da mao,
@@ -64,6 +65,8 @@ class PlayerData extends JPanel implements Observer {
 		name.setAlignmentX(Component.CENTER_ALIGNMENT);
 		name.setAlignmentY(Component.CENTER_ALIGNMENT);
 
+                //actionPoints = new JTextField(15);
+                                //actionPoints.setText(String.valueOf(game.getGameData().getPlayer().getActionPoints()));
 		victoryMessage.setVisible(false);
 		victoryMessage.setAlignmentX(Component.CENTER_ALIGNMENT);
 		victoryMessage.setFont(new Font("Dialog", Font.BOLD, 30));
