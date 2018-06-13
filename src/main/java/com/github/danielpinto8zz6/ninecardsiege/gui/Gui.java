@@ -2,11 +2,24 @@ package com.github.danielpinto8zz6.ninecardsiege.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 
+import com.github.danielpinto8zz6.ninecardsiege.files.FileUtility;
+import com.github.danielpinto8zz6.ninecardsiege.logic.Game;
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 
 public class Gui extends JFrame implements Observer {
@@ -22,6 +35,7 @@ public class Gui extends JFrame implements Observer {
 		panel = new GamePanel(game);
 
 		addComponents();
+		menus();
 
 		setVisible(true);
 		this.setSize(1000, 500);
@@ -31,6 +45,51 @@ public class Gui extends JFrame implements Observer {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		validate();
+	}
+
+	private void menus() {
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+
+		// game menu
+		JMenu gameMenu = new JMenu("Game");
+		gameMenu.setMnemonic(KeyEvent.VK_G);
+
+		JMenuItem readObjJMI = new JMenuItem("Load");
+		readObjJMI.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, ActionEvent.CTRL_MASK));
+
+		JMenuItem saveObjJMI = new JMenuItem("Save");
+		saveObjJMI.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
+
+		JMenuItem exitJMI = new JMenuItem("Exit");
+		exitJMI.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, ActionEvent.CTRL_MASK));
+
+		gameMenu.add(readObjJMI);
+		gameMenu.add(saveObjJMI);
+		gameMenu.addSeparator();
+		gameMenu.add(exitJMI);
+		menuBar.add(gameMenu);
+
+		readObjJMI.addActionListener(new LoadObjMenuBarListener());
+		saveObjJMI.addActionListener(new SaveObjMenuBarListener());
+		exitJMI.addActionListener(new ExitListener());
+
+		// help menu
+		JMenu helpMenu = new JMenu("Help");
+		helpMenu.setMnemonic(KeyEvent.VK_H);
+
+		JMenuItem helpContentJMI = new JMenuItem("Help Contents");
+		helpContentJMI.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, ActionEvent.CTRL_MASK));
+
+		JMenuItem aboutJMI = new JMenuItem("About");
+		aboutJMI.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, ActionEvent.CTRL_MASK));
+
+		helpMenu.add(helpContentJMI);
+		helpMenu.add(aboutJMI);
+		menuBar.add(helpMenu);
+
+		helpContentJMI.addActionListener(new HelpContentListener());
+		aboutJMI.addActionListener(new AboutListener());
 	}
 
 	private void addComponents() {
@@ -44,4 +103,71 @@ public class Gui extends JFrame implements Observer {
 	public void update(Observable o, Object arg) {
 		repaint();
 	}
+
+	class LoadObjMenuBarListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JFileChooser fc = new JFileChooser("./data");
+			int returnVal = fc.showOpenDialog(Gui.this);
+			if (returnVal == JFileChooser.APPROVE_OPTION) {
+				File file = fc.getSelectedFile();
+				try {
+					game.setGame((Game) FileUtility.retrieveGameFromFile(file));
+				} catch (IOException | ClassNotFoundException ex) {
+					JOptionPane.showMessageDialog(Gui.this, "Operation failed: \r\n\r\n" + e);
+				}
+
+			} else {
+				System.out.println("Operation canceled ");
+			}
+		}
+	}
+
+	class SaveObjMenuBarListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JFileChooser fc = new JFileChooser("./data");
+			int returnVal = fc.showSaveDialog(Gui.this);
+			if (returnVal == JFileChooser.APPROVE_OPTION) {
+				File file = fc.getSelectedFile();
+				try {
+					FileUtility.saveGameToFile(file, game.getGame());
+				} catch (IOException ex) {
+					JOptionPane.showMessageDialog(Gui.this, "Operation failed: \r\n\r\n" + e);
+				}
+			} else {
+				System.out.println("Operation canceled ");
+			}
+		}
+	}
+
+	class ExitListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			System.exit(0);
+		}
+	}
+
+	class HelpContentListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JOptionPane.showMessageDialog(Gui.this,
+					"Get help at: https://boardgamegeek.com/boardgame/224596/9-card-siege", "Help Contents",
+					JOptionPane.PLAIN_MESSAGE);
+		}
+	}
+
+	class AboutListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JOptionPane.showMessageDialog(Gui.this,
+					"9CardSiege\nProgramação Avançada\nDaniel Pinto 21250143\nTiago Rodrigues 21230180", "About",
+					JOptionPane.INFORMATION_MESSAGE);
+		}
+	}
+
 }

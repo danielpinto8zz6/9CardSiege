@@ -13,8 +13,8 @@ public class ObservableGame extends Observable {
 
 	public void drawTopCard() {
 		game.drawTopCard();
-                game.StartOfTheTurn();
-                
+		game.StartOfTheTurn();
+
 		setChanged();
 		notifyObservers();
 	}
@@ -46,19 +46,20 @@ public class ObservableGame extends Observable {
 		return game.isOver();
 	}
 
-	public void setGameModel(Game game) {
+	public void setGame(Game game) {
 		this.game = game;
 
 		setChanged();
 		notifyObservers();
 	}
 
-        public void callMenu() {
-                game.dontAttack();
+	public void callMenu() {
+		game.dontAttack();
 
 		setChanged();
 		notifyObservers();
 	}
+
 	public void setPlayerName(String text) {
 		game.getGameData().getPlayer().setName(text);
 		setChanged();
@@ -71,19 +72,19 @@ public class ObservableGame extends Observable {
 		setChanged();
 		notifyObservers();
 	}
-        
-        	public void archersAttack() {
+
+	public void archersAttack() {
 		game.archersAttack();
 
 		setChanged();
 		notifyObservers();
 	}
-                
-                 public void attack(String name) {
+
+	public void attack(String name) {
 		game.attack(name);
 
 		setChanged();
 		notifyObservers();
-	}     
-                
+	}
+
 }
