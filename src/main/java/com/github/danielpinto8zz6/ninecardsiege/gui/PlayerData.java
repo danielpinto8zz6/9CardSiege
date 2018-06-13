@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
 import javax.swing.JTextField;
 
 /**
@@ -28,6 +29,9 @@ class PlayerData extends JPanel implements Observer {
 	private static final long serialVersionUID = 1L;
 	JLabel victoryMessage;
 	JLabel name;
+        JLabel actionPoints;
+        JLabel dia;
+        
 
 	ObservableGame game;
 	int playerNumber;
@@ -40,6 +44,9 @@ class PlayerData extends JPanel implements Observer {
 		victoryMessage = new JLabel("WINNER !!");
 
 		name = new JLabel();
+                actionPoints = new JLabel();
+                dia = new JLabel();
+
 
 		setupLayout();
 	}
@@ -64,14 +71,23 @@ class PlayerData extends JPanel implements Observer {
 		name.setText(player.getName());
 		name.setAlignmentX(Component.CENTER_ALIGNMENT);
 		name.setAlignmentY(Component.CENTER_ALIGNMENT);
+                
+                dia.setText("Dia :" + String.valueOf(game.getGameData().getDay()));
+                dia.setBounds(0, 0, 200, 50);
+                dia.setVisible(false);
 
-                //actionPoints = new JTextField(15);
-                                //actionPoints.setText(String.valueOf(game.getGameData().getPlayer().getActionPoints()));
+                actionPoints.setText("Action Points :" + String.valueOf(game.getGameData().getPlayer().getActionPoints()));
+                actionPoints.setBounds(0, 20, 200, 50);
+                actionPoints.setVisible(false);
+                
 		victoryMessage.setVisible(false);
 		victoryMessage.setAlignmentX(Component.CENTER_ALIGNMENT);
 		victoryMessage.setFont(new Font("Dialog", Font.BOLD, 30));
 
+                
 		add(name);
+                add(dia);
+                add(actionPoints);
 		add(victoryMessage);
 	}
 
@@ -81,7 +97,13 @@ class PlayerData extends JPanel implements Observer {
 		final Player player = game.getPlayer();
 
 		name.setText(player.getName());
+                dia.setText("Dia :" + String.valueOf(game.getGameData().getDay()));
+                actionPoints.setText("Action Points :" + String.valueOf(game.getGameData().getPlayer().getActionPoints()));
 
+		if (!(game.getState() instanceof AwaitBeginning)) {
+                dia.setVisible(true);               
+                actionPoints.setVisible(true);
+                }
 		if (game == null) {
 			return;
 		}
