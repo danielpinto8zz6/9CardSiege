@@ -46,6 +46,7 @@ public class OptionPanel extends JPanel {
 	private void setupComponents() {
             
 		aAt.addActionListener(ev -> game.archersAttack());
+                nTu.addActionListener(ev -> game.endOfTurn());
 		end.addActionListener(ev -> System.exit(0));
 	}
 

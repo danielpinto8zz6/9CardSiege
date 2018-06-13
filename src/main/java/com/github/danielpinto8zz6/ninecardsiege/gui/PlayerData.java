@@ -89,6 +89,9 @@ class PlayerData extends JPanel implements Observer {
                 add(dia);
                 add(actionPoints);
 		add(victoryMessage);
+                
+                                validate();
+
 	}
 
 	@Override
@@ -109,7 +112,8 @@ class PlayerData extends JPanel implements Observer {
 		}
 
 		if (game.isOver()) {
-			// TODO
+                victoryMessage.setVisible(true);
+
 		}
 	}
 }

@@ -80,6 +80,9 @@ public class ArchersAttackPanel extends JPanel {
 		end.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		add(Box.createVerticalStrut(10));
 		add(end);
+                
+                                validate();
+
         }
 
 
