@@ -121,6 +121,7 @@ public class GamePanel extends JPanel implements Observer {
 	private void updateGameLog() {
 		if (game.getMsgLog().size() > 0) {
 			game.getMsgLog().forEach((msg) -> gameLog.append(msg + "\n"));
+			gameLog.setCaretPosition(gameLog.getDocument().getLength());
 			game.clearMsgLog();
 		}
 	}

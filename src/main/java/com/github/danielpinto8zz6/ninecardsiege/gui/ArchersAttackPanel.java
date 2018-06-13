@@ -5,7 +5,7 @@
  */
 package com.github.danielpinto8zz6.ninecardsiege.gui;
 
-import java.awt.Color;
+// import java.awt.Color;
 import java.awt.Component;
 
 import javax.swing.Box;
@@ -32,7 +32,7 @@ public class ArchersAttackPanel extends JPanel {
 
 		game = g;
 
-		setBackground(Color.GRAY);
+		// setBackground(Color.GRAY);
 		setupComponents();
 		setupLayout();
 

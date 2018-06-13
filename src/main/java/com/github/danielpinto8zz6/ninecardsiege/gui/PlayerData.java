@@ -52,10 +52,10 @@ class PlayerData extends JPanel implements Observer {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
-		final Graphics2D g2 = (Graphics2D) g;
-		g2.setStroke(new BasicStroke(8)); // espessura da linha
-		g2.setColor(Color.GREEN);
-		g2.drawRect(0, 0, getWidth(), getHeight());
+		// final Graphics2D g2 = (Graphics2D) g;
+		// g2.setStroke(new BasicStroke(8)); // espessura da linha
+		// g2.setColor(Color.GREEN);
+		// g2.drawRect(0, 0, getWidth(), getHeight());
 	}
 
 	private void setupLayout() {

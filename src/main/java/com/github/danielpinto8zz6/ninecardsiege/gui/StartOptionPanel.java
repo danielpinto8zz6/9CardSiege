@@ -1,6 +1,6 @@
 package com.github.danielpinto8zz6.ninecardsiege.gui;
 
-import java.awt.Color;
+// import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 
@@ -33,7 +33,7 @@ class StartOptionPanel extends JPanel {
 	StartOptionPanel(ObservableGame g) {
 		game = g;
 
-		setBackground(Color.GRAY);
+		// setBackground(Color.GRAY);
 		setupComponents();
 		setupLayout();
 
