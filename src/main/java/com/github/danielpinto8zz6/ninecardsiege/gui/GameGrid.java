@@ -1,6 +1,7 @@
 package com.github.danielpinto8zz6.ninecardsiege.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.io.IOException;
@@ -12,9 +13,6 @@ import javax.swing.JPanel;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.Constants;
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
-import javax.swing.ImageIcon;
-import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDrawn;
-import java.awt.Color;
 
 /**
  * Grelha de celulas... E' apenas um contentor
@@ -110,10 +108,10 @@ class GameGrid extends JPanel implements Constants, Observer {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(GamePanel.gameImgs[9], 0, 0, getWidth(), getHeight(), null);
-         g.setColor(Color.RED);
-        int x = 21 ;
-        int y = 194;
-        g.fillRect(x, y, 40, 40);
+				g.setColor(Color.RED);
+				int x = getWidth() / 13;
+				int y = getHeight() / 6;
+				g.fillOval(x, y, 40, 40);
 			}
 		};
 		statusC = new JPanel() {
@@ -126,10 +124,10 @@ class GameGrid extends JPanel implements Constants, Observer {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(GamePanel.gameImgs[10], 0, 0, getWidth(), getHeight(), null);
-                                         g.setColor(Color.GREEN);
-        int x = 18 ;
-        int y = 13;
-        g.fillRect(x, y, 40, 40);
+				g.setColor(Color.GREEN);
+				int x = 18;
+				int y = 13;
+				g.fillOval(x, y, 40, 40);
 			}
 		};
 		backCard = new JPanel() {
@@ -153,7 +151,7 @@ class GameGrid extends JPanel implements Constants, Observer {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-                                int i = game.getGameData().getNumCard();
+				int i = game.getGameData().getNumCard();
 				g.drawImage(GamePanel.gameImgs[i], 0, 0, getWidth(), getHeight(), null);
 			}
 		};
@@ -172,7 +170,6 @@ class GameGrid extends JPanel implements Constants, Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
-
 
 	}
 
