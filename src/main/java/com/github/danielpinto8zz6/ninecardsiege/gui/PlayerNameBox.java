@@ -20,9 +20,9 @@ class PlayerNameBox extends JPanel {
 	private static final long serialVersionUID = 1L;
 	ObservableGame game;
 	JTextField nameField;
-
+        JTextField actionPoints;
 	PlayerNameBox(ObservableGame g) {
-		String nome;
+		String nome,aP;
 
 		game = g;
 
@@ -30,6 +30,8 @@ class PlayerNameBox extends JPanel {
 
 		nameField = new JTextField(15);
 		nameField.setText(nome);
+                		actionPoints = new JTextField(15);
+                                actionPoints.setText(String.valueOf(game.getGameData().getPlayer().getActionPoints()));
 
 		// Listen for changes in the text
 		nameField.getDocument().addDocumentListener(new DocumentListener() {
@@ -68,5 +70,8 @@ class PlayerNameBox extends JPanel {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		add(new JLabel("Player " + " name"));
 		add(nameField);
+                
+                
+
 	}
 }
