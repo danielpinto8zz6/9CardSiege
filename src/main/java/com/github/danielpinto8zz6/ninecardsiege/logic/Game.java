@@ -88,8 +88,8 @@ public final class Game implements Serializable {
 		setState(getState().coupure());
 	}
 
-	public void dontAttack() {
-		setState(getState().dontAttack());
+	public void dont() {
+		setState(getState().dont());
 	}
 
 	/** drawTopCard. */

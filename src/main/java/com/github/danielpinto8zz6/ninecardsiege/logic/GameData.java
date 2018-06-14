@@ -32,6 +32,8 @@ public final class GameData implements Constants, Serializable {
 
 	private boolean endGame;
 	private boolean newDay;
+        private boolean freeM;
+
 
 	private final BattleCard battleCard;
 	private final StatusCard statusCard;
@@ -490,6 +492,14 @@ public final class GameData implements Constants, Serializable {
 			}
 		}
 	}
+
+    public boolean isFreeM() {
+        return freeM;
+    }
+
+    public void setFreeM(boolean freeM) {
+        this.freeM = freeM;
+    }
 
 	/** {@inheritDoc} */
 	@Override

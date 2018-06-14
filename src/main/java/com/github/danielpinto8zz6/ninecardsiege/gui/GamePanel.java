@@ -16,6 +16,8 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitActionSelection;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitEnemyTrackSelectionForArchersAttack;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitEnemyTrackSelectionForBoilingWaterAttack;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitOptionForTroopsMovement;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDrawn;
 
 // import java.io.FileInputStream;
@@ -32,7 +34,8 @@ public class GamePanel extends JPanel implements Observer {
 	ObservableGame game;
 	StartOptionPanel optionPanel;
 	OptionPanel optionPane2;
-	ArchersAttackPanel optionPane3;
+	AttackSelectioPanel optionPane3;
+        TunnelMovementPanel optionPane4;
 	GameGrid theGrid;
 	PlayerData playerData;
 	private CardLayout cardManager;
@@ -52,7 +55,8 @@ public class GamePanel extends JPanel implements Observer {
 	private void setupComponents() {
 		optionPanel = new StartOptionPanel(game);
 		optionPane2 = new OptionPanel(game);
-		optionPane3 = new ArchersAttackPanel(game);
+		optionPane3 = new AttackSelectioPanel(game);
+                optionPane4 = new TunnelMovementPanel(game);
 		theGrid = new GameGrid(game);
 
 		gridLayout = new GridLayout(0, 2);
@@ -77,7 +81,9 @@ public class GamePanel extends JPanel implements Observer {
 
 		pEast.add(optionPanel, "Starter");
 		pEast.add(optionPane2, "Main");
-		pEast.add(optionPane3, "ArchersAttack");
+		pEast.add(optionPane3, "SelectAttack");
+                pEast.add(optionPane4, "TunnelM1");
+
 
 		setLayout(new BorderLayout());
 		pCenter = new JPanel();
@@ -111,9 +117,13 @@ public class GamePanel extends JPanel implements Observer {
 		if (game.getState() instanceof AwaitActionSelection) {
 			cardManager.show(pEast, "Main");
 		}
-		if (game.getState() instanceof AwaitEnemyTrackSelectionForArchersAttack) {
-			cardManager.show(pEast, "ArchersAttack");
+		if (game.getState() instanceof AwaitEnemyTrackSelectionForArchersAttack || 
+                     game.getState() instanceof  AwaitEnemyTrackSelectionForBoilingWaterAttack) {
+			cardManager.show(pEast, "SelectAttack");
 		}
+		if (game.getState() instanceof AwaitOptionForTroopsMovement) {
+			cardManager.show(pEast, "TunnelM1");
+		}               
 
 		updateGameLog();
 	}

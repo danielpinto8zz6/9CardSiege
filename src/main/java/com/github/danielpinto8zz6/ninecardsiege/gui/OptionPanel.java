@@ -46,9 +46,11 @@ public class OptionPanel extends JPanel {
 	private void setupComponents() {
 
 		aAt.addActionListener(ev -> game.archersAttack());
+                bWA.addActionListener(ev -> game.boilingWaterAttack());
                 cCA.addActionListener(ev -> game.closeCombatAttack());
                 Cou.addActionListener(ev -> game.coupure());
                 ral.addActionListener(ev -> game.rallyTroops());
+                tMo.addActionListener(ev -> game.tunnelMovement());
                 sRa.addActionListener(ev -> game.supplyRaid());
                 Sab.addActionListener(ev -> game.sabotage());
 		nTu.addActionListener(ev -> game.endOfTurn());

@@ -18,7 +18,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
  *
  * @author tiago_000
  */
-public class ArchersAttackPanel extends JPanel {
+public class AttackSelectioPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	ObservableGame game;
 	JButton bt1 = new JButton("Target: Ladders");
@@ -27,7 +27,7 @@ public class ArchersAttackPanel extends JPanel {
 	JButton dNA = new JButton("Do Not Attack");
 	JButton end = new JButton("End Game");
 
-	ArchersAttackPanel(ObservableGame g) {
+	AttackSelectioPanel(ObservableGame g) {
 
 		game = g;
 
