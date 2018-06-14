@@ -7,7 +7,6 @@ package com.github.danielpinto8zz6.ninecardsiege.gui;
 
 // import java.awt.Color;
 import java.awt.Component;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;

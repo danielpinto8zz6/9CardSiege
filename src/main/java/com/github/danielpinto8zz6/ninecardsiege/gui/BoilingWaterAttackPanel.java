@@ -5,10 +5,14 @@
  */
 package com.github.danielpinto8zz6.ninecardsiege.gui;
 
+import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
+import javax.swing.JPanel;
+
 /**
  *
  * @author tiago_000
  */
-public class BoilingWaterAttackPanel {
-
+public class BoilingWaterAttackPanel extends JPanel {
+	private static final long serialVersionUID = 1L;
+	ObservableGame game;
 }
