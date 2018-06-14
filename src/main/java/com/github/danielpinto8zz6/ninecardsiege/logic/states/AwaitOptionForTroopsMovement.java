@@ -36,4 +36,9 @@ public class AwaitOptionForTroopsMovement extends StateAdapter {
 		getGameData().leaveM();
 		return new AwaitActionSelection(getGameData());
 	}
+        
+        	@Override
+	public IStates dont() {
+		return new AwaitActionSelection(getGameData());
+	}
 }

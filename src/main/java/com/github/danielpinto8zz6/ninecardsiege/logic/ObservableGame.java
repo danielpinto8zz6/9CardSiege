@@ -5,142 +5,198 @@ import java.util.Observable;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates;
 
 public class ObservableGame extends Observable {
-	Game game;
 
-	public ObservableGame() {
-		game = new Game();
-	}
+    Game game;
 
-	public void archersAttack() {
-		game.archersAttack();
+    public ObservableGame() {
+        game = new Game();
+    }
 
-		setChanged();
-		notifyObservers();
-	}
+    public void archersAttack() {
+        game.archersAttack();
+        game.checkStatus();
 
-	public void attack(String name) {
-		game.attack(name);
+        setChanged();
+        notifyObservers();
+    }
 
-		setChanged();
-		notifyObservers();
-	}
+    public void attack(String name) {
+        game.attack(name);
+        game.checkStatus();
 
-	public void callMenu() {
-		game.dontAttack();
+        setChanged();
+        notifyObservers();
+    }
 
-		setChanged();
-		notifyObservers();
-	}
+    public void callMenu() {
+        game.dont();
 
-	public void checkStatus() {
-		game.checkStatus();
+        setChanged();
+        notifyObservers();
+    }
 
-		setChanged();
-		notifyObservers();
-	}
+    // Methods retrieve data from the game
+    public void clearMsgLog() {
+        game.clearMsgLog();
+    }
 
-	// Methods retrieve data from the game
+    public void drawTopCard() {
+        game.drawTopCard();
+        game.StartOfTheTurn();
 
-	public void clearMsgLog() {
-		game.clearMsgLog();
-	}
+        setChanged();
+        notifyObservers();
+    }
 
-	public void drawTopCard() {
-		game.drawTopCard();
-		game.StartOfTheTurn();
+    public void endOfTurn() {
+        game.endOfTurn();
 
-		setChanged();
-		notifyObservers();
-	}
+        setChanged();
+        notifyObservers();
+    }
 
-	public void endOfTurn() {
-		game.endOfTurn();
+    public void finish() {
+        game.finish();
+        notifyObservers();
+    }
 
-		setChanged();
-		notifyObservers();
-	}
+    public Game getGame() {
+        return game;
+    }
 
-	public void finish() {
-		game.finish();
-		notifyObservers();
-	}
+    public GameData getGameData() {
+        return game.getGameData();
+    }
 
-	public Game getGame() {
-		return game;
-	}
+    public java.util.List<String> getMsgLog() {
+        return game.getMsgLog();
+    }
 
-	public GameData getGameData() {
-		return game.getGameData();
-	}
+    public Player getPlayer() {
+        return game.getGameData().getPlayer();
+    }
 
-	public java.util.List<String> getMsgLog() {
-		return game.getMsgLog();
-	}
+    public IStates getState() {
+        return game.getState();
+    }
 
-	public Player getPlayer() {
-		return game.getGameData().getPlayer();
-	}
+    public boolean isOver() {
+        return game.isOver();
+    }
 
-	public IStates getState() {
-		return game.getState();
-	}
+    public void setGame(Game game) {
+        this.game = game;
 
-	public boolean isOver() {
-		return game.isOver();
-	}
+        setChanged();
+        notifyObservers();
+    }
 
-	public void setGame(Game game) {
-		this.game = game;
+    public void setPlayerName(String text) {
+        game.getGameData().getPlayer().setName(text);
+        setChanged();
+        notifyObservers();
+    }
 
-		setChanged();
-		notifyObservers();
-	}
+    public void start() {
+        game.start();
 
-	public void setPlayerName(String text) {
-		game.getGameData().getPlayer().setName(text);
-		setChanged();
-		notifyObservers();
-	}
+        setChanged();
+        notifyObservers();
+    }
 
-	public void start() {
-		game.start();
+    public void closeCombatAttack() {
+        game.closeCombatAttack();
+        game.checkStatus();
 
-		setChanged();
-		notifyObservers();
-	}
+        setChanged();
+        notifyObservers();
+    }
 
-	public void closeCombatAttack() {
-		game.closeCombatAttack();
+    public void coupure() {
+        game.coupure();
+        game.checkStatus();
 
-		setChanged();
-		notifyObservers();
-	}
+        setChanged();
+        notifyObservers();
+    }
 
-	public void coupure() {
-		game.coupure();
+    public void rallyTroops() {
+        game.rallyTroops();
 
-		setChanged();
-		notifyObservers();
-	}
+        setChanged();
+        notifyObservers();
+    }
 
-	public void rallyTroops() {
-		game.rallyTroops();
+    public void applyRallyTroops(boolean plusOne) {
+        game.applyRallyTroops(plusOne);
+        game.checkStatus();
 
-		setChanged();
-		notifyObservers();
-	}
+        setChanged();
+        notifyObservers();
+    }
 
-	public void supplyRaid() {
-		game.supplyRaid();
+    public void supplyRaid() {
+        game.supplyRaid();
+        game.checkStatus();
 
-		setChanged();
-		notifyObservers();
-	}
+        setChanged();
+        notifyObservers();
+    }
 
-	public void sabotage() {
-		game.sabotage();
+    public void sabotage() {
+        game.sabotage();
+        game.checkStatus();
 
-		setChanged();
-		notifyObservers();
-	}
+        setChanged();
+        notifyObservers();
+    }
+
+    public void boilingWaterAttack() {
+        game.boilingWaterAttack();
+        game.checkStatus();
+
+        setChanged();
+        notifyObservers();
+    }
+
+    public void freeMovement(boolean up) {
+        game.freeMovement(up);
+        setChanged();
+        notifyObservers();
+    }
+
+    public void fastMovement(boolean up) {
+        game.fastMovement(up);
+        setChanged();
+        notifyObservers();
+    }
+
+    public void tunnelMovement() {
+        game.tunnelMovement();
+        setChanged();
+        notifyObservers();
+    }
+
+    public void leaveLocation() {
+        game.leaveLocation();
+
+        setChanged();
+        notifyObservers();
+    }
+
+    public void extraActionPoint() {
+        game.extraActionPoint();
+
+        setChanged();
+        notifyObservers();
+    }
+
+    public void applyExtraActionPoint(Constants.EXTRA extra) {
+        game.applyExtraActionPoint(extra);
+        game.checkStatus();
+
+        setChanged();
+        notifyObservers();
+    }
+
 }

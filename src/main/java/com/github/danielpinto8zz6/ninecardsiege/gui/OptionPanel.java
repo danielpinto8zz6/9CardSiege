@@ -28,7 +28,8 @@ public class OptionPanel extends JPanel {
 	JButton ral = new JButton("Rally");
 	JButton tMo = new JButton("Tunnel Movemente");
 	JButton sRa = new JButton("Supply Raid");
-	JButton Sab = new JButton("Sabotage");
+	JButton sab = new JButton("Sabotage");
+        JButton eAP = new JButton("Extra Action Point");
 	JButton nTu = new JButton("Next Turn");
 	JButton end = new JButton("End Game");
 
@@ -46,11 +47,14 @@ public class OptionPanel extends JPanel {
 	private void setupComponents() {
 
 		aAt.addActionListener(ev -> game.archersAttack());
-		cCA.addActionListener(ev -> game.closeCombatAttack());
-		Cou.addActionListener(ev -> game.coupure());
-		ral.addActionListener(ev -> game.rallyTroops());
-		sRa.addActionListener(ev -> game.supplyRaid());
-		Sab.addActionListener(ev -> game.sabotage());
+                bWA.addActionListener(ev -> game.boilingWaterAttack());
+                cCA.addActionListener(ev -> game.closeCombatAttack());
+                Cou.addActionListener(ev -> game.coupure());
+                ral.addActionListener(ev -> game.rallyTroops());
+                tMo.addActionListener(ev -> game.tunnelMovement());
+                sRa.addActionListener(ev -> game.supplyRaid());
+                sab.addActionListener(ev -> game.sabotage());
+                eAP.addActionListener(ev -> game.extraActionPoint());                
 		nTu.addActionListener(ev -> game.endOfTurn());
 		end.addActionListener(ev -> System.exit(0));
 	}
@@ -94,10 +98,15 @@ public class OptionPanel extends JPanel {
 		add(Box.createVerticalStrut(10));
 		add(sRa);
 
-		Sab.setAlignmentX(Component.CENTER_ALIGNMENT);
-		Sab.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+		sab.setAlignmentX(Component.CENTER_ALIGNMENT);
+		sab.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		add(Box.createVerticalStrut(10));
-		add(Sab);
+		add(sab);
+                
+                		eAP.setAlignmentX(Component.CENTER_ALIGNMENT);
+		eAP.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+		add(Box.createVerticalStrut(10));
+		add(eAP);
 
 		nTu.setAlignmentX(Component.CENTER_ALIGNMENT);
 		nTu.setAlignmentY(Component.BOTTOM_ALIGNMENT);

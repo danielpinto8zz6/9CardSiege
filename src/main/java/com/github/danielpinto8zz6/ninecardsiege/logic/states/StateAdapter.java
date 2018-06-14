@@ -83,7 +83,7 @@ public class StateAdapter implements IStates, Constants, Serializable {
 
 	/** {@inheritDoc} */
 	@Override
-	public IStates dontAttack() {
+	public IStates dont() {
 		return this;
 	}
 

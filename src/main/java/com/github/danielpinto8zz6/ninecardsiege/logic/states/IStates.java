@@ -103,7 +103,7 @@ public interface IStates {
 	 */
 	IStates coupure();
 
-	IStates dontAttack();
+	IStates dont();
 
 	/**
 	 * drawTopCard. draws the card on the top of the deck

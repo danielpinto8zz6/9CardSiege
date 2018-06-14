@@ -32,6 +32,8 @@ public final class GameData implements Constants, Serializable {
 
 	private boolean endGame;
 	private boolean newDay;
+        private boolean freeM;
+
 
 	private final BattleCard battleCard;
 	private final StatusCard statusCard;
@@ -415,6 +417,8 @@ public final class GameData implements Constants, Serializable {
 				addMsgLog("Reduce moral by 1\nTroops captured\nRemoved supplies");
 			}
 		}
+                                addMsgLog("Can't perform Sabotage");
+
 	}
 
 	/**
@@ -488,8 +492,18 @@ public final class GameData implements Constants, Serializable {
 			default:
 				break;
 			}
-		}
+		}else {
+                addMsgLog("Can't perform Supply Raid");
+                }
 	}
+
+    public boolean isFreeM() {
+        return freeM;
+    }
+
+    public void setFreeM(boolean freeM) {
+        this.freeM = freeM;
+    }
 
 	/** {@inheritDoc} */
 	@Override
