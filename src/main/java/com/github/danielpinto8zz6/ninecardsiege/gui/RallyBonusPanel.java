@@ -5,14 +5,14 @@
  */
 package com.github.danielpinto8zz6.ninecardsiege.gui;
 
-import static com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA.MORAL;
-import static com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA.SUPPLIES;
-import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 import java.awt.Component;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 
 /**
  *
