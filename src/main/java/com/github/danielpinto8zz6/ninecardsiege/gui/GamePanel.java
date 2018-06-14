@@ -8,11 +8,9 @@ import java.awt.Image;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.SwingUtilities;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitActionSelection;
@@ -39,10 +37,10 @@ public class GamePanel extends JPanel implements Observer {
 	StartOptionPanel optionPanel;
 	OptionPanel optionPane2;
 	AttackSelectioPanel optionPane3;
-        TunnelMovementPanel optionPane4;
-        ExtraAtionPointPanel optionPane5;
-        RallyBonusPanel optionPane6;
-        
+	TunnelMovementPanel optionPane4;
+	ExtraAtionPointPanel optionPane5;
+	RallyBonusPanel optionPane6;
+
 	GameGrid theGrid;
 	PlayerData playerData;
 	private CardLayout cardManager;
@@ -63,9 +61,9 @@ public class GamePanel extends JPanel implements Observer {
 		optionPanel = new StartOptionPanel(game);
 		optionPane2 = new OptionPanel(game);
 		optionPane3 = new AttackSelectioPanel(game);
-                optionPane4 = new TunnelMovementPanel(game);
-                optionPane5 = new ExtraAtionPointPanel(game);
-                optionPane6 = new RallyBonusPanel(game);
+		optionPane4 = new TunnelMovementPanel(game);
+		optionPane5 = new ExtraAtionPointPanel(game);
+		optionPane6 = new RallyBonusPanel(game);
 		theGrid = new GameGrid(game);
 
 		gridLayout = new GridLayout(0, 2);
@@ -91,10 +89,9 @@ public class GamePanel extends JPanel implements Observer {
 		pEast.add(optionPanel, "Starter");
 		pEast.add(optionPane2, "Main");
 		pEast.add(optionPane3, "SelectAttack");
-                pEast.add(optionPane4, "TunnelM1");
-                pEast.add(optionPane5, "ExtraAP");
-                pEast.add(optionPane6, "BonusR");
-
+		pEast.add(optionPane4, "TunnelM1");
+		pEast.add(optionPane5, "ExtraAP");
+		pEast.add(optionPane6, "BonusR");
 
 		setLayout(new BorderLayout());
 		pCenter = new JPanel();
@@ -128,20 +125,20 @@ public class GamePanel extends JPanel implements Observer {
 		if (game.getState() instanceof AwaitActionSelection) {
 			cardManager.show(pEast, "Main");
 		}
-		if (game.getState() instanceof AwaitEnemyTrackSelectionForArchersAttack || 
-                     game.getState() instanceof  AwaitEnemyTrackSelectionForBoilingWaterAttack) {
+		if (game.getState() instanceof AwaitEnemyTrackSelectionForArchersAttack
+				|| game.getState() instanceof AwaitEnemyTrackSelectionForBoilingWaterAttack) {
 			cardManager.show(pEast, "SelectAttack");
 		}
 		if (game.getState() instanceof AwaitOptionForTroopsMovement) {
 			cardManager.show(pEast, "TunnelM1");
-		}       
-                if (game.getState() instanceof AwaitOptionSelectionForExtraActionPoint) {
+		}
+		if (game.getState() instanceof AwaitOptionSelectionForExtraActionPoint) {
 			cardManager.show(pEast, "ExtraAP");
-		}   
-                
-                if (game.getState() instanceof AwaitOptionSelectionForRallyTroops) {
+		}
+
+		if (game.getState() instanceof AwaitOptionSelectionForRallyTroops) {
 			cardManager.show(pEast, "BonusR");
-		} 
+		}
 
 		updateGameLog();
 	}
