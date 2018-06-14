@@ -29,6 +29,8 @@ public class AwaitOptionSelectionForExtraActionPoint extends StateAdapter {
 
 		getGameData().extraActionPoint(extra);
 
+		getGameData().getPlayer().setCanExtraAP(false);
+
 		return new AwaitActionSelection(getGameData());
 	}
 

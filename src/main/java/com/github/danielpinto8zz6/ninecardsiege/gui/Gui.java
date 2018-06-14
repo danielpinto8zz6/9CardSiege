@@ -105,8 +105,8 @@ public class Gui extends JFrame implements Observer {
 		menus();
 
 		setVisible(true);
-		this.setSize(1000, 500);
-		setResizable(false);
+		this.setSize(1020, 750);
+		// setResizable(false);
 		// this.setMinimumSize(new Dimension(650, 450));
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

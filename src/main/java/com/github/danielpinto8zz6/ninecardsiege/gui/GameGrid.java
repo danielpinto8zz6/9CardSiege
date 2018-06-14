@@ -2,8 +2,11 @@ package com.github.danielpinto8zz6.ninecardsiege.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Point;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
@@ -54,17 +57,34 @@ class GameGrid extends JPanel implements Observer {
 		setLayout(new BorderLayout());
 
 		backGround = new JPanel() {
-
 			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				g.drawImage(GamePanel.gameImgs[7], 0, 0, getWidth(), getHeight(), null);
+
+				Image image = GamePanel.gameImgs[7];
+				double scaleFactor = Math.min(1d, Utils
+						.getScaleFactorToFit(new Dimension(image.getWidth(this), image.getHeight(this)), getSize()));
+
+				int scaleWidth = (int) Math.round(image.getWidth(this) * scaleFactor);
+				int scaleHeight = (int) Math.round(image.getHeight(this) * scaleFactor);
+
+				Image scaled = image.getScaledInstance(scaleWidth, scaleHeight, Image.SCALE_SMOOTH);
+
+				int width = getWidth() - 1;
+				int height = getHeight() - 1;
+
+				int x = (width - scaled.getWidth(this)) / 2;
+				int y = (height - scaled.getHeight(this)) / 2;
+
+				g.drawImage(scaled, x, y, this);
 			}
 		};
 
 		backGround.setLayout(new GridLayout(0, 3));
+		backGround.setBackground(Color.BLACK);
+
 		battleC = new JPanel() {
 			/**
 			 *
@@ -74,11 +94,33 @@ class GameGrid extends JPanel implements Observer {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				g.drawImage(GamePanel.gameImgs[8], 0, 0, getWidth(), getHeight(), null);
+
+				Image image = GamePanel.gameImgs[8];
+				double scaleFactor = Math.min(1d, Utils
+						.getScaleFactorToFit(new Dimension(image.getWidth(this), image.getHeight(this)), getSize()));
+
+				int scaleWidth = (int) Math.round(image.getWidth(this) * scaleFactor);
+				int scaleHeight = (int) Math.round(image.getHeight(this) * scaleFactor);
+
+				Image scaled = image.getScaledInstance(scaleWidth, scaleHeight, Image.SCALE_SMOOTH);
+
+				int width = getWidth() - 1;
+				int height = getHeight() - 1;
+
+				int x = (width - scaled.getWidth(this)) / 2;
+				int y = (height - scaled.getHeight(this)) / 2;
+
+				g.drawImage(scaled, x, y, this);
+
+				int fillX = scaled.getWidth(this) / 2;
+				int fillY = scaled.getHeight(this) / 2;
+
+				Point cardCoord = Utils.getCardCoordinatesTodraw(x, y, fillX, fillY);
+
+				int pieceScaled = Utils.getPieceScaledSize(scaled.getWidth(this));
+
 				g.setColor(Color.RED);
-				final int x = 20;
-				final int y = 127;
-				g.fillOval(x, y, 40, 40);
+				g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
 			}
 		};
 		statusC = new JPanel() {
@@ -90,11 +132,23 @@ class GameGrid extends JPanel implements Observer {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				g.drawImage(GamePanel.gameImgs[9], 0, 0, getWidth(), getHeight(), null);
-				g.setColor(Color.GREEN);
-				final int x = 18;
-				final int y = 13;
-				g.fillOval(x, y, 40, 40);
+
+				Image image = GamePanel.gameImgs[9];
+				double scaleFactor = Math.min(1d, Utils
+						.getScaleFactorToFit(new Dimension(image.getWidth(this), image.getHeight(this)), getSize()));
+
+				int scaleWidth = (int) Math.round(image.getWidth(this) * scaleFactor);
+				int scaleHeight = (int) Math.round(image.getHeight(this) * scaleFactor);
+
+				Image scaled = image.getScaledInstance(scaleWidth, scaleHeight, Image.SCALE_SMOOTH);
+
+				int width = getWidth() - 1;
+				int height = getHeight() - 1;
+
+				int x = (width - scaled.getWidth(this)) / 2;
+				int y = (height - scaled.getHeight(this)) / 2;
+
+				g.drawImage(scaled, x, y, this);
 			}
 		};
 		backCard = new JPanel() {
@@ -106,7 +160,23 @@ class GameGrid extends JPanel implements Observer {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				g.drawImage(GamePanel.gameImgs[10], 0, 0, getWidth(), getHeight(), null);
+
+				Image image = GamePanel.gameImgs[10];
+				double scaleFactor = Math.min(1d, Utils
+						.getScaleFactorToFit(new Dimension(image.getWidth(this), image.getHeight(this)), getSize()));
+
+				int scaleWidth = (int) Math.round(image.getWidth(this) * scaleFactor);
+				int scaleHeight = (int) Math.round(image.getHeight(this) * scaleFactor);
+
+				Image scaled = image.getScaledInstance(scaleWidth, scaleHeight, Image.SCALE_SMOOTH);
+
+				int width = getWidth() - 1;
+				int height = getHeight() - 1;
+
+				int x = (width - scaled.getWidth(this)) / 2;
+				int y = (height - scaled.getHeight(this)) / 2;
+
+				g.drawImage(scaled, x, y, this);
 			}
 		};
 		frontCard = new JPanel() {
@@ -120,7 +190,23 @@ class GameGrid extends JPanel implements Observer {
 				super.paintComponent(g);
 				int i = game.getGameData().getNumCard();
 				i--;
-				g.drawImage(GamePanel.gameImgs[i], 0, 0, getWidth(), getHeight(), null);
+
+				Image image = GamePanel.gameImgs[i];
+				double scaleFactor = Math.min(1d, Utils
+						.getScaleFactorToFit(new Dimension(image.getWidth(this), image.getHeight(this)), getSize()));
+
+				int scaleWidth = (int) Math.round(image.getWidth(this) * scaleFactor);
+				int scaleHeight = (int) Math.round(image.getHeight(this) * scaleFactor);
+
+				Image scaled = image.getScaledInstance(scaleWidth, scaleHeight, Image.SCALE_SMOOTH);
+
+				int width = getWidth() - 1;
+				int height = getHeight() - 1;
+
+				int x = (width - scaled.getWidth(this)) / 2;
+				int y = (height - scaled.getHeight(this)) / 2;
+
+				g.drawImage(scaled, x, y, this);
 			}
 		};
 
@@ -133,6 +219,10 @@ class GameGrid extends JPanel implements Observer {
 		battleC.setVisible(false);
 		statusC.setVisible(false);
 		frontCard.setVisible(false);
+
+		battleC.setBackground(Color.BLACK);
+		statusC.setBackground(Color.BLACK);
+		frontCard.setBackground(Color.BLACK);
 
 		backGround.add(battleC);
 		backGround.add(statusC);

@@ -33,7 +33,6 @@ class StartOptionPanel extends JPanel {
 	StartOptionPanel(ObservableGame g) {
 		game = g;
 
-		// setBackground(Color.GRAY);
 		setupComponents();
 		setupLayout();
 
