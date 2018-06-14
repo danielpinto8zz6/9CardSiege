@@ -18,6 +18,8 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitEnemyTrackSelectionForArchersAttack;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitEnemyTrackSelectionForBoilingWaterAttack;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitOptionForTroopsMovement;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitOptionSelectionForExtraActionPoint;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitOptionSelectionForRallyTroops;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDrawn;
 
 // import java.io.FileInputStream;
@@ -36,6 +38,9 @@ public class GamePanel extends JPanel implements Observer {
 	OptionPanel optionPane2;
 	AttackSelectioPanel optionPane3;
         TunnelMovementPanel optionPane4;
+        ExtraAtionPointPanel optionPane5;
+        RallyBonusPanel optionPane6;
+        
 	GameGrid theGrid;
 	PlayerData playerData;
 	private CardLayout cardManager;
@@ -57,6 +62,8 @@ public class GamePanel extends JPanel implements Observer {
 		optionPane2 = new OptionPanel(game);
 		optionPane3 = new AttackSelectioPanel(game);
                 optionPane4 = new TunnelMovementPanel(game);
+                optionPane5 = new ExtraAtionPointPanel(game);
+                optionPane6 = new RallyBonusPanel(game);
 		theGrid = new GameGrid(game);
 
 		gridLayout = new GridLayout(0, 2);
@@ -83,6 +90,8 @@ public class GamePanel extends JPanel implements Observer {
 		pEast.add(optionPane2, "Main");
 		pEast.add(optionPane3, "SelectAttack");
                 pEast.add(optionPane4, "TunnelM1");
+                pEast.add(optionPane5, "ExtraAP");
+                pEast.add(optionPane6, "BonusR");
 
 
 		setLayout(new BorderLayout());
@@ -123,7 +132,14 @@ public class GamePanel extends JPanel implements Observer {
 		}
 		if (game.getState() instanceof AwaitOptionForTroopsMovement) {
 			cardManager.show(pEast, "TunnelM1");
-		}               
+		}       
+                if (game.getState() instanceof AwaitOptionSelectionForExtraActionPoint) {
+			cardManager.show(pEast, "ExtraAP");
+		}   
+                
+                if (game.getState() instanceof AwaitOptionSelectionForRallyTroops) {
+			cardManager.show(pEast, "BonusR");
+		} 
 
 		updateGameLog();
 	}

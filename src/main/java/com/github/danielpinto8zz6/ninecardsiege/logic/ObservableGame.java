@@ -14,6 +14,7 @@ public class ObservableGame extends Observable {
 
     public void archersAttack() {
         game.archersAttack();
+                game.checkStatus();
 
         setChanged();
         notifyObservers();
@@ -21,6 +22,7 @@ public class ObservableGame extends Observable {
 
     public void attack(String name) {
         game.attack(name);
+        game.checkStatus();
 
         setChanged();
         notifyObservers();
@@ -33,12 +35,7 @@ public class ObservableGame extends Observable {
         notifyObservers();
     }
 
-    public void checkStatus() {
-        game.checkStatus();
 
-        setChanged();
-        notifyObservers();
-    }
 
     // Methods retrieve data from the game
     public void clearMsgLog() {
@@ -111,6 +108,7 @@ public class ObservableGame extends Observable {
 
     public void closeCombatAttack() {
         game.closeCombatAttack();
+                game.checkStatus();
 
         setChanged();
         notifyObservers();
@@ -118,6 +116,7 @@ public class ObservableGame extends Observable {
 
     public void coupure() {
         game.coupure();
+        game.checkStatus();
 
         setChanged();
         notifyObservers();
@@ -129,9 +128,17 @@ public class ObservableGame extends Observable {
         setChanged();
         notifyObservers();
     }
+    	public void applyRallyTroops(boolean plusOne) {
+		game.applyRallyTroops(plusOne);
+                        game.checkStatus();
+
+                        setChanged();
+        notifyObservers();
+	}
 
     public void supplyRaid() {
         game.supplyRaid();
+        game.checkStatus();
 
         setChanged();
         notifyObservers();
@@ -139,6 +146,7 @@ public class ObservableGame extends Observable {
 
     public void sabotage() {
         game.sabotage();
+        game.checkStatus();
 
         setChanged();
         notifyObservers();
@@ -146,6 +154,7 @@ public class ObservableGame extends Observable {
 
     public void boilingWaterAttack() {
         game.boilingWaterAttack();
+        game.checkStatus();
 
         setChanged();
         notifyObservers();
@@ -173,4 +182,21 @@ public class ObservableGame extends Observable {
                                         setChanged();
         notifyObservers();
 	}
+                
+        public void extraActionPoint() {
+		game.extraActionPoint();
+
+                                                        setChanged();
+        notifyObservers();
+	}
+                        
+        public void applyExtraActionPoint(Constants.EXTRA extra) {
+		game.applyExtraActionPoint(extra);
+                        game.checkStatus();
+
+        setChanged();
+        notifyObservers();
+	}
+        
+
 }

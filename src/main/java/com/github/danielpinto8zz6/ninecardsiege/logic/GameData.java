@@ -417,6 +417,8 @@ public final class GameData implements Constants, Serializable {
 				addMsgLog("Reduce moral by 1\nTroops captured\nRemoved supplies");
 			}
 		}
+                                addMsgLog("Can't perform Sabotage");
+
 	}
 
 	/**
@@ -490,7 +492,9 @@ public final class GameData implements Constants, Serializable {
 			default:
 				break;
 			}
-		}
+		}else {
+                addMsgLog("Can't perform Supply Raid");
+                }
 	}
 
     public boolean isFreeM() {

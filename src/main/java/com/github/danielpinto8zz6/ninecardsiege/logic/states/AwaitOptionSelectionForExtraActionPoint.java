@@ -37,6 +37,10 @@ public class AwaitOptionSelectionForExtraActionPoint extends StateAdapter {
 	public IStates endOfTurn() {
 		return new AwaitTopCardToBeDrawn(getGameData());
 	}
+        	@Override
+	public IStates dont() {
+		return new AwaitActionSelection(getGameData());
+	}
 
 	/** {@inheritDoc} */
 	@Override
