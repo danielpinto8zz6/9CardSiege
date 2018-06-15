@@ -38,18 +38,22 @@ class Utils {
 
     }
 
-    public static Point getCardCoordinatesTodraw(int x, int y, int posX, int posY) {
+    public static Point getCardCoordinatesTodraw(int width, int height, double scaleW, double scaleH, int x, int y) {
         Point coordinates;
 
-        coordinates = new Point(x + posX, y + posY);
+        int drawX = (int) ((width * scaleW) / 100) + x;
+        int drawY = (int) ((height * scaleH) / 100) + y;
+
+        coordinates = new Point(drawX, drawY);
 
         return coordinates;
     }
 
-    public static int getPieceScaledSize(int x) {
+    /** Piece height / width is 10% of the card height */
+    public static int getPieceScaledSize(int height, int scale) {
         int size;
 
-        size = x / 8;
+        size = (int) (height * scale) / 100;
 
         return size;
     }

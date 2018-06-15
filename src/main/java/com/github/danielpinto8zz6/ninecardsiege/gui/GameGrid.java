@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.Point;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
@@ -108,15 +109,12 @@ class GameGrid extends JPanel implements Observer {
 
 				g.drawImage(image, x, y, scaleWidth, scaleHeight, this);
 
-				// int fillX = scaled.getWidth(this) / 2;
-				// int fillY = scaled.getHeight(this) / 2;
+				Point cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight, Constants.BATTLECARD_COLUMN_1_SCALE, Constants.BATTLECARD_LINE_1_SCALE, x, y);
 
-				// Point cardCoord = Utils.getCardCoordinatesTodraw(x, y, fillX, fillY);
+				int pieceScaled = Utils.getPieceScaledSize(scaleHeight, 10);
 
-				// int pieceScaled = Utils.getPieceScaledSize(scaled.getWidth(this));
-
-				// g.setColor(Color.RED);
-				// g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+				g.setColor(Color.RED);
+				g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
 			}
 		};
 		statusC = new JPanel() {
