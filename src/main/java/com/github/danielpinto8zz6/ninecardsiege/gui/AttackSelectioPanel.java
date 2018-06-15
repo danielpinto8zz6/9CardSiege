@@ -13,6 +13,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
+import java.awt.Font;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 
 /**
  *
@@ -21,15 +24,20 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 public class AttackSelectioPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	ObservableGame game;
-	JButton bt1 = new JButton("Target: Ladders");
+	JButton bt1 = new JButton("Attack");
 	JButton bt2 = new JButton("Target: Battle Ram");
 	JButton bt3 = new JButton("Target: Siege Engine");
 	JButton dNA = new JButton("Do Not Attack");
 	JButton end = new JButton("End Game");
+        String[] enemieString = { "Ladders", "BattleRam", "SiegeTower" };
+        JLabel msg ;
+        JComboBox enemieS = new JComboBox(enemieString);
 
+        
 	AttackSelectioPanel(ObservableGame g) {
 
 		game = g;
+		msg = new JLabel();
 
 		// setBackground(Color.GRAY);
 		setupComponents();
@@ -40,10 +48,8 @@ public class AttackSelectioPanel extends JPanel {
 
 	private void setupComponents() {
 
-		bt1.addActionListener(ev -> game.attack("Ladders"));
-		bt2.addActionListener(ev -> game.attack("BattleRam"));
-		bt3.addActionListener(ev -> game.attack("SiegeEngine"));
 
+                bt1.addActionListener(ev -> game.attack((String)enemieS.getSelectedItem()));
 		dNA.addActionListener(ev -> game.callMenu());
 		end.addActionListener(ev -> System.exit(0));
 
@@ -52,21 +58,24 @@ public class AttackSelectioPanel extends JPanel {
 	private void setupLayout() {
 
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-
+                
+                msg.setAlignmentX(Component.CENTER_ALIGNMENT);
+		msg.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+		add(Box.createVerticalStrut(10));
+                msg.setText("Select the enemy:");
+                msg.setFont(new Font("Dialog", Font.BOLD, 17));
+		add(msg);
+                
+                enemieS.setMaximumSize( enemieS.getPreferredSize() );
+                enemieS.setSelectedIndex(0);
+		add(enemieS);
+                
+                
 		bt1.setAlignmentX(Component.CENTER_ALIGNMENT);
 		bt1.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		add(Box.createVerticalStrut(10));
 		add(bt1);
 
-		bt2.setAlignmentX(Component.CENTER_ALIGNMENT);
-		bt2.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-		add(Box.createVerticalStrut(10));
-		add(bt2);
-
-		bt3.setAlignmentX(Component.CENTER_ALIGNMENT);
-		bt3.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-		add(Box.createVerticalStrut(10));
-		add(bt3);
 
 		dNA.setAlignmentX(Component.CENTER_ALIGNMENT);
 		dNA.setAlignmentY(Component.BOTTOM_ALIGNMENT);
