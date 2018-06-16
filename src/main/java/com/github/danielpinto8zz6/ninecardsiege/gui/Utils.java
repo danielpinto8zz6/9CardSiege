@@ -16,10 +16,10 @@ class Utils {
 	}
 
 	/** Piece height / width is 10% of the card height */
-	public static int getPieceScaledSize(int height, int scale) {
+	public static int getPieceScaledSize(int height, double scale) {
 		int size;
 
-		size = height * scale / 100;
+		size = (int)(height * scale) / 100;
 
 		return size;
 	}

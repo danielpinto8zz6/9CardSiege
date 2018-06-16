@@ -112,7 +112,7 @@ class GameGrid extends JPanel implements Observer {
 				final Point cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
 						Constants.BATTLECARD_COLUMN_1_SCALE, Constants.BATTLECARD_LINE_1_SCALE, x, y);
 
-				final int pieceScaled = Utils.getPieceScaledSize(scaleHeight, 10);
+				final int pieceScaled = Utils.getPieceScaledSize(scaleHeight, Constants.PIECE_SCALE);
 
 				g.setColor(Color.RED);
 				g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
@@ -142,6 +142,14 @@ class GameGrid extends JPanel implements Observer {
 				final int y = (height - scaleHeight) / 2;
 
 				g.drawImage(image, x, y, scaleWidth, scaleHeight, this);
+
+				final Point cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+						Constants.STATUSCARD_COLUMN_1_SCALE, Constants.STATUSCARD_LINE_1_SCALE, x, y);
+
+				final int pieceScaled = Utils.getPieceScaledSize(scaleHeight, Constants.PIECE_SCALE);
+
+				g.setColor(Color.GREEN);
+				g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
 			}
 		};
 		backCard = new JPanel() {
