@@ -7,6 +7,8 @@ package com.github.danielpinto8zz6.ninecardsiege.gui;
 
 // import java.awt.Color;
 import java.awt.Component;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -16,7 +18,7 @@ import javax.swing.JPanel;
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 
 /** @author tiago_000 */
-public class OptionPanel extends JPanel {
+public class OptionPanel extends JPanel implements Observer {
 	private static final long serialVersionUID = 1L;
 
 	ObservableGame game;
@@ -36,6 +38,7 @@ public class OptionPanel extends JPanel {
 	OptionPanel(ObservableGame g) {
 
 		game = g;
+		game.addObserver(this);
 
 		// setBackground(Color.GRAY);
 		setupComponents();
@@ -121,4 +124,14 @@ public class OptionPanel extends JPanel {
 		validate();
 	}
 
+	@Override
+	public void update(Observable o, Object arg) {
+		aAt.setEnabled(game.getPlayer().isCanArchersAtack());
+		bWA.setEnabled(game.getPlayer().isCanBoilingWater());
+		cCA.setEnabled(game.getPlayer().isCanCloseCombat());
+		Cou.setEnabled(game.getPlayer().isCanCoupure());
+		ral.setEnabled(game.getPlayer().isCanRallyTroops());
+		tMo.setEnabled(game.getPlayer().isCanTunnelMovement());
+		eAP.setEnabled(game.getPlayer().isCanExtraAP());
+	}
 }
