@@ -29,7 +29,7 @@ public class OptionPanel extends JPanel {
 	JButton tMo = new JButton("Tunnel Movemente");
 	JButton sRa = new JButton("Supply Raid");
 	JButton sab = new JButton("Sabotage");
-        JButton eAP = new JButton("Extra Action Point");
+	JButton eAP = new JButton("Extra Action Point");
 	JButton nTu = new JButton("Next Turn");
 	JButton end = new JButton("End Game");
 
@@ -47,14 +47,14 @@ public class OptionPanel extends JPanel {
 	private void setupComponents() {
 
 		aAt.addActionListener(ev -> game.archersAttack());
-                bWA.addActionListener(ev -> game.boilingWaterAttack());
-                cCA.addActionListener(ev -> game.closeCombatAttack());
-                Cou.addActionListener(ev -> game.coupure());
-                ral.addActionListener(ev -> game.rallyTroops());
-                tMo.addActionListener(ev -> game.tunnelMovement());
-                sRa.addActionListener(ev -> game.supplyRaid());
-                sab.addActionListener(ev -> game.sabotage());
-                eAP.addActionListener(ev -> game.extraActionPoint());                
+		bWA.addActionListener(ev -> game.boilingWaterAttack());
+		cCA.addActionListener(ev -> game.closeCombatAttack());
+		Cou.addActionListener(ev -> game.coupure());
+		ral.addActionListener(ev -> game.rallyTroops());
+		tMo.addActionListener(ev -> game.tunnelMovement());
+		sRa.addActionListener(ev -> game.supplyRaid());
+		sab.addActionListener(ev -> game.sabotage());
+		eAP.addActionListener(ev -> game.extraActionPoint());
 		nTu.addActionListener(ev -> game.endOfTurn());
 		end.addActionListener(ev -> System.exit(0));
 	}
@@ -102,8 +102,8 @@ public class OptionPanel extends JPanel {
 		sab.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		add(Box.createVerticalStrut(10));
 		add(sab);
-                
-                		eAP.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+		eAP.setAlignmentX(Component.CENTER_ALIGNMENT);
 		eAP.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		add(Box.createVerticalStrut(10));
 		add(eAP);

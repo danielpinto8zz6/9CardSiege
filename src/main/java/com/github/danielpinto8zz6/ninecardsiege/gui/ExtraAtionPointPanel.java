@@ -7,12 +7,15 @@ package com.github.danielpinto8zz6.ninecardsiege.gui;
 
 import static com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA.MORAL;
 import static com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA.SUPPLIES;
-import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
+
 import java.awt.Component;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 
 /**
  *
@@ -21,9 +24,7 @@ import javax.swing.JPanel;
 public class ExtraAtionPointPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	ObservableGame game;
-        
 
-        
 	JButton bt1 = new JButton("Trade for Moral");
 	JButton bt2 = new JButton("Trade for Supplies");
 	JButton dNT = new JButton("Do Not Trade");
@@ -38,13 +39,15 @@ public class ExtraAtionPointPanel extends JPanel {
 		setupLayout();
 		setVisible(false);
 	}
-        	private void setupComponents() {
+
+	private void setupComponents() {
 		bt1.addActionListener(ev -> game.applyExtraActionPoint(MORAL));
 		bt2.addActionListener(ev -> game.applyExtraActionPoint(SUPPLIES));
 		dNT.addActionListener(ev -> game.callMenu());
-		end.addActionListener(ev -> System.exit(0));   
-                }
-                	private void setupLayout() {
+		end.addActionListener(ev -> System.exit(0));
+	}
+
+	private void setupLayout() {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
 		bt1.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -57,7 +60,6 @@ public class ExtraAtionPointPanel extends JPanel {
 		add(Box.createVerticalStrut(10));
 		add(bt2);
 
-
 		dNT.setAlignmentX(Component.CENTER_ALIGNMENT);
 		dNT.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		add(Box.createVerticalStrut(10));
@@ -68,7 +70,7 @@ public class ExtraAtionPointPanel extends JPanel {
 		add(Box.createVerticalStrut(10));
 		add(end);
 
-		validate();                         
-                            
-                        }
+		validate();
+
+	}
 }

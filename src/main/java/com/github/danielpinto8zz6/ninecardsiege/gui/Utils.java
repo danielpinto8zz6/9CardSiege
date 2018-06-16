@@ -4,57 +4,57 @@ import java.awt.Dimension;
 import java.awt.Point;
 
 class Utils {
-    public static double getScaleFactor(int iMasterSize, int iTargetSize) {
+	public static Point getCardCoordinatesTodraw(int width, int height, double scaleW, double scaleH, int x, int y) {
+		Point coordinates;
 
-        double dScale = 1;
-        if (iMasterSize > iTargetSize) {
+		final int drawX = (int) ((width * scaleW) / 100) + x;
+		final int drawY = (int) ((height * scaleH) / 100) + y;
 
-            dScale = (double) iTargetSize / (double) iMasterSize;
+		coordinates = new Point(drawX, drawY);
 
-        } else {
+		return coordinates;
+	}
 
-            dScale = (double) iTargetSize / (double) iMasterSize;
+	/** Piece height / width is 10% of the card height */
+	public static int getPieceScaledSize(int height, int scale) {
+		int size;
 
-        }
+		size = height * scale / 100;
 
-        return dScale;
+		return size;
+	}
 
-    }
+	public static double getScaleFactor(int iMasterSize, int iTargetSize) {
 
-    public static double getScaleFactorToFit(Dimension original, Dimension toFit) {
+		double dScale = 1;
+		if (iMasterSize > iTargetSize) {
 
-        double dScale = 1d;
+			dScale = (double) iTargetSize / (double) iMasterSize;
 
-        if (original != null && toFit != null) {
+		} else {
 
-            double dScaleWidth = getScaleFactor(original.width, toFit.width);
-            double dScaleHeight = getScaleFactor(original.height, toFit.height);
+			dScale = (double) iTargetSize / (double) iMasterSize;
 
-            dScale = Math.min(dScaleHeight, dScaleWidth);
+		}
 
-        }
+		return dScale;
 
-        return dScale;
+	}
 
-    }
+	public static double getScaleFactorToFit(Dimension original, Dimension toFit) {
 
-    public static Point getCardCoordinatesTodraw(int width, int height, double scaleW, double scaleH, int x, int y) {
-        Point coordinates;
+		double dScale = 1d;
 
-        int drawX = (int) ((width * scaleW) / 100) + x;
-        int drawY = (int) ((height * scaleH) / 100) + y;
+		if ((original != null) && (toFit != null)) {
 
-        coordinates = new Point(drawX, drawY);
+			final double dScaleWidth = Utils.getScaleFactor(original.width, toFit.width);
+			final double dScaleHeight = Utils.getScaleFactor(original.height, toFit.height);
 
-        return coordinates;
-    }
+			dScale = Math.min(dScaleHeight, dScaleWidth);
 
-    /** Piece height / width is 10% of the card height */
-    public static int getPieceScaledSize(int height, int scale) {
-        int size;
+		}
 
-        size = (int) (height * scale) / 100;
+		return dScale;
 
-        return size;
-    }
+	}
 }

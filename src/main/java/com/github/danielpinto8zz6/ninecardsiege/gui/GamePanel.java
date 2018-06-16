@@ -125,8 +125,8 @@ public class GamePanel extends JPanel implements Observer {
 		if (game.getState() instanceof AwaitActionSelection) {
 			cardManager.show(pEast, "Main");
 		}
-		if (game.getState() instanceof AwaitEnemyTrackSelectionForArchersAttack
-				|| game.getState() instanceof AwaitEnemyTrackSelectionForBoilingWaterAttack) {
+		if ((game.getState() instanceof AwaitEnemyTrackSelectionForArchersAttack)
+				|| (game.getState() instanceof AwaitEnemyTrackSelectionForBoilingWaterAttack)) {
 			cardManager.show(pEast, "SelectAttack");
 		}
 		if (game.getState() instanceof AwaitOptionForTroopsMovement) {

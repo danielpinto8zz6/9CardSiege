@@ -21,9 +21,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 public class RallyBonusPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	ObservableGame game;
-        
 
-        
 	JButton bt1 = new JButton("Trade 1 of moral for bonus");
 	JButton bt2 = new JButton("without bonus");
 	JButton dNR = new JButton("Do Not Rally");
@@ -38,13 +36,15 @@ public class RallyBonusPanel extends JPanel {
 		setupLayout();
 		setVisible(false);
 	}
-        	private void setupComponents() {
+
+	private void setupComponents() {
 		bt1.addActionListener(ev -> game.applyRallyTroops(true));
 		bt2.addActionListener(ev -> game.applyRallyTroops(false));
 		dNR.addActionListener(ev -> game.callMenu());
-		end.addActionListener(ev -> System.exit(0));   
-                }
-                	private void setupLayout() {
+		end.addActionListener(ev -> System.exit(0));
+	}
+
+	private void setupLayout() {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
 		bt1.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -57,7 +57,6 @@ public class RallyBonusPanel extends JPanel {
 		add(Box.createVerticalStrut(10));
 		add(bt2);
 
-
 		dNR.setAlignmentX(Component.CENTER_ALIGNMENT);
 		dNR.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		add(Box.createVerticalStrut(10));
@@ -68,7 +67,7 @@ public class RallyBonusPanel extends JPanel {
 		add(Box.createVerticalStrut(10));
 		add(end);
 
-		validate();                         
-                            
-                        }
+		validate();
+
+	}
 }

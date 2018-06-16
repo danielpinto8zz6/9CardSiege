@@ -6,197 +6,197 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates;
 
 public class ObservableGame extends Observable {
 
-    Game game;
+	Game game;
 
-    public ObservableGame() {
-        game = new Game();
-    }
+	public ObservableGame() {
+		game = new Game();
+	}
 
-    public void archersAttack() {
-        game.archersAttack();
-        game.checkStatus();
+	public void applyExtraActionPoint(Constants.EXTRA extra) {
+		game.applyExtraActionPoint(extra);
+		game.checkStatus();
 
-        setChanged();
-        notifyObservers();
-    }
+		setChanged();
+		notifyObservers();
+	}
 
-    public void attack(String name) {
-        game.attack(name);
-        game.checkStatus();
+	public void applyRallyTroops(boolean plusOne) {
+		game.applyRallyTroops(plusOne);
+		game.checkStatus();
 
-        setChanged();
-        notifyObservers();
-    }
+		setChanged();
+		notifyObservers();
+	}
 
-    public void callMenu() {
-        game.dont();
+	public void archersAttack() {
+		game.archersAttack();
+		game.checkStatus();
 
-        setChanged();
-        notifyObservers();
-    }
+		setChanged();
+		notifyObservers();
+	}
 
-    // Methods retrieve data from the game
-    public void clearMsgLog() {
-        game.clearMsgLog();
-    }
+	public void attack(String name) {
+		game.attack(name);
+		game.checkStatus();
 
-    public void drawTopCard() {
-        game.drawTopCard();
-        game.StartOfTheTurn();
+		setChanged();
+		notifyObservers();
+	}
 
-        setChanged();
-        notifyObservers();
-    }
+	public void boilingWaterAttack() {
+		game.boilingWaterAttack();
+		game.checkStatus();
 
-    public void endOfTurn() {
-        game.endOfTurn();
+		setChanged();
+		notifyObservers();
+	}
 
-        setChanged();
-        notifyObservers();
-    }
+	public void callMenu() {
+		game.dont();
 
-    public void finish() {
-        game.finish();
-        notifyObservers();
-    }
+		setChanged();
+		notifyObservers();
+	}
 
-    public Game getGame() {
-        return game;
-    }
+	// Methods retrieve data from the game
+	public void clearMsgLog() {
+		game.clearMsgLog();
+	}
 
-    public GameData getGameData() {
-        return game.getGameData();
-    }
+	public void closeCombatAttack() {
+		game.closeCombatAttack();
+		game.checkStatus();
 
-    public java.util.List<String> getMsgLog() {
-        return game.getMsgLog();
-    }
+		setChanged();
+		notifyObservers();
+	}
 
-    public Player getPlayer() {
-        return game.getGameData().getPlayer();
-    }
+	public void coupure() {
+		game.coupure();
+		game.checkStatus();
 
-    public IStates getState() {
-        return game.getState();
-    }
+		setChanged();
+		notifyObservers();
+	}
 
-    public boolean isOver() {
-        return game.isOver();
-    }
+	public void drawTopCard() {
+		game.drawTopCard();
+		game.StartOfTheTurn();
 
-    public void setGame(Game game) {
-        this.game = game;
+		setChanged();
+		notifyObservers();
+	}
 
-        setChanged();
-        notifyObservers();
-    }
+	public void endOfTurn() {
+		game.endOfTurn();
 
-    public void setPlayerName(String text) {
-        game.getGameData().getPlayer().setName(text);
-        setChanged();
-        notifyObservers();
-    }
+		setChanged();
+		notifyObservers();
+	}
 
-    public void start() {
-        game.start();
+	public void extraActionPoint() {
+		game.extraActionPoint();
 
-        setChanged();
-        notifyObservers();
-    }
+		setChanged();
+		notifyObservers();
+	}
 
-    public void closeCombatAttack() {
-        game.closeCombatAttack();
-        game.checkStatus();
+	public void fastMovement(boolean up) {
+		game.fastMovement(up);
+		setChanged();
+		notifyObservers();
+	}
 
-        setChanged();
-        notifyObservers();
-    }
+	public void finish() {
+		game.finish();
+		notifyObservers();
+	}
 
-    public void coupure() {
-        game.coupure();
-        game.checkStatus();
+	public void freeMovement(boolean up) {
+		game.freeMovement(up);
+		setChanged();
+		notifyObservers();
+	}
 
-        setChanged();
-        notifyObservers();
-    }
+	public Game getGame() {
+		return game;
+	}
 
-    public void rallyTroops() {
-        game.rallyTroops();
+	public GameData getGameData() {
+		return game.getGameData();
+	}
 
-        setChanged();
-        notifyObservers();
-    }
+	public java.util.List<String> getMsgLog() {
+		return game.getMsgLog();
+	}
 
-    public void applyRallyTroops(boolean plusOne) {
-        game.applyRallyTroops(plusOne);
-        game.checkStatus();
+	public Player getPlayer() {
+		return game.getGameData().getPlayer();
+	}
 
-        setChanged();
-        notifyObservers();
-    }
+	public IStates getState() {
+		return game.getState();
+	}
 
-    public void supplyRaid() {
-        game.supplyRaid();
-        game.checkStatus();
+	public boolean isOver() {
+		return game.isOver();
+	}
 
-        setChanged();
-        notifyObservers();
-    }
+	public void leaveLocation() {
+		game.leaveLocation();
 
-    public void sabotage() {
-        game.sabotage();
-        game.checkStatus();
+		setChanged();
+		notifyObservers();
+	}
 
-        setChanged();
-        notifyObservers();
-    }
+	public void rallyTroops() {
+		game.rallyTroops();
 
-    public void boilingWaterAttack() {
-        game.boilingWaterAttack();
-        game.checkStatus();
+		setChanged();
+		notifyObservers();
+	}
 
-        setChanged();
-        notifyObservers();
-    }
+	public void sabotage() {
+		game.sabotage();
+		game.checkStatus();
 
-    public void freeMovement(boolean up) {
-        game.freeMovement(up);
-        setChanged();
-        notifyObservers();
-    }
+		setChanged();
+		notifyObservers();
+	}
 
-    public void fastMovement(boolean up) {
-        game.fastMovement(up);
-        setChanged();
-        notifyObservers();
-    }
+	public void setGame(Game game) {
+		this.game = game;
 
-    public void tunnelMovement() {
-        game.tunnelMovement();
-        setChanged();
-        notifyObservers();
-    }
+		setChanged();
+		notifyObservers();
+	}
 
-    public void leaveLocation() {
-        game.leaveLocation();
+	public void setPlayerName(String text) {
+		game.getGameData().getPlayer().setName(text);
+		setChanged();
+		notifyObservers();
+	}
 
-        setChanged();
-        notifyObservers();
-    }
+	public void start() {
+		game.start();
 
-    public void extraActionPoint() {
-        game.extraActionPoint();
+		setChanged();
+		notifyObservers();
+	}
 
-        setChanged();
-        notifyObservers();
-    }
+	public void supplyRaid() {
+		game.supplyRaid();
+		game.checkStatus();
 
-    public void applyExtraActionPoint(Constants.EXTRA extra) {
-        game.applyExtraActionPoint(extra);
-        game.checkStatus();
+		setChanged();
+		notifyObservers();
+	}
 
-        setChanged();
-        notifyObservers();
-    }
+	public void tunnelMovement() {
+		game.tunnelMovement();
+		setChanged();
+		notifyObservers();
+	}
 
 }

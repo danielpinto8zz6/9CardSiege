@@ -15,21 +15,6 @@ public class FileUtility {
 
 	public static final String FILE_TO_SAVE_GAME = "savedgame.bin";
 
-	public static void saveGameToFile(File file, Object o) throws IOException {
-		ObjectOutputStream oout = null;
-
-		try {
-
-			oout = new ObjectOutputStream(new FileOutputStream(file));
-			oout.writeObject(o);
-
-		} finally {
-			if (oout != null) {
-				oout.close();
-			}
-		}
-	}
-
 	public static Object retrieveGameFromFile(File file) throws IOException, ClassNotFoundException {
 		ObjectInputStream oin = null;
 
@@ -41,6 +26,21 @@ public class FileUtility {
 		} finally {
 			if (oin != null) {
 				oin.close();
+			}
+		}
+	}
+
+	public static void saveGameToFile(File file, Object o) throws IOException {
+		ObjectOutputStream oout = null;
+
+		try {
+
+			oout = new ObjectOutputStream(new FileOutputStream(file));
+			oout.writeObject(o);
+
+		} finally {
+			if (oout != null) {
+				oout.close();
 			}
 		}
 	}

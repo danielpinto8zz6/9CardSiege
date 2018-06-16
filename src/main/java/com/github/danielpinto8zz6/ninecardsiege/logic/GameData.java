@@ -32,8 +32,7 @@ public final class GameData implements Constants, Serializable {
 
 	private boolean endGame;
 	private boolean newDay;
-        private boolean freeM;
-
+	private boolean freeM;
 
 	private final BattleCard battleCard;
 	private final StatusCard statusCard;
@@ -328,9 +327,28 @@ public final class GameData implements Constants, Serializable {
 		return endGame;
 	}
 
+	public boolean isFreeM() {
+		return freeM;
+	}
+
 	public boolean isNewDay() {
 		return newDay;
 	}
+
+	/*
+	 * public void tunnelMovement() { if (getStatusCard().getTroopPosition() == 0) {
+	 * getStatusCard().setTroopPosition(1); getStatusCard().setDirection(0); } else
+	 * if (getStatusCard().getTroopPosition() == 3) {
+	 * getStatusCard().setTroopPosition(2); getStatusCard().setDirection(1); } else
+	 * if (getStatusCard().getDirection() == 0) {
+	 * getStatusCard().setTroopPosition(3); } else {
+	 * getStatusCard().setTroopPosition(0);
+	 * getPlayer().setSupplies(getPlayer().getSupplies() +
+	 * getStatusCard().getSupplies()); getStatusCard().removeSupplies(); if
+	 * (getPlayer().getSupplies() > 4) { getPlayer().setSupplies(4); } }
+	 *
+	 * getPlayer().setActionPoints(getPlayer().getActionPoints() - 1); }
+	 */
 
 	public void leaveM() {
 
@@ -353,21 +371,6 @@ public final class GameData implements Constants, Serializable {
 			addMsgLog("Can't do this movemente... ");
 		}
 	}
-
-	/*
-	 * public void tunnelMovement() { if (getStatusCard().getTroopPosition() == 0) {
-	 * getStatusCard().setTroopPosition(1); getStatusCard().setDirection(0); } else
-	 * if (getStatusCard().getTroopPosition() == 3) {
-	 * getStatusCard().setTroopPosition(2); getStatusCard().setDirection(1); } else
-	 * if (getStatusCard().getDirection() == 0) {
-	 * getStatusCard().setTroopPosition(3); } else {
-	 * getStatusCard().setTroopPosition(0);
-	 * getPlayer().setSupplies(getPlayer().getSupplies() +
-	 * getStatusCard().getSupplies()); getStatusCard().removeSupplies(); if
-	 * (getPlayer().getSupplies() > 4) { getPlayer().setSupplies(4); } }
-	 *
-	 * getPlayer().setActionPoints(getPlayer().getActionPoints() - 1); }
-	 */
 
 	public void rallyTroops(boolean plusOne) {
 		int roll = Dice.roll();
@@ -417,7 +420,7 @@ public final class GameData implements Constants, Serializable {
 				addMsgLog("Reduce moral by 1\nTroops captured\nRemoved supplies");
 			}
 		}
-                                addMsgLog("Can't perform Sabotage");
+		addMsgLog("Can't perform Sabotage");
 
 	}
 
@@ -449,6 +452,10 @@ public final class GameData implements Constants, Serializable {
 	 */
 	public void setEndGame(boolean endGame) {
 		this.endGame = endGame;
+	}
+
+	public void setFreeM(boolean freeM) {
+		this.freeM = freeM;
 	}
 
 	public void setNewDay(boolean newDay) {
@@ -492,18 +499,10 @@ public final class GameData implements Constants, Serializable {
 			default:
 				break;
 			}
-		}else {
-                addMsgLog("Can't perform Supply Raid");
-                }
+		} else {
+			addMsgLog("Can't perform Supply Raid");
+		}
 	}
-
-    public boolean isFreeM() {
-        return freeM;
-    }
-
-    public void setFreeM(boolean freeM) {
-        this.freeM = freeM;
-    }
 
 	/** {@inheritDoc} */
 	@Override

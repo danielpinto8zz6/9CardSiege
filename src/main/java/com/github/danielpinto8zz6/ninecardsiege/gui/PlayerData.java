@@ -106,7 +106,7 @@ class PlayerData extends JPanel implements Observer {
 		}
 
 		if (game.getState() instanceof GameOver) {
-                        dia.setVisible(false);
+			dia.setVisible(false);
 			actionPoints.setVisible(false);
 			victoryMessage.setVisible(true);
 

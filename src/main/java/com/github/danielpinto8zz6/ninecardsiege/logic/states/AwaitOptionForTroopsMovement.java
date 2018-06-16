@@ -16,6 +16,11 @@ public class AwaitOptionForTroopsMovement extends StateAdapter {
 	}
 
 	@Override
+	public IStates dont() {
+		return new AwaitActionSelection(getGameData());
+	}
+
+	@Override
 	public IStates fastMovement(boolean up) {
 
 		getGameData().fastM(up);
@@ -34,11 +39,6 @@ public class AwaitOptionForTroopsMovement extends StateAdapter {
 	@Override
 	public IStates leaveLocation() {
 		getGameData().leaveM();
-		return new AwaitActionSelection(getGameData());
-	}
-        
-        	@Override
-	public IStates dont() {
 		return new AwaitActionSelection(getGameData());
 	}
 }

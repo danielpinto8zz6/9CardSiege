@@ -63,19 +63,19 @@ class GameGrid extends JPanel implements Observer {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 
-				Image image = GamePanel.gameImgs[7];
+				final Image image = GamePanel.gameImgs[7];
 
-				double scaleFactor = Math.min(1d, Utils
+				final double scaleFactor = Math.min(1d, Utils
 						.getScaleFactorToFit(new Dimension(image.getWidth(null), image.getHeight(null)), getSize()));
 
-				int scaleWidth = (int) Math.round(image.getWidth(null) * scaleFactor);
-				int scaleHeight = (int) Math.round(image.getHeight(null) * scaleFactor);
+				final int scaleWidth = (int) Math.round(image.getWidth(null) * scaleFactor);
+				final int scaleHeight = (int) Math.round(image.getHeight(null) * scaleFactor);
 
-				int width = getWidth() - 1;
-				int height = getHeight() - 1;
+				final int width = getWidth() - 1;
+				final int height = getHeight() - 1;
 
-				int x = (width - scaleWidth) / 2;
-				int y = (height - scaleHeight) / 2;
+				final int x = (width - scaleWidth) / 2;
+				final int y = (height - scaleHeight) / 2;
 
 				g.drawImage(image, x, y, scaleWidth, scaleHeight, this);
 			}
@@ -94,24 +94,25 @@ class GameGrid extends JPanel implements Observer {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 
-				Image image = GamePanel.gameImgs[8];
-				double scaleFactor = Math.min(1d, Utils
+				final Image image = GamePanel.gameImgs[8];
+				final double scaleFactor = Math.min(1d, Utils
 						.getScaleFactorToFit(new Dimension(image.getWidth(null), image.getHeight(null)), getSize()));
 
-				int scaleWidth = (int) Math.round(image.getWidth(null) * scaleFactor);
-				int scaleHeight = (int) Math.round(image.getHeight(null) * scaleFactor);
+				final int scaleWidth = (int) Math.round(image.getWidth(null) * scaleFactor);
+				final int scaleHeight = (int) Math.round(image.getHeight(null) * scaleFactor);
 
-				int width = getWidth() - 1;
-				int height = getHeight() - 1;
+				final int width = getWidth() - 1;
+				final int height = getHeight() - 1;
 
-				int x = (width - scaleWidth) / 2;
-				int y = (height - scaleHeight) / 2;
+				final int x = (width - scaleWidth) / 2;
+				final int y = (height - scaleHeight) / 2;
 
 				g.drawImage(image, x, y, scaleWidth, scaleHeight, this);
 
-				Point cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight, Constants.BATTLECARD_COLUMN_1_SCALE, Constants.BATTLECARD_LINE_1_SCALE, x, y);
+				final Point cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+						Constants.BATTLECARD_COLUMN_1_SCALE, Constants.BATTLECARD_LINE_1_SCALE, x, y);
 
-				int pieceScaled = Utils.getPieceScaledSize(scaleHeight, 10);
+				final int pieceScaled = Utils.getPieceScaledSize(scaleHeight, 10);
 
 				g.setColor(Color.RED);
 				g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
@@ -127,18 +128,18 @@ class GameGrid extends JPanel implements Observer {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 
-				Image image = GamePanel.gameImgs[9];
-				double scaleFactor = Math.min(1d, Utils
+				final Image image = GamePanel.gameImgs[9];
+				final double scaleFactor = Math.min(1d, Utils
 						.getScaleFactorToFit(new Dimension(image.getWidth(null), image.getHeight(null)), getSize()));
 
-				int scaleWidth = (int) Math.round(image.getWidth(null) * scaleFactor);
-				int scaleHeight = (int) Math.round(image.getHeight(null) * scaleFactor);
+				final int scaleWidth = (int) Math.round(image.getWidth(null) * scaleFactor);
+				final int scaleHeight = (int) Math.round(image.getHeight(null) * scaleFactor);
 
-				int width = getWidth() - 1;
-				int height = getHeight() - 1;
+				final int width = getWidth() - 1;
+				final int height = getHeight() - 1;
 
-				int x = (width - scaleWidth) / 2;
-				int y = (height - scaleHeight) / 2;
+				final int x = (width - scaleWidth) / 2;
+				final int y = (height - scaleHeight) / 2;
 
 				g.drawImage(image, x, y, scaleWidth, scaleHeight, this);
 			}
@@ -153,18 +154,18 @@ class GameGrid extends JPanel implements Observer {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 
-				Image image = GamePanel.gameImgs[10];
-				double scaleFactor = Math.min(1d, Utils
+				final Image image = GamePanel.gameImgs[10];
+				final double scaleFactor = Math.min(1d, Utils
 						.getScaleFactorToFit(new Dimension(image.getWidth(null), image.getHeight(null)), getSize()));
 
-				int scaleWidth = (int) Math.round(image.getWidth(null) * scaleFactor);
-				int scaleHeight = (int) Math.round(image.getHeight(null) * scaleFactor);
+				final int scaleWidth = (int) Math.round(image.getWidth(null) * scaleFactor);
+				final int scaleHeight = (int) Math.round(image.getHeight(null) * scaleFactor);
 
-				int width = getWidth() - 1;
-				int height = getHeight() - 1;
+				final int width = getWidth() - 1;
+				final int height = getHeight() - 1;
 
-				int x = (width - scaleWidth) / 2;
-				int y = (height - scaleHeight) / 2;
+				final int x = (width - scaleWidth) / 2;
+				final int y = (height - scaleHeight) / 2;
 
 				g.drawImage(image, x, y, scaleWidth, scaleHeight, this);
 			}
@@ -181,18 +182,18 @@ class GameGrid extends JPanel implements Observer {
 				int i = game.getGameData().getNumCard();
 				i--;
 
-				Image image = GamePanel.gameImgs[i];
-				double scaleFactor = Math.min(1d, Utils
+				final Image image = GamePanel.gameImgs[i];
+				final double scaleFactor = Math.min(1d, Utils
 						.getScaleFactorToFit(new Dimension(image.getWidth(null), image.getHeight(null)), getSize()));
 
-				int scaleWidth = (int) Math.round(image.getWidth(null) * scaleFactor);
-				int scaleHeight = (int) Math.round(image.getHeight(null) * scaleFactor);
+				final int scaleWidth = (int) Math.round(image.getWidth(null) * scaleFactor);
+				final int scaleHeight = (int) Math.round(image.getHeight(null) * scaleFactor);
 
-				int width = getWidth() - 1;
-				int height = getHeight() - 1;
+				final int width = getWidth() - 1;
+				final int height = getHeight() - 1;
 
-				int x = (width - scaleWidth) / 2;
-				int y = (height - scaleHeight) / 2;
+				final int x = (width - scaleWidth) / 2;
+				final int y = (height - scaleHeight) / 2;
 
 				g.drawImage(image, x, y, scaleWidth, scaleHeight, this);
 			}

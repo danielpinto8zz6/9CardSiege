@@ -31,8 +31,8 @@ public class AwaitEnemyTrackSelectionForBoilingWaterAttack extends StateAdapter 
 
 		return new AwaitActionSelection(getGameData());
 	}
-        
-        @Override
+
+	@Override
 	public IStates dont() {
 		return new AwaitActionSelection(getGameData());
 	}
