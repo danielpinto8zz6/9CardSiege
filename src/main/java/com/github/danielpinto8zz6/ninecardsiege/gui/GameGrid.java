@@ -114,36 +114,71 @@ class GameGrid extends JPanel implements Observer {
 				 * Place enemies
 				 */
 				Point cardCoord;
-				int pieceScaled;
+				int pieceScaled = Utils.getPieceScaledSize(scaleHeight, Constants.PIECE_SCALE);
+
+				g.setColor(Color.RED);
 
 				for (Enemy enemy : game.getGame().getEnemies()) {
 					switch (enemy.getPosition()) {
 					case 1:
-						cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
-								Constants.BATTLECARD_COLUMN_1_SCALE, Constants.BATTLECARD_LINE_1_SCALE, x, y);
-
-						pieceScaled = Utils.getPieceScaledSize(scaleHeight, Constants.PIECE_SCALE);
-
-						g.setColor(Color.RED);
-						g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						if (enemy.getName() == "Ladders") {
+							cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+									Constants.BATTLECARD_COLUMN_1_SCALE, Constants.BATTLECARD_LINE_1_SCALE, x, y);
+							g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						} else if (enemy.getName() == "BattleRam") {
+							cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+									Constants.BATTLECARD_COLUMN_2_SCALE, Constants.BATTLECARD_LINE_1_SCALE, x, y);
+							g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						} else if (enemy.getName() == "SiegeTower") {
+							cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+									Constants.BATTLECARD_COLUMN_3_SCALE, Constants.BATTLECARD_LINE_1_SCALE, x, y);
+							g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						}
 						break;
 					case 2:
-						cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
-								Constants.BATTLECARD_COLUMN_1_SCALE, Constants.BATTLECARD_LINE_2_SCALE, x, y);
-
-						pieceScaled = Utils.getPieceScaledSize(scaleHeight, Constants.PIECE_SCALE);
-
-						g.setColor(Color.RED);
-						g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						if (enemy.getName() == "Ladders") {
+							cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+									Constants.BATTLECARD_COLUMN_1_SCALE, Constants.BATTLECARD_LINE_2_SCALE, x, y);
+							g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						} else if (enemy.getName() == "BattleRam") {
+							cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+									Constants.BATTLECARD_COLUMN_2_SCALE, Constants.BATTLECARD_LINE_2_SCALE, x, y);
+							g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						} else if (enemy.getName() == "SiegeTower") {
+							cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+									Constants.BATTLECARD_COLUMN_3_SCALE, Constants.BATTLECARD_LINE_2_SCALE, x, y);
+							g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						}
 						break;
 					case 3:
-						cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
-								Constants.BATTLECARD_COLUMN_1_SCALE, Constants.BATTLECARD_LINE_3_SCALE, x, y);
-
-						pieceScaled = Utils.getPieceScaledSize(scaleHeight, Constants.PIECE_SCALE);
-
-						g.setColor(Color.RED);
-						g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						if (enemy.getName() == "Ladders") {
+							cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+									Constants.BATTLECARD_COLUMN_1_SCALE, Constants.BATTLECARD_LINE_3_SCALE, x, y);
+							g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						} else if (enemy.getName() == "BattleRam") {
+							cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+									Constants.BATTLECARD_COLUMN_2_SCALE, Constants.BATTLECARD_LINE_3_SCALE, x, y);
+							g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						} else if (enemy.getName() == "SiegeTower") {
+							cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+									Constants.BATTLECARD_COLUMN_3_SCALE, Constants.BATTLECARD_LINE_3_SCALE, x, y);
+							g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						}
+						break;
+					case 4:
+						if (enemy.getName() == "Ladders") {
+							cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+									Constants.BATTLECARD_COLUMN_1_SCALE, Constants.BATTLECARD_LINE_4_SCALE, x, y);
+							g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						} else if (enemy.getName() == "BattleRam") {
+							cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+									Constants.BATTLECARD_COLUMN_2_SCALE, Constants.BATTLECARD_LINE_4_SCALE, x, y);
+							g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						} else if (enemy.getName() == "SiegeTower") {
+							cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+									Constants.BATTLECARD_COLUMN_3_SCALE, Constants.BATTLECARD_LINE_4_SCALE, x, y);
+							g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						}
 						break;
 					}
 				}
