@@ -19,7 +19,7 @@ class Utils {
 	public static int getPieceScaledSize(int height, double scale) {
 		int size;
 
-		size = (int)(height * scale) / 100;
+		size = (int) (height * scale) / 100;
 
 		return size;
 	}

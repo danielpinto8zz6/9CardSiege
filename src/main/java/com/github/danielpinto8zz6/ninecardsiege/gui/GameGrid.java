@@ -14,6 +14,7 @@ import java.util.Observer;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+import com.github.danielpinto8zz6.ninecardsiege.logic.Enemy;
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitBeginning;
 
@@ -109,13 +110,43 @@ class GameGrid extends JPanel implements Observer {
 
 				g.drawImage(image, x, y, scaleWidth, scaleHeight, this);
 
-				final Point cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
-						Constants.BATTLECARD_COLUMN_1_SCALE, Constants.BATTLECARD_LINE_1_SCALE, x, y);
+				/**
+				 * Place enemies
+				 */
+				Point cardCoord;
+				int pieceScaled;
 
-				final int pieceScaled = Utils.getPieceScaledSize(scaleHeight, Constants.PIECE_SCALE);
+				for (Enemy enemy : game.getGame().getEnemies()) {
+					switch (enemy.getPosition()) {
+					case 1:
+						cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+								Constants.BATTLECARD_COLUMN_1_SCALE, Constants.BATTLECARD_LINE_1_SCALE, x, y);
 
-				g.setColor(Color.RED);
-				g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						pieceScaled = Utils.getPieceScaledSize(scaleHeight, Constants.PIECE_SCALE);
+
+						g.setColor(Color.RED);
+						g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						break;
+					case 2:
+						cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+								Constants.BATTLECARD_COLUMN_1_SCALE, Constants.BATTLECARD_LINE_2_SCALE, x, y);
+
+						pieceScaled = Utils.getPieceScaledSize(scaleHeight, Constants.PIECE_SCALE);
+
+						g.setColor(Color.RED);
+						g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						break;
+					case 3:
+						cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+								Constants.BATTLECARD_COLUMN_1_SCALE, Constants.BATTLECARD_LINE_3_SCALE, x, y);
+
+						pieceScaled = Utils.getPieceScaledSize(scaleHeight, Constants.PIECE_SCALE);
+
+						g.setColor(Color.RED);
+						g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						break;
+					}
+				}
 			}
 		};
 		statusC = new JPanel() {

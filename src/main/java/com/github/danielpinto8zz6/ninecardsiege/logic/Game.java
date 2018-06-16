@@ -129,6 +129,10 @@ public final class Game implements Serializable {
 		return gameData;
 	}
 
+	public List<Enemy> getEnemies () {
+		return getGameData().getEnemies();
+	}
+
 	/**
 	 * getMsgLog.
 	 *
