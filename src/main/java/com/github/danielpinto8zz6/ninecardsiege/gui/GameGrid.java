@@ -345,6 +345,29 @@ class GameGrid extends JPanel implements Observer {
 					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
 					break;
 				}
+
+				/**
+				 * Troop position
+				 */
+				g.setColor(Color.BLACK);
+
+				switch (game.getGame().getGameData().getStatusCard().getTroopPosition()) {
+				case 0:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_TROOPS_COLUMN_0_SCALE, Constants.STATUSCARD_TROOPS_LINE_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				case 1:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_TROOPS_COLUMN_1_SCALE, Constants.STATUSCARD_TROOPS_LINE_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				case 2:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_TROOPS_COLUMN_2_SCALE, Constants.STATUSCARD_TROOPS_LINE_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				}
 			}
 		};
 		backCard = new JPanel() {

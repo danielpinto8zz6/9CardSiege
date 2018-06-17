@@ -25,4 +25,9 @@ public interface Constants {
 	public double STATUSCARD_LINE_0_SCALE = 70.5;
 
 	public double PIECE_SCALE = 10;
+
+	public double STATUSCARD_TROOPS_LINE_SCALE = 87.5;
+	public double STATUSCARD_TROOPS_COLUMN_0_SCALE = 3.07;
+	public double STATUSCARD_TROOPS_COLUMN_1_SCALE = 27;
+	public double STATUSCARD_TROOPS_COLUMN_2_SCALE = 51.5;
 }
