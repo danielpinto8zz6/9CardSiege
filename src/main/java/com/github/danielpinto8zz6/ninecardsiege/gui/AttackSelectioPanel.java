@@ -32,7 +32,7 @@ public class AttackSelectioPanel extends JPanel {
 	JButton end = new JButton("End Game");
 	String[] enemieString = { "Ladders", "BattleRam", "SiegeTower" };
 	JLabel msg;
-	JComboBox enemieS = new JComboBox(enemieString);
+	JComboBox<String> enemieS = new JComboBox<>(enemieString);
 
 	AttackSelectioPanel(ObservableGame g) {
 
