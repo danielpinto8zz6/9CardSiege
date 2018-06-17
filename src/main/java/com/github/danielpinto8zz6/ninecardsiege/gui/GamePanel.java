@@ -108,6 +108,8 @@ public class GamePanel extends JPanel implements Observer {
 		add(pEast, BorderLayout.EAST);
 		pCenter.add(theGrid, BorderLayout.CENTER);
 
+		pSouth.setPreferredSize(new Dimension(-1, 120));
+
 		validate();
 	}
 

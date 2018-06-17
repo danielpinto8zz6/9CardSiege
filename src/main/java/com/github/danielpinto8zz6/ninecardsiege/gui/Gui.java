@@ -2,6 +2,7 @@ package com.github.danielpinto8zz6.ninecardsiege.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -106,6 +107,7 @@ public class Gui extends JFrame implements Observer {
 
 		setVisible(true);
 		this.setSize(1020, 750);
+		this.setMinimumSize(new Dimension(800, 500));
 		// setResizable(false);
 		// this.setMinimumSize(new Dimension(650, 450));
 		setLocationRelativeTo(null);

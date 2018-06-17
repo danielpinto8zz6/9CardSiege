@@ -27,7 +27,7 @@ class PlayerData extends JPanel implements Observer {
 	JLabel victoryMessage;
 	JLabel name;
 	JLabel actionPoints;
-	JLabel dia;
+	JLabel day;
 
 	ObservableGame game;
 	int playerNumber;
@@ -41,7 +41,7 @@ class PlayerData extends JPanel implements Observer {
 
 		name = new JLabel();
 		actionPoints = new JLabel();
-		dia = new JLabel();
+		day = new JLabel();
 
 		setupLayout();
 	}
@@ -67,9 +67,9 @@ class PlayerData extends JPanel implements Observer {
 		name.setAlignmentX(Component.CENTER_ALIGNMENT);
 		name.setAlignmentY(Component.CENTER_ALIGNMENT);
 
-		dia.setText("Dia :" + String.valueOf(game.getGameData().getDay()));
-		dia.setBounds(0, 0, 200, 50);
-		dia.setVisible(false);
+		day.setText("Day :" + String.valueOf(game.getGameData().getDay()));
+		day.setBounds(0, 0, 200, 50);
+		day.setVisible(false);
 
 		actionPoints.setText("Action Points :" + String.valueOf(game.getGameData().getPlayer().getActionPoints()));
 		actionPoints.setBounds(0, 20, 200, 50);
@@ -80,7 +80,7 @@ class PlayerData extends JPanel implements Observer {
 		victoryMessage.setFont(new Font("Dialog", Font.BOLD, 30));
 
 		add(name);
-		add(dia);
+		add(day);
 		add(actionPoints);
 		add(victoryMessage);
 
@@ -94,11 +94,11 @@ class PlayerData extends JPanel implements Observer {
 		final Player player = game.getPlayer();
 
 		name.setText(player.getName());
-		dia.setText("Dia :" + String.valueOf(game.getGameData().getDay()));
+		day.setText("Day :" + String.valueOf(game.getGameData().getDay()));
 		actionPoints.setText("Action Points :" + String.valueOf(game.getGameData().getPlayer().getActionPoints()));
 
 		if (!(game.getState() instanceof AwaitBeginning)) {
-			dia.setVisible(true);
+			day.setVisible(true);
 			actionPoints.setVisible(true);
 		}
 		if (game == null) {
@@ -106,7 +106,7 @@ class PlayerData extends JPanel implements Observer {
 		}
 
 		if (game.getState() instanceof GameOver) {
-			dia.setVisible(false);
+			day.setVisible(false);
 			actionPoints.setVisible(false);
 			victoryMessage.setVisible(true);
 
