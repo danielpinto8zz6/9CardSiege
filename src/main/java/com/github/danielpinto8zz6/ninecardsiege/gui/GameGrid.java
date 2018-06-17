@@ -182,6 +182,29 @@ class GameGrid extends JPanel implements Observer {
 						break;
 					}
 				}
+
+				/**
+				 * Trebuchet
+				 */
+				g.setColor(Color.BLUE);
+
+				switch (game.getGame().getGameData().getBattleCard().getTrebuchet()) {
+				case 1:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.BATTLECARD_COLUMN_1_SCALE, Constants.BATTLECARD_LINE_5_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				case 2:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.BATTLECARD_COLUMN_2_SCALE, Constants.BATTLECARD_LINE_5_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				case 3:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.BATTLECARD_COLUMN_3_SCALE, Constants.BATTLECARD_LINE_5_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				}
 			}
 		};
 		statusC = new JPanel() {
