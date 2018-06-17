@@ -1,9 +1,12 @@
 package com.github.danielpinto8zz6.ninecardsiege.gui;
 
+import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -109,7 +112,11 @@ class PlayerData extends JPanel implements Observer {
 			day.setVisible(false);
 			actionPoints.setVisible(false);
 			victoryMessage.setVisible(true);
-
+		} else {
+			/**
+			 * Hack
+			 */
+			victoryMessage.setVisible(false);
 		}
 	}
 }

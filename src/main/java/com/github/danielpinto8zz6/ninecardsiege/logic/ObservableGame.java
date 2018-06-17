@@ -199,4 +199,18 @@ public class ObservableGame extends Observable {
 		notifyObservers();
 	}
 
+	public void over() {
+		game.finish();
+
+		setChanged();
+		notifyObservers();
+	}
+
+	public void playAgain() {
+		game.playAgain();
+
+		setChanged();
+		notifyObservers();
+	}
+
 }

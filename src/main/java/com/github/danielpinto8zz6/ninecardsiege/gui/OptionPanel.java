@@ -59,7 +59,7 @@ public class OptionPanel extends JPanel implements Observer {
 		sab.addActionListener(ev -> game.sabotage());
 		eAP.addActionListener(ev -> game.extraActionPoint());
 		nTu.addActionListener(ev -> game.endOfTurn());
-		end.addActionListener(ev -> System.exit(0));
+		end.addActionListener(ev -> game.over());
 	}
 
 	private void setupLayout() {

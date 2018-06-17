@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -21,6 +22,7 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitOptionForTroop
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitOptionSelectionForExtraActionPoint;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitOptionSelectionForRallyTroops;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.AwaitTopCardToBeDrawn;
+import com.github.danielpinto8zz6.ninecardsiege.logic.states.GameOver;
 
 // import java.io.FileInputStream;
 
@@ -140,6 +142,17 @@ public class GamePanel extends JPanel implements Observer {
 
 		if (game.getState() instanceof AwaitOptionSelectionForRallyTroops) {
 			cardManager.show(pEast, "BonusR");
+		}
+
+		if (game.getState() instanceof GameOver) {
+			int n = JOptionPane.showConfirmDialog(this, "Wanna play again?", "Play again", JOptionPane.YES_NO_OPTION);
+
+			if (n == JOptionPane.YES_OPTION) {
+				game.playAgain();
+			} else if (n == JOptionPane.NO_OPTION) {
+				game.getGameData().setEndGame(true);
+				System.exit(0);
+			}
 		}
 
 		updateGameLog();
