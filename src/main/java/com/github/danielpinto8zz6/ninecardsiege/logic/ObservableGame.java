@@ -150,6 +150,20 @@ public class ObservableGame extends Observable {
 		notifyObservers();
 	}
 
+	public void over() {
+		game.finish();
+
+		setChanged();
+		notifyObservers();
+	}
+
+	public void playAgain() {
+		game.playAgain();
+
+		setChanged();
+		notifyObservers();
+	}
+
 	public void rallyTroops() {
 		game.rallyTroops();
 
@@ -195,20 +209,6 @@ public class ObservableGame extends Observable {
 
 	public void tunnelMovement() {
 		game.tunnelMovement();
-		setChanged();
-		notifyObservers();
-	}
-
-	public void over() {
-		game.finish();
-
-		setChanged();
-		notifyObservers();
-	}
-
-	public void playAgain() {
-		game.playAgain();
-
 		setChanged();
 		notifyObservers();
 	}

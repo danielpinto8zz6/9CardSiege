@@ -145,7 +145,8 @@ public class GamePanel extends JPanel implements Observer {
 		}
 
 		if (game.getState() instanceof GameOver) {
-			int n = JOptionPane.showConfirmDialog(this, "Wanna play again?", "Play again", JOptionPane.YES_NO_OPTION);
+			final int n = JOptionPane.showConfirmDialog(this, "Wanna play again?", "Play again",
+					JOptionPane.YES_NO_OPTION);
 
 			if (n == JOptionPane.YES_OPTION) {
 				game.playAgain();

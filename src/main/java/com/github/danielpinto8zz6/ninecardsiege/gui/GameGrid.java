@@ -114,11 +114,11 @@ class GameGrid extends JPanel implements Observer {
 				 * Place enemies
 				 */
 				Point cardCoord;
-				int pieceScaled = Utils.getPieceScaledSize(scaleHeight, Constants.PIECE_SCALE);
+				final int pieceScaled = Utils.getPieceScaledSize(scaleHeight, Constants.PIECE_SCALE);
 
 				g.setColor(Color.RED);
 
-				for (Enemy enemy : game.getGame().getEnemies()) {
+				for (final Enemy enemy : game.getGame().getEnemies()) {
 					switch (enemy.getPosition()) {
 					case 1:
 						if (enemy.getName() == "Ladders") {

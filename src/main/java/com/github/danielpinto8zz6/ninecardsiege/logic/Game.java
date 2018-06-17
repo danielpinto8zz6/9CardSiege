@@ -120,6 +120,10 @@ public final class Game implements Serializable {
 		setState(getState().freeMovement(up));
 	}
 
+	public List<Enemy> getEnemies() {
+		return getGameData().getEnemies();
+	}
+
 	/**
 	 * Getter for the field <code>gameData</code>.
 	 *
@@ -127,10 +131,6 @@ public final class Game implements Serializable {
 	 */
 	public GameData getGameData() {
 		return gameData;
-	}
-
-	public List<Enemy> getEnemies () {
-		return getGameData().getEnemies();
 	}
 
 	/**

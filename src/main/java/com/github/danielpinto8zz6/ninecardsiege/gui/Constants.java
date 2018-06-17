@@ -1,7 +1,5 @@
 package com.github.danielpinto8zz6.ninecardsiege.gui;
 
-import java.awt.Color;
-
 public interface Constants {
 
 	// public double COLUMN_1_SCALE = 5.7;
