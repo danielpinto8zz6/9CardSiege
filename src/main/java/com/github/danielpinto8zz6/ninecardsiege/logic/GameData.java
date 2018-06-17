@@ -150,7 +150,7 @@ public final class GameData implements Constants, Serializable {
 	public void coupure() {
 		final int roll = Dice.roll();
 
-		addMsgLog("rolled" + roll + "on coupure");
+		addMsgLog("rolled " + roll + " on coupure");
 
 		if (roll > 4) {
 			getPlayer().setWallStrength(getPlayer().getWallStrength() + 1);
@@ -354,9 +354,8 @@ public final class GameData implements Constants, Serializable {
 
 		if ((getStatusCard().getTroopPosition() == 0) || (getStatusCard().getTroopPosition() == 3)) {
 			if (getStatusCard().getTroopPosition() == 0) {
-				addMsgLog("Movemente executed leaving the castle ");
+				addMsgLog("Movement executed leaving the castle ");
 				getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
-				getStatusCard().setTroopPosition(1);
 				getStatusCard().setTroopPosition(1);
 				getStatusCard().setFreeMov(2);
 			} else {
@@ -368,7 +367,7 @@ public final class GameData implements Constants, Serializable {
 			}
 
 		} else {
-			addMsgLog("Can't do this movemente... ");
+			addMsgLog("Can't do this movement... ");
 		}
 	}
 

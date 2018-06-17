@@ -232,13 +232,104 @@ class GameGrid extends JPanel implements Observer {
 
 				g.drawImage(image, x, y, scaleWidth, scaleHeight, this);
 
-				final Point cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
-						Constants.STATUSCARD_COLUMN_1_SCALE, Constants.STATUSCARD_LINE_1_SCALE, x, y);
+				Point cardCoord;
 
-				final int pieceScaled = Utils.getPieceScaledSize(scaleHeight, Constants.PIECE_SCALE);
+				int pieceScaled = Utils.getPieceScaledSize(scaleHeight, Constants.PIECE_SCALE);
 
+				/**
+				 * Trebuchet
+				 */
 				g.setColor(Color.GREEN);
-				g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+
+				switch (game.getGame().getGameData().getPlayer().getWallStrength()) {
+				case 0:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_COLUMN_2_SCALE, Constants.STATUSCARD_LINE_0_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				case 1:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_COLUMN_1_SCALE, Constants.STATUSCARD_LINE_1_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				case 2:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_COLUMN_1_SCALE, Constants.STATUSCARD_LINE_2_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				case 3:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_COLUMN_1_SCALE, Constants.STATUSCARD_LINE_3_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				case 4:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_COLUMN_1_SCALE, Constants.STATUSCARD_LINE_4_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				}
+
+				/**
+				 * Morale
+				 */
+				switch (game.getGame().getGameData().getPlayer().getMoral()) {
+				case 0:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_COLUMN_2_SCALE, Constants.STATUSCARD_LINE_0_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				case 1:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_COLUMN_2_SCALE, Constants.STATUSCARD_LINE_1_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				case 2:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_COLUMN_2_SCALE, Constants.STATUSCARD_LINE_2_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				case 3:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_COLUMN_2_SCALE, Constants.STATUSCARD_LINE_3_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				case 4:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_COLUMN_2_SCALE, Constants.STATUSCARD_LINE_4_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				}
+
+				/**
+				 * Morale
+				 */
+				switch (game.getGame().getGameData().getPlayer().getSupplies()) {
+				case 0:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_COLUMN_2_SCALE, Constants.STATUSCARD_LINE_0_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				case 1:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_COLUMN_3_SCALE, Constants.STATUSCARD_LINE_1_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				case 2:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_COLUMN_3_SCALE, Constants.STATUSCARD_LINE_2_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				case 3:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_COLUMN_3_SCALE, Constants.STATUSCARD_LINE_3_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				case 4:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_COLUMN_3_SCALE, Constants.STATUSCARD_LINE_4_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				}
 			}
 		};
 		backCard = new JPanel() {
