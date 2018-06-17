@@ -28,7 +28,7 @@ public class OptionPanel extends JPanel implements Observer {
 	JButton cCA = new JButton("Close Combat Attack");
 	JButton Cou = new JButton("Coupure");
 	JButton ral = new JButton("Rally");
-	JButton tMo = new JButton("Tunnel Movemente");
+	JButton tMo = new JButton("Tunnel Movement");
 	JButton sRa = new JButton("Supply Raid");
 	JButton sab = new JButton("Sabotage");
 	JButton eAP = new JButton("Extra Action Point");

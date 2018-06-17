@@ -207,17 +207,17 @@ public final class GameData implements Constants, Serializable {
 	public void fastM(boolean up) {
 
 		if ((getStatusCard().getTroopPosition() == 0) || (getStatusCard().getTroopPosition() == 3)) {
-			addMsgLog("Can't do this movemente... ");
+			addMsgLog("Can't do this movement... ");
 		} else if (up) {
 			getStatusCard().setTroopPosition(getStatusCard().getTroopPosition() - 1);
 			getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
-			addMsgLog("movemente done, going to the castle ");
+			addMsgLog("movement done, going to the castle ");
 
 		} else {
 			getStatusCard().setTroopPosition(getStatusCard().getTroopPosition() + 1);
 			getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
 
-			addMsgLog("movemente done, going to the enemi lines ");
+			addMsgLog("movement done, going to the enemi lines ");
 		}
 	}
 
@@ -225,15 +225,15 @@ public final class GameData implements Constants, Serializable {
 
 		if ((getStatusCard().getFreeMov() != 1)
 				|| ((getStatusCard().getTroopPosition() == 0) || (getStatusCard().getTroopPosition() == 3))) {
-			addMsgLog("Can't do this movemente... ");
+			addMsgLog("Can't do this movement... ");
 
 		} else if (up) {
 			getStatusCard().setTroopPosition(getStatusCard().getTroopPosition() - 1);
-			addMsgLog("movemente done, going to the castle ");
+			addMsgLog("movement done, going to the castle ");
 
 		} else {
 			getStatusCard().setTroopPosition(getStatusCard().getTroopPosition() + 1);
-			addMsgLog("movemente done, going to the enemi lines ");
+			addMsgLog("movement done, going to the enemi lines ");
 		}
 	}
 
@@ -362,7 +362,7 @@ public final class GameData implements Constants, Serializable {
 				getStatusCard().setTroopPosition(2);
 				getStatusCard().setFreeMov(2);
 
-				addMsgLog("Movemente executed leaving the enemy lines ");
+				addMsgLog("Movement executed leaving the enemy lines ");
 				getPlayer().setActionPoints(getPlayer().getActionPoints() - 1);
 			}
 
