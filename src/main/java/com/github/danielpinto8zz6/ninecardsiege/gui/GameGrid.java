@@ -120,6 +120,21 @@ class GameGrid extends JPanel implements Observer {
 
 				for (final Enemy enemy : game.getGame().getEnemies()) {
 					switch (enemy.getPosition()) {
+					case 0:
+						if (enemy.getName() == "Ladders") {
+							cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+									Constants.BATTLECARD_COLUMN_2_SCALE, Constants.BATTLECARD_LINE_0_SCALE, x, y);
+							g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						} else if (enemy.getName() == "BattleRam") {
+							cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+									Constants.BATTLECARD_COLUMN_2_SCALE, Constants.BATTLECARD_LINE_0_SCALE, x, y);
+							g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						} else if (enemy.getName() == "SiegeTower") {
+							cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+									Constants.BATTLECARD_COLUMN_2_SCALE, Constants.BATTLECARD_LINE_0_SCALE, x, y);
+							g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+						}
+						break;
 					case 1:
 						if (enemy.getName() == "Ladders") {
 							cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,

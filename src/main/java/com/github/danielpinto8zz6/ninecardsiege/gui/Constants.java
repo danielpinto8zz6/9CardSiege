@@ -11,6 +11,8 @@ public interface Constants {
 	public double BATTLECARD_LINE_4_SCALE = 67.5;
 	public double BATTLECARD_LINE_5_SCALE = 87;
 
+	public double BATTLECARD_LINE_0_SCALE = 2.4;
+
 	public double STATUSCARD_COLUMN_1_SCALE = 6.7;
 	public double STATUSCARD_COLUMN_2_SCALE = 38.8;
 	public double STATUSCARD_COLUMN_3_SCALE = 71;
