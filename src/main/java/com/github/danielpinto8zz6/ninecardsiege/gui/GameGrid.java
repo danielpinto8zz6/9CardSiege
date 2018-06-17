@@ -368,6 +368,26 @@ class GameGrid extends JPanel implements Observer {
 					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
 					break;
 				}
+
+				/**
+				 * Raid supplies
+				 */
+				g.setColor(Color.YELLOW);
+
+				switch (game.getGame().getGameData().getPlayer().getmRaidSupplies()) {
+				case 1:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_RAIDSUPPLIES_COLUMN_SCALE,
+							Constants.STATUSCARD_RAIDSUPPLIES_LINE_1_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				case 2:
+					cardCoord = Utils.getCardCoordinatesTodraw(scaleWidth, scaleHeight,
+							Constants.STATUSCARD_RAIDSUPPLIES_COLUMN_SCALE,
+							Constants.STATUSCARD_RAIDSUPPLIES_LINE_2_SCALE, x, y);
+					g.fillOval(cardCoord.x, cardCoord.y, pieceScaled, pieceScaled);
+					break;
+				}
 			}
 		};
 		backCard = new JPanel() {
