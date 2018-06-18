@@ -17,8 +17,10 @@ import javax.swing.JPanel;
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 
 /**
+ * <p>TunnelMovementPanel class.</p>
  *
  * @author tiago_000
+ * @version $Id: $Id
  */
 public class TunnelMovementPanel extends JPanel {
 

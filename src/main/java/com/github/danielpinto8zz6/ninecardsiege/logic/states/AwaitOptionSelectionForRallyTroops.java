@@ -32,6 +32,7 @@ public class AwaitOptionSelectionForRallyTroops extends StateAdapter {
 		return new AwaitActionSelection(getGameData());
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public IStates dont() {
 		return new AwaitActionSelection(getGameData());

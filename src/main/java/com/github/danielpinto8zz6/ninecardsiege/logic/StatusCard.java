@@ -48,6 +48,11 @@ public class StatusCard implements Serializable {
 		}
 	}
 
+	/**
+	 * <p>Getter for the field <code>freeMov</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getFreeMov() {
 		return freeMov;
 	}
@@ -79,17 +84,26 @@ public class StatusCard implements Serializable {
 		return troopPosition;
 	}
 
-	/** removeSupplies. */
+	/**
+	 * removeSupplies.
+	 */
 	public void removeSupplies() {
 		supplies = 0;
 	}
 
-	/** reset. */
+	/**
+	 * reset.
+	 */
 	public void reset() {
 		troopPosition = 0;
 		supplies = 0;
 	}
 
+	/**
+	 * <p>Setter for the field <code>freeMov</code>.</p>
+	 *
+	 * @param freeMov a int.
+	 */
 	public void setFreeMov(int freeMov) {
 		this.freeMov = freeMov;
 	}

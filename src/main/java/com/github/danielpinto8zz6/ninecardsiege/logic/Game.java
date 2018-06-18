@@ -20,7 +20,9 @@ public final class Game implements Serializable {
 	private IStates state;
 	private GameData gameData;
 
-	/** Constructor for Game. */
+	/**
+	 * Constructor for Game.
+	 */
 	public Game() {
 		gameData = new GameData();
 		setState(new AwaitBeginning(gameData));
@@ -48,7 +50,9 @@ public final class Game implements Serializable {
 		setState(getState().applyRallyTroops(plusOne));
 	}
 
-	/** archersAttack. */
+	/**
+	 * archersAttack.
+	 */
 	public void archersAttack() {
 		setState(getState().archersAttack());
 	}
@@ -63,63 +67,99 @@ public final class Game implements Serializable {
 		setState(getState().attack(name));
 	}
 
-	/** boilingWaterAttack. */
+	/**
+	 * boilingWaterAttack.
+	 */
 	public void boilingWaterAttack() {
 		setState(getState().boilingWaterAttack());
 	}
 
-	/** checkStatus. */
+	/**
+	 * checkStatus.
+	 */
 	public void checkStatus() {
 		setState(getState().checkStatus());
 	}
 
-	/** clearMsgLog. */
+	/**
+	 * clearMsgLog.
+	 */
 	public void clearMsgLog() {
 		gameData.clearMsgLog();
 	}
 
-	/** closeCombatAttack. */
+	/**
+	 * closeCombatAttack.
+	 */
 	public void closeCombatAttack() {
 		setState(getState().closeCombatAttack());
 	}
 
-	/** coupure. */
+	/**
+	 * coupure.
+	 */
 	public void coupure() {
 		setState(getState().coupure());
 	}
 
+	/**
+	 * <p>dont.</p>
+	 */
 	public void dont() {
 		setState(getState().dont());
 	}
 
-	/** drawTopCard. */
+	/**
+	 * drawTopCard.
+	 */
 	public void drawTopCard() {
 		setState(getState().drawTopCard());
 	}
 
-	/** endOfTurn */
+	/**
+	 * endOfTurn
+	 */
 	public void endOfTurn() {
 		setState(getState().endOfTurn());
 	}
 
-	/** extraActionPoint */
+	/**
+	 * extraActionPoint
+	 */
 	public void extraActionPoint() {
 		setState(getState().extraActionPoint());
 	}
 
+	/**
+	 * <p>fastMovement.</p>
+	 *
+	 * @param up a boolean.
+	 */
 	public void fastMovement(boolean up) {
 		setState(getState().fastMovement(up));
 	}
 
-	/** finish. */
+	/**
+	 * finish.
+	 */
 	public void finish() {
 		setState(getState().finish());
 	}
 
+	/**
+	 * <p>freeMovement.</p>
+	 *
+	 * @param up a boolean.
+	 */
 	public void freeMovement(boolean up) {
 		setState(getState().freeMovement(up));
 	}
 
+	/**
+	 * <p>getEnemies.</p>
+	 *
+	 * @return a {@link java.util.List} object.
+	 */
 	public List<Enemy> getEnemies() {
 		return getGameData().getEnemies();
 	}
@@ -151,25 +191,39 @@ public final class Game implements Serializable {
 		return state;
 	}
 
+	/**
+	 * <p>isOver.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean isOver() {
 		return getGameData().isEndGame();
 	}
 
+	/**
+	 * <p>leaveLocation.</p>
+	 */
 	public void leaveLocation() {
 		setState(getState().leaveLocation());
 	}
 
-	/** playAgain. */
+	/**
+	 * playAgain.
+	 */
 	public void playAgain() {
 		setState(getState().playAgain());
 	}
 
-	/** rallyTroops. */
+	/**
+	 * rallyTroops.
+	 */
 	public void rallyTroops() {
 		setState(getState().rallyTroops());
 	}
 
-	/** sabotage. */
+	/**
+	 * sabotage.
+	 */
 	public void sabotage() {
 		setState(getState().sabotage());
 	}
@@ -204,11 +258,16 @@ public final class Game implements Serializable {
 		setState(getState().start());
 	}
 
+	/**
+	 * <p>StartOfTheTurn.</p>
+	 */
 	public void StartOfTheTurn() {
 		setState(getState().StartOfTheTurn());
 	}
 
-	/** supplyRaid. */
+	/**
+	 * supplyRaid.
+	 */
 	public void supplyRaid() {
 		setState(getState().supplyRaid());
 	}
@@ -219,7 +278,9 @@ public final class Game implements Serializable {
 		return gameData.toString();
 	}
 
-	/** tunelMovement. */
+	/**
+	 * tunelMovement.
+	 */
 	public void tunnelMovement() {
 		setState(getState().tunnelMovement());
 	}

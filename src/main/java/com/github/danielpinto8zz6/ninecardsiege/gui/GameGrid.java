@@ -467,6 +467,7 @@ class GameGrid extends JPanel implements Observer {
 
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void update(Observable o, Object arg) {
 

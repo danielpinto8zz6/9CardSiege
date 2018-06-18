@@ -9,9 +9,20 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.Dice;
 import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
 /** @author tiago_000 */
+/**
+ * <p>AwaitBegginingOfTheTurn class.</p>
+ *
+ * @author daniel
+ * @version $Id: $Id
+ */
 public class AwaitBegginingOfTheTurn extends StateAdapter {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * <p>Constructor for AwaitBegginingOfTheTurn.</p>
+	 *
+	 * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+	 */
 	public AwaitBegginingOfTheTurn(GameData g) {
 		super(g);
 	}

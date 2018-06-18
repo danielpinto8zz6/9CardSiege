@@ -46,6 +46,7 @@ class PlayerData extends JPanel implements Observer {
 		setupLayout();
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -88,6 +89,7 @@ class PlayerData extends JPanel implements Observer {
 
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void update(Observable arg0, Object arg1) {
 

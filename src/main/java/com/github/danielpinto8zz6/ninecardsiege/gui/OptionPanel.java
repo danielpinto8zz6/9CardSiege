@@ -18,6 +18,12 @@ import javax.swing.JPanel;
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 
 /** @author tiago_000 */
+/**
+ * <p>OptionPanel class.</p>
+ *
+ * @author daniel
+ * @version $Id: $Id
+ */
 public class OptionPanel extends JPanel implements Observer {
 	private static final long serialVersionUID = 1L;
 
@@ -124,6 +130,7 @@ public class OptionPanel extends JPanel implements Observer {
 		validate();
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void update(Observable o, Object arg) {
 		aAt.setEnabled(game.getPlayer().isCanArchersAtack());

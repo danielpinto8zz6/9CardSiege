@@ -220,7 +220,9 @@ public class Player implements Serializable {
 		return canTunnelMovement;
 	}
 
-	/** reset. */
+	/**
+	 * reset.
+	 */
 	public void reset() {
 		moral = 4;
 		wallStrength = 4;
@@ -239,7 +241,9 @@ public class Player implements Serializable {
 		mSabotage = 0;
 	}
 
-	/** resetModifiers. Set all the modifiers to their initial state */
+	/**
+	 * resetModifiers. Set all the modifiers to their initial state
+	 */
 	public void resetModifiers() {
 		setmSabotage(0);
 		setmRallyTroops(0);

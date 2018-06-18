@@ -73,8 +73,7 @@ public class BattleCard implements Serializable {
 	 *            a {@link java.lang.String} object.
 	 * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Enemy}
 	 *         object.
-	 * @throws com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException
-	 *             if any.
+	 * @throws com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException if any.
 	 */
 	public Enemy getEnemy(String name) throws EnemyNotFoundException {
 		for (final Enemy enemy : enemies) {
@@ -103,7 +102,9 @@ public class BattleCard implements Serializable {
 		return trebuchet;
 	}
 
-	/** reset. */
+	/**
+	 * reset.
+	 */
 	public void reset() {
 		trebuchet = 3;
 

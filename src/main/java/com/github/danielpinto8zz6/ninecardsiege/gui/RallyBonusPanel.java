@@ -15,8 +15,10 @@ import javax.swing.JPanel;
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 
 /**
+ * <p>RallyBonusPanel class.</p>
  *
  * @author tiago_000
+ * @version $Id: $Id
  */
 public class RallyBonusPanel extends JPanel {
 	private static final long serialVersionUID = 1L;

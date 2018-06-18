@@ -105,6 +105,7 @@ public class StateAdapter implements IStates, Constants, Serializable {
 		return this;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public IStates fastMovement(boolean up) {
 		return this;
@@ -116,6 +117,7 @@ public class StateAdapter implements IStates, Constants, Serializable {
 		return this;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public IStates freeMovement(boolean up) {
 		return this;
@@ -131,6 +133,7 @@ public class StateAdapter implements IStates, Constants, Serializable {
 		return game;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public IStates leaveLocation() {
 		return this;

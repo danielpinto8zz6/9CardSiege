@@ -92,13 +92,17 @@ public class Enemy implements Serializable {
 		}
 	}
 
-	/** reset. */
+	/**
+	 * reset.
+	 */
 	public void reset() {
 		strength = initialStrength;
 		position = 4;
 	}
 
-	/** resetStrenght. Resets the strength */
+	/**
+	 * resetStrenght. Resets the strength
+	 */
 	public void resetStrenght() {
 		if (position != 0) {
 

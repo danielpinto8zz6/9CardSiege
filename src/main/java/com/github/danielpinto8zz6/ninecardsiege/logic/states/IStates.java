@@ -103,6 +103,11 @@ public interface IStates {
 	 */
 	IStates coupure();
 
+	/**
+	 * <p>dont.</p>
+	 *
+	 * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+	 */
 	IStates dont();
 
 	/**
@@ -132,6 +137,12 @@ public interface IStates {
 	 */
 	IStates extraActionPoint();
 
+	/**
+	 * <p>fastMovement.</p>
+	 *
+	 * @param up a boolean.
+	 * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+	 */
 	IStates fastMovement(boolean up);
 
 	/**
@@ -143,8 +154,19 @@ public interface IStates {
 	 */
 	IStates finish();
 
+	/**
+	 * <p>freeMovement.</p>
+	 *
+	 * @param up a boolean.
+	 * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+	 */
 	IStates freeMovement(boolean up);
 
+	/**
+	 * <p>leaveLocation.</p>
+	 *
+	 * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+	 */
 	IStates leaveLocation();
 
 	/**
@@ -183,6 +205,11 @@ public interface IStates {
 	 */
 	IStates start();
 
+	/**
+	 * <p>StartOfTheTurn.</p>
+	 *
+	 * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+	 */
 	IStates StartOfTheTurn();
 
 	/**

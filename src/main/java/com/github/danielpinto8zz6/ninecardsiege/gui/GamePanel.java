@@ -26,6 +26,12 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.states.GameOver;
 
 // import java.io.FileInputStream;
 
+/**
+ * <p>GamePanel class.</p>
+ *
+ * @author daniel
+ * @version $Id: $Id
+ */
 public class GamePanel extends JPanel implements Observer {
 	private static final long serialVersionUID = 1L;
 
@@ -51,6 +57,11 @@ public class GamePanel extends JPanel implements Observer {
 	private JScrollPane scrollPane;
 	private GridLayout gridLayout;
 
+	/**
+	 * <p>Constructor for GamePanel.</p>
+	 *
+	 * @param game a {@link com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame} object.
+	 */
 	public GamePanel(ObservableGame game) {
 		this.game = game;
 		game.addObserver(this);
@@ -115,6 +126,7 @@ public class GamePanel extends JPanel implements Observer {
 		validate();
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void update(Observable o, Object arg) {
 

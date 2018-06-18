@@ -23,6 +23,12 @@ import com.github.danielpinto8zz6.ninecardsiege.files.FileUtility;
 import com.github.danielpinto8zz6.ninecardsiege.logic.Game;
 import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 
+/**
+ * <p>Gui class.</p>
+ *
+ * @author daniel
+ * @version $Id: $Id
+ */
 public class Gui extends JFrame implements Observer {
 	class AboutListener implements ActionListener {
 
@@ -96,6 +102,11 @@ public class Gui extends JFrame implements Observer {
 
 	GamePanel panel;
 
+	/**
+	 * <p>Constructor for Gui.</p>
+	 *
+	 * @param game a {@link com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame} object.
+	 */
 	public Gui(ObservableGame game) {
 		super("9CardSiege");
 		this.game = game;
@@ -167,6 +178,7 @@ public class Gui extends JFrame implements Observer {
 		aboutJMI.addActionListener(new AboutListener());
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void update(Observable o, Object arg) {
 		repaint();

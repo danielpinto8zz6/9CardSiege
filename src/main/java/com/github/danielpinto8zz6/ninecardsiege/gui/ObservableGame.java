@@ -1,7 +1,10 @@
-package com.github.danielpinto8zz6.ninecardsiege.logic;
+package com.github.danielpinto8zz6.ninecardsiege.gui;
 
 import java.util.Observable;
 
+import com.github.danielpinto8zz6.ninecardsiege.logic.Game;
+import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
+import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates;
 
 /**
@@ -26,7 +29,7 @@ public class ObservableGame extends Observable {
 	 *
 	 * @param extra a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA} object.
 	 */
-	public void applyExtraActionPoint(Constants.EXTRA extra) {
+	public void applyExtraActionPoint(com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA extra) {
 		game.applyExtraActionPoint(extra);
 		game.checkStatus();
 
