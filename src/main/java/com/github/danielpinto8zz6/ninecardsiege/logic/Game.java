@@ -103,7 +103,9 @@ public final class Game implements Serializable {
 	}
 
 	/**
-	 * <p>dont.</p>
+	 * <p>
+	 * dont.
+	 * </p>
 	 */
 	public void dont() {
 		setState(getState().dont());
@@ -131,9 +133,12 @@ public final class Game implements Serializable {
 	}
 
 	/**
-	 * <p>fastMovement.</p>
+	 * <p>
+	 * fastMovement.
+	 * </p>
 	 *
-	 * @param up a boolean.
+	 * @param up
+	 *            a boolean.
 	 */
 	public void fastMovement(boolean up) {
 		setState(getState().fastMovement(up));
@@ -147,16 +152,21 @@ public final class Game implements Serializable {
 	}
 
 	/**
-	 * <p>freeMovement.</p>
+	 * <p>
+	 * freeMovement.
+	 * </p>
 	 *
-	 * @param up a boolean.
+	 * @param up
+	 *            a boolean.
 	 */
 	public void freeMovement(boolean up) {
 		setState(getState().freeMovement(up));
 	}
 
 	/**
-	 * <p>getEnemies.</p>
+	 * <p>
+	 * getEnemies.
+	 * </p>
 	 *
 	 * @return a {@link java.util.List} object.
 	 */
@@ -192,7 +202,9 @@ public final class Game implements Serializable {
 	}
 
 	/**
-	 * <p>isOver.</p>
+	 * <p>
+	 * isOver.
+	 * </p>
 	 *
 	 * @return a boolean.
 	 */
@@ -201,7 +213,9 @@ public final class Game implements Serializable {
 	}
 
 	/**
-	 * <p>leaveLocation.</p>
+	 * <p>
+	 * leaveLocation.
+	 * </p>
 	 */
 	public void leaveLocation() {
 		setState(getState().leaveLocation());
@@ -259,7 +273,9 @@ public final class Game implements Serializable {
 	}
 
 	/**
-	 * <p>StartOfTheTurn.</p>
+	 * <p>
+	 * StartOfTheTurn.
+	 * </p>
 	 */
 	public void StartOfTheTurn() {
 		setState(getState().StartOfTheTurn());

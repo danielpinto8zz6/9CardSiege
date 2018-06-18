@@ -1,7 +1,9 @@
 package com.github.danielpinto8zz6.ninecardsiege.gui;
 
 /**
- * <p>Constants interface.</p>
+ * <p>
+ * Constants interface.
+ * </p>
  *
  * @author daniel
  * @version $Id: $Id

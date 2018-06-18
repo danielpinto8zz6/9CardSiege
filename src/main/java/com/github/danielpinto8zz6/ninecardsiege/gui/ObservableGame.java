@@ -8,7 +8,9 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.Player;
 import com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates;
 
 /**
- * <p>ObservableGame class.</p>
+ * <p>
+ * ObservableGame class.
+ * </p>
  *
  * @author daniel
  * @version $Id: $Id
@@ -18,16 +20,23 @@ public class ObservableGame extends Observable {
 	Game game;
 
 	/**
-	 * <p>Constructor for ObservableGame.</p>
+	 * <p>
+	 * Constructor for ObservableGame.
+	 * </p>
 	 */
 	public ObservableGame() {
 		game = new Game();
 	}
 
 	/**
-	 * <p>applyExtraActionPoint.</p>
+	 * <p>
+	 * applyExtraActionPoint.
+	 * </p>
 	 *
-	 * @param extra a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA} object.
+	 * @param extra
+	 *            a
+	 *            {@link com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA}
+	 *            object.
 	 */
 	public void applyExtraActionPoint(com.github.danielpinto8zz6.ninecardsiege.logic.Constants.EXTRA extra) {
 		game.applyExtraActionPoint(extra);
@@ -38,9 +47,12 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>applyRallyTroops.</p>
+	 * <p>
+	 * applyRallyTroops.
+	 * </p>
 	 *
-	 * @param plusOne a boolean.
+	 * @param plusOne
+	 *            a boolean.
 	 */
 	public void applyRallyTroops(boolean plusOne) {
 		game.applyRallyTroops(plusOne);
@@ -51,7 +63,9 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>archersAttack.</p>
+	 * <p>
+	 * archersAttack.
+	 * </p>
 	 */
 	public void archersAttack() {
 		game.archersAttack();
@@ -62,9 +76,12 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>attack.</p>
+	 * <p>
+	 * attack.
+	 * </p>
 	 *
-	 * @param name a {@link java.lang.String} object.
+	 * @param name
+	 *            a {@link java.lang.String} object.
 	 */
 	public void attack(String name) {
 		game.attack(name);
@@ -75,7 +92,9 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>boilingWaterAttack.</p>
+	 * <p>
+	 * boilingWaterAttack.
+	 * </p>
 	 */
 	public void boilingWaterAttack() {
 		game.boilingWaterAttack();
@@ -86,7 +105,9 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>callMenu.</p>
+	 * <p>
+	 * callMenu.
+	 * </p>
 	 */
 	public void callMenu() {
 		game.dont();
@@ -97,14 +118,18 @@ public class ObservableGame extends Observable {
 
 	// Methods retrieve data from the game
 	/**
-	 * <p>clearMsgLog.</p>
+	 * <p>
+	 * clearMsgLog.
+	 * </p>
 	 */
 	public void clearMsgLog() {
 		game.clearMsgLog();
 	}
 
 	/**
-	 * <p>closeCombatAttack.</p>
+	 * <p>
+	 * closeCombatAttack.
+	 * </p>
 	 */
 	public void closeCombatAttack() {
 		game.closeCombatAttack();
@@ -115,7 +140,9 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>coupure.</p>
+	 * <p>
+	 * coupure.
+	 * </p>
 	 */
 	public void coupure() {
 		game.coupure();
@@ -126,7 +153,9 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>drawTopCard.</p>
+	 * <p>
+	 * drawTopCard.
+	 * </p>
 	 */
 	public void drawTopCard() {
 		game.drawTopCard();
@@ -137,7 +166,9 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>endOfTurn.</p>
+	 * <p>
+	 * endOfTurn.
+	 * </p>
 	 */
 	public void endOfTurn() {
 		game.endOfTurn();
@@ -147,7 +178,9 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>extraActionPoint.</p>
+	 * <p>
+	 * extraActionPoint.
+	 * </p>
 	 */
 	public void extraActionPoint() {
 		game.extraActionPoint();
@@ -157,9 +190,12 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>fastMovement.</p>
+	 * <p>
+	 * fastMovement.
+	 * </p>
 	 *
-	 * @param up a boolean.
+	 * @param up
+	 *            a boolean.
 	 */
 	public void fastMovement(boolean up) {
 		game.fastMovement(up);
@@ -168,7 +204,9 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>finish.</p>
+	 * <p>
+	 * finish.
+	 * </p>
 	 */
 	public void finish() {
 		game.finish();
@@ -176,9 +214,12 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>freeMovement.</p>
+	 * <p>
+	 * freeMovement.
+	 * </p>
 	 *
-	 * @param up a boolean.
+	 * @param up
+	 *            a boolean.
 	 */
 	public void freeMovement(boolean up) {
 		game.freeMovement(up);
@@ -187,7 +228,9 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>Getter for the field <code>game</code>.</p>
+	 * <p>
+	 * Getter for the field <code>game</code>.
+	 * </p>
 	 *
 	 * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Game} object.
 	 */
@@ -196,16 +239,21 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>getGameData.</p>
+	 * <p>
+	 * getGameData.
+	 * </p>
 	 *
-	 * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+	 * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
+	 *         object.
 	 */
 	public GameData getGameData() {
 		return game.getGameData();
 	}
 
 	/**
-	 * <p>getMsgLog.</p>
+	 * <p>
+	 * getMsgLog.
+	 * </p>
 	 *
 	 * @return a {@link java.util.List} object.
 	 */
@@ -214,25 +262,34 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>getPlayer.</p>
+	 * <p>
+	 * getPlayer.
+	 * </p>
 	 *
-	 * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Player} object.
+	 * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Player}
+	 *         object.
 	 */
 	public Player getPlayer() {
 		return game.getGameData().getPlayer();
 	}
 
 	/**
-	 * <p>getState.</p>
+	 * <p>
+	 * getState.
+	 * </p>
 	 *
-	 * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates} object.
+	 * @return a
+	 *         {@link com.github.danielpinto8zz6.ninecardsiege.logic.states.IStates}
+	 *         object.
 	 */
 	public IStates getState() {
 		return game.getState();
 	}
 
 	/**
-	 * <p>isOver.</p>
+	 * <p>
+	 * isOver.
+	 * </p>
 	 *
 	 * @return a boolean.
 	 */
@@ -241,7 +298,9 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>leaveLocation.</p>
+	 * <p>
+	 * leaveLocation.
+	 * </p>
 	 */
 	public void leaveLocation() {
 		game.leaveLocation();
@@ -251,7 +310,9 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>over.</p>
+	 * <p>
+	 * over.
+	 * </p>
 	 */
 	public void over() {
 		game.finish();
@@ -261,7 +322,9 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>playAgain.</p>
+	 * <p>
+	 * playAgain.
+	 * </p>
 	 */
 	public void playAgain() {
 		game.playAgain();
@@ -271,7 +334,9 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>rallyTroops.</p>
+	 * <p>
+	 * rallyTroops.
+	 * </p>
 	 */
 	public void rallyTroops() {
 		game.rallyTroops();
@@ -281,7 +346,9 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>sabotage.</p>
+	 * <p>
+	 * sabotage.
+	 * </p>
 	 */
 	public void sabotage() {
 		game.sabotage();
@@ -292,9 +359,13 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>Setter for the field <code>game</code>.</p>
+	 * <p>
+	 * Setter for the field <code>game</code>.
+	 * </p>
 	 *
-	 * @param game a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Game} object.
+	 * @param game
+	 *            a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Game}
+	 *            object.
 	 */
 	public void setGame(Game game) {
 		this.game = game;
@@ -304,9 +375,12 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>setPlayerName.</p>
+	 * <p>
+	 * setPlayerName.
+	 * </p>
 	 *
-	 * @param text a {@link java.lang.String} object.
+	 * @param text
+	 *            a {@link java.lang.String} object.
 	 */
 	public void setPlayerName(String text) {
 		game.getGameData().getPlayer().setName(text);
@@ -315,7 +389,9 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>start.</p>
+	 * <p>
+	 * start.
+	 * </p>
 	 */
 	public void start() {
 		game.start();
@@ -325,7 +401,9 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>supplyRaid.</p>
+	 * <p>
+	 * supplyRaid.
+	 * </p>
 	 */
 	public void supplyRaid() {
 		game.supplyRaid();
@@ -336,7 +414,9 @@ public class ObservableGame extends Observable {
 	}
 
 	/**
-	 * <p>tunnelMovement.</p>
+	 * <p>
+	 * tunnelMovement.
+	 * </p>
 	 */
 	public void tunnelMovement() {
 		game.tunnelMovement();

@@ -249,7 +249,7 @@ class GameGrid extends JPanel implements Observer {
 
 				Point cardCoord;
 
-				int pieceScaled = Utils.getPieceScaledSize(scaleHeight, Constants.PIECE_SCALE);
+				final int pieceScaled = Utils.getPieceScaledSize(scaleHeight, Constants.PIECE_SCALE);
 
 				/**
 				 * Trebuchet

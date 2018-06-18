@@ -89,9 +89,12 @@ public final class GameData implements Constants, Serializable {
 	}
 
 	/**
-	 * <p>archersAttack.</p>
+	 * <p>
+	 * archersAttack.
+	 * </p>
 	 *
-	 * @param name a {@link java.lang.String} object.
+	 * @param name
+	 *            a {@link java.lang.String} object.
 	 */
 	public void archersAttack(String name) {
 		final int roll = Dice.roll();
@@ -114,9 +117,12 @@ public final class GameData implements Constants, Serializable {
 	}
 
 	/**
-	 * <p>boilingWaterAttack.</p>
+	 * <p>
+	 * boilingWaterAttack.
+	 * </p>
 	 *
-	 * @param name a {@link java.lang.String} object.
+	 * @param name
+	 *            a {@link java.lang.String} object.
 	 */
 	public void boilingWaterAttack(String name) {
 		final int roll = Dice.roll();
@@ -147,7 +153,9 @@ public final class GameData implements Constants, Serializable {
 	}
 
 	/**
-	 * <p>closeCombatAttack.</p>
+	 * <p>
+	 * closeCombatAttack.
+	 * </p>
 	 */
 	public void closeCombatAttack() {
 		final int roll = Dice.roll();
@@ -167,7 +175,9 @@ public final class GameData implements Constants, Serializable {
 	}
 
 	/**
-	 * <p>coupure.</p>
+	 * <p>
+	 * coupure.
+	 * </p>
 	 */
 	public void coupure() {
 		final int roll = Dice.roll();
@@ -182,7 +192,9 @@ public final class GameData implements Constants, Serializable {
 	}
 
 	/**
-	 * <p>endOfTurn.</p>
+	 * <p>
+	 * endOfTurn.
+	 * </p>
 	 */
 	public void endOfTurn() {
 
@@ -218,9 +230,12 @@ public final class GameData implements Constants, Serializable {
 	}
 
 	/**
-	 * <p>extraActionPoint.</p>
+	 * <p>
+	 * extraActionPoint.
+	 * </p>
 	 *
-	 * @param extra a EXTRA object.
+	 * @param extra
+	 *            a EXTRA object.
 	 */
 	public void extraActionPoint(EXTRA extra) {
 		getPlayer().setActionPoints(getPlayer().getActionPoints() + 1);
@@ -235,9 +250,12 @@ public final class GameData implements Constants, Serializable {
 	}
 
 	/**
-	 * <p>fastM.</p>
+	 * <p>
+	 * fastM.
+	 * </p>
 	 *
-	 * @param up a boolean.
+	 * @param up
+	 *            a boolean.
 	 */
 	public void fastM(boolean up) {
 
@@ -257,9 +275,12 @@ public final class GameData implements Constants, Serializable {
 	}
 
 	/**
-	 * <p>freeM.</p>
+	 * <p>
+	 * freeM.
+	 * </p>
 	 *
-	 * @param up a boolean.
+	 * @param up
+	 *            a boolean.
 	 */
 	public void freeM(boolean up) {
 
@@ -320,7 +341,8 @@ public final class GameData implements Constants, Serializable {
 	 *            a {@link java.lang.String} object.
 	 * @return a {@link com.github.danielpinto8zz6.ninecardsiege.logic.Enemy}
 	 *         object.
-	 * @throws com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException if any.
+	 * @throws com.github.danielpinto8zz6.ninecardsiege.logic.exceptions.EnemyNotFoundException
+	 *             if any.
 	 */
 	public Enemy getEnemy(String name) throws EnemyNotFoundException {
 		return getBattleCard().getEnemy(name);
@@ -336,7 +358,9 @@ public final class GameData implements Constants, Serializable {
 	}
 
 	/**
-	 * <p>Getter for the field <code>numCard</code>.</p>
+	 * <p>
+	 * Getter for the field <code>numCard</code>.
+	 * </p>
 	 *
 	 * @return a int.
 	 */
@@ -372,7 +396,9 @@ public final class GameData implements Constants, Serializable {
 	}
 
 	/**
-	 * <p>isFreeM.</p>
+	 * <p>
+	 * isFreeM.
+	 * </p>
 	 *
 	 * @return a boolean.
 	 */
@@ -381,7 +407,9 @@ public final class GameData implements Constants, Serializable {
 	}
 
 	/**
-	 * <p>isNewDay.</p>
+	 * <p>
+	 * isNewDay.
+	 * </p>
 	 *
 	 * @return a boolean.
 	 */
@@ -405,7 +433,9 @@ public final class GameData implements Constants, Serializable {
 	 */
 
 	/**
-	 * <p>leaveM.</p>
+	 * <p>
+	 * leaveM.
+	 * </p>
 	 */
 	public void leaveM() {
 
@@ -429,9 +459,12 @@ public final class GameData implements Constants, Serializable {
 	}
 
 	/**
-	 * <p>rallyTroops.</p>
+	 * <p>
+	 * rallyTroops.
+	 * </p>
 	 *
-	 * @param plusOne a boolean.
+	 * @param plusOne
+	 *            a boolean.
 	 */
 	public void rallyTroops(boolean plusOne) {
 		int roll = Dice.roll();
@@ -470,7 +503,9 @@ public final class GameData implements Constants, Serializable {
 	}
 
 	/**
-	 * <p>sabotage.</p>
+	 * <p>
+	 * sabotage.
+	 * </p>
 	 */
 	public void sabotage() {
 		if (getStatusCard().getTroopPosition() == 3) {
@@ -521,27 +556,36 @@ public final class GameData implements Constants, Serializable {
 	}
 
 	/**
-	 * <p>Setter for the field <code>freeM</code>.</p>
+	 * <p>
+	 * Setter for the field <code>freeM</code>.
+	 * </p>
 	 *
-	 * @param freeM a boolean.
+	 * @param freeM
+	 *            a boolean.
 	 */
 	public void setFreeM(boolean freeM) {
 		this.freeM = freeM;
 	}
 
 	/**
-	 * <p>Setter for the field <code>newDay</code>.</p>
+	 * <p>
+	 * Setter for the field <code>newDay</code>.
+	 * </p>
 	 *
-	 * @param newDay a boolean.
+	 * @param newDay
+	 *            a boolean.
 	 */
 	public void setNewDay(boolean newDay) {
 		this.newDay = newDay;
 	}
 
 	/**
-	 * <p>Setter for the field <code>numCard</code>.</p>
+	 * <p>
+	 * Setter for the field <code>numCard</code>.
+	 * </p>
 	 *
-	 * @param numCard a int.
+	 * @param numCard
+	 *            a int.
 	 */
 	public void setNumCard(int numCard) {
 		this.numCard = numCard;
@@ -556,7 +600,9 @@ public final class GameData implements Constants, Serializable {
 	}
 
 	/**
-	 * <p>supplyRaid.</p>
+	 * <p>
+	 * supplyRaid.
+	 * </p>
 	 */
 	public void supplyRaid() {
 		if (getStatusCard().getTroopPosition() == 3) {

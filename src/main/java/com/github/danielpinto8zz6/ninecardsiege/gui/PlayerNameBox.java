@@ -63,7 +63,9 @@ class PlayerNameBox extends JPanel {
 	}
 
 	/**
-	 * <p>getText.</p>
+	 * <p>
+	 * getText.
+	 * </p>
 	 *
 	 * @return a {@link java.lang.String} object.
 	 */

@@ -467,8 +467,10 @@ public class TextUI {
 	/**
 	 * handleRestoreGameFromFileOption.
 	 *
-	 * @throws java.lang.ClassNotFoundException if any.
-	 * @throws java.io.IOException if any.
+	 * @throws java.lang.ClassNotFoundException
+	 *             if any.
+	 * @throws java.io.IOException
+	 *             if any.
 	 */
 	public void handleRestoreGameFromFileOption() throws ClassNotFoundException, IOException {
 		String fileName;

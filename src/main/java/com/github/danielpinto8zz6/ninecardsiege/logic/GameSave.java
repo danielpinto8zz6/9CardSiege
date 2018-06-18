@@ -20,8 +20,10 @@ public class GameSave {
 	 * @param fileName
 	 *            a {@link java.lang.String} object.
 	 * @return a {@link java.lang.Object} object.
-	 * @throws java.lang.ClassNotFoundException if any.
-	 * @throws java.io.IOException if any.
+	 * @throws java.lang.ClassNotFoundException
+	 *             if any.
+	 * @throws java.io.IOException
+	 *             if any.
 	 */
 	public static Object retrieveGameFromFile(String fileName) throws ClassNotFoundException, IOException {
 		try (ObjectInputStream oin = new ObjectInputStream(new FileInputStream(fileName)) // If the object input stream
@@ -44,7 +46,8 @@ public class GameSave {
 	 *            object.
 	 * @param fileName
 	 *            a {@link java.lang.String} object.
-	 * @throws java.io.IOException if any.
+	 * @throws java.io.IOException
+	 *             if any.
 	 */
 	public static void saveGameToFile(Game game, String fileName) throws IOException {
 		try (ObjectOutputStream oout = new ObjectOutputStream(new FileOutputStream(fileName)) // If the object output

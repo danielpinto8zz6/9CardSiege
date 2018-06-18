@@ -3,7 +3,9 @@ package com.github.danielpinto8zz6.ninecardsiege.gui;
 import java.net.URL;
 
 /**
- * <p>Resources class.</p>
+ * <p>
+ * Resources class.
+ * </p>
  *
  * @author daniel
  * @version $Id: $Id
@@ -11,9 +13,12 @@ import java.net.URL;
 public class Resources {
 
 	/**
-	 * <p>getResourceFile.</p>
+	 * <p>
+	 * getResourceFile.
+	 * </p>
 	 *
-	 * @param name a {@link java.lang.String} object.
+	 * @param name
+	 *            a {@link java.lang.String} object.
 	 * @return a {@link java.net.URL} object.
 	 */
 	public static final URL getResourceFile(String name) {

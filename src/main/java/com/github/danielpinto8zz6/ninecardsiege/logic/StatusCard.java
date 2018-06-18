@@ -49,7 +49,9 @@ public class StatusCard implements Serializable {
 	}
 
 	/**
-	 * <p>Getter for the field <code>freeMov</code>.</p>
+	 * <p>
+	 * Getter for the field <code>freeMov</code>.
+	 * </p>
 	 *
 	 * @return a int.
 	 */
@@ -100,9 +102,12 @@ public class StatusCard implements Serializable {
 	}
 
 	/**
-	 * <p>Setter for the field <code>freeMov</code>.</p>
+	 * <p>
+	 * Setter for the field <code>freeMov</code>.
+	 * </p>
 	 *
-	 * @param freeMov a int.
+	 * @param freeMov
+	 *            a int.
 	 */
 	public void setFreeMov(int freeMov) {
 		this.freeMov = freeMov;

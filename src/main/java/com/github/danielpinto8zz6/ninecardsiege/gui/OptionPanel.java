@@ -19,7 +19,9 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.ObservableGame;
 
 /** @author tiago_000 */
 /**
- * <p>OptionPanel class.</p>
+ * <p>
+ * OptionPanel class.
+ * </p>
  *
  * @author daniel
  * @version $Id: $Id

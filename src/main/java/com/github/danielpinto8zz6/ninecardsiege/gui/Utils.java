@@ -5,14 +5,22 @@ import java.awt.Point;
 
 class Utils {
 	/**
-	 * <p>getCardCoordinatesTodraw.</p>
+	 * <p>
+	 * getCardCoordinatesTodraw.
+	 * </p>
 	 *
-	 * @param width a int.
-	 * @param height a int.
-	 * @param scaleW a double.
-	 * @param scaleH a double.
-	 * @param x a int.
-	 * @param y a int.
+	 * @param width
+	 *            a int.
+	 * @param height
+	 *            a int.
+	 * @param scaleW
+	 *            a double.
+	 * @param scaleH
+	 *            a double.
+	 * @param x
+	 *            a int.
+	 * @param y
+	 *            a int.
 	 * @return a {@link java.awt.Point} object.
 	 */
 	public static Point getCardCoordinatesTodraw(int width, int height, double scaleW, double scaleH, int x, int y) {
@@ -29,8 +37,10 @@ class Utils {
 	/**
 	 * Piece height / width is 10% of the card height
 	 *
-	 * @param height a int.
-	 * @param scale a double.
+	 * @param height
+	 *            a int.
+	 * @param scale
+	 *            a double.
 	 * @return a int.
 	 */
 	public static int getPieceScaledSize(int height, double scale) {
@@ -42,10 +52,14 @@ class Utils {
 	}
 
 	/**
-	 * <p>getScaleFactor.</p>
+	 * <p>
+	 * getScaleFactor.
+	 * </p>
 	 *
-	 * @param iMasterSize a int.
-	 * @param iTargetSize a int.
+	 * @param iMasterSize
+	 *            a int.
+	 * @param iTargetSize
+	 *            a int.
 	 * @return a double.
 	 */
 	public static double getScaleFactor(int iMasterSize, int iTargetSize) {
@@ -66,10 +80,14 @@ class Utils {
 	}
 
 	/**
-	 * <p>getScaleFactorToFit.</p>
+	 * <p>
+	 * getScaleFactorToFit.
+	 * </p>
 	 *
-	 * @param original a {@link java.awt.Dimension} object.
-	 * @param toFit a {@link java.awt.Dimension} object.
+	 * @param original
+	 *            a {@link java.awt.Dimension} object.
+	 * @param toFit
+	 *            a {@link java.awt.Dimension} object.
 	 * @return a double.
 	 */
 	public static double getScaleFactorToFit(Dimension original, Dimension toFit) {

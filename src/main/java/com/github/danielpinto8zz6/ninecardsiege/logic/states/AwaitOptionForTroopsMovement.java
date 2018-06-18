@@ -9,7 +9,9 @@ import com.github.danielpinto8zz6.ninecardsiege.logic.GameData;
 
 /** @author tiago_000 */
 /**
- * <p>AwaitOptionForTroopsMovement class.</p>
+ * <p>
+ * AwaitOptionForTroopsMovement class.
+ * </p>
  *
  * @author daniel
  * @version $Id: $Id
@@ -18,9 +20,13 @@ public class AwaitOptionForTroopsMovement extends StateAdapter {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * <p>Constructor for AwaitOptionForTroopsMovement.</p>
+	 * <p>
+	 * Constructor for AwaitOptionForTroopsMovement.
+	 * </p>
 	 *
-	 * @param g a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData} object.
+	 * @param g
+	 *            a {@link com.github.danielpinto8zz6.ninecardsiege.logic.GameData}
+	 *            object.
 	 */
 	public AwaitOptionForTroopsMovement(GameData g) {
 		super(g);
